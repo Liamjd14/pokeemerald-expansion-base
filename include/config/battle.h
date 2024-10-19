@@ -182,27 +182,27 @@
 // Flag settings
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define B_FLAG_INVERSE_BATTLE       0     // If this flag is set, the battle's type effectiveness are inversed. For example, fire is super effective against water.
-#define B_FLAG_FORCE_DOUBLE_WILD    0     // If this flag is set, all land and surfing wild battles will be double battles.
-#define B_SMART_WILD_AI_FLAG        0     // If not 0, you can set this flag in a script to enable smart wild pokemon
-#define B_FLAG_NO_BAG_USE           0     // If this flag is set, the ability to use the bag in battle is disabled.
-#define B_FLAG_NO_CATCHING          0     // If this flag is set, the ability to catch wild Pokémon is disabled.
-#define B_FLAG_NO_RUNNING           0     // If this flag is set, the ability to escape from wild battles is disabled. Also makes Roar/Whirlwind and Teleport (under Gen8) fail.
-#define B_FLAG_AI_VS_AI_BATTLE      0     // If this flag is set, the player's mons will be controlled by the ai next battles.
-#define B_FLAG_DYNAMAX_BATTLE       0     // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
-#define B_FLAG_TERA_ORB_CHARGED     0     // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
-#define B_FLAG_TERA_ORB_NO_COST     0     // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
+#define B_FLAG_INVERSE_BATTLE       FLAG_INVERSE_BATTLE     // If this flag is set, the battle's type effectiveness are inversed. For example, fire is super effective against water.
+#define B_FLAG_FORCE_DOUBLE_WILD    FLAG_FORCE_DOUBLE_WILD     // If this flag is set, all land and surfing wild battles will be double battles.
+#define B_SMART_WILD_AI_FLAG        FLAG_SMART_WILD_AI_FLAG     // If not 0, you can set this flag in a script to enable smart wild pokemon
+#define B_FLAG_NO_BAG_USE           FLAG_NO_BAG_USE     // If this flag is set, the ability to use the bag in battle is disabled.
+#define B_FLAG_NO_CATCHING          FLAG_NO_CATCHING     // If this flag is set, the ability to catch wild Pokémon is disabled.
+#define B_FLAG_NO_RUNNING           FLAG_NO_RUNNING     // If this flag is set, the ability to escape from wild battles is disabled. Also makes Roar/Whirlwind and Teleport (under Gen8) fail.
+#define B_FLAG_AI_VS_AI_BATTLE      FLAG_AI_VS_AI_BATTLE     // If this flag is set, the player's mons will be controlled by the ai next battles.
+#define B_FLAG_DYNAMAX_BATTLE       FLAG_DYNAMAX_BATTLE     // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
+#define B_FLAG_TERA_ORB_CHARGED     FLAG_TERA_ORB_CHARGED     // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
+#define B_FLAG_TERA_ORB_NO_COST     FLAG_TERA_ORB_NO_COST     // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
 
 // Var Settings
 // To use the following features in scripting, replace the 0s with the var ID you're assigning it to.
 // Eg: Replace with VAR_UNUSED_0x40F7 so you can use B_VAR_STARTING_STATUS for that feature.
-#define B_VAR_STARTING_STATUS       0     // If this var has a value, assigning a STATUS_FIELD_xx_TERRAIN to it before battle causes the battle to start with that terrain active.
-#define B_VAR_STARTING_STATUS_TIMER 0     // If this var has a value greater or equal than 1 field terrains will last that number of turns, otherwise they will last until they're overwritten.
-#define B_VAR_WILD_AI_FLAGS         0     // If not 0, you can use this var to add to default wild AI flags. NOT usable with flags above (1 << 15)
+#define B_VAR_STARTING_STATUS       VAR_STARTING_STATUS     // If this var has a value, assigning a STATUS_FIELD_xx_TERRAIN to it before battle causes the battle to start with that terrain active.
+#define B_VAR_STARTING_STATUS_TIMER VAR_STARTING_STATUS_TIMER     // If this var has a value greater or equal than 1 field terrains will last that number of turns, otherwise they will last until they're overwritten.
+#define B_VAR_WILD_AI_FLAGS         VAR_WILD_AI_FLAGS     // If not 0, you can use this var to add to default wild AI flags. NOT usable with flags above (1 << 15)
 
 // Sky Battles
-#define B_FLAG_SKY_BATTLE                 0     // If this flag has a value, the player will be able to engage in scripted Sky Battles.
-#define B_VAR_SKY_BATTLE                  0     // If this var has a value, the game will remember the positions of Pokémon used in Sky Battles.
+#define B_FLAG_SKY_BATTLE                 FLAG_SKY_BATTLE     // If this flag has a value, the player will be able to engage in scripted Sky Battles.
+#define B_VAR_SKY_BATTLE                  VAR_SKY_BATTLE     // If this var has a value, the game will remember the positions of Pokémon used in Sky Battles.
 #define B_SKY_BATTLE_STRICT_ELIGIBILITY   FALSE // If TRUE, Sky Battles will use the eligibility from Pokémon XY. If FALSE, all Flying-types or Pokémon with Levitate are allowed.
 
 // Flag and Var settings
@@ -282,7 +282,7 @@
 #define SHOW_TYPES_NEVER    0
 #define SHOW_TYPES_ALWAYS   1
 #define SHOW_TYPES_CAUGHT   2
-#define B_SHOW_TYPES        SHOW_TYPES_NEVER // When defined as SHOW_TYPES_ALWAYS, after selecting "Fight" in battle, the types of all Pokemon are revealed. Whe defined as SHOW_TYPES_OWN, types are only revealed if the player owns the mon in question.
+#define B_SHOW_TYPES        SHOW_TYPES_ALWAYS // When defined as SHOW_TYPES_ALWAYS, after selecting "Fight" in battle, the types of all Pokemon are revealed. Whe defined as SHOW_TYPES_OWN, types are only revealed if the player owns the mon in question.
 
 // Pokémon battle sprite settings
 #define B_ENEMY_MON_SHADOW_STYLE        GEN_LATEST // In Gen4+, all enemy Pokemon will have a shadow drawn beneath them.
