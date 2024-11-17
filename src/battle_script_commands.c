@@ -545,7 +545,7 @@ static void Cmd_trymemento(void);
 static void Cmd_setforcedtarget(void);
 static void Cmd_setcharge(void);
 static void Cmd_callterrainattack(void);
-static void Cmd_cureifburnedparalysedorpoisoned(void);
+static void Cmd_curestatuswithmove(void);
 static void Cmd_settorment(void);
 static void Cmd_jumpifnodamage(void);
 static void Cmd_settaunt(void);
@@ -804,7 +804,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_setforcedtarget,                         //0xCA
     Cmd_setcharge,                               //0xCB
     Cmd_callterrainattack,                       //0xCC
-    Cmd_cureifburnedparalysedorpoisoned,         //0xCD
+    Cmd_curestatuswithmove,                      //0xCD
     Cmd_settorment,                              //0xCE
     Cmd_jumpifnodamage,                          //0xCF
     Cmd_settaunt,                                //0xD0
@@ -1343,19 +1343,18 @@ static void Cmd_attackcanceler(void)
         && !gBattleStruct->bouncedMoveIsUsed)
     {
         gBattleStruct->bouncedMoveIsUsed = TRUE;
-        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         // Edge case for bouncing a powder move against a grass type pokemon.
         SetAtkCancellerForCalledMove();
         if (BlocksPrankster(gCurrentMove, gBattlerTarget, gBattlerAttacker, TRUE))
         {
             // Opponent used a prankster'd magic coat -> reflected status move should fail against a dark-type attacker
             gBattlerTarget = gBattlerAttacker;
-            gBattlescriptCurrInstr = BattleScript_MagicCoatBouncePrankster;
+            gBattlescriptCurrInstr = BattleScript_MagicCoatPrankster;
         }
         else
         {
             BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_MagicCoatBounce;
+            gBattlescriptCurrInstr = BattleScript_MagicCoat;
         }
         return;
     }
@@ -1378,11 +1377,10 @@ static void Cmd_attackcanceler(void)
 
         if (gBattleStruct->bouncedMoveIsUsed)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = 1;
             // Edge case for bouncing a powder move against a grass type pokemon.
             SetAtkCancellerForCalledMove();
             BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_MagicCoatBounce;
+            gBattlescriptCurrInstr = BattleScript_MagicBounce;
             gBattlerAbility = battler;
             return;
         }
@@ -6180,10 +6178,18 @@ static void Cmd_moveend(void)
                             }
                             else // Eject Pack
                             {
-                                gBattlescriptCurrInstr = BattleScript_EjectPackActivates;
-                                // Are these 2 lines below needed?
-                                gProtectStructs[battler].statFell = FALSE;
-                                gSpecialStatuses[gBattlerAttacker].preventLifeOrbDamage = TRUE;
+                                if (gBattleResources->flags->flags[gBattlerTarget] & RESOURCE_FLAG_EMERGENCY_EXIT)
+                                {
+                                    gBattlescriptCurrInstr = BattleScript_EjectPackMissesTiming;
+                                    gProtectStructs[battler].statFell = FALSE;
+                                }
+                                else
+                                {
+                                    gBattlescriptCurrInstr = BattleScript_EjectPackActivates;
+                                    // Are these 2 lines below needed?
+                                    gProtectStructs[battler].statFell = FALSE;
+                                    gSpecialStatuses[gBattlerAttacker].preventLifeOrbDamage = TRUE;
+                                }
                             }
                             break; // Only the fastest Eject item activates
                         }
@@ -6240,6 +6246,7 @@ static void Cmd_moveend(void)
                             SaveBattlerTarget(battler); // save battler with red card
                             gBattleScripting.battler = battler;
                             gEffectBattler = gBattlerAttacker;
+                            gBattleStruct->redCardActivates = TRUE;
                             if (gMovesInfo[gCurrentMove].effect == EFFECT_HIT_ESCAPE)
                                 gBattlescriptCurrInstr = BattleScript_MoveEnd;  // Prevent user switch-in selection
                             BattleScriptPushCursor();
@@ -6339,6 +6346,11 @@ static void Cmd_moveend(void)
         case MOVEEND_EMERGENCY_EXIT: // Special case, because moves hitting multiple opponents stop after switching out
             for (i = 0; i < gBattlersCount; i++)
             {
+                if (gBattleStruct->redCardActivates)
+                {
+                    gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_EMERGENCY_EXIT;
+                    continue;
+                }
                 if (gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
                 {
                     gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_EMERGENCY_EXIT;
@@ -6446,6 +6458,7 @@ static void Cmd_moveend(void)
             gBattleStruct->poisonPuppeteerConfusion = FALSE;
             gBattleStruct->fickleBeamBoosted = FALSE;
             gBattleStruct->distortedTypeMatchups = 0;
+            gBattleStruct->redCardActivates = FALSE;
             gBattleStruct->usedMicleBerry &= ~(1u << gBattlerAttacker);
             if (gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
                 gBattleStruct->pledgeMove = FALSE;
@@ -8642,6 +8655,7 @@ static void RemoveAllTerrains(void)
         break;
     }
     gFieldStatuses &= ~STATUS_FIELD_TERRAIN_ANY;    // remove the terrain
+    TryToRevertMimicryAndFlags();
 }
 
 #define DEFOG_CLEAR(status, structField, battlescript, move)\
@@ -8788,7 +8802,7 @@ u32 GetHighestStatId(u32 battler)
     }
     if (gBattleMons[battler].speed > highestStat)
         highestId = STAT_SPEED;
-    
+
     return highestId;
 }
 
@@ -8997,7 +9011,7 @@ static void Cmd_various(void)
     struct Pokemon *mon;
     s32 i;
     u8 data[10];
-    u32 side, battler, bits;
+    u32 battler, bits;
 
     if (gBattleControllerExecFlags)
         return;
@@ -9306,18 +9320,6 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = result;
             return;
         }
-        break;
-    }
-    case VARIOUS_SET_MAGIC_COAT_TARGET:
-    {
-        VARIOUS_ARGS();
-        gBattleStruct->attackerBeforeBounce = battler;
-        gBattlerAttacker = gBattlerTarget;
-        side = BATTLE_OPPOSITE(GetBattlerSide(gBattlerAttacker));
-        if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove))
-            gBattlerTarget = gSideTimers[side].followmeTarget;
-        else
-            gBattlerTarget = battler;
         break;
     }
     case VARIOUS_IS_RUNNING_IMPOSSIBLE:
@@ -9946,24 +9948,6 @@ static void Cmd_various(void)
         VARIOUS_ARGS();
         gBattleMoveDamage = gMovesInfo[gCurrentMove].argument;
         break;
-    }
-    case VARIOUS_TRY_HIT_SWITCH_TARGET:
-    {
-        VARIOUS_ARGS(const u8 *failInstr);
-        if (IsBattlerAlive(gBattlerAttacker)
-         && IsBattlerAlive(gBattlerTarget)
-         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-         && TARGET_TURN_DAMAGED
-         && GetBattlerAbility(gBattlerTarget) != ABILITY_GUARD_DOG)
-        {
-            gBattleScripting.switchCase = B_SWITCH_HIT;
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        }
-        else
-        {
-            gBattlescriptCurrInstr = cmd->failInstr;
-        }
-        return;
     }
     case VARIOUS_TRY_AUTOTOMIZE:
     {
@@ -14152,12 +14136,17 @@ u32 GetNaturePowerMove(u32 battler)
     return move;
 }
 
-// Refresh
-static void Cmd_cureifburnedparalysedorpoisoned(void)
+static void Cmd_curestatuswithmove(void)
 {
     CMD_ARGS(const u8 *failInstr);
+    u32 shouldHeal;
 
-    if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE))
+    if (gMovesInfo[gCurrentMove].effect == EFFECT_REFRESH)
+        shouldHeal = gBattleMons[gBattlerAttacker].status1 & STATUS1_REFRESH;
+    else // Take Heart
+        shouldHeal = gBattleMons[gBattlerAttacker].status1 & STATUS1_ANY;
+
+    if (shouldHeal)
     {
         gBattleMons[gBattlerAttacker].status1 = 0;
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -17332,4 +17321,39 @@ void BS_JumpIfBlockedBySoundproof(void)
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+void BS_TryHitSwitchTarget(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    if (IsBattlerAlive(gBattlerAttacker)
+     && IsBattlerAlive(gBattlerTarget)
+     && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+     && TARGET_TURN_DAMAGED
+     && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT
+     && GetBattlerAbility(gBattlerTarget) != ABILITY_GUARD_DOG)
+    {
+        gBattleScripting.switchCase = B_SWITCH_HIT;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+}
+
+void BS_SetMagicCoatTarget(void)
+{
+    NATIVE_ARGS();
+    u32 side;
+    gBattleStruct->attackerBeforeBounce = gBattleScripting.battler = gBattlerAttacker;
+    gBattlerAttacker = gBattlerTarget;
+    side = BATTLE_OPPOSITE(GetBattlerSide(gBattlerAttacker));
+    if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove))
+        gBattlerTarget = gSideTimers[side].followmeTarget;
+    else
+        gBattlerTarget = gBattleStruct->attackerBeforeBounce;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

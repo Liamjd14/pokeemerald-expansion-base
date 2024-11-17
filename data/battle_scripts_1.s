@@ -443,7 +443,7 @@ BattleScript_EffectTakeHeart::
 	attackcanceler
 	attackstring
 	ppreduce
-	cureifburnedparalysedorpoisoned BattleScript_CalmMindTryToRaiseStats
+	curestatuswithmove BattleScript_CalmMindTryToRaiseStats
 	attackanimation
 	waitanimation
 	updatestatusicon BS_ATTACKER
@@ -4159,6 +4159,7 @@ BattleScript_EffectMinimize::
 BattleScript_EffectCurse::
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurse
 	attackcanceler
+	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_DoGhostCurse
 	attackstring
 	ppreduce
 	jumpifstat BS_ATTACKER, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CurseTrySpeed
@@ -5226,7 +5227,7 @@ BattleScript_EffectRefresh::
 	attackcanceler
 	attackstring
 	ppreduce
-	cureifburnedparalysedorpoisoned BattleScript_ButItFailed
+	curestatuswithmove BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNSTATUSNORMAL
@@ -6884,25 +6885,34 @@ BattleScript_GrudgeTakesPp::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_MagicCoatBounce::
+BattleScript_MagicBounce::
 	attackstring
 	ppreduce
 	pause B_WAIT_TIME_SHORT
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0, BattleScript_MagicCoatBounce_Print
 	call BattleScript_AbilityPopUp
-BattleScript_MagicCoatBounce_Print:
-	printfromtable gMagicCoatBounceStringIds
+	printstring STRINGID_PKMNMOVEBOUNCEDABILITY
+	waitmessage B_WAIT_TIME_LONG
+	setmagiccoattarget
+	orword gHitMarker, HITMARKER_ATTACKSTRING_PRINTED | HITMARKER_NO_PPDEDUCT | HITMARKER_ALLOW_NO_PP
+	bicword gHitMarker, HITMARKER_NO_ATTACKSTRING
+	return
+
+BattleScript_MagicCoat::
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_SHORT
+	setmagiccoattarget
+	printstring STRINGID_PKMNMOVEBOUNCED
 	waitmessage B_WAIT_TIME_LONG
 	orword gHitMarker, HITMARKER_ATTACKSTRING_PRINTED | HITMARKER_NO_PPDEDUCT | HITMARKER_ALLOW_NO_PP
 	bicword gHitMarker, HITMARKER_NO_ATTACKSTRING
-	setmagiccoattarget BS_ATTACKER
 	return
 
-BattleScript_MagicCoatBouncePrankster::
+BattleScript_MagicCoatPrankster::
 	attackstring
 	ppreduce
 	pause B_WAIT_TIME_SHORT
-	printfromtable gMagicCoatBounceStringIds
+	printstring STRINGID_PKMNMOVEBOUNCED
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_ITDOESNTAFFECT
 	waitmessage B_WAIT_TIME_LONG
@@ -9618,6 +9628,13 @@ BattleScript_EjectPackActivate_End2::
 BattleScript_EjectPackActivates::
 	jumpifcantswitch BS_SCRIPTING, BattleScript_EjectButtonEnd
 	goto BattleScript_EjectPackActivate_Ret
+
+BattleScript_EjectPackMissesTiming::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_EJECTBUTTONACTIVATE
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+	return
 
 BattleScript_DarkTypePreventsPrankster::
 	attackstring
