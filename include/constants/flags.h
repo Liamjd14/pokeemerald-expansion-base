@@ -1524,7 +1524,7 @@
 #define FLAG_SYS_TERA_ORB_CHARGED                   (SYSTEM_FLAGS + 0x94) // Unused Flag
 #define FLAG_SYS_TERA_ORB_NO_COST                   (SYSTEM_FLAGS + 0x95) // Unused Flag
 #define FLAG_SYS_SKY_BATTLE                         (SYSTEM_FLAGS + 0x96) // Unused Flag
-#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
+#define FLAG_SYS_ENABLE_HARDMODE                    (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
 #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
