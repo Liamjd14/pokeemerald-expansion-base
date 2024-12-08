@@ -864,7 +864,7 @@ BattleScript_EffectOctolock::
 	goto BattleScript_MoveEnd
 
 BattleScript_OctolockEndTurn::
-	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE
+	playstatchangeanimation BS_TARGET, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_DEF, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_OctolockTryLowerSpDef
 	printfromtable gStatDownStringIds
@@ -2741,9 +2741,9 @@ BattleScript_GravityLoopDrop:
 	printstring STRINGID_GRAVITYGROUNDING
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_GravityLoopEnd:
-	moveendto MOVEEND_NEXT_TARGET
+	moveendcase MOVEEND_TARGET_VISIBLE
 	jumpifnexttargetvalid BattleScript_GravityLoop
-	end
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectRoost::
 	attackcanceler
@@ -10079,6 +10079,10 @@ BattleScript_BerserkGeneRet_End:
 	end3
 
 BattleScript_BoosterEnergyEnd2::
+	call BattleScript_BoosterEnergyRet
+	end2
+
+BattleScript_BoosterEnergyRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
 	call BattleScript_AbilityPopUpScripting
 	printstring STRINGID_BOOSTERENERGYACTIVATES
@@ -10086,7 +10090,7 @@ BattleScript_BoosterEnergyEnd2::
 	printstring STRINGID_STATWASHEIGHTENED
 	waitmessage B_WAIT_TIME_MED
 	removeitem BS_SCRIPTING
-	end2
+	return
 
 BattleScript_EffectSnow::
 	attackcanceler
