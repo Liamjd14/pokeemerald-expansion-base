@@ -96,11 +96,13 @@
       "x": 48,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_GRANITE_CAVE_1F",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

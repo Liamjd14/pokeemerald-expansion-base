@@ -1540,3 +1540,14 @@ const struct Tileset gTileset_ES_Oceanview =
     .metatileAttributes = gMetatileAttributes_ES_Oceanview,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_ES_Route1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_ES_Route1,
+    .palettes = gTilesetPalettes_ES_Route1,
+    .metatiles = gMetatiles_ES_Route1,
+    .metatileAttributes = gMetatileAttributes_ES_Route1,
+    .callback = NULL,
+};

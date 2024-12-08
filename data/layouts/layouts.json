@@ -4410,6 +4410,56 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW",
+      "name": "Oceanview_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Oceanview",
+      "border_filepath": "data/layouts/Oceanview/border.bin",
+      "blockdata_filepath": "data/layouts/Oceanview/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_CAVERN",
+      "name": "OceanviewCavern_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/OceanviewCavern/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_CAVERN_UNDERGROUND_ENTERANCE",
+      "name": "OceanviewCavernUndergroundEnterance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/OceanviewCavernUndergroundEnterance/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewCavernUndergroundEnterance/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROFESSORS_LAB",
+      "name": "ProfessorsLab_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Oceanview",
+      "border_filepath": "data/layouts/ProfessorsLab/border.bin",
+      "blockdata_filepath": "data/layouts/ProfessorsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1DRAGON_LAKE_WALK",
+      "name": "Route1DragonLakeWalk_Layout",
+      "width": 90,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Route1",
+      "border_filepath": "data/layouts/Route1DragonLakeWalk/border.bin",
+      "blockdata_filepath": "data/layouts/Route1DragonLakeWalk/map.bin"
     }
   ]
 }

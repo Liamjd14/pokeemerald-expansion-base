@@ -395,7 +395,7 @@
       "x": 47,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_RUSTURF_TUNNEL",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
@@ -409,21 +409,21 @@
       "x": 65,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_RUSTURF_TUNNEL",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "2"
     },
     {
       "x": 59,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
       "x": 79,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],
