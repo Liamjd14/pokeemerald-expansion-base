@@ -15,23 +15,18 @@
   "connections": [
     {
       "map": "MAP_ROUTE1DRAGON_LAKE_WALK",
-      "offset": -20,
+      "offset": -10,
       "direction": "down"
     },
     {
       "map": "MAP_ROUTE2MTEMBER_BASE",
-      "offset": 10,
+      "offset": 20,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE3SHADEWIND_GAP",
-      "offset": -30,
+      "offset": -20,
       "direction": "up"
-    },
-    {
-      "map": "MAP_SHADEWIND_DAWNCORAL_MAP_FILL",
-      "offset": 0,
-      "direction": "left"
     }
   ],
   "object_events": [

@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ROUTE2MTEMBER_BASE",
-  "name": "Route2MTEmberBase",
-  "layout": "LAYOUT_ROUTE2MTEMBER_BASE",
+  "id": "MAP_SHADEWIND_WILDS",
+  "name": "ShadewindWilds",
+  "layout": "LAYOUT_SHADEWIND_WILDS",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -14,14 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_DAWNCORAL",
-      "offset": -20,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE3SHADEWIND_GAP",
+      "map": "MAP_SHADEWIND",
       "offset": 0,
-      "direction": "left"
+      "direction": "down"
     }
   ],
   "object_events": [

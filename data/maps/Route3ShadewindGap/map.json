@@ -20,18 +20,13 @@
     },
     {
       "map": "MAP_DAWNCORAL",
-      "offset": 30,
+      "offset": 20,
       "direction": "down"
     },
     {
       "map": "MAP_SHADEWIND",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_SHADEWIND_DAWNCORAL_MAP_FILL",
-      "offset": 0,
-      "direction": "down"
     }
   ],
   "object_events": [

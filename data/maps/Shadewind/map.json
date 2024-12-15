@@ -19,9 +19,9 @@
       "direction": "right"
     },
     {
-      "map": "MAP_SHADEWIND_DAWNCORAL_MAP_FILL",
-      "offset": 40,
-      "direction": "right"
+      "map": "MAP_SHADEWIND_WILDS",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -1175,3 +1175,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Shadewind/scripts.inc"
 
 	.include "data/maps/ShadewindDawncoralMapFill/scripts.inc"
+
+	.include "data/maps/ShadewindWilds/scripts.inc"

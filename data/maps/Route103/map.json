@@ -291,11 +291,13 @@
       "x": 45,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_ALTERING_CAVE",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

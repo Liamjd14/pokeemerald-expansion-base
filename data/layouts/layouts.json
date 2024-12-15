@@ -4474,7 +4474,7 @@
     {
       "id": "LAYOUT_DAWNCORAL",
       "name": "Dawncoral_Layout",
-      "width": 70,
+      "width": 80,
       "height": 20,
       "primary_tileset": "gTileset_ES_General",
       "secondary_tileset": "gTileset_ES_Oceanview",
@@ -4530,6 +4530,16 @@
       "secondary_tileset": "gTileset_ESGeneralRoute",
       "border_filepath": "data/layouts/ShadewindDawncoralMapFill/border.bin",
       "blockdata_filepath": "data/layouts/ShadewindDawncoralMapFill/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND_WILDS",
+      "name": "ShadewindWilds_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ESGeneralRoute",
+      "border_filepath": "data/layouts/ShadewindWilds/border.bin",
+      "blockdata_filepath": "data/layouts/ShadewindWilds/map.bin"
     }
   ]
 }
