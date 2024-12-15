@@ -4460,6 +4460,76 @@
       "secondary_tileset": "gTileset_ES_Route1",
       "border_filepath": "data/layouts/Route1DragonLakeWalk/border.bin",
       "blockdata_filepath": "data/layouts/Route1DragonLakeWalk/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAGON_LAKE",
+      "name": "DragonLake_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Route1",
+      "border_filepath": "data/layouts/DragonLake/border.bin",
+      "blockdata_filepath": "data/layouts/DragonLake/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNCORAL",
+      "name": "Dawncoral_Layout",
+      "width": 70,
+      "height": 20,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Oceanview",
+      "border_filepath": "data/layouts/Dawncoral/border.bin",
+      "blockdata_filepath": "data/layouts/Dawncoral/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE2MTEMBER_BASE",
+      "name": "Route2MTEmberBase_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Oceanview",
+      "border_filepath": "data/layouts/Route2MTEmberBase/border.bin",
+      "blockdata_filepath": "data/layouts/Route2MTEmberBase/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3SHADEWIND_GAP",
+      "name": "Route3ShadewindGap_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ESGeneralRoute",
+      "border_filepath": "data/layouts/Route3ShadewindGap/border.bin",
+      "blockdata_filepath": "data/layouts/Route3ShadewindGap/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND_FROREST",
+      "name": "ShadewindFrorest_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ESGeneralRoute",
+      "border_filepath": "data/layouts/ShadewindFrorest/border.bin",
+      "blockdata_filepath": "data/layouts/ShadewindFrorest/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND",
+      "name": "Shadewind_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Shadewind/border.bin",
+      "blockdata_filepath": "data/layouts/Shadewind/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND_DAWNCORAL_MAP_FILL",
+      "name": "ShadewindDawncoralMapFill_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ESGeneralRoute",
+      "border_filepath": "data/layouts/ShadewindDawncoralMapFill/border.bin",
+      "blockdata_filepath": "data/layouts/ShadewindDawncoralMapFill/map.bin"
     }
   ]
 }

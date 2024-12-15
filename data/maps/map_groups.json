@@ -42,10 +42,16 @@
   ],
   "gMapGroup_TownsAndCities": [
     "Oceanview",
-    "ProfessorsLab"
+    "ProfessorsLab",
+    "Dawncoral",
+    "Route2MTEmberBase",
+    "Shadewind"
   ],
   "gMapGroup_Routes": [
-    "Route1DragonLakeWalk"
+    "Route1DragonLakeWalk",
+    "DragonLake",
+    "Route3ShadewindGap",
+    "ShadewindFrorest"
   ],
   "gMapGroup_Locations": [
 

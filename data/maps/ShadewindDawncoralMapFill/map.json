@@ -1,0 +1,49 @@
+{
+  "id": "MAP_SHADEWIND_DAWNCORAL_MAP_FILL",
+  "name": "ShadewindDawncoralMapFill",
+  "layout": "LAYOUT_SHADEWIND_DAWNCORAL_MAP_FILL",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE1DRAGON_LAKE_WALK",
+      "offset": 10,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_SHADEWIND",
+      "offset": -40,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_DAWNCORAL",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE3SHADEWIND_GAP",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

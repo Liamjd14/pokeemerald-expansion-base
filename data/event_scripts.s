@@ -1161,3 +1161,17 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/ProfessorsLab/scripts.inc"
 
 	.include "data/maps/Route1DragonLakeWalk/scripts.inc"
+
+	.include "data/maps/DragonLake/scripts.inc"
+
+	.include "data/maps/Dawncoral/scripts.inc"
+
+	.include "data/maps/Route2MTEmberBase/scripts.inc"
+
+	.include "data/maps/Route3ShadewindGap/scripts.inc"
+
+	.include "data/maps/ShadewindFrorest/scripts.inc"
+
+	.include "data/maps/Shadewind/scripts.inc"
+
+	.include "data/maps/ShadewindDawncoralMapFill/scripts.inc"

@@ -1,12 +1,12 @@
 {
-  "id": "MAP_ROUTE1DRAGON_LAKE_WALK",
-  "name": "Route1DragonLakeWalk",
-  "layout": "LAYOUT_ROUTE1DRAGON_LAKE_WALK",
+  "id": "MAP_DAWNCORAL",
+  "name": "Dawncoral",
+  "layout": "LAYOUT_DAWNCORAL",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -14,38 +14,33 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_PROFESSORS_LAB",
-      "offset": 0,
+      "map": "MAP_ROUTE1DRAGON_LAKE_WALK",
+      "offset": -20,
       "direction": "down"
     },
     {
-      "map": "MAP_OCEANVIEW",
-      "offset": 40,
-      "direction": "down"
+      "map": "MAP_ROUTE2MTEMBER_BASE",
+      "offset": 10,
+      "direction": "up"
     },
     {
-      "map": "MAP_DRAGON_LAKE",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_DAWNCORAL",
-      "offset": 20,
+      "map": "MAP_ROUTE3SHADEWIND_GAP",
+      "offset": -30,
       "direction": "up"
     },
     {
       "map": "MAP_SHADEWIND_DAWNCORAL_MAP_FILL",
-      "offset": -10,
-      "direction": "up"
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 56,
-      "y": 2,
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 25,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -54,8 +49,8 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 59,
+      "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
+      "x": 12,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -67,9 +62,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 40,
-      "y": 24,
+      "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
+      "x": 17,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -80,9 +75,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 69,
-      "y": 5,
+      "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
+      "x": 18,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -93,9 +88,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 70,
-      "y": 25,
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+      "x": 44,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -106,9 +101,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 58,
-      "y": 23,
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 49,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -119,9 +114,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 29,
-      "y": 31,
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 57,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -132,35 +127,22 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 25,
-      "y": 34,
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 48,
+      "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 5,
+      "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 22,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 8,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 38,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
