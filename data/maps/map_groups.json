@@ -3,8 +3,11 @@
     "gMapGroup_TownsAndCities",
     "gMapGroup_Routes",
     "gMapGroup_Locations",
+    "gMapGroup_WildAreas",
     "gMapGroup_Ints",
     "gMapGroup_Dungeons",
+    "gMapGroup_HiddenBases",
+    "gMapGroup_HiddenGrottos",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -44,23 +47,30 @@
     "Oceanview",
     "ProfessorsLab",
     "Dawncoral",
-    "Route2MTEmberBase",
     "Shadewind"
   ],
   "gMapGroup_Routes": [
     "Route1DragonLakeWalk",
-    "DragonLake",
-    "Route3ShadewindGap",
-    "ShadewindFrorest",
-    "ShadewindWilds"
+    "Route2MTEmberBase",
+    "Route3ShadewindGap"
   ],
   "gMapGroup_Locations": [
-
+    "DragonLake",
+    "ShadewindFrorest"
+  ],
+  "gMapGroup_WildAreas": [
+    "ShadewindWilds"
   ],
   "gMapGroup_Ints": [
 
   ],
   "gMapGroup_Dungeons": [
+
+  ],
+  "gMapGroup_HiddenBases": [
+
+  ],
+  "gMapGroup_HiddenGrottos": [
 
   ],
   "gMapGroup_TownsAndRoutes": [
