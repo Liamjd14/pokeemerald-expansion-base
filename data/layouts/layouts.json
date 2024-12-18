@@ -4497,7 +4497,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_ES_General",
-      "secondary_tileset": "gTileset_ESGeneralRoute",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route3ShadewindGap/border.bin",
       "blockdata_filepath": "data/layouts/Route3ShadewindGap/map.bin"
     },

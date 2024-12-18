@@ -32,7 +32,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 25,
+      "x": 35,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -45,8 +45,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
-      "x": 12,
-      "y": 9,
+      "x": 25,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -58,8 +58,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
-      "x": 17,
-      "y": 8,
+      "x": 28,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -72,7 +72,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
       "x": 18,
-      "y": 11,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -84,7 +84,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 44,
+      "x": 59,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -97,7 +97,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 49,
+      "x": 54,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -110,7 +110,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
-      "x": 57,
+      "x": 66,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -123,8 +123,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 48,
-      "y": 11,
+      "x": 56,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 5,
@@ -136,8 +136,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
-      "x": 38,
-      "y": 13,
+      "x": 43,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
