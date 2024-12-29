@@ -30,6 +30,7 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokeblock.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
@@ -2765,10 +2766,12 @@ static void ScrollableMultichoice_UpdateScrollArrows(u8 taskId)
     struct ScrollArrowsTemplate template = sScrollableMultichoice_ScrollArrowsTemplate;
     if (task->tMaxItemsOnScreen != task->tNumItems)
     {
+        u32 y0 = (8 * (task->tTop - 1));
+
         template.firstX = (task->tWidth / 2) * 8 + 12 + (task->tLeft - 1) * 8;
-        template.firstY = 8;
+        template.firstY = 8 + y0;
         template.secondX = (task->tWidth / 2) * 8 + 12 + (task->tLeft - 1) * 8;
-        template.secondY = task->tHeight * 8 + 10;
+        template.secondY = task->tHeight * 8 + 10 + y0;
         template.fullyUpThreshold = 0;
         template.fullyDownThreshold = task->tNumItems - task->tMaxItemsOnScreen;
         task->tScrollArrowId = AddScrollIndicatorArrowPair(&template, &gScrollableMultichoice_ScrollOffset);
@@ -4275,4 +4278,60 @@ void PreparePartyForSkyBattle(void)
     }
     VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
     CompactPartySlots();
+}
+
+void GetObjectPosition(u16* xPointer, u16* yPointer, u32 localId, u32 useTemplate)
+{
+    u32 objectId;
+    struct ObjectEvent* objEvent;
+
+    if (useTemplate)
+    {
+        const struct ObjectEventTemplate *objTemplate = FindObjectEventTemplateByLocalId(localId, gSaveBlock1Ptr->objectEventTemplates, gMapHeader.events->objectEventCount);
+        *xPointer = objTemplate->x;
+        *yPointer = objTemplate->y;
+        return;
+    }
+
+    objectId = GetObjectEventIdByLocalId(localId);
+    objEvent = &gObjectEvents[objectId];
+    *xPointer = objEvent->currentCoords.x - 7;
+    *yPointer = objEvent->currentCoords.y - 7;
+}
+
+bool32 CheckObjectAtXY(u32 x, u32 y)
+{
+    u32 i;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (!gObjectEvents[i].active)
+            continue;
+
+        if (gObjectEvents[i].currentCoords.x != x)
+            continue;
+
+        if (gObjectEvents[i].currentCoords.y != y)
+            continue;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool32 CheckPartyHasSpecies(u32 givenSpecies)
+{
+    u32 partyIndex;
+
+    for (partyIndex = 0; partyIndex < CalculatePlayerPartyCount(); partyIndex++)
+        if (GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES) == givenSpecies)
+            return TRUE;
+
+    return FALSE;
+}
+
+void UseBlankMessageToCancelPokemonPic(void)
+{
+    u8 t = EOS;
+    AddTextPrinterParameterized(0, FONT_NORMAL, &t, 0, 1, 0, NULL);
+    ScriptMenu_HidePokemonPic();
 }
