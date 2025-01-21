@@ -17,7 +17,34 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 25,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_EVERGREEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_EVERGREEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_EVERGREEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_EVERGREEN",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

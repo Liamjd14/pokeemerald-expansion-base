@@ -4417,9 +4417,19 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_ES_General",
-      "secondary_tileset": "gTileset_frp_berry_forest",
+      "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/Evergreen/border.bin",
       "blockdata_filepath": "data/layouts/Evergreen/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVERGREEN_MOOR",
+      "name": "EvergreenMoor_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/EvergreenMoor/border.bin",
+      "blockdata_filepath": "data/layouts/EvergreenMoor/map.bin"
     }
   ]
 }

@@ -1156,3 +1156,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/dexnav.inc"
 
 	.include "data/maps/Evergreen/scripts.inc"
+
+	.include "data/maps/EvergreenMoor/scripts.inc"

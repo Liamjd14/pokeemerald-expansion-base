@@ -402,3 +402,5 @@ const u16 gMetatileAttributes_ES_General[] = INCBIN_U16("data/tilesets/primary/e
 
 const u16 gMetatiles_ES_Oceanview[] = INCBIN_U16("data/tilesets/secondary/es_oceanview/metatiles.bin");
 const u16 gMetatileAttributes_ES_Oceanview[] = INCBIN_U16("data/tilesets/secondary/es_oceanview/metatile_attributes.bin");
+const u16 gMetatiles_ES_Evergreen[] = INCBIN_U16("data/tilesets/secondary/es_evergreen/metatiles.bin");
+const u16 gMetatileAttributes_ES_Evergreen[] = INCBIN_U16("data/tilesets/secondary/es_evergreen/metatile_attributes.bin");

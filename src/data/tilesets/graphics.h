@@ -2869,3 +2869,21 @@ const u16 gTilesetPalettes_ES_Oceanview[][16] =
 };
 
 const u32 gTilesetTiles_ES_Oceanview[] = INCBIN_U32("data/tilesets/secondary/es_oceanview/tiles.4bpp.lz");
+const u16 gTilesetPalettes_ES_Evergreen[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/es_evergreen/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_ES_Evergreen[] = INCBIN_U32("data/tilesets/secondary/es_evergreen/tiles.4bpp.lz");
