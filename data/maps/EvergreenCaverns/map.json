@@ -1,7 +1,7 @@
 {
-  "id": "MAP_EVERGREEN_MOOR",
-  "name": "EvergreenMoor",
-  "layout": "LAYOUT_EVERGREEN_MOOR",
+  "id": "MAP_EVERGREEN_CAVERNS",
+  "name": "EvergreenCaverns",
+  "layout": "LAYOUT_EVERGREEN_CAVERNS",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_EVERGREEN",
-      "offset": 0,
-      "direction": "up"
+      "map": "MAP_EVERGREEN_MOOR",
+      "offset": -40,
+      "direction": "down"
     },
     {
-      "map": "MAP_EVERGREEN_CAVERNS",
-      "offset": 40,
-      "direction": "up"
+      "map": "MAP_EVERGREEN",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

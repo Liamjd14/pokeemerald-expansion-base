@@ -4424,12 +4424,22 @@
     {
       "id": "LAYOUT_EVERGREEN_MOOR",
       "name": "EvergreenMoor_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 70,
+      "height": 40,
       "primary_tileset": "gTileset_ES_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/EvergreenMoor/border.bin",
       "blockdata_filepath": "data/layouts/EvergreenMoor/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVERGREEN_CAVERNS",
+      "name": "EvergreenCaverns_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/EvergreenCaverns/border.bin",
+      "blockdata_filepath": "data/layouts/EvergreenCaverns/map.bin"
     }
   ]
 }
