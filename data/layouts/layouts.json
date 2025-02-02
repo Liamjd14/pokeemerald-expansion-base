@@ -4450,6 +4450,26 @@
       "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/ShadewindForestExt/border.bin",
       "blockdata_filepath": "data/layouts/ShadewindForestExt/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAGON_LAKEFRONT",
+      "name": "DragonLakefront_Layout",
+      "width": 70,
+      "height": 41,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/DragonLakefront/border.bin",
+      "blockdata_filepath": "data/layouts/DragonLakefront/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAGON_LAKEFRONT_SOUTH",
+      "name": "DragonLakefrontSouth_Layout",
+      "width": 70,
+      "height": 30,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/DragonLakefrontSouth/border.bin",
+      "blockdata_filepath": "data/layouts/DragonLakefrontSouth/map.bin"
     }
   ]
 }

@@ -21,7 +21,9 @@
     "Evergreen"
   ],
   "gMapGroup_EshosRoutes": [
-    "EvergreenMoor"
+    "EvergreenMoor",
+    "DragonLakefront",
+    "DragonLakefrontSouth"
   ],
   "gMapGroup_EshosLandmarks": [
     "EvergreenCaverns",

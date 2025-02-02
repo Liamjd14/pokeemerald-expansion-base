@@ -1,12 +1,12 @@
 {
-  "id": "MAP_EVERGREEN_MOOR",
-  "name": "EvergreenMoor",
-  "layout": "LAYOUT_EVERGREEN_MOOR",
+  "id": "MAP_DRAGON_LAKEFRONT",
+  "name": "DragonLakefront",
+  "layout": "LAYOUT_DRAGON_LAKEFRONT",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_NONE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -14,24 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_EVERGREEN",
+      "map": "MAP_EVERGREEN_MOOR",
       "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_EVERGREEN_CAVERNS",
-      "offset": 40,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_DRAGON_LAKEFRONT",
+      "map": "MAP_DRAGON_LAKEFRONT_SOUTH",
       "offset": 0,
       "direction": "down"
-    },
-    {
-      "map": "MAP_SHADEWIND_FOREST_EXT",
-      "offset": 0,
-      "direction": "right"
     }
   ],
   "object_events": [

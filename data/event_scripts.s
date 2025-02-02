@@ -1162,3 +1162,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/EvergreenCaverns/scripts.inc"
 
 	.include "data/maps/ShadewindForestExt/scripts.inc"
+
+	.include "data/maps/DragonLakefront/scripts.inc"
+
+	.include "data/maps/DragonLakefrontSouth/scripts.inc"
