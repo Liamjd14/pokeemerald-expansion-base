@@ -1166,3 +1166,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DragonLakefront/scripts.inc"
 
 	.include "data/maps/DragonLakefrontSouth/scripts.inc"
+
+	.include "data/maps/ShadewindForrestInt/scripts.inc"

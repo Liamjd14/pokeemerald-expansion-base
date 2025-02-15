@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/DragonLakefrontSouth/border.bin",
       "blockdata_filepath": "data/layouts/DragonLakefrontSouth/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND_FORREST_INT",
+      "name": "ShadewindForrestInt_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/ShadewindForrestInt/border.bin",
+      "blockdata_filepath": "data/layouts/ShadewindForrestInt/map.bin"
     }
   ]
 }
