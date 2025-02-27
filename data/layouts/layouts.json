@@ -4480,6 +4480,86 @@
       "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/ShadewindForrestInt/border.bin",
       "blockdata_filepath": "data/layouts/ShadewindForrestInt/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVERGREEN_MOOR_CAVE",
+      "name": "EvergreenMoorCave_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/EvergreenMoorCave/border.bin",
+      "blockdata_filepath": "data/layouts/EvergreenMoorCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAGON_LAKE_WATERFALL_CAVE",
+      "name": "DragonLakeWaterfallCave_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DragonLakeWaterfallCave/border.bin",
+      "blockdata_filepath": "data/layouts/DragonLakeWaterfallCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAGON_LAKE",
+      "name": "DragonLake_Layout",
+      "width": 40,
+      "height": 71,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/DragonLake/border.bin",
+      "blockdata_filepath": "data/layouts/DragonLake/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADEWIND",
+      "name": "Shadewind_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Shadewind/border.bin",
+      "blockdata_filepath": "data/layouts/Shadewind/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_NORTH_COAST_PT2",
+      "name": "GreenwoodNorthCoastPT2_Layout",
+      "width": 80,
+      "height": 30,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodNorthCoastPT2/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodNorthCoastPT2/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_NORTH_COAST_PT1",
+      "name": "GreenwoodNorthCoastPT1_Layout",
+      "width": 70,
+      "height": 30,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodNorthCoastPT1/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodNorthCoastPT1/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_WEST_COAST_PT1",
+      "name": "GreenwoodWestCoastPT1_Layout",
+      "width": 70,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodWestCoastPT1/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodWestCoastPT1/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_WEST_COAST_PT2",
+      "name": "GreenwoodWestCoastPT2_Layout",
+      "width": 70,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodWestCoastPT2/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodWestCoastPT2/map.bin"
     }
   ]
 }

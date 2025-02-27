@@ -1,0 +1,39 @@
+{
+  "id": "MAP_GREENWOOD_NORTH_COAST_PT1",
+  "name": "GreenwoodNorthCoastPT1",
+  "layout": "LAYOUT_GREENWOOD_NORTH_COAST_PT1",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_GREENWOOD_NORTH_COAST_PT2",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_GREENWOOD_WEST_COAST_PT1",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "MAP_DRAGON_LAKE",
+  "name": "DragonLake",
+  "layout": "LAYOUT_DRAGON_LAKE",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_DRAGON_LAKEFRONT_SOUTH",
+      "offset": 41,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_DRAGON_LAKEFRONT",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_GREENWOOD_WEST_COAST_PT2",
+      "offset": -30,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 15,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 29,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 17,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 39,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 20,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 35,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "secret_base",
+      "x": 20,
+      "y": 37,
+      "elevation": 0,
+      "secret_base_id": "SECRET_BASE_RED_CAVE1_1"
+    },
+    {
+      "type": "secret_base",
+      "x": 21,
+      "y": 37,
+      "elevation": 0,
+      "secret_base_id": "SECRET_BASE_RED_CAVE1_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 39,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1"
+    }
+  ]
+}

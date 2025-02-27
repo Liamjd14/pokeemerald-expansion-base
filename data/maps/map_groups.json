@@ -18,12 +18,18 @@
     "gMapGroup_SpecialArea"
   ],
   "gMapGroup_EshosTowns": [
-    "Evergreen"
+    "Evergreen",
+    "Shadewind"
   ],
   "gMapGroup_EshosRoutes": [
     "EvergreenMoor",
     "DragonLakefront",
-    "DragonLakefrontSouth"
+    "DragonLakefrontSouth",
+    "DragonLake",
+    "GreenwoodNorthCoastPT2",
+    "GreenwoodNorthCoastPT1",
+    "GreenwoodWestCoastPT1",
+    "GreenwoodWestCoastPT2"
   ],
   "gMapGroup_EshosLandmarks": [
     "EvergreenCaverns",
@@ -43,7 +49,8 @@
 
   ],
   "gMapGroup_EshosDungeons": [
-
+    "EvergreenMoorCave",
+    "DragonLakeWaterfallCave"
   ],
   "gMapGroup_HoennTowns": [
     "PetalburgCity",

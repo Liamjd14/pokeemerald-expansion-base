@@ -1168,3 +1168,19 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DragonLakefrontSouth/scripts.inc"
 
 	.include "data/maps/ShadewindForrestInt/scripts.inc"
+
+	.include "data/maps/EvergreenMoorCave/scripts.inc"
+
+	.include "data/maps/DragonLakeWaterfallCave/scripts.inc"
+
+	.include "data/maps/DragonLake/scripts.inc"
+
+	.include "data/maps/Shadewind/scripts.inc"
+
+	.include "data/maps/GreenwoodNorthCoastPT2/scripts.inc"
+
+	.include "data/maps/GreenwoodNorthCoastPT1/scripts.inc"
+
+	.include "data/maps/GreenwoodWestCoastPT1/scripts.inc"
+
+	.include "data/maps/GreenwoodWestCoastPT2/scripts.inc"

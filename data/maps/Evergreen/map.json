@@ -22,45 +22,193 @@
       "map": "MAP_EVERGREEN_CAVERNS",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_GREENWOOD_NORTH_COAST_PT2",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_GREENWOOD_WEST_COAST_PT1",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 14,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 32,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 31,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 16,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 16,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 26,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
-      "x": 25,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_EVERGREEN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 30,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_EVERGREEN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 12,
+      "x": 35,
+      "y": 30,
       "elevation": 0,
       "dest_map": "MAP_EVERGREEN",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
-      "y": 12,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_EVERGREEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_EVERGREEN",
       "dest_warp_id": "0"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    }
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 15,
+      "y": 22,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    }
   ]
 }
