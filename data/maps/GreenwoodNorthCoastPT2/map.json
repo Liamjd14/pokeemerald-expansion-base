@@ -27,6 +27,11 @@
       "map": "MAP_GREENWOOD_NORTH_COAST_PT1",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_GREENWOOD_WILDERNESS_AREA1",
+      "offset": 70,
+      "direction": "down"
     }
   ],
   "object_events": [

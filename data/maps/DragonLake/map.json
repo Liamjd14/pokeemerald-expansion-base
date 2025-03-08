@@ -27,6 +27,11 @@
       "map": "MAP_GREENWOOD_WEST_COAST_PT2",
       "offset": -30,
       "direction": "up"
+    },
+    {
+      "map": "MAP_GREENWOOD_WEST_COAST_PT3",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

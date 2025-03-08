@@ -1,7 +1,7 @@
 {
-  "id": "MAP_GREENWOOD_WEST_COAST_PT2",
-  "name": "GreenwoodWestCoastPT2",
-  "layout": "LAYOUT_GREENWOOD_WEST_COAST_PT2",
+  "id": "MAP_GREENWOOD_WILDERNESS_AREA1",
+  "name": "GreenwoodWildernessArea1",
+  "layout": "LAYOUT_GREENWOOD_WILDERNESS_AREA1",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -14,24 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_GREENWOOD_WEST_COAST_PT1",
+      "map": "MAP_SHADEWIND_FOREST_EXT",
       "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_EVERGREEN_CAVERNS",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_GREENWOOD_NORTH_COAST_PT2",
+      "offset": -70,
       "direction": "up"
-    },
-    {
-      "map": "MAP_EVERGREEN_MOOR",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_DRAGON_LAKE",
-      "offset": 30,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_GREENWOOD_WEST_COAST_PT3",
-      "offset": 0,
-      "direction": "down"
     }
   ],
   "object_events": [

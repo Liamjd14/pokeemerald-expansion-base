@@ -1184,3 +1184,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/GreenwoodWestCoastPT1/scripts.inc"
 
 	.include "data/maps/GreenwoodWestCoastPT2/scripts.inc"
+
+	.include "data/maps/GreenwoodWestCoastPT3/scripts.inc"
+
+	.include "data/maps/GreenwoodWildernessArea1/scripts.inc"
+
+	.include "data/maps/GreenwoodNorthCoastPT3/scripts.inc"

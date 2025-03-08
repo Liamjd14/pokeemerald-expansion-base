@@ -4524,7 +4524,7 @@
     {
       "id": "LAYOUT_GREENWOOD_NORTH_COAST_PT2",
       "name": "GreenwoodNorthCoastPT2_Layout",
-      "width": 80,
+      "width": 110,
       "height": 30,
       "primary_tileset": "gTileset_ES_General",
       "secondary_tileset": "gTileset_ES_Evergreen",
@@ -4560,6 +4560,36 @@
       "secondary_tileset": "gTileset_ES_Evergreen",
       "border_filepath": "data/layouts/GreenwoodWestCoastPT2/border.bin",
       "blockdata_filepath": "data/layouts/GreenwoodWestCoastPT2/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_WEST_COAST_PT3",
+      "name": "GreenwoodWestCoastPT3_Layout",
+      "width": 30,
+      "height": 71,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodWestCoastPT3/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodWestCoastPT3/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_WILDERNESS_AREA1",
+      "name": "GreenwoodWildernessArea1_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodWildernessArea1/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodWildernessArea1/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENWOOD_NORTH_COAST_PT3",
+      "name": "GreenwoodNorthCoastPT3_Layout",
+      "width": 60,
+      "height": 50,
+      "primary_tileset": "gTileset_ES_General",
+      "secondary_tileset": "gTileset_ES_Evergreen",
+      "border_filepath": "data/layouts/GreenwoodNorthCoastPT3/border.bin",
+      "blockdata_filepath": "data/layouts/GreenwoodNorthCoastPT3/map.bin"
     }
   ]
 }

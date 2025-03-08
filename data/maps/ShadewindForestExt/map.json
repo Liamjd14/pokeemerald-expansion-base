@@ -22,6 +22,11 @@
       "map": "MAP_SHADEWIND_FORREST_INT",
       "offset": -20,
       "direction": "right"
+    },
+    {
+      "map": "MAP_GREENWOOD_WILDERNESS_AREA1",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
