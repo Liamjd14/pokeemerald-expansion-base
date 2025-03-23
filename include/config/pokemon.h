@@ -74,7 +74,7 @@
 #define P_ENABLE_MOVE_RELEARNERS         TRUE  // If TRUE, it enables move relearners for level up, egg, TM and tutor.
 #define P_ENABLE_ALL_LEVEL_UP_MOVES      FALSE // If TRUE, it enables the Pokémon to learn all level up moves, regardless of its level.
 #define P_ENABLE_ALL_TM_MOVES            FALSE // If TRUE, it enables the Pokémon to learn all TMs its compatible with, regardless of it being in the bag.
-#define P_SORT_MOVES                     TRUE  // If TRUE, sorts all moves alphabetically in the relearner's list.
+#define P_SORT_MOVES                     FALSE // If TRUE, sorts all moves alphabetically in the relearner's list.
 
 // Move Relearner flags 
 #define P_FLAG_OW_MOVE_RELEARNER         0     // Set this flag if you're planning on using the overworld script in data/scripts/move_relearner.inc
