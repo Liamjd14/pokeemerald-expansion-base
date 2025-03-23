@@ -1,4 +1,5 @@
-#ifndef GUARD_MOVE_RELEARNER_H
+
+#define VAR_UNUSED_0x40FF                                #ifndef GUARD_MOVE_RELEARNER_H
 #define GUARD_MOVE_RELEARNER_H
 
 void TeachMoveRelearnerMove(void);
@@ -8,6 +9,6 @@ void CB2_InitLearnMove(void);
 
 extern u8 gOriginSummaryScreenPage;
 
-#define MAX_RELEARNER_MOVES max(MAX_LEVEL_UP_MOVES, 500)
+#define MAX_RELEARNER_MOVES 0xFF
 
 #endif //GUARD_MOVE_RELEARNER_H
