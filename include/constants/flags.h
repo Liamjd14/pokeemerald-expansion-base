@@ -1531,7 +1531,7 @@
 #define FLAG_SYS_POKEMON_FORCE_SHINY                (SYSTEM_FLAGS + 0x9B) // Unused Flag
 #define FLAG_SYS_POKEMON_FORCE_NO_SHINY             (SYSTEM_FLAGS + 0x9C) // Unused Flag
 #define FLAG_SYS_SS_SHOW_IV_EV                      (SYSTEM_FLAGS + 0x9D) // Unused Flag
-#define FLAG_SYS_RUNNING_TOGGLE                     (SYSTEM_FLAGS + 0x9E) // Unused Flag
+#define FLAG_SYS_RUNNING_TOGGLE                      (SYSTEM_FLAGS + 0x9E) // Unused Flag
 #define FLAG_UNUSED_0x8FF                           (SYSTEM_FLAGS + 0x9F) // Unused Flag
 #define FLAG_UNUSED_0x900                           (SYSTEM_FLAGS + 0xA0) // Unused Flag
 #define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1) // Unused Flag
