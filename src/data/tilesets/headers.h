@@ -1064,3 +1064,14 @@ const struct Tileset gTileset_UnionRoom =
     .palettes_autumn = NULL,
     .palettes_winter = NULL,
 };
+
+const struct Tileset gTileset_porytiles_primary_tutorial =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_porytiles_primary_tutorial,
+    .palettes = gTilesetPalettes_porytiles_primary_tutorial,
+    .metatiles = gMetatiles_porytiles_primary_tutorial,
+    .metatileAttributes = gMetatileAttributes_porytiles_primary_tutorial,
+    .callback = NULL,
+};
