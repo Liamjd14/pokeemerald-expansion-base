@@ -53,9 +53,6 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Poryscript Setup.
 - Convert all map .inc to .pory files
 - Finalise all gen moveset changes. Changed Teachable Lernsets to not include level up or egg moves.
-- Expansion Merge 2nd April
-- Expansion Merge 4th April
-- Updated Move Relerner Implimentation
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
 - Starter Town Secondary Tileset.
