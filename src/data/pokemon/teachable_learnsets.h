@@ -66912,7 +66912,7 @@ static const u16 sLechonkTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sOinkologneMTeachableLearnset[] = {
+static const u16 sOinkologneTeachableLearnset[] = {
     MOVE_ALLY_SWITCH,
     MOVE_AMNESIA,
     MOVE_ATTRACT,
