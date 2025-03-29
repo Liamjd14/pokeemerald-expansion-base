@@ -45,12 +45,17 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Porytiles import setup.
 - Impliment Change Log Doc (This One).
 - Update Changelog formation.
+- Expansion master merge 29th march 2025
 - V0.1 Compile check release tag
 
 # V0.2: (to do)
 
 - Poryscript Setup.
-- Finalise all gen moveset changes.
+- Convert all map .inc to .pory files
+- Finalise all gen moveset changes. Changed Teachable Lernsets to not include level up or egg moves.
+- Expansion Merge 2nd April
+- Expansion Merge 4th April
+- Updated Move Relerner Implimentation
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
 - Starter Town Secondary Tileset.
