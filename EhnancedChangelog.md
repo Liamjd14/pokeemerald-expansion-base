@@ -52,7 +52,8 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 
 - Enable IV EV summery Screen
 - Poryscript Setup.
-- Finalise all gen moveset changes.
+- Convert all map .inc to .pory files
+- Finalise all gen moveset changes. Changed Teachable Lernsets to not include level up or egg moves)
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
 - Starter Town Secondary Tileset.
