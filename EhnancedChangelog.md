@@ -17,10 +17,10 @@ TAAR Used assets:
 
 May ORAS Sprites:
 
-Overworld sprites: by Poffin_Case and Pawkkie. Edited by Pawkkie.
-Trainer Front Battle Sprites: by hyo-oppa.
-Trainer Back Battle Sprites: by solo993.
-Both Trainer Sprites edited by: KyuZee.
+- Overworld sprites: by Poffin_Case and Pawkkie. Edited by Pawkkie.
+- Trainer Front Battle Sprites: by hyo-oppa.
+- Trainer Back Battle Sprites: by solo993.
+- Both Trainer Sprites edited by: KyuZee.
 
 FRLG Style Sprites by Poffin Case. edited by RavePossum
 
@@ -35,26 +35,27 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 
 # V0.1:
 
-Expansion config.
-FRLG Sprite import.
-All gen moveset import (not finished).
-Move tutor expansion.
-seasons.
-Day/Night cycle.
-Changed intro pokemon to Lilipup.
-Porytiles import setup.
-Impliment Change Log Doc (This One).
-Update Changelog formation.
+- Expansion config.
+- FRLG Sprite import.
+- All gen moveset import (not finished).
+- Move tutor expansion.
+- seasons.
+- Day/Night cycle.
+- Changed intro pokemon to Lilipup.
+- Porytiles import setup.
+- Impliment Change Log Doc (This One).
+- Update Changelog formation.
+- V0.1 Compile check release tag
 
 # V0.2: (to do)
 
-Poryscript Setup.
-Finalise all gen moveset changes.
-New General Primary Tileset.
-Import Parts of Fire red tileset port.
-Starter Town Secondary Tileset.
-Initial Porymap setup.
-Starter Town outside Map.
-Starter Town Inside Maps.
-Route 1 Outside Map.
-Hidden Grotto Template Map and Scripts.
+- Poryscript Setup.
+- Finalise all gen moveset changes.
+- New General Primary Tileset.
+- Import Parts of Fire red tileset port.
+- Starter Town Secondary Tileset.
+- Initial Porymap setup.
+- Starter Town outside Map.
+- Starter Town Inside Maps.
+- Route 1 Outside Map.
+- Hidden Grotto Template Map and Scripts.
