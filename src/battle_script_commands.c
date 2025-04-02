@@ -585,7 +585,7 @@ static void Cmd_tryrecycleitem(void);
 static void Cmd_settypetoterrain(void);
 static void Cmd_pursuitdoubles(void);
 static void Cmd_snatchsetbattlers(void);
-static void Cmd_removelightscreenreflect(void);
+static void Cmd_removescreens(void);
 static void Cmd_handleballthrow(void);
 static void Cmd_givecaughtmon(void);
 static void Cmd_trysetcaughtmondexflags(void);
@@ -844,7 +844,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_settypetoterrain,                        //0xEB
     Cmd_pursuitdoubles,                          //0xEC
     Cmd_snatchsetbattlers,                       //0xED
-    Cmd_removelightscreenreflect,                //0xEE
+    Cmd_removescreens,                           //0xEE
     Cmd_handleballthrow,                         //0xEF
     Cmd_givecaughtmon,                           //0xF0
     Cmd_trysetcaughtmondexflags,                 //0xF1
@@ -2108,6 +2108,7 @@ static void Cmd_adjustdamage(void)
             gSpecialStatuses[battlerDef].enduredDamage = TRUE;
             continue;
         }
+
         if (GetBattlerAbility(battlerDef) == ABILITY_ICE_FACE && IsBattleMovePhysical(gCurrentMove) && gBattleMons[battlerDef].species == SPECIES_EISCUE)
         {
             // Damage deals typeless 0 HP.
@@ -2118,6 +2119,7 @@ static void Cmd_adjustdamage(void)
             // Form change will be done after attack animation in Cmd_resultmessage.
             continue;
         }
+
         if (gBattleMons[gBattlerTarget].hp > gBattleStruct->moveDamage[battlerDef])
             continue;
 
@@ -2669,6 +2671,11 @@ static void Cmd_datahpupdate(void)
             BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_HP_BATTLE, 0, sizeof(gBattleMons[battler].hp), &gBattleMons[battler].hp);
             MarkBattlerForControllerExec(battler);
         }
+
+        if (gBattlerAttacker != gBattlerTarget
+         && GetMoveCategory(gCurrentMove) != DAMAGE_CATEGORY_STATUS
+         && IsBattlerTurnDamaged(gBattlerTarget))
+            gBattleStruct->timesGotHit[GetBattlerSide(gBattlerTarget)][gBattlerPartyIndexes[gBattlerTarget]]++;
     }
 
     TryRestoreDamageAfterCheeckPouch(battler);
@@ -6749,16 +6756,6 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
-        case MOVEEND_NUM_HITS:
-            if (gBattlerAttacker != gBattlerTarget
-                && GetMoveCategory(gCurrentMove) != DAMAGE_CATEGORY_STATUS
-                && !(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
-                && IsBattlerTurnDamaged(gBattlerTarget))
-            {
-                gBattleStruct->timesGotHit[GetBattlerSide(gBattlerTarget)][gBattlerPartyIndexes[gBattlerTarget]]++;
-            }
-            gBattleScripting.moveendState++;
-            break;
         case MOVEEND_SUBSTITUTE: // update substitute
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -7176,9 +7173,7 @@ static void Cmd_moveend(void)
                     if (GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_RED_CARD)
                         redCardBattlers |= (1u << i);
                 }
-                if (redCardBattlers
-                  && (moveEffect != EFFECT_HIT_SWITCH_TARGET || gBattleStruct->hitSwitchTargetFailed)
-                  && IsBattlerAlive(gBattlerAttacker))
+                if (redCardBattlers && IsBattlerAlive(gBattlerAttacker))
                 {
                     // Since we check if battler was damaged, we don't need to check move result.
                     // In fact, doing so actually prevents multi-target moves from activating red card properly
@@ -7193,7 +7188,8 @@ static void Cmd_moveend(void)
                           && IsBattlerAlive(battler)
                           && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove)
                           && IsBattlerTurnDamaged(battler)
-                          && CanBattlerSwitch(gBattlerAttacker))
+                          && CanBattlerSwitch(gBattlerAttacker)
+                          && !(moveEffect == EFFECT_HIT_SWITCH_TARGET && CanBattlerSwitch(battler)))
                         {
                             effect = TRUE;
                             gBattleScripting.moveendState = MOVEEND_OPPORTUNIST;
@@ -7207,7 +7203,8 @@ static void Cmd_moveend(void)
                                 gBattlescriptCurrInstr = BattleScript_MoveEnd;  // Prevent user switch-in selection
                             BattleScriptPushCursor();
                             if (gBattleStruct->commanderActive[gBattlerAttacker] != SPECIES_NONE
-                             || GetBattlerAbility(gBattlerAttacker) == ABILITY_GUARD_DOG)
+                             || GetBattlerAbility(gBattlerAttacker) == ABILITY_GUARD_DOG
+                             || GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX)
                                 gBattlescriptCurrInstr = BattleScript_RedCardActivationNoSwitch;
                             else
                                 gBattlescriptCurrInstr = BattleScript_RedCardActivates;
@@ -7382,7 +7379,6 @@ static void Cmd_moveend(void)
             gSpecialStatuses[gBattlerTarget].berryReduced = FALSE;
             gSpecialStatuses[gBattlerTarget].distortedTypeMatchups = FALSE;
             gBattleScripting.moveEffect = 0;
-            gBattleStruct->hitSwitchTargetFailed = FALSE;
             gBattleStruct->isAtkCancelerForCalledMove = FALSE;
             gBattleStruct->swapDamageCategory = FALSE;
             gBattleStruct->categoryOverride = FALSE;
@@ -13867,10 +13863,29 @@ static void Cmd_trychoosesleeptalkmove(void)
     }
 }
 
+static inline bool32 IsDanamaxMonPresent(void)
+{
+    for (u32 battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (battler == gBattlerAttacker)
+            continue;
+
+        if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void Cmd_trysetdestinybond(void)
 {
     CMD_ARGS(const u8 *failInstr);
-    if (DoesDestinyBondFail(gBattlerAttacker))
+
+    if (IsDanamaxMonPresent())
+    {
+        gBattlescriptCurrInstr = BattleScript_MoveBlockedByDynamax;
+    }
+    else if (DoesDestinyBondFail(gBattlerAttacker))
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -15785,8 +15800,7 @@ static void Cmd_snatchsetbattlers(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-// Brick Break
-static void Cmd_removelightscreenreflect(void)
+static void Cmd_removescreens(void)
 {
     CMD_ARGS();
 
@@ -17153,7 +17167,7 @@ void BS_ItemRestoreHP(void)
         // Heal is applied as move damage if battler is active.
         if (battler != MAX_BATTLERS_COUNT && hp != 0)
         {
-            gBattleStruct->moveDamage[gBattlerAttacker] = -healAmount;
+            gBattleStruct->moveDamage[battler] = -healAmount;
             gBattlescriptCurrInstr = cmd->restoreBattlerInstr;
         }
         else
@@ -18257,13 +18271,6 @@ void BS_StoreHealingWish(void)
         gBattleStruct->battlerState[battler].storedLunarDance = TRUE;
     else
         gBattleStruct->battlerState[battler].storedHealingWish = TRUE;
-    gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
-void BS_HitSwitchTargetFailed(void)
-{
-    NATIVE_ARGS();
-    gBattleStruct->hitSwitchTargetFailed = TRUE;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
