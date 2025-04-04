@@ -409,7 +409,7 @@ void CB2_InitLearnMove(void)
     sMoveRelearnerMenuSate.listRow = 0;
     sMoveRelearnerMenuSate.showContestInfo = gOriginSummaryScreenPage == PSS_PAGE_CONTEST_MOVES;
 
-    switch (VarGet(VAR_MOVE_RELEARNER_STATE))
+    switch (VarGet(P_VAR_MOVE_RELEARNER_STATE))
     {
         case MOVE_RELEARNER_EGG_MOVES:
             StringCopy(gStringVar3, COMPOUND_STRING("egg move"));
@@ -694,11 +694,10 @@ static void DoMoveRelearnerMain(void)
         break;
     case MENU_STATE_FADE_AND_RETURN:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        if (P_FLAG_OW_MOVE_RELEARNER != 0 && FlagGet(P_FLAG_OW_MOVE_RELEARNER))
-            sMoveRelearnerStruct->state++;
-        else
+        if (P_FLAG_PARTY_MOVE_RELEARNER != 0 && FlagGet(P_FLAG_PARTY_MOVE_RELEARNER) && !FlagGet(P_FLAG_SCRIPT_MOVE_RELEARNER) && gOriginSummaryScreenPage == 0)
             sMoveRelearnerStruct->state = MENU_STATE_RETURN_TO_PARTY_MENU;
-        break;
+        else
+            sMoveRelearnerStruct->state++;
     case MENU_STATE_RETURN_TO_FIELD:
         if (!gPaletteFade.active)
         {
@@ -790,10 +789,10 @@ static void DoMoveRelearnerMain(void)
         if (JOY_NEW(A_BUTTON))
         {
             PlaySE(SE_SELECT);
-            if (P_FLAG_OW_MOVE_RELEARNER != 0 && FlagGet(P_FLAG_OW_MOVE_RELEARNER))
-                sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
-            else
+            if (P_FLAG_PARTY_MOVE_RELEARNER != 0 && FlagGet(P_FLAG_PARTY_MOVE_RELEARNER) && !FlagGet(P_FLAG_SCRIPT_MOVE_RELEARNER) && gOriginSummaryScreenPage == 0)
                 sMoveRelearnerStruct->state = MENU_STATE_RETURN_TO_PARTY_MENU;
+            else
+                sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
         }
         break;
     }
@@ -958,7 +957,7 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    switch(VarGet(VAR_MOVE_RELEARNER_STATE))
+    switch(VarGet(P_VAR_MOVE_RELEARNER_STATE))
     {
 
         case MOVE_RELEARNER_EGG_MOVES:

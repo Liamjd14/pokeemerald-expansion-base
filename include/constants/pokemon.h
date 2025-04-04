@@ -347,5 +347,6 @@ enum EvolutionMode {
 #define MOVE_RELEARNER_EGG_MOVES      1
 #define MOVE_RELEARNER_TM_MOVES       2
 #define MOVE_RELEARNER_TUTOR_MOVES    3
+#define MOVE_RELEARNER_COUNT          4
 
 #endif // GUARD_CONSTANTS_POKEMON_H

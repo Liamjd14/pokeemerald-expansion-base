@@ -1117,7 +1117,7 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    switch(VarGet(VAR_MOVE_RELEARNER_STATE))
+    switch (VarGet(P_VAR_MOVE_RELEARNER_STATE))
     {
         case MOVE_RELEARNER_EGG_MOVES:
         {
@@ -2918,9 +2918,9 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
-    if (GetMonData(&mons[slotId], MON_DATA_SPECIES)
+    if (P_FLAG_PARTY_MOVE_RELEARNER != 0 && FlagGet(P_FLAG_PARTY_MOVE_RELEARNER) && (GetMonData(&mons[slotId], MON_DATA_SPECIES)
     && (GetNumberOfLevelUpMoves(&mons[slotId]) || GetNumberOfEggMoves(&mons[slotId])
-    || GetNumberOfTMMoves(&mons[slotId]) || GetNumberOfTutorMoves(&mons[slotId])))
+    || GetNumberOfTMMoves(&mons[slotId]) || GetNumberOfTutorMoves(&mons[slotId]))))
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUB_MOVES);
 
     // Add field moves to action list
@@ -3041,6 +3041,8 @@ static bool8 CreateSelectionWindow(u8 taskId)
 
     GetMonNickname(mon, gStringVar1);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    if (P_FLAG_PARTY_MOVE_RELEARNER != 0)
+        FlagSet(P_FLAG_PARTY_MOVE_RELEARNER);
     if (gPartyMenu.menuType != PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS)
     {
         SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, GetPartyMenuActionsType(mon));
@@ -7824,7 +7826,7 @@ static void CB2_ChooseMonForMoveRelearner(void)
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
         gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
     else
-    switch(VarGet(VAR_MOVE_RELEARNER_STATE))
+    switch(VarGet(P_VAR_MOVE_RELEARNER_STATE))
     {
         case MOVE_RELEARNER_EGG_MOVES:
             gSpecialVar_0x8005 = GetNumberOfEggMoves(&gPlayerParty[gSpecialVar_0x8004]);
@@ -7971,7 +7973,7 @@ void IsLastMonThatKnowsSurf(void)
 static void CursorCb_ChangeLevelUpMoves(u8 taskId)
 {
     PlaySE(SE_SELECT);
-	VarSet(VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_LEVEL_UP_MOVES);
+	VarSet(P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_LEVEL_UP_MOVES);
     gLastViewedMonIndex =  gPartyMenu.slotId;
     VarSet(VAR_0x8004, gPartyMenu.slotId);
     TeachMoveRelearnerMove();
@@ -7981,7 +7983,7 @@ static void CursorCb_ChangeLevelUpMoves(u8 taskId)
 static void CursorCb_ChangeEggMoves(u8 taskId)
 {
     PlaySE(SE_SELECT);
-	VarSet(VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_EGG_MOVES);
+	VarSet(P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_EGG_MOVES);
     gLastViewedMonIndex =  gPartyMenu.slotId;
     VarSet(VAR_0x8004, gPartyMenu.slotId);
     TeachMoveRelearnerMove();
@@ -7991,7 +7993,7 @@ static void CursorCb_ChangeEggMoves(u8 taskId)
 static void CursorCb_ChangeTMMoves(u8 taskId)
 {
     PlaySE(SE_SELECT);
-	VarSet(VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TM_MOVES);
+	VarSet(P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TM_MOVES);
     gLastViewedMonIndex =  gPartyMenu.slotId;
     VarSet(VAR_0x8004, gPartyMenu.slotId);
     TeachMoveRelearnerMove();
@@ -8001,7 +8003,7 @@ static void CursorCb_ChangeTMMoves(u8 taskId)
 static void CursorCb_ChangeTutorMoves(u8 taskId)
 {
     PlaySE(SE_SELECT);
-	VarSet(VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TUTOR_MOVES);
+	VarSet(P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TUTOR_MOVES);
     gLastViewedMonIndex =  gPartyMenu.slotId;
     VarSet(VAR_0x8004, gPartyMenu.slotId);
     TeachMoveRelearnerMove();

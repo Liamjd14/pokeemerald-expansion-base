@@ -1,13 +1,13 @@
 Common_EventScript_MoveRelearner::
 	lock
 	faceplayer
+	setflag P_FLAG_SCRIPT_MOVE_RELEARNER
 	message MoveRelearner_Text_WouldLearnNewMoves
 	waitmessage
 	goto Common_EventScript_MoveRelearnerDynMultiChoice
 	end
 
 Common_EventScript_MoveRelearnerDynMultiChoice::
-	setflag P_FLAG_OW_MOVE_RELEARNER
 .if P_ENABLE_MOVE_RELEARNERS == TRUE
 	dynmultipush MoveRelearner_Text_LevelUpMoves, 0
 	dynmultipush MoveRelearner_Text_EggMoves, 1
@@ -29,8 +29,8 @@ Common_EventScript_MoveRelearnerDynMultiChoice::
 	case 3, MoveRelearner_EventScript_TeachTutorMoves
 	case 4, MoveRelearner_EventScript_PleaseComeAgain
 MoveRelearner_EventScript_PleaseComeAgain:
+	clearflag P_FLAG_SCRIPT_MOVE_RELEARNER
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	clearflag P_FLAG_OW_MOVE_RELEARNER
 	release
 	end
 
@@ -47,22 +47,22 @@ MoveRelearner_EventScript_PushTutorMoves:
 	return
 
 MoveRelearner_EventScript_TeachLevelUpMoves:
-	setvar VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_LEVEL_UP_MOVES
+	setvar P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_LEVEL_UP_MOVES
 	goto MoveRelearner_EventScript_TeachMove
 	end
 
 MoveRelearner_EventScript_TeachEggMoves:
-	setvar VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_EGG_MOVES
+	setvar P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_EGG_MOVES
 	goto MoveRelearner_EventScript_TeachMove
 	end
 
 MoveRelearner_EventScript_TeachTMMoves:
-	setvar VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TM_MOVES
+	setvar P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TM_MOVES
 	goto MoveRelearner_EventScript_TeachMove
 	end
 
 MoveRelearner_EventScript_TeachTutorMoves:
-	setvar VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TUTOR_MOVES
+	setvar P_VAR_MOVE_RELEARNER_STATE, MOVE_RELEARNER_TUTOR_MOVES
 	goto MoveRelearner_EventScript_TeachMove
 	end
 
@@ -80,7 +80,7 @@ MoveRelearner_EventScript_TeachMove::
 	special IsSelectedMonEgg
 	call_if_eq VAR_RESULT, YES, MoveRelearner_EventScript_CantTeachMoveToEgg
 	call_if_eq VAR_0x8005, NO, MoveRelearner_EventScript_CantTeachMoveToPkmn
-	switch VAR_MOVE_RELEARNER_STATE
+	switch P_VAR_MOVE_RELEARNER_STATE
 	case MOVE_RELEARNER_EGG_MOVES, MoveRelearner_EventScript_StringToeggmove
 	case MOVE_RELEARNER_TM_MOVES, MoveRelearner_EventScript_StringToTMmove
 	case MOVE_RELEARNER_TUTOR_MOVES, MoveRelearner_EventScript_StringTotutormove
@@ -90,8 +90,8 @@ MoveRelearner_EventScript_TeachWhichMove:
 	special TeachMoveRelearnerMove
 	waitstate
 	goto_if_eq VAR_0x8004, NO, MoveRelearner_EventScript_AnythingElse
+	clearflag P_FLAG_SCRIPT_MOVE_RELEARNER
 	msgbox MoveRelearner_Text_ThankYouComeAgain, MSGBOX_DEFAULT
-	clearflag P_FLAG_OW_MOVE_RELEARNER
 	release
 	end
 
