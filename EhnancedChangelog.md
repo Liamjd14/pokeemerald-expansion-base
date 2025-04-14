@@ -40,8 +40,8 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - All gen moveset import (not finished).
 - Move tutor expansion.
 - seasons.
-- Day/Night cycle.
-- Changed intro pokemon to Lilipup.
+- Day/Night cycle. (outdated)
+- Changed intro pokemon to Lilipup. (broken)
 - Porytiles import setup.
 - Impliment Change Log Doc (This One).
 - Update Changelog formation.
@@ -53,6 +53,7 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Poryscript Setup.
 - Convert all map .inc to .pory files
 - Finalise all gen moveset changes. Changed Teachable Lernsets to not include level up or egg moves.
+- Change main branch of expansion from master to upcoming
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
 - Starter Town Secondary Tileset.
