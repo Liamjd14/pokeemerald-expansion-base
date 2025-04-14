@@ -4,8 +4,6 @@
 
 Base: Pokeemerald Expansion by rh-hideout,  https://github.com/rh-hideout/pokeemerald-expansion
 
-Day/Night Cycle: merrp DNS port for expansion by AsparagusEduardo, https://github.com/AsparagusEduardo/pokeemerald/tree/_RHH/pr/upcoming/lighting-expansion-v2 (might be replaced if expansion gets its own) (manually implimented)
-
 Seasons: Rioluwott, https://github.com/BelialClover/pokeemerald/tree/seasons (manually implimented)
 
 Move tutor expansion: PCG06, https://github.com/PCG06/pokeemerald/tree/move_relearner
@@ -40,7 +38,7 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - All gen moveset import (not finished).
 - Move tutor expansion.
 - seasons.
-- Day/Night cycle. (outdated)
+- Day/Night cycle. (outdated) (Standard Feature in Expansion now)
 - Changed intro pokemon to Lilipup. (broken)
 - Porytiles import setup.
 - Impliment Change Log Doc (This One).
