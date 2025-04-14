@@ -1,5 +1,4 @@
-
-#define VAR_UNUSED_0x40FF                                #ifndef GUARD_MOVE_RELEARNER_H
+#ifndef GUARD_MOVE_RELEARNER_H
 #define GUARD_MOVE_RELEARNER_H
 
 void TeachMoveRelearnerMove(void);
