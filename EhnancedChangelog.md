@@ -52,6 +52,11 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Convert all map .inc to .pory files
 - Finalise all gen moveset changes. Changed Teachable Lernsets to not include level up or egg moves.
 - Change main branch of expansion from master to upcoming
+
+- Small Mods List
+- Make-Key-Items-That-Cannot-Be-Used-In-The-Field-Not-Show-A-Use-or-Register-Option (https://github.com/pret/pokeemerald/wiki/Make-Key-Items-That-Cannot-Be-Used-In-The-Field-Not-Show-A-Use-or-Register-Option)
+- Remove-the-extra-save-confirmation (https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation)
+
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
 - Starter Town Secondary Tileset.
