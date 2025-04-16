@@ -8,6 +8,10 @@ Seasons: Rioluwott, https://github.com/BelialClover/pokeemerald/tree/seasons (ma
 
 Move tutor expansion: PCG06, https://github.com/PCG06/pokeemerald/tree/move_relearner
 
+Main Menu: Code by Archie, Graphics by Mudskip, UI Shell Code by ghoulslash, Knowledge Download from Grunt Lucas, https://github.com/TeamAquasHideout/pokeemerald/tree/main_menu
+
+Start Menu: Code by Archie, Graphics by Mudskip, UI Shell Code by ghoulslash, HP Bar Code + Small Bits from PSFs hack written by Rioluwott,Knowledge Download from Grunt Lucas, Inspired by psf's Start Menu Design, and Rioluwotts ROWE Design, https://github.com/TeamAquasHideout/pokeemerald/tree/full_start_menu
+
 # Assets Used
 Shared Asset Repo: https://github.com/Pawkkie/Team-Aquas-Asset-Repo
 
@@ -56,6 +60,8 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Small Mods List
 - Make-Key-Items-That-Cannot-Be-Used-In-The-Field-Not-Show-A-Use-or-Register-Option (https://github.com/pret/pokeemerald/wiki/Make-Key-Items-That-Cannot-Be-Used-In-The-Field-Not-Show-A-Use-or-Register-Option)
 - Remove-the-extra-save-confirmation (https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation)
+
+- Add New Main and Start Meuns (Feature branches)
 
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.

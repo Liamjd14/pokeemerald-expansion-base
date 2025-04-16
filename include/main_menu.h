@@ -1,4 +1,4 @@
-git pull team_aqua main_menu#ifndef GUARD_MAIN_MENU_H
+#ifndef GUARD_MAIN_MENU_H
 #define GUARD_MAIN_MENU_H
 
 void CB2_InitMainMenu(void);
