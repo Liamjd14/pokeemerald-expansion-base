@@ -12,6 +12,8 @@ Main Menu: Code by Archie, Graphics by Mudskip, UI Shell Code by ghoulslash, Kno
 
 Start Menu: Code by Archie, Graphics by Mudskip, UI Shell Code by ghoulslash, HP Bar Code + Small Bits from PSFs hack written by Rioluwott,Knowledge Download from Grunt Lucas, Inspired by psf's Start Menu Design, and Rioluwotts ROWE Design, https://github.com/TeamAquasHideout/pokeemerald/tree/full_start_menu
 
+Party Menu: Archie, https://github.com/TeamAquasHideout/pokeemerald/tree/gen5ish_party_menu
+
 # Assets Used
 Shared Asset Repo: https://github.com/Pawkkie/Team-Aquas-Asset-Repo
 
@@ -62,6 +64,7 @@ https://github.com/Liamjd14/Firered-Tileset-Port
 - Remove-the-extra-save-confirmation (https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation)
 
 - Add New Main and Start Meuns (Feature branches)
+- Add New Party Menu (Feature Branch)
 
 - New General Primary Tileset.
 - Import Parts of Fire red tileset port.
