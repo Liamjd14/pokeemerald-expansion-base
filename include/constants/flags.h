@@ -1333,10 +1333,10 @@
 #define FLAG_UNUSED_0x4F9                                           0x4F9 // Unused Flag
 #define FLAG_UNUSED_0x4FA                                           0x4FA // Unused Flag
 
-#define FLAG_DEFEATED_ELITE_4_SIDNEY                                0x4FB
-#define FLAG_DEFEATED_ELITE_4_PHOEBE                                0x4FC
-#define FLAG_DEFEATED_ELITE_4_GLACIA                                0x4FD
-#define FLAG_DEFEATED_ELITE_4_DRAKE                                 0x4FE
+#define FLAG_DEFEATED_ELITE_4_1                                     0x4FB // Sidney
+#define FLAG_DEFEATED_ELITE_4_2                                     0x4FC // Phoebie
+#define FLAG_DEFEATED_ELITE_4_3                                     0x4FD // Glacia
+#define FLAG_DEFEATED_ELITE_4_4                                     0x4FE // Drake
 
 #define FLAG_UNUSED_0x4FF                                           0x4FF // Unused Flag
 

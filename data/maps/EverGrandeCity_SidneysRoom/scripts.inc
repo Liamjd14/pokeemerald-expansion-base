@@ -27,7 +27,7 @@ EverGrandeCity_SidneysRoom_OnTransition:
 # 14 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 EverGrandeCity_SidneysRoom_OnLoad:
 # 15 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
-	call_if_set FLAG_DEFEATED_ELITE_4_SIDNEY, EverGrandeCity_SidneysRoom_EventScript_ResetAdvanceToNextRoom
+	call_if_set FLAG_DEFEATED_ELITE_4_1, EverGrandeCity_SidneysRoom_EventScript_ResetAdvanceToNextRoom
 # 16 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 	call_if_eq VAR_ELITE_4_STATE, 1, EverGrandeCity_SidneysRoom_EventScript_CloseDoor
 # 17 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
@@ -95,7 +95,7 @@ EverGrandeCity_SidneysRoom_EventScript_Sidney::
 # 48 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 	faceplayer
 # 49 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
-	goto_if_set FLAG_DEFEATED_ELITE_4_SIDNEY, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech
+	goto_if_set FLAG_DEFEATED_ELITE_4_1, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech
 # 50 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 # 51 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
@@ -121,7 +121,7 @@ EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech::
 # 61 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 EverGrandeCity_SidneysRoom_EventScript_Defeated::
 # 62 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
-	setflag FLAG_DEFEATED_ELITE_4_SIDNEY
+	setflag FLAG_DEFEATED_ELITE_4_1
 # 63 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 # 64 "data/maps/EverGrandeCity_SidneysRoom/scripts.pory"

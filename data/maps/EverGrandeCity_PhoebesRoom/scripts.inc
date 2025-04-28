@@ -53,7 +53,7 @@ EverGrandeCity_PhoebesRoom_EventScript_WalkInCloseDoor::
 # 27 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 EverGrandeCity_PhoebesRoom_OnLoad:
 # 28 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
-	call_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_ResetAdvanceToNextRoom
+	call_if_set FLAG_DEFEATED_ELITE_4_2, EverGrandeCity_PhoebesRoom_EventScript_ResetAdvanceToNextRoom
 # 29 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 	call_if_eq VAR_ELITE_4_STATE, 2, EverGrandeCity_PhoebesRoom_EventScript_CloseDoor
 # 30 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
@@ -83,7 +83,7 @@ EverGrandeCity_PhoebesRoom_EventScript_Phoebe::
 # 42 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 	faceplayer
 # 43 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
-	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech
+	goto_if_set FLAG_DEFEATED_ELITE_4_2, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech
 # 44 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 # 45 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
@@ -109,7 +109,7 @@ EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech::
 # 55 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 EverGrandeCity_PhoebesRoom_EventScript_Defeated::
 # 56 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
-	setflag FLAG_DEFEATED_ELITE_4_PHOEBE
+	setflag FLAG_DEFEATED_ELITE_4_2
 # 57 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 # 58 "data/maps/EverGrandeCity_PhoebesRoom/scripts.pory"

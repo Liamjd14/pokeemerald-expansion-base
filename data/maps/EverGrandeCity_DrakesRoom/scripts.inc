@@ -55,7 +55,7 @@ EverGrandeCity_DrakesRoom_EventScript_WalkInCloseDoor::
 # 28 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 EverGrandeCity_DrakesRoom_OnLoad:
 # 29 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
-	call_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_ResetAdvanceToNextRoom
+	call_if_set FLAG_DEFEATED_ELITE_4_4, EverGrandeCity_DrakesRoom_EventScript_ResetAdvanceToNextRoom
 # 30 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 	call_if_eq VAR_ELITE_4_STATE, 4, EverGrandeCity_DrakesRoom_EventScript_CloseDoor
 # 31 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
@@ -85,7 +85,7 @@ EverGrandeCity_DrakesRoom_EventScript_Drake::
 # 43 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 	faceplayer
 # 44 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
-	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
+	goto_if_set FLAG_DEFEATED_ELITE_4_4, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
 # 45 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 # 46 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
@@ -115,7 +115,7 @@ EverGrandeCity_DrakesRoom_EventScript_Defeated::
 # 58 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 	special Script_TryGainNewFanFromCounter
 # 59 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
-	setflag FLAG_DEFEATED_ELITE_4_DRAKE
+	setflag FLAG_DEFEATED_ELITE_4_4
 # 60 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 # 61 "data/maps/EverGrandeCity_DrakesRoom/scripts.pory"
