@@ -280,3 +280,23 @@ bool8 FlagGet(u16 id)
 u8 getCurrentSeason(void){
     return VarGet(VAR_CURRENT_SEASON);
 }
+
+void ClearDailyHiddenItemFlags(void)
+{
+    u32 i = 0;
+
+    for (i = FLAG_HIDDEN_ITEMS_START; i <= FLAG_HIDDEN_ITEMS_END; i++)
+    {
+        FlagClear(i);
+    }
+}
+
+void ClearDailyItemBallFlags(void)
+{
+    u32 i = 0;
+
+    for (i = FLAG_ITEM_ROUTE_102_POTION; i <= FLAG_UNUSED_0x4EF; i++)
+    {
+        FlagClear(i);
+    }
+}
