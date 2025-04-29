@@ -1505,7 +1505,7 @@ static const struct CompressedSpriteSheet sMoveSelectorSpriteSheet =
     .tag = TAG_MOVE_SELECTOR
 };
 
-static const struct CompressedSpritePalette sMoveSelectorSpritePal =
+static const struct SpritePalette sMoveSelectorSpritePal =
 {
     .data = sSummaryMoveSelect_Pal_BW,
     .tag = TAG_MOVE_SELECTOR
@@ -1599,7 +1599,7 @@ static const struct CompressedSpriteSheet sStatusIconsSpriteSheet =
     .tag = TAG_MON_STATUS
 };
 
-static const struct CompressedSpritePalette sStatusIconsSpritePalette =
+static const struct SpritePalette sStatusIconsSpritePalette =
 {
 #if BW_SUMMARY_BW_STATUS_ICONS == TRUE
     .data = sStatusPal_Icons,
@@ -2061,7 +2061,7 @@ static bool8 DecompressGraphics(void)
         sMonSummaryScreen->switchCounter++;
         break;
     case 8:
-        LoadCompressedPalette(sSummaryScreen_Pal_BW, BG_PLTT_ID(0), 8 * PLTT_SIZE_4BPP);
+        LoadPalette(sSummaryScreen_Pal_BW, BG_PLTT_ID(0), 8 * PLTT_SIZE_4BPP);
         LoadPalette(&sSummaryScreen_PPTextPalette_BW, BG_PLTT_ID(8) + 1, PLTT_SIZEOF(16 - 1));
         sMonSummaryScreen->switchCounter++;
         break;
@@ -2078,7 +2078,7 @@ static bool8 DecompressGraphics(void)
         sMonSummaryScreen->switchCounter++;
         break;
     case 12:
-        LoadCompressedSpritePalette(&sStatusIconsSpritePalette);
+        LoadSpritePalette(&sStatusIconsSpritePalette);
         sMonSummaryScreen->switchCounter++;
         break;
     case 13:
@@ -2090,7 +2090,7 @@ static bool8 DecompressGraphics(void)
         sMonSummaryScreen->switchCounter++;
         break;
     case 15:
-        LoadCompressedSpritePalette(&sMoveSelectorSpritePal);
+        LoadSpritePalette(&sMoveSelectorSpritePal);
         sMonSummaryScreen->switchCounter++;
         break;
     case 16:
@@ -2125,9 +2125,9 @@ static bool8 DecompressGraphics(void)
         break;
     case 22:
     #if BW_SUMMARY_BW_TYPE_ICONS == TRUE
-        LoadCompressedPalette(sMoveTypes_Pal_BW, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
+        LoadPalette(sMoveTypes_Pal_BW, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
     #else
-        LoadCompressedPalette(gMoveTypes_Pal, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
+        LoadPalette(gMoveTypes_Pal, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
     #endif
         sMonSummaryScreen->switchCounter++;
         break;
@@ -5097,7 +5097,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state, bool32 isShadow)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(summary->species2, summary->isShiny, summary->pid), summary->species2);
+        LoadSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(summary->species2, summary->isShiny, summary->pid), summary->species2);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;
