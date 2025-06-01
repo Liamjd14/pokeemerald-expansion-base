@@ -1508,7 +1508,7 @@
 
 #define FLAG_SYS_PKM_FORCE_SHINY                    (SYSTEM_FLAGS + 0x85) // Unused Flag
 #define FLAG_SYS_PKM_FORCE_NO_SHINY                 (SYSTEM_FLAGS + 0x86) // Unused Flag
-#define FLAG_SYS_OW_DISABLE_FOLLOWE                 (SYSTEM_FLAGS + 0x87) // Unused Flag
+#define FLAG_SYS_OW_DISABLE_FOLLOWER                 (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_SYS_OW_PAUSE_TIME                      (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_SYS_OW_NO_ENCOUNTER                    (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_SYS_OW_NO_TRAINER_SEE                  (SYSTEM_FLAGS + 0x8A) // Unused Flag
