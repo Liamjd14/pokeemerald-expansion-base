@@ -1685,10 +1685,10 @@ const u32 gCategoryIcons_Gfx[] = INCBIN_U32("graphics/interface/category_icons.4
 
 #if P_SUMMARY_SCREEN_NEW_TYPE_ICONS
 const u32 gMoveTypes_Gfx_New[] = INCBIN_U32("graphics/types_new/move_types_new.4bpp.lz");
-const u32 gMoveTypes_Pal_New[] = INCBIN_U32("graphics/types_new/move_types_new.gbapal.lz");
+const u16 gMoveTypes_Pal_New[] = INCBIN_U16("graphics/types_new/move_types_new.gbapal.lz");
 #else
 const u32 gMoveTypes_Gfx[] = INCBIN_U32("graphics/types/move_types.4bpp.lz");
-const u32 gMoveTypes_Pal[] = INCBIN_U32("graphics/types/move_types.gbapal.lz");
+const u16 gMoveTypes_Pal[] = INCBIN_U16("graphics/types/move_types.gbapal");
 #endif
 
 const u32 gSummaryMoveSelect_Gfx[] = INCBIN_U32("graphics/summary_screen/move_select.4bpp.lz");
@@ -1699,7 +1699,7 @@ const u32 gSummaryScreen_Gfx[]                = INCBIN_U32("graphics/summary_scr
 #else
 const u32 gSummaryScreen_Gfx[]                = INCBIN_U32("graphics/summary_screen/tiles.4bpp.lz");
 #endif // P_SUMMARY_SCREEN_IV_EV_TILESET
-const u32 gSummaryScreen_Pal[]                = INCBIN_U32("graphics/summary_screen/tiles.gbapal.lz");
+const u32 gSummaryScreen_Pal[]                = INCBIN_U32("graphics/summary_screen/tiles.gbapal");
 #if P_SUMMARY_SCREEN_EXPAND_ABILITY_DESCRIPTION
 const u32 gSummaryPage_Info_Tilemap[]         = INCBIN_U32("graphics/summary_screen/page_info_expanded.bin.lz");
 #else
