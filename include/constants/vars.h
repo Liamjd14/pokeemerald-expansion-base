@@ -271,7 +271,7 @@
 #define VAR_SYS_B_SKY_BATTLE                             0x40FB // Unused Var
 #define VAR_SYS_DN_SPECIES                               0x40FC // Unused Var
 #define VAR_SYS_DN_STEPCOUNT                             0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_SYS_CURRENT_SEASON                           0x40FE // Unused Var
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF
