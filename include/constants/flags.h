@@ -1536,11 +1536,11 @@
 #define FLAG_SYS_B_NO_WHITEOUT                      (SYSTEM_FLAGS + 0xA0) // Unused Flag
 #define FLAG_SYS_B_SKY_BATTLE                       (SYSTEM_FLAGS + 0xA1) // Unused Flag
 #define FLAG_SYS_SS_SUMMARY_SCREEN_IV_EV            (SYSTEM_FLAGS + 0xA2) // Unused Flag
-#define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3) // Unused Flag
-#define FLAG_UNUSED_0x904                           (SYSTEM_FLAGS + 0xA4) // Unused Flag
-#define FLAG_UNUSED_0x905                           (SYSTEM_FLAGS + 0xA5) // Unused Flag
-#define FLAG_UNUSED_0x906                           (SYSTEM_FLAGS + 0xA6) // Unused Flag
-#define FLAG_UNUSED_0x907                           (SYSTEM_FLAGS + 0xA7) // Unused Flag
+#define FLAG_SYS_MT_PARTY_MOVE_RELEARNER            (SYSTEM_FLAGS + 0xA3) // Unused Flag
+#define FLAG_SYS_MT_SCRIPT_MOVE_RELEARNER           (SYSTEM_FLAGS + 0xA4) // Unused Flag
+#define FLAG_SYS_MT_LEVEL_UP_MOVES                  (SYSTEM_FLAGS + 0xA5) // Unused Flag
+#define FLAG_SYS_MT_EGG_MOVES                       (SYSTEM_FLAGS + 0xA6) // Unused Flag
+#define FLAG_SYS_MT_TUTOR_MOVES                     (SYSTEM_FLAGS + 0xA7) // Unused Flag
 #define FLAG_UNUSED_0x908                           (SYSTEM_FLAGS + 0xA8) // Unused Flag
 #define FLAG_UNUSED_0x909                           (SYSTEM_FLAGS + 0xA9) // Unused Flag
 #define FLAG_UNUSED_0x90A                           (SYSTEM_FLAGS + 0xAA) // Unused Flag
