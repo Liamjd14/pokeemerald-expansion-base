@@ -131,6 +131,18 @@
       "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
       "x": 3,
       "y": 52
+    },
+    {
+      "id": "HEAL_LOCATION_OCEANVIEW",
+      "map": "MAP_OCEANVIEW",
+      "x": 9,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_RUSTBORO_CITY_2",
+      "map": "MAP_RUSTBORO_CITY",
+      "x": 20,
+      "y": 21
     }
   ]
 }

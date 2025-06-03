@@ -4410,6 +4410,56 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW",
+      "name": "Oceanview_Layout",
+      "width": 50,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Oceanview/border.bin",
+      "blockdata_filepath": "data/layouts/Oceanview/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_ENTERANCE",
+      "name": "OceanviewEnterance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/OceanviewEnterance/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewEnterance/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_WALK",
+      "name": "OceanviewWalk_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/OceanviewWalk/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewWalk/map.bin"
+    },
+    {
+      "id": "LAYOUT_THE_BACKWOODS",
+      "name": "TheBackwoods_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/TheBackwoods/border.bin",
+      "blockdata_filepath": "data/layouts/TheBackwoods/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORAL_COAST",
+      "name": "CoralCoast_Layout",
+      "width": 50,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/CoralCoast/border.bin",
+      "blockdata_filepath": "data/layouts/CoralCoast/map.bin"
     }
   ]
 }

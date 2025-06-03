@@ -1159,3 +1159,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/Oceanview/scripts.inc"
+
+	.include "data/maps/OceanviewEnterance/scripts.inc"
+
+	.include "data/maps/OceanviewWalk/scripts.inc"
+
+	.include "data/maps/TheBackwoods/scripts.inc"
+
+	.include "data/maps/CoralCoast/scripts.inc"
