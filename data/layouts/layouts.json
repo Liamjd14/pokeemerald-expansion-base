@@ -4457,9 +4457,19 @@
       "width": 50,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/CoralCoast/border.bin",
       "blockdata_filepath": "data/layouts/CoralCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_PORT_CORAL",
+      "name": "PortCoral_Layout",
+      "width": 80,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/PortCoral/border.bin",
+      "blockdata_filepath": "data/layouts/PortCoral/map.bin"
     }
   ]
 }

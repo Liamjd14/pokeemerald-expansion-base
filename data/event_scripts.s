@@ -1169,3 +1169,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TheBackwoods/scripts.inc"
 
 	.include "data/maps/CoralCoast/scripts.inc"
+
+	.include "data/maps/PortCoral/scripts.inc"

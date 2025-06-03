@@ -133,6 +133,12 @@
       "y": 52
     },
     {
+      "id": "HEAL_LOCATION_CORAL_COAST",
+      "map": "MAP_CORAL_COAST",
+      "x": 25,
+      "y": 20
+    },
+    {
       "id": "HEAL_LOCATION_OCEANVIEW",
       "map": "MAP_OCEANVIEW",
       "x": 9,
