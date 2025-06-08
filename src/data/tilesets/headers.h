@@ -1064,5 +1064,8 @@ const struct Tileset gTileset_EshosPrimary =
     .palettes = gTilesetPalettes_EshosPrimary,
     .metatiles = gMetatiles_EshosPrimary,
     .metatileAttributes = gMetatileAttributes_EshosPrimary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_General,
+    .palettes_summer = gTilesetPalettes_General_Summer,
+    .palettes_autumn = gTilesetPalettes_General_Autumn,
+    .palettes_winter = gTilesetPalettes_General_Winter,
 };
