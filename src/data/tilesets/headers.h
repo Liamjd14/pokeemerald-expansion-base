@@ -1055,3 +1055,14 @@ const struct Tileset gTileset_UnionRoom =
     .palettes_autumn = NULL,
     .palettes_winter = NULL,
 };
+
+const struct Tileset gTileset_EshosPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_EshosPrimary,
+    .palettes = gTilesetPalettes_EshosPrimary,
+    .metatiles = gMetatiles_EshosPrimary,
+    .metatileAttributes = gMetatileAttributes_EshosPrimary,
+    .callback = NULL,
+};
