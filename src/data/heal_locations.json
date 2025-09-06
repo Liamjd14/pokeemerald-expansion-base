@@ -131,6 +131,12 @@
       "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
       "x": 3,
       "y": 52
+    },
+    {
+      "id": "HEAL_LOCATION_SAFARI_ZONE_NORTHEAST",
+      "map": "MAP_SAFARI_ZONE_NORTHEAST",
+      "x": 20,
+      "y": 20
     }
   ]
 }

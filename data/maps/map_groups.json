@@ -38,8 +38,14 @@
     "gMapGroup_IndoorRoute113",
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
-    "gMapGroup_IndoorRoute124"
+    "gMapGroup_IndoorRoute124",
+    "gMapGroup_EshosSpecialArea"
   ],
+  "gMapGroup_IslandEXT": [],
+  "gMapGroup_IslandINT": [],
+  "gMapGroup_EshosEXT": [],
+  "gMapGroup_EshosDungeon": [],
+  "gMapGroup_EshosUnderground": [],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",
@@ -626,9 +632,7 @@
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
   ],
-  "gMapGroup_IslandEXT": [],
-  "gMapGroup_IslandINT": [],
-  "gMapGroup_EshosEXT": [],
-  "gMapGroup_EshosDungeon": [],
-  "gMapGroup_EshosUnderground": []
+  "gMapGroup_EshosSpecialArea": [
+    "SanctuaryVale"
+  ]
 }
