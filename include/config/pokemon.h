@@ -55,12 +55,12 @@
 #define P_EV_CAP                         GEN_LATEST  // Since Gen 6, the max EVs per stat is 252 instead of 255.
 #define P_SHOW_TERA_TYPE                 GEN_8       // Since Gen 9, the Tera Type is shown on the summary screen.
 #define P_TM_LITERACY                    GEN_LATEST  // Since Gen 6, TM illiterate Pokémon can learn TMs that teach moves that are in their level-up learnsets.
-#define P_CAN_FORGET_HIDDEN_MOVE         FALSE       // If TRUE, Pokémon can forget any move, even if it is a Hidden Move.
+#define P_CAN_FORGET_HIDDEN_MOVE         TRUE        // If TRUE, Pokémon can forget any move, even if it is a Hidden Move.
 #define P_ASK_MOVE_CONFIRMATION          FALSE       // If FALSE, when a player decides not to learn a Move, the game does not ask the player for confirmation.
 #define P_EGG_CYCLE_LENGTH               GEN_LATEST  // Since Gen 8, egg cycles take half as many steps as before. Previous Gens have some varied step counts around 255.
-#define P_ONLY_OBTAINABLE_SHINIES        FALSE       // If TRUE, Pokémon encountered in the Battle Pyramid or while catching is disabled won't be shiny.
-#define P_NO_SHINIES_WITHOUT_POKEBALLS   FALSE       // If TRUE, Pokémon encountered when the player is out of Poké Balls won't be shiny
-#define P_SHOW_DYNAMIC_TYPES             FALSE       // If TRUE, all moves with dynamic type changes will be reflected as their current type in battle/summary screens instead of just select ones like in vanilla.
+#define P_ONLY_OBTAINABLE_SHINIES        TRUE        // If TRUE, Pokémon encountered in the Battle Pyramid or while catching is disabled won't be shiny.
+#define P_NO_SHINIES_WITHOUT_POKEBALLS   TRUE        // If TRUE, Pokémon encountered when the player is out of Poké Balls won't be shiny
+#define P_SHOW_DYNAMIC_TYPES             TRUE        // If TRUE, all moves with dynamic type changes will be reflected as their current type in battle/summary screens instead of just select ones like in vanilla.
 
 // Learnset helper toggles
 #define P_LEARNSET_HELPER_TEACHABLE      TRUE   // If TRUE, teachable_learnsets.h will be populated by tools/learnset_helpers/make_teachables.py using the included JSON files based on available TMs and tutors.
@@ -69,25 +69,25 @@
 // Flag settings
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define P_FLAG_FORCE_SHINY               0  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
-#define P_FLAG_FORCE_NO_SHINY            0  // If this flag is set, all wild and gift Pokémon will forced into NOT being Shiny.
+#define P_FLAG_FORCE_SHINY               FLAG_P_FORCE_SHINY  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
+#define P_FLAG_FORCE_NO_SHINY            FLAG_P_FORCE_NO_SHINY  // If this flag is set, all wild and gift Pokémon will forced into NOT being Shiny.
 
 // Move Relearner settings
-#define P_VAR_MOVE_RELEARNER_STATE       0      // IMPORTANT! Assign a var to make the move relearner swap between level up, egg, TM and tutor.
+#define P_VAR_MOVE_RELEARNER_STATE       VAR_P_MOVE_RELEARNER_STATE      // IMPORTANT! Assign a var to make the move relearner swap between level up, egg, TM and tutor.
 
 #define P_ENABLE_MOVE_RELEARNERS         TRUE   // If TRUE, it enables move relearners for level up, egg, TM and tutor.
 #define P_PRE_EVO_MOVES                  FALSE  // If TRUE, it enables the Pokémon to learn moves from it's pre evolution.
 #define P_ENABLE_ALL_LEVEL_UP_MOVES      FALSE  // If TRUE, it enables the Pokémon to learn all level up moves, regardless of its level.
-#define P_ENABLE_ALL_TM_MOVES            FALSE  // If TRUE, it enables the Pokémon to learn all TMs its compatible with, regardless of it being in the bag.
+#define P_ENABLE_ALL_TM_MOVES            TRUE   // If TRUE, it enables the Pokémon to learn all TMs its compatible with, regardless of it being in the bag.
 #define P_SORT_MOVES                     FALSE  // If TRUE, sorts all moves alphabetically in the relearner's list.
 
 // Move Relearner flags
-#define P_FLAG_PARTY_MOVE_RELEARNER      0      // If this flag is set, it enables the move relearner in the party menu.
-#define P_FLAG_SCRIPT_MOVE_RELEARNER     0      // Set this flag if you're planning on using the move relearner script from data/scripts/move_relearner.inc
+#define P_FLAG_PARTY_MOVE_RELEARNER      FLAG_P_PARTY_MOVE_RELEARNER      // If this flag is set, it enables the move relearner in the party menu.
+#define P_FLAG_SCRIPT_MOVE_RELEARNER     FLAG_P_SCRIPT_MOVE_RELEARNER      // Set this flag if you're planning on using the move relearner script from data/scripts/move_relearner.inc
 // Redundant if P_ENABLE_MOVE_RELEARNERS is TRUE.
-#define P_FLAG_LEVEL_UP_MOVES            0      // If this flag is set, enables level up move relearner.
-#define P_FLAG_EGG_MOVES                 0      // If this flag is set, enables egg move relearner.
-#define P_FLAG_TUTOR_MOVES               0      // If this flag is set, enables tutor move move relearner.
+#define P_FLAG_LEVEL_UP_MOVES            FLAG_P_LEVEL_UP_MOVES      // If this flag is set, enables level up move relearner.
+#define P_FLAG_EGG_MOVES                 FLAG_P_EGG_MOVES      // If this flag is set, enables egg move relearner.
+#define P_FLAG_TUTOR_MOVES               FLAG_P_TUTOR_MOVES      // If this flag is set, enables tutor move move relearner.
 
 // Go here if you want to disable specific families of Pokémon.
 #include "config/species_enabled.h"
