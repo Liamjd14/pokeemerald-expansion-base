@@ -1055,3 +1055,25 @@ const struct Tileset gTileset_UnionRoom =
     .palettes_autumn = NULL,
     .palettes_winter = NULL,
 };
+
+const struct Tileset gTileset_PokecenterAlt =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokecenterAlt,
+    .palettes = gTilesetPalettes_PokecenterAlt,
+    .metatiles = gMetatiles_PokecenterAlt,
+    .metatileAttributes = gMetatileAttributes_PokecenterAlt,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_AutumnRuins =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_AutumnRuins,
+    .palettes = gTilesetPalettes_AutumnRuins,
+    .metatiles = gMetatiles_AutumnRuins,
+    .metatileAttributes = gMetatileAttributes_AutumnRuins,
+    .callback = NULL,
+};

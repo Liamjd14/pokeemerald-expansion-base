@@ -1634,3 +1634,41 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
 };
 
 const u32 gTilesetTiles_UnionRoom[] = INCBIN_U32("data/tilesets/secondary/union_room/tiles.4bpp.fastSmol");
+
+const u16 gTilesetPalettes_PokecenterAlt[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pokecenter_alt/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_PokecenterAlt[] = INCBIN_U32("data/tilesets/secondary/pokecenter_alt/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_AutumnRuins[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/autumn_ruins/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_AutumnRuins[] = INCBIN_U32("data/tilesets/secondary/autumn_ruins/tiles.4bpp.lz");

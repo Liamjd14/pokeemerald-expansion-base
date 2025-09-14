@@ -207,3 +207,9 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
+
+const u16 gMetatiles_PokecenterAlt[] = INCBIN_U16("data/tilesets/secondary/pokecenter_alt/metatiles.bin");
+const u16 gMetatileAttributes_PokecenterAlt[] = INCBIN_U16("data/tilesets/secondary/pokecenter_alt/metatile_attributes.bin");
+
+const u16 gMetatiles_AutumnRuins[] = INCBIN_U16("data/tilesets/secondary/autumn_ruins/metatiles.bin");
+const u16 gMetatileAttributes_AutumnRuins[] = INCBIN_U16("data/tilesets/secondary/autumn_ruins/metatile_attributes.bin");
