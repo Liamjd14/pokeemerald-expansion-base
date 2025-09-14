@@ -137,8 +137,47 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	release
-	end
+	lockall
+	dynmultichoice 0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, debugTest_Text_0, debugTest_Text_1, debugTest_Text_2, debugTest_Text_3
+	switch VAR_RESULT
+	case 0, debugTest_3
+	case 1, debugTest_4
+	case 2, debugTest_5
+	case 3, debugTest_6
+
+debugTest_1:
+	releaseall
+	return
+
+debugTest_3:
+	setvar VAR_SYS_CURRENT_SEASON, 0
+	goto debugTest_1
+
+debugTest_4:
+	setvar VAR_SYS_CURRENT_SEASON, 1
+	goto debugTest_1
+
+debugTest_5:
+	setvar VAR_SYS_CURRENT_SEASON, 2
+	goto debugTest_1
+
+debugTest_6:
+	setvar VAR_SYS_CURRENT_SEASON, 3
+	goto debugTest_1
+
+
+debugTest_Text_0:
+	.string "Spring$"
+
+debugTest_Text_1:
+	.string "Summer$"
+
+debugTest_Text_2:
+	.string "Autumn$"
+
+debugTest_Text_3:
+	.string "Winder$"
+
 
 Debug_EventScript_Script_2::
 	release
