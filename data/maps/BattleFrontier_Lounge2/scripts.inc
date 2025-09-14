@@ -1,369 +1,738 @@
+# 1 "data/maps/BattleFrontier_Lounge2/scripts.pory"
+
+# 2 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_MapScripts::
+# 3 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.byte 0
+# 4 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 5 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ This NPC gives hints about a random facility or battle mode.
+# 6 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ For battle modes he gives generic advice
+# 7 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ For facilities, depending on how far the player has progressed he will say either
+# 8 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @    The name of the Frontier Brain there
+# 9 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @    The type and description of the 3 pokemon they use in their silver battle
+# 10 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @    The type and description of the 3 pokemon they use in their gold battle
+# 11 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_FrontierManiac::
+# 12 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	lock
+# 13 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	faceplayer
+# 14 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	goto_if_set FLAG_MET_BATTLE_FRONTIER_MANIAC, BattleFrontier_Lounge2_EventScript_AlreadyMetManiac
+# 15 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	setflag FLAG_MET_BATTLE_FRONTIER_MANIAC
+# 16 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_FrontierManiacIntro, MSGBOX_DEFAULT
+# 17 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	goto BattleFrontier_Lounge2_EventScript_GiveAdvice
+# 18 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 19 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 20 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_AlreadyMetManiac::
+# 21 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_SwingByForTheLatestWord, MSGBOX_DEFAULT
+# 22 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	goto BattleFrontier_Lounge2_EventScript_GiveAdvice
+# 23 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 24 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 25 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_GiveAdvice::
+# 26 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_TOWER_SINGLES, BattleFrontier_Lounge2_EventScript_BufferSingle
+# 27 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_TOWER_DOUBLES, BattleFrontier_Lounge2_EventScript_BufferDouble
+# 28 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_TOWER_MULTIS, BattleFrontier_Lounge2_EventScript_BufferMulti
+# 29 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_TOWER_LINK, BattleFrontier_Lounge2_EventScript_BufferMultiLink
+# 30 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_DOME, BattleFrontier_Lounge2_EventScript_BufferBattleDome
+# 31 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_FACTORY, BattleFrontier_Lounge2_EventScript_BufferBattleFactory
+# 32 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_PALACE, BattleFrontier_Lounge2_EventScript_BufferBattlePalace
+# 33 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_ARENA, BattleFrontier_Lounge2_EventScript_BufferBattleArena
+# 34 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_PIKE, BattleFrontier_Lounge2_EventScript_BufferBattlePike
+# 35 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_eq VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_PYRAMID, BattleFrontier_Lounge2_EventScript_BufferBattlePyramid
+# 36 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ <= FRONTIER_MANIAC_TOWER_LINK is any Battle Tower mode
+# 37 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_le VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_TOWER_LINK, BattleFrontier_Lounge2_EventScript_BattleTowerNews
+# 38 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ >= FRONTIER_MANIAC_DOME is any facility other than Battle Tower
+# 39 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	call_if_ge VAR_FRONTIER_MANIAC_FACILITY, FRONTIER_MANIAC_DOME, BattleFrontier_Lounge2_EventScript_FacilityNews
+# 40 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	special ShowFrontierManiacMessage
+# 41 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	waitmessage
+# 42 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	waitbuttonpress
+# 43 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	release
+# 44 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 45 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 46 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BattleTowerNews::
+# 47 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_BattleTowerIsHottest, MSGBOX_DEFAULT
+# 48 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 49 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 50 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_FacilityNews::
+# 51 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_FacilityIsHottest, MSGBOX_DEFAULT
+# 52 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 53 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 54 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferSingle::
+# 55 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_SINGLE
+# 56 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 57 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 58 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferDouble::
+# 59 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_DOUBLE
+# 60 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 61 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 62 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferMulti::
+# 63 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_MULTI
+# 64 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 65 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 66 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferMultiLink::
+# 67 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_MULTI_LINK
+# 68 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 69 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 70 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattleDome::
+# 71 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_DOME
+# 72 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 73 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 74 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattleFactory::
+# 75 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_FACTORY
+# 76 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 77 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 78 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattlePalace::
+# 79 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_PALACE
+# 80 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 81 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 82 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattleArena::
+# 83 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_ARENA
+# 84 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 85 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 86 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattlePike::
+# 87 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_PIKE
+# 88 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 89 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 90 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_BufferBattlePyramid::
+# 91 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	bufferstdstring STR_VAR_1, STDSTRING_BATTLE_PYRAMID
+# 92 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	return
+# 93 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 94 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_Maniac1::
+# 95 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	lock
+# 96 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_NewsGatheringPower, MSGBOX_DEFAULT
+# 97 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	release
+# 98 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 99 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 100 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_Maniac2::
+# 101 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	lock
+# 102 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_AmazingPowersOfObservation, MSGBOX_DEFAULT
+# 103 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	release
+# 104 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 105 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 106 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_Maniac3::
+# 107 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	lock
+# 108 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_AmazingPowerOfPersuasion, MSGBOX_DEFAULT
+# 109 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	release
+# 110 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 111 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 112 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_EventScript_TriathleteF::
+# 113 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	msgbox BattleFrontier_Lounge2_Text_ThisPlaceIsScaringMe, MSGBOX_NPC
+# 114 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	end
+# 115 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 116 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_FrontierManiacIntro::
+# 117 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Howdy! When it comes to news about\n"
+# 118 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Battle Frontier, I'm no. 1.\p"
+# 119 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "You can think of me as\n"
+# 120 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Frontier Maniac.\p"
+# 121 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Just checking, but you are a Trainer,\n"
+# 122 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "isn't that right?\p"
+# 123 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "I'll happily share the hottest news\n"
+# 124 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "I gathered about the Battle Frontier.$"
+# 125 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 126 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_SwingByForTheLatestWord::
+# 127 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Howdy! Did you swing by to grill me\n"
+# 128 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "about the latest word? Oh, all right!$"
+# 129 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 130 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 @ Unused
+# 131 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_MyInformationsBeenUsefulRight::
+# 132 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Well? Well? Well?\p"
+# 133 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "I'm sure my information's been\n"
+# 134 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "seriously useful to you, right?$"
+# 135 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 136 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_FacilityIsHottest::
+# 137 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Let's see now…\p"
+# 138 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It sounds like the {STR_VAR_1}\n"
+# 139 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "is the hottest place going.$"
+# 140 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 141 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_BattleTowerIsHottest::
+# 142 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Let's see now…\p"
+# 143 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It sounds like Battle Tower\n"
+# 144 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "{STR_VAR_1} is the hottest.$"
+# 145 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 146 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_SalonMaidenIsThere::
+# 147 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 148 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 149 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 150 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this mysterious Trainer called\n"
+# 151 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Salon Maiden that runs the place.$"
+# 152 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 153 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_SalonMaidenSilverMons::
+# 154 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Salon Maiden?\p"
+# 155 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she's measuring up her opponent,\n"
+# 156 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she apparently uses these Pokémon:\p"
+# 157 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Psychic-type Psi Pokémon,\n"
+# 158 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Fire-type Volcano Pokémon,\l"
+# 159 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Normal-type Sleeping Pokémon.$"
+# 160 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 161 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_SalonMaidenGoldMons::
+# 162 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Salon Maiden\n"
+# 163 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when she's serious?\p"
+# 164 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she's battling flat out,\n"
+# 165 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she apparently uses these Pokémon:\p"
+# 166 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Dragon & Psychic Eon Pokémon,\n"
+# 167 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "an Electric-type Thunder Pokémon,\l"
+# 168 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Normal-type Sleeping Pokémon.$"
+# 169 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 170 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DomeAceIsThere::
+# 171 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 172 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 173 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 174 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this flamboyant Trainer called\n"
+# 175 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Dome Ace that runs the place.$"
+# 176 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 177 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DomeAceSilverMons::
+# 178 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Dome Ace?\p"
+# 179 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he's treating the opponent\n"
+# 180 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "lightly, he uses these three Pokémon:\p"
+# 181 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Dragon & Flying Dragon Pokémon,\n"
+# 182 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Water & Ground Mud Fish Pokémon,\l"
+# 183 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Fire & Flying Flame Pokémon.$"
+# 184 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 185 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DomeAceGoldMons::
+# 186 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Dome Ace\n"
+# 187 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when he's serious?\p"
+# 188 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he's demonstrating his strategy,\n"
+# 189 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "he uses these three Pokémon:\p"
+# 190 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Dragon & Flying Eon Pokémon,\n"
+# 191 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Water & Ground Mud Fish Pokémon,\l"
+# 192 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Steel- & Psychic-type Iron Leg\l"
+# 193 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Pokémon.$"
+# 194 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 195 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_FactoryHeadIsThere::
+# 196 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 197 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 198 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 199 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this freaky Trainer called\n"
+# 200 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Factory Head that runs the place.$"
+# 201 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 202 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_FactoryHeadSilverMons::
+# 203 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Factory Head\n"
+# 204 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "already?\p"
+# 205 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Let me think… When he goes to battle,\n"
+# 206 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "he just gets three rental Pokémon.\p"
+# 207 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "He battles under pretty much the same\n"
+# 208 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "conditions as you.$"
+# 209 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 210 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_FactoryHeadGoldMons::
+# 211 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Factory Head\n"
+# 212 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when he's serious?\p"
+# 213 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he goes seriously to battle,\n"
+# 214 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "he still gets three rental Pokémon.\p"
+# 215 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "He battles under virtually the same\n"
+# 216 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "conditions as you.$"
+# 217 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 218 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PikeQueenIsThere::
+# 219 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 220 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 221 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 222 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this scary Trainer called\n"
+# 223 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Pike Queen that runs the place.$"
+# 224 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 225 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PikeQueenSilverMons::
+# 226 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Pike Queen\n"
+# 227 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "before?\p"
+# 228 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she's in a good mood, they say\n"
+# 229 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she uses these three Pokémon:\p"
+# 230 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Poison-type Fang Snake Pokémon,\n"
+# 231 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Bug & Rock Mold Pokémon,\l"
+# 232 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Water-type Tender Pokémon.$"
+# 233 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 234 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PikeQueenGoldMons::
+# 235 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Pike Queen\n"
+# 236 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when she's serious?\p"
+# 237 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she's seriously annoyed, they say\n"
+# 238 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she uses these three Pokémon:\p"
+# 239 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Poison-type Fang Snake Pokémon,\n"
+# 240 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Steel & Ground Iron Snake Pokémon,\l"
+# 241 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Water- & Flying-type Atrocious\l"
+# 242 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Pokémon.$"
+# 243 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 244 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_ArenaTycoonIsThere::
+# 245 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 246 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 247 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 248 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this cute Trainer called\n"
+# 249 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Arena Tycoon that runs the place.$"
+# 250 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 251 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_ArenaTycoonSilverMons::
+# 252 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Arena Tycoon\n"
+# 253 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "before?\p"
+# 254 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she's assessing the foe's ability,\n"
+# 255 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she supposedly uses these Pokémon:\p"
+# 256 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Bug & Fighting Single Horn Pokémon,\n"
+# 257 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Dark-type Moonlight Pokémon,\l"
+# 258 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Bug & Ghost Shed Pokémon.$"
+# 259 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 260 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_ArenaTycoonGoldMons::
+# 261 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Arena Tycoon\n"
+# 262 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when she's serious?\p"
+# 263 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When she battles for keeps,\n"
+# 264 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "she supposedly uses these Pokémon:\p"
+# 265 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Dark-type Moonlight Pokémon,\n"
+# 266 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Ghost & Poison Shadow Pokémon\l"
+# 267 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Grass- & Fighting-type\l"
+# 268 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Mushroom Pokémon.$"
+# 269 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 270 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PalaceMavenIsThere::
+# 271 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 272 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 273 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 274 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this sinister Trainer called\n"
+# 275 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Palace Maven that runs the place.$"
+# 276 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 277 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PalaceMavenSilverMons::
+# 278 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Palace Maven\n"
+# 279 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "before?\p"
+# 280 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he's testing the opponent's\n"
+# 281 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "spirit, he's said to use these Pokémon:\p"
+# 282 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Poison & Flying-type Bat Pokémon,\n"
+# 283 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Normal-type Lazy Pokémon, and a\l"
+# 284 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Water- & Ice-type Transport Pokémon.$"
+# 285 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 286 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PalaceMavenGoldMons::
+# 287 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Palace Maven\n"
+# 288 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when he's serious?\p"
+# 289 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he throws his entire might into\n"
+# 290 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "battle, he's said to use these Pokémon:\p"
+# 291 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Fire-type Legendary Pokémon,\n"
+# 292 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "a Normal-type Lazy Pokémon,\l"
+# 293 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Water-type Aurora Pokémon.$"
+# 294 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 295 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PyramidKingIsThere::
+# 296 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Bet you didn't know this!\p"
+# 297 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "One of those top Trainers that Scott\n"
+# 298 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "calls the Frontier Brains is there.\p"
+# 299 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's this fiery-hot Trainer called\n"
+# 300 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Pyramid King that runs the place.$"
+# 301 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 302 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PyramidKingSilverMons::
+# 303 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Pyramid King\n"
+# 304 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "before?\p"
+# 305 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he's checking the foe's power,\n"
+# 306 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "he apparently uses these Pokémon:\p"
+# 307 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "A Rock-type Rock Peak Pokémon,\n"
+# 308 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "an Ice-type Iceberg Pokémon,\l"
+# 309 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Steel-type Iron Pokémon.$"
+# 310 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 311 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_PyramidKingGoldMons::
+# 312 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Have you battled the Pyramid King\n"
+# 313 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "when he's serious?\p"
+# 314 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "When he's pumped with hot power,\n"
+# 315 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "he apparently uses these Pokémon:\p"
+# 316 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "An Ice & Flying Freeze Pokémon, an\n"
+# 317 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Electric & Flying Electric Pokémon,\l"
+# 318 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "and a Fire- & Flying-type Flame\l"
+# 319 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Pokémon.$"
+# 320 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 321 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DoubleBattleAdvice1::
+# 322 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Sure, there are several places where\n"
+# 323 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "you can enter Double Battles.\p"
+# 324 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "But the Double Battle Rooms of\n"
+# 325 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Battle Tower are, like, basic!\p"
+# 326 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "They're where you should learn about\n"
+# 327 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "how Double Battles are played here\l"
+# 328 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "in the Battle Frontier.$"
+# 329 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 330 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DoubleBattleAdvice2::
+# 331 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Watch yourself in the battles here.\p"
+# 332 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "I hear there are Trainers that have\n"
+# 333 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "strategies they developed just for\l"
+# 334 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Double Battles.$"
+# 335 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 336 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_DoubleBattleAdvice3::
+# 337 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Once you're confident and comfortable\n"
+# 338 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "with Double Battles here, you should\l"
+# 339 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "think about challenging other places\l"
+# 340 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "offering Double Battles.$"
+# 341 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 342 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_MultiBattleAdvice::
+# 343 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "All sorts of Trainers gather in\n"
+# 344 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "the Battle Salon.\p"
+# 345 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Just think--you may run into your\n"
+# 346 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "friends or followers!\l"
+# 347 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "You should look carefully!$"
+# 348 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 349 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_LinkMultiBattleAdvice::
+# 350 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "If you're with a friend, head for the\n"
+# 351 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "Link Multi Battle Room.\p"
+# 352 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "If you play with a strong friend,\n"
+# 353 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "you can expect to see tough foes!$"
+# 354 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 355 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_NewsGatheringPower::
+# 356 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "What amazing news-gathering power!\n"
+# 357 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "My mentor's like none other!$"
+# 358 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 359 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_AmazingPowersOfObservation::
+# 360 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "What amazing powers of observation!\n"
+# 361 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "My mentor's like none other!$"
+# 362 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 363 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_AmazingPowerOfPersuasion::
+# 364 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "What amazing power of persuasion!\n"
+# 365 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "My mentor's like none other!$"
+# 366 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 
+# 367 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 BattleFrontier_Lounge2_Text_ThisPlaceIsScaringMe::
+# 368 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "…What is this place?\n"
+# 369 "data/maps/BattleFrontier_Lounge2/scripts.pory"
 	.string "It's scaring me…$"
-
