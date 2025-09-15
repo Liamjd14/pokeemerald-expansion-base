@@ -2997,36 +2997,54 @@ void ShowFinalMessage(void)
 static u8 GetSpeciesGachaLevel(void)
 {
     u32 level, levelCap, minLevel, addedLevelRange, i;
-    static const u32 sLevelGachaFlagMap[][3] =
-    {
-        {FLAG_BADGE01_GET, 5, 6},
-        {FLAG_BADGE02_GET, 7, 5},
-        {FLAG_BADGE03_GET, 13, 7},
-        {FLAG_BADGE04_GET, 18, 5},
-        {FLAG_BADGE05_GET, 19, 9},
-        {FLAG_BADGE06_GET, 21, 9},
-        {FLAG_BADGE07_GET, 28, 8},
-        {FLAG_BADGE08_GET, 36, 14},
-        {FLAG_IS_CHAMPION, 40, 29},
-    };
 
-    minLevel = 2;
-    addedLevelRange = 4;
-
-    for (i = 0; i < ARRAY_COUNT(sLevelGachaFlagMap); i++)
-    {
-        if (FlagGet(sLevelGachaFlagMap[i][0]))
-        {
-            minLevel = sLevelGachaFlagMap[i][1];
-            addedLevelRange = sLevelGachaFlagMap[i][2];
-        }
+    if(FlagGet(FLAG_BADGE01_GET) == TRUE){
+        minLevel = 5;
+        addedLevelRange = 3;
+        levelCap = 7;
+    }
+    if(FlagGet(FLAG_BADGE02_GET) == TRUE){
+        minLevel = 7;
+        addedLevelRange = 3;
+        levelCap = 10;        
+    }
+    if(FlagGet(FLAG_BADGE03_GET) == TRUE){
+        minLevel = 13;
+        addedLevelRange = 3;
+        levelCap = 16;        
+    }
+    if(FlagGet(FLAG_BADGE04_GET) == TRUE){
+        minLevel = 18;
+        addedLevelRange = 3;
+        levelCap = 21;        
+    }
+    if(FlagGet(FLAG_BADGE05_GET) == TRUE){
+        minLevel = 19;
+        addedLevelRange = 3;
+        levelCap = 25;        
+    }
+    if(FlagGet(FLAG_BADGE06_GET) == TRUE){
+        minLevel = 21;
+        addedLevelRange = 3;
+        levelCap = 27;        
+    }
+    if(FlagGet(FLAG_BADGE07_GET) == TRUE){
+        minLevel = 28;
+        addedLevelRange = 3;
+        levelCap = 31;        
+    }
+    if(FlagGet(FLAG_BADGE08_GET) == TRUE){
+        minLevel = 36;
+        addedLevelRange = 3;
+        levelCap = 40;        
+    }
+    if(FlagGet(FLAG_IS_CHAMPION) == TRUE){
+        minLevel = 45;
+        addedLevelRange = 3;
+        levelCap = 50;        
     }
 
-    addedLevelRange += 1;
-
     level = (Random() % addedLevelRange) + minLevel;
-
-    levelCap = GetCurrentLevelCap();
 
     if (level > levelCap)
         return levelCap;
