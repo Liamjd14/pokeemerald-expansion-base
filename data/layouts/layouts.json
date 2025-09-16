@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_AutumnRuins",
       "border_filepath": "data/layouts/AutumnRuinsTest/border.bin",
       "blockdata_filepath": "data/layouts/AutumnRuinsTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_DISTORTIO_WORLD_TEST",
+      "name": "DistortioWorldTest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DistortionWorld",
+      "border_filepath": "data/layouts/DistortioWorldTest/border.bin",
+      "blockdata_filepath": "data/layouts/DistortioWorldTest/map.bin"
     }
   ]
 }

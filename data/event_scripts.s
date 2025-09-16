@@ -1166,3 +1166,5 @@ EventScript_VsSeekerChargingDone::
 
 	.include "data/maps/AutumnRuinsTest/scripts.inc"
 
+
+	.include "data/maps/DistortioWorldTest/scripts.inc"

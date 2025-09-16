@@ -213,3 +213,6 @@ const u16 gMetatileAttributes_PokecenterAlt[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_AutumnRuins[] = INCBIN_U16("data/tilesets/secondary/autumn_ruins/metatiles.bin");
 const u16 gMetatileAttributes_AutumnRuins[] = INCBIN_U16("data/tilesets/secondary/autumn_ruins/metatile_attributes.bin");
+
+const u16 gMetatiles_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatiles.bin");
+const u16 gMetatileAttributes_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatile_attributes.bin");
