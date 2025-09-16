@@ -1691,3 +1691,22 @@ const u16 gTilesetPalettes_DistortionWorld[][16] =
 };
 
 const u32 gTilesetTiles_DistortionWorld[] = INCBIN_U32("data/tilesets/secondary/distortion_world/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Gathouse[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/gathouse/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Gathouse[] = INCBIN_U32("data/tilesets/secondary/gathouse/tiles.4bpp.lz");

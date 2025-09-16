@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_DistortionWorld",
       "border_filepath": "data/layouts/DistortioWorldTest/border.bin",
       "blockdata_filepath": "data/layouts/DistortioWorldTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GATEHOUSE_TEST",
+      "name": "GatehouseTest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gathouse",
+      "border_filepath": "data/layouts/GatehouseTest/border.bin",
+      "blockdata_filepath": "data/layouts/GatehouseTest/map.bin"
     }
   ]
 }

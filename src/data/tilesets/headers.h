@@ -1088,3 +1088,14 @@ const struct Tileset gTileset_DistortionWorld =
     .metatileAttributes = gMetatileAttributes_DistortionWorld,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Gathouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Gathouse,
+    .palettes = gTilesetPalettes_Gathouse,
+    .metatiles = gMetatiles_Gathouse,
+    .metatileAttributes = gMetatileAttributes_Gathouse,
+    .callback = NULL,
+};

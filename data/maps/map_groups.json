@@ -625,6 +625,7 @@
   "gMapGroup_TilesetTests": [
     "PokecenterTest",
     "AutumnRuinsTest",
-    "DistortioWorldTest"
+    "DistortioWorldTest",
+    "GatehouseTest"
   ]
 }

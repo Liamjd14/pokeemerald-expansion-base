@@ -216,3 +216,6 @@ const u16 gMetatileAttributes_AutumnRuins[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatiles.bin");
 const u16 gMetatileAttributes_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatile_attributes.bin");
+
+const u16 gMetatiles_Gathouse[] = INCBIN_U16("data/tilesets/secondary/gathouse/metatiles.bin");
+const u16 gMetatileAttributes_Gathouse[] = INCBIN_U16("data/tilesets/secondary/gathouse/metatile_attributes.bin");
