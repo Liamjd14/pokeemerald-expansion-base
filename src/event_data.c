@@ -75,7 +75,7 @@ void ClearDailyHiddenItemFlags(void)
 {
     u32 i = 0;
 
-    for (i = FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL; i <= FLAG_UNUSED_0x2BB; i++)
+    for (i = FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL; i <= FLAG_HIDDEN_ITEM_STELLAR_TERA_SHARD; i++)
     {
         FlagClear(i);
     }

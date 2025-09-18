@@ -1,0 +1,68 @@
+mapscripts GrassPlate_MapScripts {
+    MAP_SCRIPT_ON_LOAD: GrassPlate_OnLoad
+}
+
+script GrassPlate_OnLoad {
+    call_if_unset(FLAG_HIDDEN_ITEM_ROCK_TERA_SHARD, GrassPlate_Entrance)
+    end
+}
+
+script GrassPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script GrassPlate_Battle {
+    lockall
+    playmoncry(SPECIES_WYRDEER, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    //setwildbattle(SPECIES_WYRDEER, 50, [ITEM_NORMAL_GEM])
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_WYRDEER, 50, [ITEM_NORMAL_GEM], , , 0, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_UPROAR], [MOVE_PSYSHOCK], [MOVE_SHADOW_BALL], [MOVE_EARTH_POWER])
+    settotemboost(B_BATTLER_1, 0, 0, 2, 2, 0, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(GrassPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(GrassPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(GrassPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(GrassPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    releaseall
+}
+
+script GrassPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Wyrdeer dissapeared in to the cave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_BLANK_PLATE)
+    msgbox("There is an engraving on the Plate", [MSGBOX_DEFAULT])
+    msgbox("Three beings whose power can hold both\ntime and space fixed.", [MSGBOX_DEFAULT])
+    return
+}
+
+script GrassPlateRun {
+    playmoncry(SPECIES_WYRDEER, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}

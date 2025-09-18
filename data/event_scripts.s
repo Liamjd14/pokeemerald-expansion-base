@@ -1172,3 +1172,39 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/GatehouseTest/scripts.inc"
 
 	.include "data/maps/EmbershadeRuinsExt/scripts.inc"
+
+	.include "data/maps/NormalPlate/scripts.inc"
+
+	.include "data/maps/BugPlate/scripts.inc"
+
+	.include "data/maps/GrassPlate/scripts.inc"
+
+	.include "data/maps/IcePlate/scripts.inc"
+
+	.include "data/maps/WaterPlate/scripts.inc"
+
+	.include "data/maps/FirePlate/scripts.inc"
+
+	.include "data/maps/GroundPlate/scripts.inc"
+
+	.include "data/maps/RockPlate/scripts.inc"
+
+	.include "data/maps/PoisonPlate/scripts.inc"
+
+	.include "data/maps/DarkPlate/scripts.inc"
+
+	.include "data/maps/GhostPlare/scripts.inc"
+
+	.include "data/maps/PsychicPlate/scripts.inc"
+
+	.include "data/maps/SteelPlate/scripts.inc"
+
+	.include "data/maps/FlyingPlate/scripts.inc"
+
+	.include "data/maps/DragonPlate/scripts.inc"
+
+	.include "data/maps/FairyPlate/scripts.inc"
+
+	.include "data/maps/EletricPlate/scripts.inc"
+
+	.include "data/maps/FightingPlate/scripts.inc"
