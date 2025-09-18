@@ -34,7 +34,8 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_TilesetTests"
+    "gMapGroup_TilesetTests",
+    "gMapGroup_TempLocations"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -627,5 +628,8 @@
     "AutumnRuinsTest",
     "DistortioWorldTest",
     "GatehouseTest"
+  ],
+  "gMapGroup_TempLocations": [
+    "EmbershadeRuinsExt"
   ]
 }

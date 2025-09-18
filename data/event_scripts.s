@@ -1170,3 +1170,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DistortioWorldTest/scripts.inc"
 
 	.include "data/maps/GatehouseTest/scripts.inc"
+
+	.include "data/maps/EmbershadeRuinsExt/scripts.inc"

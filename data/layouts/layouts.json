@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Gathouse",
       "border_filepath": "data/layouts/GatehouseTest/border.bin",
       "blockdata_filepath": "data/layouts/GatehouseTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_EMBERSHADE_RUINS_EXT",
+      "name": "EmbershadeRuinsExt_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AutumnRuins",
+      "border_filepath": "data/layouts/EmbershadeRuinsExt/border.bin",
+      "blockdata_filepath": "data/layouts/EmbershadeRuinsExt/map.bin"
     }
   ]
 }
