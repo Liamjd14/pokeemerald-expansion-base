@@ -4460,6 +4460,26 @@
       "secondary_tileset": "gTileset_AutumnRuins",
       "border_filepath": "data/layouts/EmbershadeRuinsExt/border.bin",
       "blockdata_filepath": "data/layouts/EmbershadeRuinsExt/map.bin"
+    },
+    {
+      "id": "LAYOUT_NORMAL_PLATE",
+      "name": "NormalPlate_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/NormalPlate/border.bin",
+      "blockdata_filepath": "data/layouts/NormalPlate/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLATE_CAVERNS_DEBUG_MAP",
+      "name": "PlateCavernsDebugMap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PlateCavernsDebugMap/border.bin",
+      "blockdata_filepath": "data/layouts/PlateCavernsDebugMap/map.bin"
     }
   ]
 }

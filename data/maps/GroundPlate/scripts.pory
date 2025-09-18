@@ -1,0 +1,114 @@
+mapscripts GroundPlate_MapScripts {
+    MAP_SCRIPT_ON_LOAD: GroundPlate_OnLoad
+}
+
+script GroundPlate_OnLoad {
+    call_if_unset(FLAG_GROUND_PC, GroundPlate_Entrance)
+    call(GroundPlate_IsGemCollected)
+    call(GroundPlate_ConditionCheck)
+    end
+}
+
+script GroundPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script GroundPlate_Battle {
+    lockall
+    playmoncry(SPECIES_URSALUNA, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_URSALUNA, 50, [ITEM_GROUND_GEM], , NATURE_JOLLY, 0, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_FACADE], [MOVE_HEADLONG_RUSH], [MOVE_FIRE_PUNCH], [MOVE_ICE_PUNCH])
+    settotemboost(B_BATTLER_1, 2, 0, 2, 0, 0, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(GroundPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(GroundPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(GroundPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(GroundPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_GROUND_PC1)
+    releaseall
+}
+
+script GroundPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Ursaluna dissapeared in to th\ncave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_EARTH_PLATE)
+    msgbox("There is an engraving on the Plate.", [MSGBOX_DEFAULT])
+    msgbox("When the universe was created, it's\nshards became this Plate.", [MSGBOX_DEFAULT])
+    return
+}
+
+script GroundPlateRun {
+    playmoncry(SPECIES_URSALUNA, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+script GroundPlate_IsGemCollected {
+    if(flag(FLAG_HIDDEN_ITEM_GROUND_GEM) == TRUE){
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+    }
+    else{
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Large, TRUE)
+    }
+    return
+}
+
+script GroundPlate_CollectGem {
+    lockall
+    if(flag(FLAG_HIDDEN_ITEM_GROUND_GEM) == TRUE){
+        msgbox("The Gem Cluster has Shrunken", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("There is a large gem cluster here,\nCollect it?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == 1){
+            giveitem(ITEM_GROUND_GEM)
+            setflag(FLAG_HIDDEN_ITEM_GROUND_GEM)
+            fadescreen(FADE_TO_BLACK)
+            warp(MAP_GROUND_PLATE, 7, 20)
+            setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+        }
+    }
+    releaseall
+}
+
+script GroundPlate_ConditionCheck {
+    if(flag(FLAG_CAUGHT_MESPIRT) == TRUE){
+        if(flag(FLAG_CAUGHT_AZELF) == TRUE){
+            if(flag(FLAG_CAUGHT_UXIE) == TRUE){
+                checkitem(ITEM_GROUND_GEM, 1)
+                if(var(VAR_RESULT) == TRUE){
+                    setflag(FLAG_GROUND_PC)
+                }
+            }
+        }
+    }
+    return
+}

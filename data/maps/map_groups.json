@@ -35,7 +35,8 @@
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
     "gMapGroup_TilesetTests",
-    "gMapGroup_TempLocations"
+    "gMapGroup_TempLocations",
+    "gMapGroup_PlateCaverns"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -631,5 +632,26 @@
   ],
   "gMapGroup_TempLocations": [
     "EmbershadeRuinsExt"
+  ],
+  "gMapGroup_PlateCaverns": [
+    "NormalPlate",
+    "BugPlate",
+    "FirePlate",
+    "GrassPlate",
+    "WaterPlate",
+    "IcePlate",
+    "PoisonPlate",
+    "RockPlate",
+    "GroundPlate",
+    "SteelPlate",
+    "GhostPlare",
+    "DarkPlate",
+    "PsychicPlate",
+    "DragonPlate",
+    "FairyPlate",
+    "FightingPlate",
+    "EletricPlate",
+    "FlyingPlate",
+    "PlateCavernsDebugMap"
   ]
 }

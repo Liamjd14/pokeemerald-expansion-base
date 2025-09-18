@@ -1106,6 +1106,68 @@ EventScript_VsSeekerChargingDone::
 	releaseall
 	end
 
+Common_EventScript_PlateCavernDoorOpen::
+	lockall
+	goto_if_set FLAG_NORMAL_PC, Common_EventScript_PlateCavernDoorOpen_2
+	goto_if_set FLAG_CAN_TRANSLATE_GLYPHS, Common_EventScript_PlateCavernDoorOpen_5
+	braillemsgbox PlateCaverns1
+	braillemsgbox PlateCaverns2
+	braillemsgbox PlateCaverns3
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_4, MSGBOX_AUTOCLOSE
+Common_EventScript_PlateCavernDoorOpen_1:
+	releaseall
+	return
+
+Common_EventScript_PlateCavernDoorOpen_2:
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_0, MSGBOX_DEFAULT
+	goto Common_EventScript_PlateCavernDoorOpen_1
+
+Common_EventScript_PlateCavernDoorOpen_5:
+	braillemsgbox PlateCaverns1
+	braillemsgbox PlateCaverns2
+	braillemsgbox PlateCaverns3
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_1, MSGBOX_DEFAULT
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_2, MSGBOX_DEFAULT
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_3, MSGBOX_DEFAULT
+	goto Common_EventScript_PlateCavernDoorOpen_1
+
+
+Common_EventScript_PlateCavernWall::
+	lockall
+	goto_if_set FLAG_CAN_TRANSLATE_GLYPHS, Common_EventScript_PlateCavernWall_2
+	braillemsgbox PlateCaverns1
+	braillemsgbox PlateCaverns2
+	braillemsgbox PlateCaverns3
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_4, MSGBOX_AUTOCLOSE
+Common_EventScript_PlateCavernWall_1:
+	releaseall
+	return
+
+Common_EventScript_PlateCavernWall_2:
+	braillemsgbox PlateCaverns1
+	braillemsgbox PlateCaverns2
+	braillemsgbox PlateCaverns3
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_1, MSGBOX_DEFAULT
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_2, MSGBOX_DEFAULT
+	msgbox Common_EventScript_PlateCavernDoorOpen_Text_3, MSGBOX_DEFAULT
+	goto Common_EventScript_PlateCavernWall_1
+
+
+Common_EventScript_PlateCavernDoorOpen_Text_0:
+	.string "There is a large hole in the wall!$"
+
+Common_EventScript_PlateCavernDoorOpen_Text_1:
+	.string "A being of Knowledge, Emotion,\nWillpower.$"
+
+Common_EventScript_PlateCavernDoorOpen_Text_2:
+	.string "A gem made with the power of\na type.$"
+
+Common_EventScript_PlateCavernDoorOpen_Text_3:
+	.string "These make the key to unlock\nthe cavern.$"
+
+Common_EventScript_PlateCavernDoorOpen_Text_4:
+	.string "The wall is covered in an ancient\nlanguage that is unreadable.$"
+
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/questionnaire.inc"
 	.include "data/scripts/abnormal_weather.inc"
@@ -1172,3 +1234,41 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/GatehouseTest/scripts.inc"
 
 	.include "data/maps/EmbershadeRuinsExt/scripts.inc"
+
+	.include "data/maps/NormalPlate/scripts.inc"
+
+	.include "data/maps/BugPlate/scripts.inc"
+
+	.include "data/maps/GrassPlate/scripts.inc"
+
+	.include "data/maps/IcePlate/scripts.inc"
+
+	.include "data/maps/WaterPlate/scripts.inc"
+
+	.include "data/maps/FirePlate/scripts.inc"
+
+	.include "data/maps/GroundPlate/scripts.inc"
+
+	.include "data/maps/RockPlate/scripts.inc"
+
+	.include "data/maps/PoisonPlate/scripts.inc"
+
+	.include "data/maps/DarkPlate/scripts.inc"
+
+	.include "data/maps/GhostPlare/scripts.inc"
+
+	.include "data/maps/PsychicPlate/scripts.inc"
+
+	.include "data/maps/SteelPlate/scripts.inc"
+
+	.include "data/maps/FlyingPlate/scripts.inc"
+
+	.include "data/maps/DragonPlate/scripts.inc"
+
+	.include "data/maps/FairyPlate/scripts.inc"
+
+	.include "data/maps/EletricPlate/scripts.inc"
+
+	.include "data/maps/FightingPlate/scripts.inc"
+
+	.include "data/maps/PlateCavernsDebugMap/scripts.inc"

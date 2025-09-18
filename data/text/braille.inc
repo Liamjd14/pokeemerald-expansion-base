@@ -115,3 +115,31 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+Test_Braille1:
+	brailleformat 5, 0, 25, 19, 8, 3
+	.braille "ROCK SMASH\n"
+	.braille "I AM ALIVE\n"
+	.braille "HELLO WORLD\n"
+	.braille "END TRANSMISSION.$"
+
+PlateCaverns1:
+	brailleformat 5, 0, 25, 19, 8, 3
+	.braille "A BEING OF\n"
+	.braille "KNOWLEDGE,\n"
+	.braille "EMOTION,\n"
+	.braille "WILLPOWER..$"
+
+PlateCaverns2:
+	brailleformat 5, 0, 25, 19, 8, 3
+	.braille "A GEM MADE\n"
+	.braille "WITH THE\n"
+	.braille "POWER OF\n"
+	.braille "A TYPE.$"
+
+PlateCaverns3:
+	brailleformat 5, 0, 25, 19, 8, 3
+	.braille "THESE MAKE\n"
+	.braille "THE KEY TO\n"
+	.braille "UNLOCK THE\n"
+	.braille "CAVERN..$"

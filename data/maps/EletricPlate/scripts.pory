@@ -1,0 +1,114 @@
+mapscripts EletricPlate_MapScripts {
+    MAP_SCRIPT_ON_LOAD: EletricPlate_OnLoad
+}
+
+script EletricPlate_OnLoad {
+    call_if_unset(FLAG_ELECTRIC_PC, EletricPlate_Entrance)
+    call(EletricPlate_IsGemCollected)
+    call(EletricPlate_ConditionCheck)
+    end
+}
+
+script EletricPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script EletricPlate_Battle {
+    lockall
+    playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_ELECTRODE_HISUI, 50, [ITEM_ELECTRIC_GEM], , NATURE_TIMID, 2, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_TAUNT], [MOVE_LEAF_STORM], [MOVE_THUNDERBOLT], [MOVE_VOLT_SWITCH])
+    settotemboost(B_BATTLER_1, 0, 0, 2, 2, 0, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(EletricPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(EletricPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(EletricPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(EletricPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_ELECTRIC_PC1)
+    releaseall
+}
+
+script EletricPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Electrode dissapeared in to the\ncave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_ZAP_PLATE)
+    msgbox("There is an engraving on the Plate.", [MSGBOX_DEFAULT])
+    msgbox("The third being raged, raining down\nbolts of anger.", [MSGBOX_DEFAULT])
+    return
+}
+
+script EletricPlateRun {
+    playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+script EletricPlate_IsGemCollected {
+    if(flag(FLAG_HIDDEN_ITEM_ELETRIC_GEM) == TRUE){
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+    }
+    else{
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Large, TRUE)
+    }
+    return
+}
+
+script EletricPlate_CollectGem {
+    lockall
+    if(flag(FLAG_HIDDEN_ITEM_ELETRIC_GEM) == TRUE){
+        msgbox("The Gem Cluster has Shrunken", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("There is a large gem cluster here,\nCollect it?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == 1){
+            giveitem(ITEM_ELECTRIC_GEM)
+            setflag(FLAG_HIDDEN_ITEM_ELETRIC_GEM)
+            fadescreen(FADE_TO_BLACK)
+            warp(MAP_ELETRIC_PLATE, 7, 20)
+            setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+        }
+    }
+    releaseall
+}
+
+script EletricPlate_ConditionCheck {
+    if(flag(FLAG_CAUGHT_MESPIRT) == TRUE){
+        if(flag(FLAG_CAUGHT_AZELF) == TRUE){
+            if(flag(FLAG_CAUGHT_UXIE) == TRUE){
+                checkitem(ITEM_ELECTRIC_GEM, 1)
+                if(var(VAR_RESULT) == TRUE){
+                    setflag(FLAG_ELECTRIC_PC)
+                }
+            }
+        }
+    }
+    return
+}

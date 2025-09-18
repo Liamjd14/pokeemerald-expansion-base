@@ -1,0 +1,161 @@
+{
+  "id": "MAP_PLATE_CAVERNS_DEBUG_MAP",
+  "name": "PlateCavernsDebugMap",
+  "layout": "LAYOUT_PLATE_CAVERNS_DEBUG_MAP",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_NORMAL_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_BUG_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FIRE_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_STEEL_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_GRASS_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_GROUND_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROCK_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_POISON_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ICE_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_WATER_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_GHOST_PLARE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_DARK_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_DRAGON_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_PSYCHIC_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FAIRY_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FIGHTING_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ELETRIC_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FLYING_PLATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_PLATE_CAVERNS_DEBUG_MAP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_PLATE_CAVERNS_DEBUG_MAP",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

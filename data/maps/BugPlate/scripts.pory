@@ -1,0 +1,114 @@
+mapscripts BugPlate_MapScripts {
+    MAP_SCRIPT_ON_LOAD: BugPlate_OnLoad
+}
+
+script BugPlate_OnLoad {
+    call_if_unset(FLAG_BUG_PC, BugPlate_Entrance)
+    call(BugPlate_IsGemCollected)
+    call(BugPlate_ConditionCheck)
+    end
+}
+
+script BugPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script BugPlate_Battle {
+    lockall
+    playmoncry(SPECIES_KLEAVOR, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_KLEAVOR, 50, [ITEM_BUG_GEM], , NATURE_JOLLY, 2, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_STONE_AXE], [MOVE_CLOSE_COMBAT], [MOVE_SWORDS_DANCE], [MOVE_X_SCISSOR])
+    settotemboost(B_BATTLER_1, 2, 0, 2, 0, 0, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(BugPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(BugPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(BugPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(BugPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_BUG_PC1)
+    releaseall
+}
+
+script BugPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Kleavor dissapeared in to the cave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_INSECT_PLATE)
+    msgbox("There is an engraving on the Plate.", [MSGBOX_DEFAULT])
+    msgbox("Where all creation was born, that is the\nbeing's place of origin.", [MSGBOX_DEFAULT])
+    return
+}
+
+script BugPlateRun {
+    playmoncry(SPECIES_KLEAVOR, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+script BugPlate_IsGemCollected {
+    if(flag(FLAG_HIDDEN_ITEM_BUG_GEM) == TRUE){
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+    }
+    else{
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Large, TRUE)
+    }
+    return
+}
+
+script BugPlate_CollectGem {
+    lockall
+    if(flag(FLAG_HIDDEN_ITEM_BUG_GEM) == TRUE){
+        msgbox("The Gem Cluster has Shrunken", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("There is a large gem cluster here,\nCollect it?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == 1){
+            giveitem(ITEM_BUG_GEM)
+            setflag(FLAG_HIDDEN_ITEM_BUG_GEM)
+            fadescreen(FADE_TO_BLACK)
+            warp(MAP_BUG_PLATE, 7, 20)
+            setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+        }
+    }
+    releaseall
+}
+
+script BugPlate_ConditionCheck {
+    if(flag(FLAG_CAUGHT_MESPIRT) == TRUE){
+        if(flag(FLAG_CAUGHT_AZELF) == TRUE){
+            if(flag(FLAG_CAUGHT_UXIE) == TRUE){
+                checkitem(ITEM_BUG_GEM, 1)
+                if(var(VAR_RESULT) == TRUE){
+                    setflag(FLAG_BUG_PC)
+                }
+            }
+        }
+    }
+    return
+}

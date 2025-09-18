@@ -1,0 +1,114 @@
+mapscripts GhostPlare_MapScripts {
+    MAP_SCRIPT_ON_LOAD: GhostPlate_OnLoad
+}
+
+script GhostPlate_OnLoad {
+    call_if_unset(FLAG_ROCK_PC, GhostPlate_Entrance)
+    call(GhostPlate_IsGemCollected)
+    call(GhostPlate_ConditionCheck)
+    end
+}
+
+script GhostPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script GhostPlate_Battle {
+    lockall
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_SPIRITOMB, 50, [ITEM_GHOST_GEM], , NATURE_QUIET, 2, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_TRICK_ROOM], [MOVE_PSYSHOCK], [MOVE_DARK_PULSE], [MOVE_SHADOW_BALL])
+    settotemboost(B_BATTLER_1, 0, 1, 0, 2, 1, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(GhostPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(GhostPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(GhostPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(GhostPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_ROCK_PC1)
+    releaseall
+}
+
+script GhostPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Spiritomb dissapeared in to the cave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_SPOOKY_PLATE)
+    msgbox("There is an engraving on the Plate.", [MSGBOX_DEFAULT])
+    msgbox("The other side of this world was given\nby the Original One to its raging third.", [MSGBOX_DEFAULT])
+    return
+}
+
+script GhostPlateRun {
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+script GhostPlate_IsGemCollected {
+    if(flag(FLAG_HIDDEN_ITEM_GHOST_GEM) == TRUE){
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+    }
+    else{
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Large, TRUE)
+    }
+    return
+}
+
+script GhostPlate_CollectGem {
+    lockall
+    if(flag(FLAG_HIDDEN_ITEM_GHOST_GEM) == TRUE){
+        msgbox("The Gem Cluster has Shrunken", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("There is a large gem cluster here,\nCollect it?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == 1){
+            giveitem(ITEM_GHOST_GEM)
+            setflag(FLAG_HIDDEN_ITEM_GHOST_GEM)
+            fadescreen(FADE_TO_BLACK)
+            warp(MAP_GHOST_PLARE, 7, 20)
+            setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+        }
+    }
+    releaseall
+}
+
+script GhostPlate_ConditionCheck {
+    if(flag(FLAG_CAUGHT_MESPIRT) == TRUE){
+        if(flag(FLAG_CAUGHT_AZELF) == TRUE){
+            if(flag(FLAG_CAUGHT_UXIE) == TRUE){
+                checkitem(ITEM_GHOST_GEM, 1)
+                if(var(VAR_RESULT) == TRUE){
+                    setflag(FLAG_GHOST_PC)
+                }
+            }
+        }
+    }
+    return
+}

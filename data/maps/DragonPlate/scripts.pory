@@ -1,0 +1,114 @@
+mapscripts DragonPlate_MapScripts {
+    MAP_SCRIPT_ON_LOAD: DragonPlate_OnLoad
+}
+
+script DragonPlate_OnLoad {
+    call_if_unset(FLAG_DRAGON_PC, DragonPlate_Entrance)
+    call(DragonPlate_IsGemCollected)
+    call(DragonPlate_ConditionCheck)
+    end
+}
+
+script DragonPlate_Entrance {
+    setmetatile(6, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(7, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(8, 15, METATILE_Cave_EntranceCover, TRUE)
+    setmetatile(6, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(7, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    setmetatile(8, 16, METATILE_Cave_SealedChamberBraille_Mid, TRUE)
+    return
+}
+
+script DragonPlate_Battle {
+    lockall
+    playmoncry(SPECIES_GARCHOMP, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    
+    createmon(B_SIDE_OPPONENT, 0, SPECIES_GARCHOMP, 50, [ITEM_DRAGON_GEM], , NATURE_JOLLY, 2, , 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, [MOVE_SANDSTORM], [MOVE_OUTRAGE], [MOVE_IRON_HEAD], [MOVE_EARTHQUAKE])
+    settotemboost(B_BATTLER_1, 2, 0, 2, 0, 0, 1, 0)
+    setflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_B_NO_CATCHING)
+    setflag(FLAG_B_NO_BAG_USE)
+    //setvar(VAR_B_VAR_STARTING_STATUS, )
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        call(DragonPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_WON){
+        call(DragonPlateWonCatch)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+        call(DragonPlateRun)
+    }
+    elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        call(DragonPlateRun)
+    }
+    waitmessage
+    clearflag(FLAG_B_NO_BAG_USE)
+    clearflag(FLAG_B_NO_CATCHING)
+    clearflag(FLAG_B_SMART_WILD_AI)
+    setflag(FLAG_DRAGON_PC1)
+    releaseall
+}
+
+script DragonPlateWonCatch {
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("The Garchomp dissapeared in to\nthe cave.", [MSGBOX_DEFAULT])
+    giveitem(ITEM_DRACO_PLATE)
+    msgbox("There is an engraving on the Plate.", [MSGBOX_DEFAULT])
+    msgbox("Three beings were born to bind\ntime and space.", [MSGBOX_DEFAULT])
+    return
+}
+
+script DragonPlateRun {
+    playmoncry(SPECIES_GARCHOMP, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+script DragonPlate_IsGemCollected {
+    if(flag(FLAG_HIDDEN_ITEM_DRAGON_GEM) == TRUE){
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+    }
+    else{
+        setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Large, TRUE)
+    }
+    return
+}
+
+script DragonPlate_CollectGem {
+    lockall
+    if(flag(FLAG_HIDDEN_ITEM_DRAGON_GEM) == TRUE){
+        msgbox("The Gem Cluster has Shrunken", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("There is a large gem cluster here,\nCollect it?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == 1){
+            giveitem(ITEM_DRAGON_GEM)
+            setflag(FLAG_HIDDEN_ITEM_DRAGON_GEM)
+            fadescreen(FADE_TO_BLACK)
+            warp(MAP_DRAGON_PLATE, 7, 20)
+            setmetatile(7, 21, METATILE_Cave_ShoalCave_BlueStone_Small, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+        }
+    }
+    releaseall
+}
+
+script DragonPlate_ConditionCheck {
+    if(flag(FLAG_CAUGHT_MESPIRT) == TRUE){
+        if(flag(FLAG_CAUGHT_AZELF) == TRUE){
+            if(flag(FLAG_CAUGHT_UXIE) == TRUE){
+                checkitem(ITEM_DRAGON_GEM, 1)
+                if(var(VAR_RESULT) == TRUE){
+                    setflag(FLAG_DRAGON_PC)
+                }
+            }
+        }
+    }
+    return
+}
