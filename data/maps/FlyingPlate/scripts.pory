@@ -3,9 +3,9 @@ mapscripts FlyingPlate_MapScripts {
 }
 
 script FlyingPlate_OnLoad {
-    call_if_unset(FLAG_FLYING_PC, FlyingPlate_Entrance)
     call(FlyingPlate_IsGemCollected)
     call(FlyingPlate_ConditionCheck)
+    call_if_unset(FLAG_FLYING_PC, FlyingPlate_Entrance)
     end
 }
 

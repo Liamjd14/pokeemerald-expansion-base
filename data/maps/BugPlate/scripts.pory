@@ -3,9 +3,9 @@ mapscripts BugPlate_MapScripts {
 }
 
 script BugPlate_OnLoad {
-    call_if_unset(FLAG_BUG_PC, BugPlate_Entrance)
     call(BugPlate_IsGemCollected)
     call(BugPlate_ConditionCheck)
+    call_if_unset(FLAG_BUG_PC, BugPlate_Entrance)
     end
 }
 

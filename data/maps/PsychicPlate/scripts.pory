@@ -3,9 +3,9 @@ mapscripts PsychicPlate_MapScripts {
 }
 
 script PsychicPlate_OnLoad {
-    call_if_unset(FLAG_PSYCHIC_PC, PsychicPlate_Entrance)
     call(PsychicPlate_IsGemCollected)
     call(PsychicPlate_ConditionCheck)
+    call_if_unset(FLAG_PSYCHIC_PC, PsychicPlate_Entrance)
     end
 }
 

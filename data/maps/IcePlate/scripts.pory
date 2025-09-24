@@ -3,9 +3,9 @@ mapscripts IcePlate_MapScripts {
 }
 
 script IcePlate_OnLoad {
-    call_if_unset(FLAG_ICE_PC, IcePlate_Entrance)
     call(IcePlate_IsGemCollected)
     call(IcePlate_ConditionCheck)
+    call_if_unset(FLAG_ICE_PC, IcePlate_Entrance)
     end
 }
 

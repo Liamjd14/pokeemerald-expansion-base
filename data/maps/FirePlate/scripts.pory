@@ -3,9 +3,9 @@ mapscripts FirePlate_MapScripts {
 }
 
 script FirePlate_OnLoad {
-    call_if_unset(FLAG_FIRE_PC, FirePlate_Entrance)
     call(FirePlate_IsGemCollected)
     call(FirePlate_ConditionCheck)
+    call_if_unset(FLAG_FIRE_PC, FirePlate_Entrance)
     end
 }
 

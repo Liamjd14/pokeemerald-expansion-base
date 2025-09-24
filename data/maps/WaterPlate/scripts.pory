@@ -3,9 +3,9 @@ mapscripts WaterPlate_MapScripts {
 }
 
 script WaterPlate_OnLoad {
-    call_if_unset(FLAG_WATER_PC, WaterPlate_Entrance)
     call(WaterPlate_IsGemCollected)
     call(WaterPlate_ConditionCheck)
+    call_if_unset(FLAG_WATER_PC, WaterPlate_Entrance)
     end
 }
 

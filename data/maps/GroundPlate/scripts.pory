@@ -3,9 +3,9 @@ mapscripts GroundPlate_MapScripts {
 }
 
 script GroundPlate_OnLoad {
-    call_if_unset(FLAG_GROUND_PC, GroundPlate_Entrance)
     call(GroundPlate_IsGemCollected)
     call(GroundPlate_ConditionCheck)
+    call_if_unset(FLAG_GROUND_PC, GroundPlate_Entrance)
     end
 }
 

@@ -3,9 +3,9 @@ mapscripts DragonPlate_MapScripts {
 }
 
 script DragonPlate_OnLoad {
-    call_if_unset(FLAG_DRAGON_PC, DragonPlate_Entrance)
     call(DragonPlate_IsGemCollected)
     call(DragonPlate_ConditionCheck)
+    call_if_unset(FLAG_DRAGON_PC, DragonPlate_Entrance)
     end
 }
 

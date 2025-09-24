@@ -3,9 +3,9 @@ mapscripts PoisonPlate_MapScripts {
 }
 
 script PoisonPlate_OnLoad {
-    call_if_unset(FLAG_POISON_PC, PoisonPlate_Entrance)
     call(PoisonPlate_IsGemCollected)
     call(PoisonPlate_ConditionCheck)
+    call_if_unset(FLAG_POISON_PC, PoisonPlate_Entrance)
     end
 }
 

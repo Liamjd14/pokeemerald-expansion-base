@@ -3,9 +3,9 @@ mapscripts SteelPlate_MapScripts {
 }
 
 script SteelPlate_OnLoad {
-    call_if_unset(FLAG_STEEL_PC, SteelPlate_Entrance)
     call(SteelPlate_IsGemCollected)
     call(SteelPlate_ConditionCheck)
+    call_if_unset(FLAG_STEEL_PC, SteelPlate_Entrance)
     end
 }
 

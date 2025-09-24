@@ -3,9 +3,9 @@ mapscripts DarkPlate_MapScripts {
 }
 
 script DarkPlate_OnLoad {
-    call_if_unset(FLAG_DARK_PC, DarkPlate_Entrance)
     call(DarkPlate_IsGemCollected)
     call(DarkPlate_ConditionCheck)
+    call_if_unset(FLAG_DARK_PC, DarkPlate_Entrance)
     end
 }
 

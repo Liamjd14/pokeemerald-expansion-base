@@ -3,9 +3,9 @@ mapscripts RockPlate_MapScripts {
 }
 
 script RockPlate_OnLoad {
-    call_if_unset(FLAG_ROCK_PC, RockPlate_Entrance)
     call(RockPlate_IsGemCollected)
     call(RockPlate_ConditionCheck)
+    call_if_unset(FLAG_ROCK_PC, RockPlate_Entrance)
     end
 }
 

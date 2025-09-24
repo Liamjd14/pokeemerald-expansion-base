@@ -3,9 +3,9 @@ mapscripts FairyPlate_MapScripts {
 }
 
 script FairyPlate_OnLoad {
-    call_if_unset(FLAG_FAIRY_PC, FairyPlate_Entrance)
     call(FairyPlate_IsGemCollected)
     call(FairyPlate_ConditionCheck)
+    call_if_unset(FLAG_FAIRY_PC, FairyPlate_Entrance)
     end
 }
 

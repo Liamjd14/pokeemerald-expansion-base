@@ -3,9 +3,9 @@ mapscripts EletricPlate_MapScripts {
 }
 
 script EletricPlate_OnLoad {
-    call_if_unset(FLAG_ELECTRIC_PC, EletricPlate_Entrance)
     call(EletricPlate_IsGemCollected)
     call(EletricPlate_ConditionCheck)
+    call_if_unset(FLAG_ELECTRIC_PC, EletricPlate_Entrance)
     end
 }
 

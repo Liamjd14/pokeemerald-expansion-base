@@ -3,9 +3,9 @@ mapscripts NormalPlate_MapScripts {
 }
 
 script NormalPlate_OnLoad {
-    call_if_unset(FLAG_NORMAL_PC, NormalPlate_Entrance)
     call(NormalPlate_IsGemCollected)
     call(NormalPlate_ConditionCheck)
+    call_if_unset(FLAG_NORMAL_PC, NormalPlate_Entrance)
     end
 }
 

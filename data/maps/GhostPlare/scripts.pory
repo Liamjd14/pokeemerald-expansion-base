@@ -3,9 +3,9 @@ mapscripts GhostPlare_MapScripts {
 }
 
 script GhostPlate_OnLoad {
-    call_if_unset(FLAG_ROCK_PC, GhostPlate_Entrance)
     call(GhostPlate_IsGemCollected)
     call(GhostPlate_ConditionCheck)
+    call_if_unset(FLAG_ROCK_PC, GhostPlate_Entrance)
     end
 }
 
