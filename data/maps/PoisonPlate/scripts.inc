@@ -6,11 +6,11 @@ PoisonPlate_MapScripts::
 
 PoisonPlate_OnLoad::
 # 6 "data/maps/PoisonPlate/scripts.pory"
-	call_if_unset FLAG_POISON_PC, PoisonPlate_Entrance
-# 7 "data/maps/PoisonPlate/scripts.pory"
 	call PoisonPlate_IsGemCollected
-# 8 "data/maps/PoisonPlate/scripts.pory"
+# 7 "data/maps/PoisonPlate/scripts.pory"
 	call PoisonPlate_ConditionCheck
+# 8 "data/maps/PoisonPlate/scripts.pory"
+	call_if_unset FLAG_POISON_PC, PoisonPlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ BugPlate_MapScripts::
 
 BugPlate_OnLoad::
 # 6 "data/maps/BugPlate/scripts.pory"
-	call_if_unset FLAG_BUG_PC, BugPlate_Entrance
-# 7 "data/maps/BugPlate/scripts.pory"
 	call BugPlate_IsGemCollected
-# 8 "data/maps/BugPlate/scripts.pory"
+# 7 "data/maps/BugPlate/scripts.pory"
 	call BugPlate_ConditionCheck
+# 8 "data/maps/BugPlate/scripts.pory"
+	call_if_unset FLAG_BUG_PC, BugPlate_Entrance
 	end
 
 

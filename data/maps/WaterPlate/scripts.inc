@@ -6,11 +6,11 @@ WaterPlate_MapScripts::
 
 WaterPlate_OnLoad::
 # 6 "data/maps/WaterPlate/scripts.pory"
-	call_if_unset FLAG_WATER_PC, WaterPlate_Entrance
-# 7 "data/maps/WaterPlate/scripts.pory"
 	call WaterPlate_IsGemCollected
-# 8 "data/maps/WaterPlate/scripts.pory"
+# 7 "data/maps/WaterPlate/scripts.pory"
 	call WaterPlate_ConditionCheck
+# 8 "data/maps/WaterPlate/scripts.pory"
+	call_if_unset FLAG_WATER_PC, WaterPlate_Entrance
 	end
 
 

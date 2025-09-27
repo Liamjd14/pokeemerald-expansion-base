@@ -6,11 +6,11 @@ GhostPlare_MapScripts::
 
 GhostPlate_OnLoad::
 # 6 "data/maps/GhostPlare/scripts.pory"
-	call_if_unset FLAG_ROCK_PC, GhostPlate_Entrance
-# 7 "data/maps/GhostPlare/scripts.pory"
 	call GhostPlate_IsGemCollected
-# 8 "data/maps/GhostPlare/scripts.pory"
+# 7 "data/maps/GhostPlare/scripts.pory"
 	call GhostPlate_ConditionCheck
+# 8 "data/maps/GhostPlare/scripts.pory"
+	call_if_unset FLAG_ROCK_PC, GhostPlate_Entrance
 	end
 
 

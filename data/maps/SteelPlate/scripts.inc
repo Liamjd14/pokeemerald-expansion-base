@@ -6,11 +6,11 @@ SteelPlate_MapScripts::
 
 SteelPlate_OnLoad::
 # 6 "data/maps/SteelPlate/scripts.pory"
-	call_if_unset FLAG_STEEL_PC, SteelPlate_Entrance
-# 7 "data/maps/SteelPlate/scripts.pory"
 	call SteelPlate_IsGemCollected
-# 8 "data/maps/SteelPlate/scripts.pory"
+# 7 "data/maps/SteelPlate/scripts.pory"
 	call SteelPlate_ConditionCheck
+# 8 "data/maps/SteelPlate/scripts.pory"
+	call_if_unset FLAG_STEEL_PC, SteelPlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ FairyPlate_MapScripts::
 
 FairyPlate_OnLoad::
 # 6 "data/maps/FairyPlate/scripts.pory"
-	call_if_unset FLAG_FAIRY_PC, FairyPlate_Entrance
-# 7 "data/maps/FairyPlate/scripts.pory"
 	call FairyPlate_IsGemCollected
-# 8 "data/maps/FairyPlate/scripts.pory"
+# 7 "data/maps/FairyPlate/scripts.pory"
 	call FairyPlate_ConditionCheck
+# 8 "data/maps/FairyPlate/scripts.pory"
+	call_if_unset FLAG_FAIRY_PC, FairyPlate_Entrance
 	end
 
 

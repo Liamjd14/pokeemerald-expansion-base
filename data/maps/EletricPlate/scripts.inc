@@ -6,11 +6,11 @@ EletricPlate_MapScripts::
 
 EletricPlate_OnLoad::
 # 6 "data/maps/EletricPlate/scripts.pory"
-	call_if_unset FLAG_ELECTRIC_PC, EletricPlate_Entrance
-# 7 "data/maps/EletricPlate/scripts.pory"
 	call EletricPlate_IsGemCollected
-# 8 "data/maps/EletricPlate/scripts.pory"
+# 7 "data/maps/EletricPlate/scripts.pory"
 	call EletricPlate_ConditionCheck
+# 8 "data/maps/EletricPlate/scripts.pory"
+	call_if_unset FLAG_ELECTRIC_PC, EletricPlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ DarkPlate_MapScripts::
 
 DarkPlate_OnLoad::
 # 6 "data/maps/DarkPlate/scripts.pory"
-	call_if_unset FLAG_DARK_PC, DarkPlate_Entrance
-# 7 "data/maps/DarkPlate/scripts.pory"
 	call DarkPlate_IsGemCollected
-# 8 "data/maps/DarkPlate/scripts.pory"
+# 7 "data/maps/DarkPlate/scripts.pory"
 	call DarkPlate_ConditionCheck
+# 8 "data/maps/DarkPlate/scripts.pory"
+	call_if_unset FLAG_DARK_PC, DarkPlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ GroundPlate_MapScripts::
 
 GroundPlate_OnLoad::
 # 6 "data/maps/GroundPlate/scripts.pory"
-	call_if_unset FLAG_GROUND_PC, GroundPlate_Entrance
-# 7 "data/maps/GroundPlate/scripts.pory"
 	call GroundPlate_IsGemCollected
-# 8 "data/maps/GroundPlate/scripts.pory"
+# 7 "data/maps/GroundPlate/scripts.pory"
 	call GroundPlate_ConditionCheck
+# 8 "data/maps/GroundPlate/scripts.pory"
+	call_if_unset FLAG_GROUND_PC, GroundPlate_Entrance
 	end
 
 

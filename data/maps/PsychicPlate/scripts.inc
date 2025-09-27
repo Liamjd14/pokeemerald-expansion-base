@@ -6,11 +6,11 @@ PsychicPlate_MapScripts::
 
 PsychicPlate_OnLoad::
 # 6 "data/maps/PsychicPlate/scripts.pory"
-	call_if_unset FLAG_PSYCHIC_PC, PsychicPlate_Entrance
-# 7 "data/maps/PsychicPlate/scripts.pory"
 	call PsychicPlate_IsGemCollected
-# 8 "data/maps/PsychicPlate/scripts.pory"
+# 7 "data/maps/PsychicPlate/scripts.pory"
 	call PsychicPlate_ConditionCheck
+# 8 "data/maps/PsychicPlate/scripts.pory"
+	call_if_unset FLAG_PSYCHIC_PC, PsychicPlate_Entrance
 	end
 
 

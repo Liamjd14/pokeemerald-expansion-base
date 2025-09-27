@@ -6,11 +6,11 @@ IcePlate_MapScripts::
 
 IcePlate_OnLoad::
 # 6 "data/maps/IcePlate/scripts.pory"
-	call_if_unset FLAG_ICE_PC, IcePlate_Entrance
-# 7 "data/maps/IcePlate/scripts.pory"
 	call IcePlate_IsGemCollected
-# 8 "data/maps/IcePlate/scripts.pory"
+# 7 "data/maps/IcePlate/scripts.pory"
 	call IcePlate_ConditionCheck
+# 8 "data/maps/IcePlate/scripts.pory"
+	call_if_unset FLAG_ICE_PC, IcePlate_Entrance
 	end
 
 

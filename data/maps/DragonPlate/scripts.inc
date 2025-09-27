@@ -6,11 +6,11 @@ DragonPlate_MapScripts::
 
 DragonPlate_OnLoad::
 # 6 "data/maps/DragonPlate/scripts.pory"
-	call_if_unset FLAG_DRAGON_PC, DragonPlate_Entrance
-# 7 "data/maps/DragonPlate/scripts.pory"
 	call DragonPlate_IsGemCollected
-# 8 "data/maps/DragonPlate/scripts.pory"
+# 7 "data/maps/DragonPlate/scripts.pory"
 	call DragonPlate_ConditionCheck
+# 8 "data/maps/DragonPlate/scripts.pory"
+	call_if_unset FLAG_DRAGON_PC, DragonPlate_Entrance
 	end
 
 

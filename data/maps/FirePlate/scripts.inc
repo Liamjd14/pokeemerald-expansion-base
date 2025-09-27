@@ -6,11 +6,11 @@ FirePlate_MapScripts::
 
 FirePlate_OnLoad::
 # 6 "data/maps/FirePlate/scripts.pory"
-	call_if_unset FLAG_FIRE_PC, FirePlate_Entrance
-# 7 "data/maps/FirePlate/scripts.pory"
 	call FirePlate_IsGemCollected
-# 8 "data/maps/FirePlate/scripts.pory"
+# 7 "data/maps/FirePlate/scripts.pory"
 	call FirePlate_ConditionCheck
+# 8 "data/maps/FirePlate/scripts.pory"
+	call_if_unset FLAG_FIRE_PC, FirePlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ FlyingPlate_MapScripts::
 
 FlyingPlate_OnLoad::
 # 6 "data/maps/FlyingPlate/scripts.pory"
-	call_if_unset FLAG_FLYING_PC, FlyingPlate_Entrance
-# 7 "data/maps/FlyingPlate/scripts.pory"
 	call FlyingPlate_IsGemCollected
-# 8 "data/maps/FlyingPlate/scripts.pory"
+# 7 "data/maps/FlyingPlate/scripts.pory"
 	call FlyingPlate_ConditionCheck
+# 8 "data/maps/FlyingPlate/scripts.pory"
+	call_if_unset FLAG_FLYING_PC, FlyingPlate_Entrance
 	end
 
 

@@ -6,11 +6,11 @@ RockPlate_MapScripts::
 
 RockPlate_OnLoad::
 # 6 "data/maps/RockPlate/scripts.pory"
-	call_if_unset FLAG_ROCK_PC, RockPlate_Entrance
-# 7 "data/maps/RockPlate/scripts.pory"
 	call RockPlate_IsGemCollected
-# 8 "data/maps/RockPlate/scripts.pory"
+# 7 "data/maps/RockPlate/scripts.pory"
 	call RockPlate_ConditionCheck
+# 8 "data/maps/RockPlate/scripts.pory"
+	call_if_unset FLAG_ROCK_PC, RockPlate_Entrance
 	end
 
 
