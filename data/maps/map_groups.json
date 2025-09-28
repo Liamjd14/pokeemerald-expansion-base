@@ -1,5 +1,10 @@
 {
   "group_order": [
+    "gMapGroup_PlateCaverns",
+    "gMapGroup_IslandArchapelago",
+    "gMapGroup_EshosMainland",
+    "gMapGroup_GreatPlains",
+    "gMapGroup_Underground",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -35,8 +40,7 @@
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
     "gMapGroup_TilesetTests",
-    "gMapGroup_TempLocations",
-    "gMapGroup_PlateCaverns"
+    "gMapGroup_TempLocations"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -653,5 +657,9 @@
     "EletricPlate",
     "FlyingPlate",
     "PlateCavernsDebugMap"
-  ]
+  ],
+  "gMapGroup_IslandArchapelago": [],
+  "gMapGroup_EshosMainland": [],
+  "gMapGroup_Underground": [],
+  "gMapGroup_GreatPlains": []
 }
