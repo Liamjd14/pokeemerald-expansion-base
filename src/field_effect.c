@@ -3609,7 +3609,7 @@ static void SpriteCB_FlyBirdLeaveBall(struct Sprite *sprite)
             sprite->affineAnims = sAffineAnims_FlyBird;
             InitSpriteAffineAnim(sprite);
             StartSpriteAffineAnim(sprite, 0);
-            sprite->x = 0x76;
+            sprite->x = 0x80;
             sprite->y = -0x30;
             sprite->data[0]++;
             sprite->data[1] = 0x40;
