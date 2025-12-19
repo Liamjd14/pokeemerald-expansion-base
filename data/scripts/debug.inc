@@ -145,32 +145,11 @@ Debug_EventScript_Text_OffensiveIVs:
 Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
-@ ============================================================================
-@ QUICK PARTY SETUP FOR LEVEL SCALING TESTS
-@ ============================================================================
-
+@ example of how to implement selectmons gym battle
 Debug_EventScript_Script_1::
-	msgbox Debug_LevelScaling_PartySetup_Intro, MSGBOX_DEFAULT
-	@ Clear existing party
-	special HealPlayerParty
-	@ Give test party with strong Pokemon at varied levels
-	givemon SPECIES_LUCARIO, 60, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 0, 252, 0, 0, 0, 252, 31, 31, 31, 31, 31, 31, MOVE_CLOSE_COMBAT, MOVE_EXTREME_SPEED, MOVE_ICE_PUNCH, MOVE_SWORDS_DANCE
-	givemon SPECIES_DRAGONITE, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_ADAMANT, 252, 0, 252, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_DRAGON_CLAW, MOVE_EARTHQUAKE, MOVE_FIRE_PUNCH, MOVE_DRAGON_DANCE
-	givemon SPECIES_METAGROSS, 20, ITEM_NONE, ITEM_POKE_BALL, NATURE_ADAMANT, 252, 0, 252, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_ZEN_HEADBUTT, MOVE_BULLET_PUNCH
-	givemon SPECIES_GARCHOMP, 30, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 0, 252, 0, 0, 0, 252, 31, 31, 31, 31, 31, 31, MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_STONE_EDGE, MOVE_SWORDS_DANCE
-	givemon SPECIES_SALAMENCE, 40, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 0, 252, 0, 0, 0, 252, 31, 31, 31, 31, 31, 31, MOVE_DRAGON_CLAW, MOVE_EARTHQUAKE, MOVE_FLAMETHROWER, MOVE_DRAGON_DANCE
-	givemon SPECIES_TYRANITAR, 50, ITEM_NONE, ITEM_POKE_BALL, NATURE_ADAMANT, 252, 252, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_STONE_EDGE, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE
-	@ Set all badges for level cap testing
-	setflag FLAG_BADGE01_GET
-	setflag FLAG_BADGE02_GET
-	setflag FLAG_BADGE03_GET
-	setflag FLAG_BADGE04_GET
-	setflag FLAG_BADGE05_GET
-	setflag FLAG_BADGE06_GET
-	setflag FLAG_BADGE07_GET
-	setflag FLAG_BADGE08_GET
-	msgbox Debug_LevelScaling_PartySetup_Complete, MSGBOX_DEFAULT
-	release
+	lock
+	faceplayer
+	trainerbattle_selectmons TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_PostBattleHandler, 3
 	end
 
 Debug_LevelScaling_PartySetup_Intro:

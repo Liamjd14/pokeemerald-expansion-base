@@ -802,6 +802,55 @@
 	.byte SCR_OP_DOTRAINERBATTLE
 	.endm
 
+	@ Starts a trainer battle that continues the script instead of white-out on loss.
+	@ The script specified in post_battle_script will handle the battle outcome.
+	.macro trainerbattle_continuescript trainer:req, intro_text:req, lose_text:req, post_battle_script:req
+		trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, LOCALID_NONE, \trainer, \intro_text, \lose_text, \post_battle_script, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	.endm
+	
+	@ Starts a trainer battle where the player selects N Pokémon from their party.
+	@ num_pokemon: The number of Pokémon the player must choose (1-6).
+	@ The party is automatically saved/restored, and the script continues on loss.
+	@ The post_battle_script is called AFTER party restoration with VAR_RESULT set to battle outcome.
+	.macro trainerbattle_selectmons trainer:req, intro_text:req, lose_text:req, post_battle_script:req, num_pokemon:req
+		@ Check if trainer is already defeated
+	    checktrainerflag \trainer
+	    goto_if 1, _selectmons_post_\@ @ If defeated, skip to post-battle dialogue
+
+	    @ Show intro text FIRST
+	    msgbox \intro_text, MSGBOX_DEFAULT
+	    @ Save party to static backup (won't be overwritten by battle auto-save)
+	    special SaveSelectMonsParty
+	    fadescreen FADE_TO_BLACK
+	    setvar VAR_0x8004, \num_pokemon
+	    special ChoosePartyForStandardBattle
+	    waitstate
+	    goto_if_eq VAR_RESULT, 0, _selectmons_cancel_\@
+	    special ReducePlayerPartyToSelectedMons
+	    setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SET_DATA
+	    setvar VAR_0x8005, FRONTIER_DATA_SELECTED_MON_ORDER
+	    special CallFrontierUtilFunc
+		@ Use trainerbattle with wrapper - it will handle dotrainerbattle automatically
+	    trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_NO_INTRO_TEXT, LOCALID_NONE, \trainer, NULL, \lose_text, _selectmons_wrapper_\@, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	    end
+	_selectmons_wrapper_\@:
+	    @ This runs after battle - restore party and route to user's script
+	    special LoadSelectMonsParty
+	    specialvar VAR_RESULT, GetBattleOutcome
+	    goto \post_battle_script
+	    end
+	_selectmons_cancel_\@:
+	    @ Restore party from static backup on cancel
+	    special LoadSelectMonsParty
+	    releaseall
+	    end
+	_selectmons_post_\@:
+	    @ Trainer already defeated - go to post-battle script directly
+	    setvar VAR_RESULT, B_OUTCOME_WON
+	    goto \post_battle_script
+	    end
+		.endm
+
 	@ Goes to address after the trainerbattle command (called by the battle functions, see battle_setup.c)
 	.macro gotopostbattlescript
 	.byte SCR_OP_GOTOPOSTBATTLESCRIPT

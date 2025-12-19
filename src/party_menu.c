@@ -232,6 +232,7 @@ static EWRAM_DATA u16 *sSlot2TilemapBuffer = 0; //
 EWRAM_DATA u8 gSelectedOrderFromParty[MAX_FRONTIER_PARTY_SIZE] = {0};
 static EWRAM_DATA u16 sPartyMenuItemId = 0;
 EWRAM_DATA u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2] = {0}; // bits 0-3 are the current pos of Slot 1, 4-7 are Slot 2, and so on
+static EWRAM_DATA u8 sPartySelectionLimit = 0; // Stores the number of Pokemon to select for battles (0 = use facility default)
 static EWRAM_DATA u8 sInitialLevel = 0;
 static EWRAM_DATA u8 sFinalLevel = 0;
 
@@ -7270,6 +7271,16 @@ static void TryGiveMailToSelectedMon(u8 taskId)
     gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
 }
 
+void SetPartySelectionLimit(u8 limit)
+{
+    sPartySelectionLimit = limit;
+}
+
+void ClearPartySelectionLimit(void)
+{
+    sPartySelectionLimit = 0;
+}
+
 void InitChooseHalfPartyForBattle(u8 unused)
 {
     ClearSelectedPartyOrder();
@@ -7344,10 +7355,16 @@ static u8 CheckBattleEntriesAndGetMessage(void)
     maxBattlers = GetMaxBattleEntries();
     for (i = 0; i < maxBattlers - 1; i++)
     {
+        // Skip unselected slots (selectmons allows selecting fewer than max)
+        if (order[i] == 0)
+            continue;
         u16 species = GetMonData(&party[order[i] - 1], MON_DATA_SPECIES);
         u16 item = GetMonData(&party[order[i] - 1], MON_DATA_HELD_ITEM);
         for (j = i + 1; j < maxBattlers; j++)
         {
+            // Skip unselected slots in comparison
+            if (order[j] == 0)
+                continue;
             if (species == GetMonData(&party[order[j] - 1], MON_DATA_SPECIES))
                 return PARTY_MSG_MONS_CANT_BE_SAME;
             if (item != ITEM_NONE && item == GetMonData(&party[order[j] - 1], MON_DATA_HELD_ITEM))
@@ -7399,6 +7416,15 @@ static void Task_ContinueChoosingHalfParty(u8 taskId)
 
 static u8 GetMaxBattleEntries(void)
 {
+
+    // If party selection limit is set, use it (but don't exceed actual party size)
+    if (sPartySelectionLimit >= 1 && sPartySelectionLimit <= PARTY_SIZE)
+    {
+        if (gPlayerPartyCount < sPartySelectionLimit)
+            return gPlayerPartyCount;
+        return sPartySelectionLimit;
+    }
+
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
     case FACILITY_MULTI_OR_EREADER:
@@ -7412,6 +7438,10 @@ static u8 GetMaxBattleEntries(void)
 
 static u8 GetMinBattleEntries(void)
 {
+    // If party selection limit is set, allow selecting 1 to limit Pokémon
+    if (sPartySelectionLimit >= 1 && sPartySelectionLimit <= PARTY_SIZE)
+        return 1;
+
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
     case FACILITY_MULTI_OR_EREADER:
