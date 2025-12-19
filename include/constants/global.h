@@ -16,6 +16,16 @@
 #define DISABLED_ON_RELEASE TRUE
 #endif
 
+#include "config/general.h"
+#include "config/battle.h"
+#include "config/debug.h"
+#include "config/item.h"
+#include "config/caps.h"
+#include "config/pokemon.h"
+#include "config/overworld.h"
+#include "config/dexnav.h"
+#include "config/game_corner_expansion.h"
+#include "config/summary_screen.h"
 #include "config/ai.h"
 #include "config/battle.h"
 #include "config/caps.h"
