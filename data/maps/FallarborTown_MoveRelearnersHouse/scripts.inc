@@ -3,6 +3,8 @@ FallarborTown_MoveRelearnersHouse_MapScripts::
 
 FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
 	lockall
+	setflag FLAG_P_EGG_MOVES
+	setflag FLAG_P_TUTOR_MOVES
 	applymovement LOCALID_MOVE_RELEARNER, Common_Movement_FacePlayer
 	waitmovement 0
 	goto_if_set FLAG_TEMP_1, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove

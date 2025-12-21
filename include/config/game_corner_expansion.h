@@ -2,7 +2,7 @@
 #define GUARD_GAME_CORNER_EXPANSION_H
 
 #define GAME_CORNER_VAR_ID_CHECK        0  // This is just a funny variable used for the Game Corner map itself and can be set to 0
-#define GAME_CORNER_VAR_WINNINGS        VAR_UNUSED_0x40FF   // Must be set to a valid variable for most minigames to function
+#define GAME_CORNER_VAR_WINNINGS        VAR_UNUSED_0x40E5   // Must be set to a valid variable for most minigames to function
 
 #define FLAPPY_VAR_HIGH_SCORE           0  // If this variable isn't set to 0, this tracks the high score of the Flappy Bird minigame
 

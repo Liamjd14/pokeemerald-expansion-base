@@ -45,7 +45,7 @@
 
 #define B_WILD_SCALING_ENABLED              TRUE
 #define B_WILD_SCALING_DEFAULT_MODE         LEVEL_SCALING_PARTY_AVG
-#define B_WILD_SCALING_LEVEL_AUGMENT        -8       // Add/subtract levels from base (-127 to +127)
+#define B_WILD_SCALING_LEVEL_AUGMENT        -2       // Add/subtract levels from base (-127 to +127)
                                                      // Example: -5 makes wild Pokémon 5 levels lower
 #define B_WILD_SCALING_LEVEL_VARIATION      4       // Random level reduction (0 to 255)
                                                      // Example: 3 means random(0-3) levels lower
