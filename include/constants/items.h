@@ -1026,11 +1026,11 @@
 #define ITEM_SURF_TOOL 857
 #define ITEM_STRENGTH_TOOL 858
 #define ITEM_FLASH_TOOL 859
-#define ITEM_ROCK_SMASH_TOOL 890
-#define ITEM_WATERFALL_TOOL 891
-#define ITEM_DIVE_TOOL 892 // field items end
+#define ITEM_ROCK_SMASH_TOOL 860
+#define ITEM_WATERFALL_TOOL 861
+#define ITEM_DIVE_TOOL 862 // field items end
 
-#define ITEMS_COUNT 893
+#define ITEMS_COUNT 863
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
