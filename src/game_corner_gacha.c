@@ -3168,8 +3168,10 @@ static void GachaMain(u8 taskId)
     case STATE_POKEBALL_ARRIVE_WAIT:        
         if (gSprites[sGacha->bouncingPokeballSpriteId].callback == SpriteCallbackDummy)
         {
-            CreateMon(&gEnemyParty[0], sGacha->CalculatedSpecies, GetSpeciesGachaLevel(), USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-            GiveMonToPlayer(&gEnemyParty[0]);
+            CreateRandomMon(&gEnemyParty[0], sGacha->CalculatedSpecies, GetSpeciesGachaLevel());
+            
+            //CreateMon(&gEnemyParty[0], sGacha->CalculatedSpecies, GetSpeciesGachaLevel(), USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            CopyMonToPC(&gEnemyParty[0]);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_SEEN);
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_CAUGHT, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
             LoadPalette(GetMonFrontSpritePal(&gEnemyParty[0]), OBJ_PLTT_ID(2), PLTT_SIZE_4BPP);
