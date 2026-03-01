@@ -26647,10 +26647,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GEN_9_MEGA_EVOLUTIONS
-//    const u32 gMonFrontPic_TatsugiriCurlyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/mega/front.4bpp.smol");
-//    const u16 gMonPalette_TatsugiriCurlyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/mega/normal.gbapal");
-//    const u32 gMonBackPic_TatsugiriCurlyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_TatsugiriCurlyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/mega/shiny.gbapal");
+    const u32 gMonFrontPic_TatsugiriCurlyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/mega/front.4bpp.smol");
+    const u16 gMonPalette_TatsugiriCurlyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/mega/normal.gbapal");
+    const u32 gMonBackPic_TatsugiriCurlyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_TatsugiriCurlyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/mega/shiny.gbapal");
     const u8 gMonIcon_TatsugiriCurlyMega[] = INCBIN_U8("graphics/pokemon/tatsugiri/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_TatsugiriCurlyMega[] = INCBIN_COMP("graphics/pokemon/tatsugiri/mega/overworld.4bpp");
@@ -26660,10 +26660,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 
-//    const u32 gMonFrontPic_TatsugiriDroopyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/droopy/mega/front.4bpp.smol");
-//    const u16 gMonPalette_TatsugiriDroopyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/droopy/mega/normal.gbapal");
-//    const u32 gMonBackPic_TatsugiriDroopyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/droopy/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_TatsugiriDroopyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/droopy/mega/shiny.gbapal");
+    const u32 gMonFrontPic_TatsugiriDroopyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/droopy/mega/front.4bpp.smol");
+    const u16 gMonPalette_TatsugiriDroopyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/droopy/mega/normal.gbapal");
+    const u32 gMonBackPic_TatsugiriDroopyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/droopy/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_TatsugiriDroopyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/droopy/mega/shiny.gbapal");
     const u8 gMonIcon_TatsugiriDroopyMega[] = INCBIN_U8("graphics/pokemon/tatsugiri/droopy/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_TatsugiriDroopyMega[] = INCBIN_COMP("graphics/pokemon/tatsugiri/droopy/mega/overworld.4bpp");
@@ -26673,10 +26673,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 
-//    const u32 gMonFrontPic_TatsugiriStretchyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/stretchy/mega/front.4bpp.smol");
-//    const u16 gMonPalette_TatsugiriStretchyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/stretchy/mega/normal.gbapal");
-//    const u32 gMonBackPic_TatsugiriStretchyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/stretchy/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_TatsugiriStretchyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/stretchy/mega/shiny.gbapal");
+    const u32 gMonFrontPic_TatsugiriStretchyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/stretchy/mega/front.4bpp.smol");
+    const u16 gMonPalette_TatsugiriStretchyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/stretchy/mega/normal.gbapal");
+    const u32 gMonBackPic_TatsugiriStretchyMega[] = INCBIN_U32("graphics/pokemon/tatsugiri/stretchy/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_TatsugiriStretchyMega[] = INCBIN_U16("graphics/pokemon/tatsugiri/stretchy/mega/shiny.gbapal");
     const u8 gMonIcon_TatsugiriStretchyMega[] = INCBIN_U8("graphics/pokemon/tatsugiri/stretchy/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_TatsugiriStretchyMega[] = INCBIN_COMP("graphics/pokemon/tatsugiri/stretchy/mega/overworld.4bpp");
