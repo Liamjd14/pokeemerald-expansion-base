@@ -15866,10 +15866,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GEN_9_MEGA_EVOLUTIONS
-//    const u32 gMonFrontPic_HeatranMega[] = INCBIN_U32("graphics/pokemon/heatran/mega/front.4bpp.smol");
-//    const u16 gMonPalette_HeatranMega[] = INCBIN_U16("graphics/pokemon/heatran/mega/normal.gbapal");
-//    const u32 gMonBackPic_HeatranMega[] = INCBIN_U32("graphics/pokemon/heatran/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_HeatranMega[] = INCBIN_U16("graphics/pokemon/heatran/mega/shiny.gbapal");
+    const u32 gMonFrontPic_HeatranMega[] = INCBIN_U32("graphics/pokemon/heatran/mega/front.4bpp.smol");
+    const u16 gMonPalette_HeatranMega[] = INCBIN_U16("graphics/pokemon/heatran/mega/normal.gbapal");
+    const u32 gMonBackPic_HeatranMega[] = INCBIN_U32("graphics/pokemon/heatran/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_HeatranMega[] = INCBIN_U16("graphics/pokemon/heatran/mega/shiny.gbapal");
 //    const u8 gMonIcon_HeatranMega[] = INCBIN_U8("graphics/pokemon/heatran/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_HeatranMega[] = INCBIN_COMP("graphics/pokemon/heatran/mega/overworld.4bpp");
