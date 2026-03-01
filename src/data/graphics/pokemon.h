@@ -18825,10 +18825,11 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GEN_9_MEGA_EVOLUTIONS
-//    const u32 gMonFrontPic_GolurkMega[] = INCBIN_U32("graphics/pokemon/Golurk/mega/front.4bpp.smol");
-//    const u16 gMonPalette_GolurkMega[] = INCBIN_U16("graphics/pokemon/golurk/mega/normal.gbapal");
-//    const u32 gMonBackPic_GolurkMega[] = INCBIN_U32("graphics/pokemon/golurk/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_GolurkMega[] = INCBIN_U16("graphics/pokemon/golurk/mega/shiny.gbapal");
+//    const u32 gMonFrontPic_GolurkMega[] = INCBIN_U32("graphics/pokemon/Golurk/mega/back.4bpp.smol");
+    const u32 gMonFrontPic_GolurkMega[] = INCBIN_U32("graphics/pokemon/golurk/mega/front.4bpp.smol");
+    const u16 gMonPalette_GolurkMega[] = INCBIN_U16("graphics/pokemon/golurk/mega/normal.gbapal");
+    const u32 gMonBackPic_GolurkMega[] = INCBIN_U32("graphics/pokemon/golurk/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_GolurkMega[] = INCBIN_U16("graphics/pokemon/golurk/mega/shiny.gbapal");
 //    const u8 gMonIcon_GolurkMega[] = INCBIN_U8("graphics/pokemon/golurk/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_GolurkMega[] = INCBIN_COMP("graphics/pokemon/golurk/mega/overworld.4bpp");
