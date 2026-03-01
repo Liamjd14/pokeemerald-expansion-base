@@ -22291,10 +22291,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GEN_9_MEGA_EVOLUTIONS
-//    const u32 gMonFrontPic_GolisopodMega[] = INCBIN_U32("graphics/pokemon/golisopod/mega/front.4bpp.smol");
-//    const u16 gMonPalette_GolisopodMega[] = INCBIN_U16("graphics/pokemon/golisopod/mega/normal.gbapal");
-//    const u32 gMonBackPic_GolisopodMega[] = INCBIN_U32("graphics/pokemon/golisopod/mega/back.4bpp.smol");
-//    const u16 gMonShinyPalette_GolisopodMega[] = INCBIN_U16("graphics/pokemon/golisopod/mega/shiny.gbapal");
+    const u32 gMonFrontPic_GolisopodMega[] = INCBIN_U32("graphics/pokemon/golisopod/mega/front.4bpp.smol");
+    const u16 gMonPalette_GolisopodMega[] = INCBIN_U16("graphics/pokemon/golisopod/mega/normal.gbapal");
+    const u32 gMonBackPic_GolisopodMega[] = INCBIN_U32("graphics/pokemon/golisopod/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_GolisopodMega[] = INCBIN_U16("graphics/pokemon/golisopod/mega/shiny.gbapal");
     const u8 gMonIcon_GolisopodMega[] = INCBIN_U8("graphics/pokemon/golisopod/mega/icon.4bpp");
 #if OW_POKEMON_OBJECT_EVENTS && OW_BATTLE_ONLY_FORMS
 //    const u32 gObjectEventPic_GolisopodMega[] = INCBIN_COMP("graphics/pokemon/golisopod/mega/overworld.4bpp");
