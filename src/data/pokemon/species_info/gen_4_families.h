@@ -4833,22 +4833,22 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             "Mega Lucario Z can parry all manner of\n"
             "attacks, battling as if it were gracefully\n"
             "dancing."),
-        //.frontPic = gMonBackPic_CircledQuestionMark,
-        //.frontPicSize = MON_COORDS_SIZE(40, 40),
-        //.frontPicYOffset = 12,
-        //.frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontPic = gMonFrontPic_LucarioMegaZ,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        //.backPic = gMonBackPic_CircledQuestionMark,
-        //.backPicSize = MON_COORDS_SIZE(40, 40),
-        //.backPicYOffset = 12,
+        .backPic = gMonBackPic_LucarioMegaZ,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
-        //.palette = gMonPalette_CircledQuestionMark,
-        //.shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .palette = gMonPalette_LucarioMegaZ,
+        .shinyPalette = gMonShinyPalette_LucarioMegaZ,
         .iconSprite = gMonIcon_LucarioMegaZ,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         FOOTPRINT(Lucario)
-        //SHADOW(-1, 0, SHADOW_SIZE_M)
+        SHADOW(-1, 12, SHADOW_SIZE_M)
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sLucarioLevelUpLearnset,
         .teachableLearnset = sLucarioTeachableLearnset,
