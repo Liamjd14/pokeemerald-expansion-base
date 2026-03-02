@@ -9,7 +9,7 @@
 #define P_POKERUS_INFECT_AGAIN           GEN_LATEST // If Gen 2 only, your party can get infected even when it is already infected with Pokérus (doesn't affect spreading)
 #define P_POKERUS_VISIBLE_ON_EGG         GEN_LATEST // Controls if eggs can show Pokérus symbol in summary screen (TRUE from gen 3 to 6, FALSE in gen 2,7 and 8)
 #define P_POKERUS_INFECT_EGG             FALSE      // If TRUE, eggs can receive Pokérus from spread and direction infection (gen 2). If FALSE, eggs can receive Pokérus from spread but not direct infection (gen 3). Behavior is unknown in other gens.
-#define P_POKERUS_FLAG_INFECTION         0          // If Pokérus can only get infected if this flag is set or undefined (0). This emulates a gen 2 mechanic where Pokémon can only get infected by Pokérus after visiting Goldernrod. This does not affect spreading
+#define P_POKERUS_FLAG_INFECTION         FLAG_P_POKERUS_FLAG_INFECTION          // If Pokérus can only get infected if this flag is set or undefined (0). This emulates a gen 2 mechanic where Pokémon can only get infected by Pokérus after visiting Goldernrod. This does not affect spreading
 
 // Weird Pokérus behaviors that could be considered bugs. They are TRUE in vanilla Emerald but set to FALSE by default in Expansion (behaviors in other gens is unknown)
 #define P_POKERUS_HERD_IMMUNITY          FALSE      // If TRUE, Pokémon that have been previously infected by the Pokérus in your party reduce the chances of your party getting infected by the Pokérus (because they can be rolled at the target of the infection but are now "immune")
