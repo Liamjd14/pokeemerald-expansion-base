@@ -623,9 +623,10 @@ gSpecials::
 	def_special IsPlayerNotInTrainerTowerLobby
 	def_special BrailleCursorToggle
 	def_special EnterHallOfFame
-	def_special CB2_StartCreditsSequence
+	def_special CB2_StartCreditsSequenceFrlg
 	def_special DoPokemonLeagueLightingEffect
-	def_special GetStarterPokemon
+	def_special GetStarterPokemonVoid
+	def_special GetStarterPokemonVoid_Frlg
 	def_special SetIcefallCaveCrackedIceMetatiles
 	def_special UpdateLoreleiDollCollection
 	def_special SampleResortGorgeousMonAndReward
@@ -637,3 +638,5 @@ gSpecials::
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
+	def_special Special_FlightCallKanto
+	def_special Special_FlightCallHoenn

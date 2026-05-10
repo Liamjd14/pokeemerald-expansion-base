@@ -908,7 +908,7 @@ static const struct MenuAction sMultichoiceList_SeagallopVermilion[] = {
 const u8 sText_NoThanks[] = _("NO THANKS");
 
 static const struct MenuAction sMultichoiceList_GameCornerPokemonPrizes[] = {
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
     {COMPOUND_STRING("ABRA{CLEAR_TO 0x55}{FONT_SMALL} 180 COINS")},
     {COMPOUND_STRING("CLEFAIRY{CLEAR_TO 0x55}{FONT_SMALL} 500 COINS")},
     {COMPOUND_STRING("DRATINI{CLEAR_TO 0x4B}{FONT_SMALL} 2,800 COINS")},
@@ -1133,6 +1133,14 @@ struct MultichoiceListStruct
     u8 count;
 };
 
+//Flight Call function
+static const struct MenuAction sMultichoiceList_FlightCallRegions[] =
+{
+    { COMPOUND_STRING("Kanto") },
+    { COMPOUND_STRING("Hoenn") },
+    { COMPOUND_STRING("Cancel") },
+};
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -1294,6 +1302,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_HOF_VICTORIES_QUIT]                         = MULTICHOICE(sMultichoiceList_HOF_Victories_Quit),
     [MULTI_EGGS_VICTORIES_QUIT]                        = MULTICHOICE(sMultichoiceList_Eggs_Victories_Quit),
     [MULTI_HOF_EGGS_VICTORIES_QUIT]                    = MULTICHOICE(sMultichoiceList_HOF_Eggs_Victories_Quit),
+	[MULTI_FLIGHTCALL_REGIONS]                           = MULTICHOICE(sMultichoiceList_FlightCallRegions),
 };
 
 const u8 *const gStdStrings[] =

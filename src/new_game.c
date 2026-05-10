@@ -53,6 +53,7 @@
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
+extern const u8 EventScript_SetFlagIsFrlg[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
@@ -134,7 +135,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    if (IS_FRLG)
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
     else
         SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
@@ -159,15 +160,11 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
-#if IS_FRLG
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
-#endif
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
-#if IS_FRLG
-    StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
-#endif
+    StringCopy(rivalName, gSaveBlock2Ptr->rivalName);
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
@@ -210,13 +207,11 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     WarpToTruck();
-    if (IS_FRLG)
-        RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
-    else
-        RunScriptImmediately(EventScript_ResetAllMapFlags);
-#if IS_FRLG
-        StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
-#endif
+    RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
+        RunScriptImmediately(EventScript_SetFlagIsFrlg);
+    StringCopy(gSaveBlock2Ptr->rivalName, rivalName);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
     InitLilycoveLady();

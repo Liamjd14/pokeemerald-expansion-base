@@ -2460,12 +2460,17 @@ static void CreatePokedexList(u8 dexMode, u8 order)
     s16 i;
 
     sPokedexView->pokemonListCount = 0;
+    u16 regDexCount;
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
+        regDexCount = KANTO_DEX_COUNT;
+    else
+        regDexCount = HOENN_DEX_COUNT;
 
     switch (dexMode)
     {
     default:
     case DEX_MODE_HOENN:
-        temp_dexCount = REGIONAL_DEX_COUNT;
+        temp_dexCount = regDexCount;
         temp_isHoennDex = TRUE;
         break;
     case DEX_MODE_NATIONAL:
@@ -2476,7 +2481,7 @@ static void CreatePokedexList(u8 dexMode, u8 order)
         }
         else
         {
-            temp_dexCount = REGIONAL_DEX_COUNT;
+            temp_dexCount = regDexCount;
             temp_isHoennDex = TRUE;
         }
         break;

@@ -25,8 +25,6 @@ static void CreateHealthboxSprite(enum BattlerId battler);
 static void ClearBattleBgCntBaseBlocks(void);
 static void CreateCaughtMonSprite(void);
 
-#define CATCH_TUTORIAL_TRAINER_PIC (IS_FRLG ? TRAINER_PIC_OLD_MAN : TRAINER_PIC_WALLY)
-
 void ReshowBattleScreenDummy(void)
 {
 
@@ -289,7 +287,12 @@ static bool8 LoadBattlerSpriteGfx(enum BattlerId battler)
             LoadSpritePaletteWithTag(GetTrainerBackPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, FALSE));
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL && position == B_POSITION_PLAYER_LEFT)
-            LoadSpritePaletteWithTag(GetTrainerBackPicPalette(CATCH_TUTORIAL_TRAINER_PIC), GetTrainerPicTag(CATCH_TUTORIAL_TRAINER_PIC, FALSE));
+        {
+            if (isFrlg)
+                LoadSpritePaletteWithTag(GetTrainerBackPicPalette(TRAINER_PIC_OLD_MAN), GetTrainerPicTag(TRAINER_PIC_OLD_MAN, FALSE));
+            else
+                LoadSpritePaletteWithTag(GetTrainerBackPicPalette(TRAINER_PIC_WALLY), GetTrainerPicTag(TRAINER_PIC_WALLY, FALSE));
+        }
         else if (!gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
             BattleLoadMonSpriteGfx(GetBattlerMon(battler), battler);
         else
@@ -347,11 +350,22 @@ void CreateBattlerSprite(enum BattlerId battler)
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL && position == B_POSITION_PLAYER_LEFT)
         {
-            SetMultiuseSpriteTemplateToTrainerBack(CATCH_TUTORIAL_TRAINER_PIC, position);
-            gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 0x50,
-                                                (8 - GetTrainerBackPicCoords(CATCH_TUTORIAL_TRAINER_PIC)->size) * 4 + 80,
-                                                 GetBattlerSpriteSubpriority(0));
-            gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(GetTrainerPicTag(CATCH_TUTORIAL_TRAINER_PIC, FALSE));
+            if (isFrlg)
+            {
+                SetMultiuseSpriteTemplateToTrainerBack(TRAINER_PIC_OLD_MAN, position);
+                gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 0x50,
+                                                    (8 - GetTrainerBackPicCoords(TRAINER_PIC_OLD_MAN)->size) * 4 + 80,
+                                                    GetBattlerSpriteSubpriority(0));
+                gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(GetTrainerPicTag(TRAINER_PIC_OLD_MAN, FALSE));
+            }
+            else
+            {
+                SetMultiuseSpriteTemplateToTrainerBack(TRAINER_PIC_WALLY, position);
+                gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 0x50,
+                                                    (8 - GetTrainerBackPicCoords(TRAINER_PIC_WALLY)->size) * 4 + 80,
+                                                    GetBattlerSpriteSubpriority(0));
+                gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(GetTrainerPicTag(TRAINER_PIC_WALLY, FALSE));
+            }
             gSprites[gBattlerSpriteIds[battler]].callback = SpriteCallbackDummy;
             gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
         }

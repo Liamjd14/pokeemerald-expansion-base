@@ -698,7 +698,7 @@ void HandleAction_WatchesCarefully(void)
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    if (IS_FRLG)
+    if (isFrlg)
     {
         if (gBattleStruct->safariRockThrowCounter != 0)
         {
@@ -728,7 +728,7 @@ void HandleAction_WatchesCarefully(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MON_WATCHING;
             }
         }
-        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[0];
+        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[6];
     }
     else
     {
@@ -767,7 +767,7 @@ void HandleAction_ThrowPokeblock(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
 
-    if (IS_FRLG)
+    if (isFrlg)
     {
         // throw bait
         gBattleStruct->safariBaitThrowCounter += Random() % 5 + 2;
@@ -817,7 +817,7 @@ void HandleAction_GoNear(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
 
-    if (IS_FRLG)
+    if (isFrlg)
     {
         // throw rock
         gBattleStruct->safariRockThrowCounter += Random() % 5 + 2;
@@ -5520,6 +5520,7 @@ u32 GetBattleMoveTarget(enum Move move, enum MoveTarget moveTarget)
         else
             targetBattler = SetRandomTarget(gBattlerAttacker);
         break;
+
     case TARGET_DEPENDS:
     case TARGET_BOTH:
     case TARGET_FOES_AND_ALLY:
@@ -5527,23 +5528,30 @@ u32 GetBattleMoveTarget(enum Move move, enum MoveTarget moveTarget)
         if (IsDoubleBattle() && !IsBattlerAlive(targetBattler))
             targetBattler ^= BIT_FLANK;
         break;
+
     case TARGET_OPPONENTS_FIELD:
         targetBattler = GetOpposingSideBattler(gBattlerAttacker);
         break;
-    case TARGET_USER:
-    default:
-        targetBattler = gBattlerAttacker;
-        break;
+
     case TARGET_ALLY:
-        if (IsBattlerAlive(BATTLE_PARTNER(gBattlerAttacker)))
-            targetBattler = BATTLE_PARTNER(gBattlerAttacker);
+    {
+        u32 partnerPos = BATTLE_PARTNER(GetBattlerPosition(gBattlerAttacker));
+        u32 partnerBattler = GetBattlerAtPosition(partnerPos);
+
+        if (partnerBattler < gBattlersCount && IsBattlerAlive(partnerBattler))
+            targetBattler = partnerBattler;
         else
             targetBattler = gBattlerAttacker;
         break;
     }
 
-    gBattleStruct->moveTarget[gBattlerAttacker] = targetBattler;
+    case TARGET_USER:
+    default:
+        targetBattler = gBattlerAttacker;
+        break;
+    }
 
+    gBattleStruct->moveTarget[gBattlerAttacker] = targetBattler;
     return targetBattler;
 }
 
@@ -7935,7 +7943,7 @@ static bool32 IsCriticalHit(struct DamageContext *ctx)
 {
 
     if ((gBattleTypeFlags & (BATTLE_TYPE_CATCH_TUTORIAL | BATTLE_TYPE_POKEDUDE))
-    || ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (!IS_FRLG || !BtlCtrl_OakOldMan_TestState2Flag(1))))
+    || ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (!isFrlg || !BtlCtrl_OakOldMan_TestState2Flag(1))))
         return FALSE;
     if (ctx->isSelfInflicted)
         return FALSE;
