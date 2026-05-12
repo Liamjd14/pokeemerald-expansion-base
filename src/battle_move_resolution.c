@@ -2689,7 +2689,6 @@ static enum MoveEndResult MoveEndUpdateLastMoves(void)
         }
         else
         {
-            gLastMoves[gBattlerAttacker] = MOVE_UNAVAILABLE;
             gLastResultingMoves[gBattlerAttacker] = MOVE_UNAVAILABLE;
             gLastUsedMoveType[gBattlerAttacker] = 0;
         }
