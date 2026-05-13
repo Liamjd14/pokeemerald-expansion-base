@@ -2,7 +2,6 @@
 #include "battle_pyramid.h"
 #include "bg.h"
 #include "fieldmap.h"
-#include "event_data.h"
 #include "fldeff.h"
 #include "fldeff_misc.h"
 #include "frontier_util.h"
@@ -519,6 +518,7 @@ static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeTy
     {
         return MB_INVALID;
     }
+
     return ExtractMetatileAttribute(attribute, attributeType, TRUE);
 }
 
@@ -800,7 +800,7 @@ bool8 CameraMove(int x, int y)
         {
             return gCamera.active;
         }
-    
+
         SetPositionFromConnection(connection, direction, x, y);
         LoadMapFromCameraTransition(connection->mapGroup, connection->mapNum);
         gCamera.active = TRUE;
@@ -1012,94 +1012,29 @@ static void UNUSED ApplyGlobalTintToPaletteSlot(u8 slot, u8 count)
 
 static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u16 size, bool8 skipFaded, u32 numPalsInPrimary)
 {
-    u16 black = RGB_BLACK;
-    u8 season = getCurrentSeason();
-
     if (tileset)
     {
         if (tileset->isSecondary == FALSE)
         {
-            LoadPalette(&black, destOffset, PLTT_SIZEOF(1));
-            LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-            switch(season){
-                case SEASON_SPRING:
-                    LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                break;
-                case SEASON_SUMMER:
-                    if(tileset->palettes_summer != NULL)
-                        LoadPalette(tileset->palettes_summer[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                    else
-                        LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                break;
-                case SEASON_AUTUMN:
-                    if(tileset->palettes_autumn != NULL)
-                        LoadPalette(tileset->palettes_autumn[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                    else
-                        LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                break;
-                case SEASON_WINTER:
-                    if(tileset->palettes_winter != NULL)
-                        LoadPalette(tileset->palettes_winter[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                    else
-                        LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
-                break;
-            }
-            ApplyGlobalTintToPaletteEntries(destOffset + 1, (size - PLTT_SIZEOF(1)) >> 1);
+            if (skipFaded)
+                CpuFastCopy(tileset->palettes, &gPlttBufferUnfaded[destOffset], size); // always word-aligned
+            else
+                LoadPaletteFast(tileset->palettes, destOffset, size);
+            gPlttBufferFaded[destOffset] = gPlttBufferUnfaded[destOffset] = RGB_BLACK;
+            ApplyGlobalTintToPaletteEntries(destOffset + 1, (size - 2) >> 1);
         }
         else if (tileset->isSecondary == TRUE)
         {
-            LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
-            switch(season){
-                case SEASON_SPRING:
-                    LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
-                break;
-                case SEASON_SUMMER:
-                    if(tileset->palettes_summer != NULL)
-                        LoadPalette(tileset->palettes_summer[NUM_PALS_IN_PRIMARY], destOffset, size);
-                    else
-                        LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
-                break;
-                case SEASON_AUTUMN:
-                    if(tileset->palettes_autumn != NULL)
-                        LoadPalette(tileset->palettes_autumn[NUM_PALS_IN_PRIMARY], destOffset, size);
-                    else
-                        LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
-                break;
-                case SEASON_WINTER:
-                    if(tileset->palettes_winter != NULL)
-                        LoadPalette(tileset->palettes_winter[NUM_PALS_IN_PRIMARY], destOffset, size);
-                    else
-                        LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
-                break;
-            }
-            ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
+            // All 'gTilesetPalettes_' arrays should have ALIGNED(4) in them,
+            // but we use SmartCopy here just in case they don't
+            if (skipFaded)
+                CpuCopy16(tileset->palettes[numPalsInPrimary], &gPlttBufferUnfaded[destOffset], size);
+            else
+                LoadPaletteFast(tileset->palettes[numPalsInPrimary], destOffset, size);
         }
         else
         {
-            LoadPalette((const u32 *)tileset->palettes, destOffset, size);
-            switch(season){
-                case SEASON_SPRING:
-                    LoadPalette((const u32 *)tileset->palettes, destOffset, size);
-                break;
-                case SEASON_SUMMER:
-                    if(tileset->palettes_summer != NULL)
-                        LoadPalette((const u32 *)tileset->palettes_summer, destOffset, size);
-                    else
-                        LoadPalette((const u32 *)tileset->palettes, destOffset, size);
-                break;
-                case SEASON_AUTUMN:
-                    if(tileset->palettes_autumn != NULL)
-                        LoadPalette((const u32 *)tileset->palettes_autumn, destOffset, size);
-                    else
-                        LoadPalette((const u32 *)tileset->palettes, destOffset, size);
-                break;
-                case SEASON_WINTER:
-                    if(tileset->palettes_winter != NULL)
-                        LoadPalette((const u32 *)tileset->palettes_winter, destOffset, size);
-                    else
-                        LoadPalette((const u32 *)tileset->palettes, destOffset, size);
-                break;
-            }
+            LoadPalette((const u16 *)tileset->palettes, destOffset, size);
             ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
         }
     }
