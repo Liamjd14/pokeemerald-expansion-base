@@ -4618,7 +4618,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         }
         break;
-    case ABILITYEFFECT_COMMANDER:
+    case ABILITYEFFECT_DEPENDS_ON_ALLY:
         gBattleScripting.battler = battler;
         partner = BATTLE_PARTNER(battler);
         switch (ability)
@@ -8140,7 +8140,7 @@ static inline void TryNoticeIllusionInTypeEffectiveness(enum Move move, enum Typ
         RecordAbilityBattle(ctx.battlerDef, ABILITY_ILLUSION);
 }
 
-void UpdateMoveResultFlags(uq4_12_t modifier, u16 *resultFlags)
+void UpdateMoveResultFlags(uq4_12_t modifier, u32 *resultFlags)
 {
     if (modifier == UQ_4_12(0.0))
     {
@@ -9099,6 +9099,25 @@ bool32 CanFling(enum BattlerId battlerAtk, enum Ability abilityAtk)
         return FALSE;
 
     return TRUE;
+}
+
+void SortBattlersByRawSpeed(u8 battlers[])
+{
+    for (u32 i = 0; i < gBattlersCount; i++)
+        battlers[i] = i;
+
+    for (u32 i = 0; i < gBattlersCount; i++)
+    {
+        for (u32 j = 0; j < gBattlersCount; j++)
+        {
+            if (gBattleMons[battlers[i]].speed >= gBattleMons[battlers[j]].speed)
+            {
+                u32 temp = battlers[i];
+                battlers[i] = battlers[j];
+                battlers[j] = temp;
+            }
+        }
+    }
 }
 
 // Sort an array of battlers by speed
