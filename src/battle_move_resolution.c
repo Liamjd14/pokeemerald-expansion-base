@@ -2141,8 +2141,8 @@ static bool32 ShouldSkipAccuracyCalcPastFirstHit(enum BattlerId battlerAtk, enum
 
 static bool32 ShouldSkipFRLGAccuracyCheck(void)
 {
-    if (!IS_FRLG)
-        return FALSE;
+//    if (!IS_FRLG)
+//        return FALSE;
 
     if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE
      && (!BtlCtrl_OakOldMan_TestState2Flag(1) || !BtlCtrl_OakOldMan_TestState2Flag(2))
