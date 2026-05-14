@@ -2,56 +2,106 @@
 #define GUARD_CONSTANTS_TMS_HMS_H
 
 #define FOREACH_TM(F) \
-    F(HOWL) \
-    F(DRAGON_CLAW) \
-    F(WATER_PULSE) \
-    F(CALM_MIND) \
-    F(ROAR) \
-    F(TOXIC) \
-    F(HAIL) \
-    F(BULK_UP) \
-    F(BULLET_SEED) \
+    F(RETURN) \
+    F(TERA_BLAST) \
+    F(BODY_SLAM) \
     F(HIDDEN_POWER) \
-    F(SUNNY_DAY) \
-    F(TAUNT) \
-    F(ICE_BEAM) \
-    F(BLIZZARD) \
-    F(HYPER_BEAM) \
-    F(LIGHT_SCREEN) \
+    F(FACADE) \
+    F(FALSE_SWIPE) \
     F(PROTECT) \
-    F(RAIN_DANCE) \
-    F(GIGA_DRAIN) \
-    F(SAFEGUARD) \
-    F(FRUSTRATION) \
+    F(SUBSTITUTE) \
+    F(SWORDS_DANCE) \
+    F(TRAILBLAZE) \
+    F(ENERGY_BALL) \
+    F(LEAF_BLADE) \
     F(SOLAR_BEAM) \
-    F(IRON_TAIL) \
+    F(SOLAR_BLADE) \
+    F(SUNNY_DAY) \
+    F(WILL_O_WISP) \
+    F(INCINERATE) \
+    F(FIRE_PUNCH) \
+    F(FLAMETHROWER) \
+    F(FIRE_BLAST) \
+    F(FLARE_BLITZ) \
+    F(RAIN_DANCE) \
+    F(FLIP_TURN) \
+    F(SCALD) \
+    F(BRINE) \
+    F(LIQUIDATION) \
+    F(THUNDER_WAVE) \
+    F(VOLT_SWITCH) \
+    F(ELECTROWEB) \
+    F(THUNDER_PUNCH) \
+    F(WILD_CHARGE) \
     F(THUNDERBOLT) \
     F(THUNDER) \
-    F(EARTHQUAKE) \
-    F(RETURN) \
-    F(DIG) \
-    F(PSYCHIC) \
-    F(SHADOW_BALL) \
+    F(U_TURN) \
+    F(X_SCISSOR) \
+    F(BUG_BUZZ) \
+    F(POLLEN_PUFF) \
+    F(ROOST) \
+    F(ACROBATICS) \
+    F(AIR_SLASH) \
+    F(BRAVE_BIRD) \
+    F(HURRICANE) \
+    F(BULK_UP) \
+    F(BODY_PRESS) \
     F(BRICK_BREAK) \
-    F(DOUBLE_TEAM) \
-    F(REFLECT) \
-    F(SHOCK_WAVE) \
-    F(FLAMETHROWER) \
-    F(SLUDGE_BOMB) \
+    F(AURA_SPHERE) \
+    F(FOCUS_BLAST) \
+    F(CLOSE_COMBAT) \
     F(SANDSTORM) \
-    F(FIRE_BLAST) \
-    F(ROCK_TOMB) \
-    F(AERIAL_ACE) \
-    F(TORMENT) \
-    F(FACADE) \
-    F(SECRET_POWER) \
+    F(ROCK_THROW) \
+    F(ROCK_SLIDE) \
+    F(POWER_GEM) \
+    F(STONE_EDGE) \
+    F(BULLDOZE) \
+    F(DIG) \
+    F(HIGH_HORSEPOWER) \
+    F(EARTH_POWER) \
+    F(EARTHQUAKE) \
+    F(TOXIC) \
+    F(POISON_FANG) \
+    F(VENOSHOCK) \
+    F(POISON_JAB) \
+    F(SLUDGE_BOMB) \
+    F(HEX) \
+    F(SHADOW_CLAW) \
+    F(SHADOW_BALL) \
     F(REST) \
-    F(ATTRACT) \
+    F(CALM_MIND) \
+    F(AMNESIA) \
+    F(AGILITY) \
+    F(REFLECT) \
+    F(LIGHT_SCREEN) \
+    F(PSYCHIC_FANGS) \
+    F(PSYCHIC) \
+    F(PSYSHOCK) \
+    F(HAIL) \
+    F(ICY_WIND) \
+    F(ICE_PUNCH) \
+    F(ICE_SPINNER) \
+    F(ICE_BEAM) \
+    F(BLIZZARD) \
+    F(NASTY_PLOT) \
+    F(SNARL) \
     F(THIEF) \
-    F(STEEL_WING) \
-    F(SKILL_SWAP) \
-    F(SNATCH) \
-    F(OVERHEAT)
+    F(KNOCK_OFF) \
+    F(THROAT_CHOP) \
+    F(DARK_PULSE) \
+    F(IRON_DEFENSE) \
+    F(METAL_CLAW) \
+    F(FLASH_CANNON) \
+    F(IRON_HEAD) \
+    F(IRON_TAIL) \
+    F(DRAINING_KISS) \
+    F(DAZZLING_GLEAM) \
+    F(PLAY_ROUGH) \
+    F(MOONBLAST) \
+    F(BREAKING_SWIPE) \
+    F(DRAGON_CLAW) \
+    F(DRAGON_PULSE) \
+    F(OUTRAGE)
 
 #define FOREACH_HM(F) \
     F(CUT) \
