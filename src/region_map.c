@@ -28,6 +28,10 @@
 #include "constants/heal_locations.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
+#include "item_menu.h"
+
+extern bool8 gPlaneTicketFromBag;
+extern bool8 gSkipShowMonAnim;
 
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
@@ -68,6 +72,67 @@ struct MultiNameFlyDest
     u16 flag;
 };
 
+//Flight Call
+static EWRAM_DATA bool8 sUseForcedFlightRegion;
+static EWRAM_DATA u8 sForcedFlightRegion;
+
+void SetForcedFlightRegion(u8 region)
+{
+    sForcedFlightRegion = region;
+    sUseForcedFlightRegion = TRUE;
+}
+
+void ClearForcedFlightRegion(void)
+{
+    sForcedFlightRegion = 0;
+    sUseForcedFlightRegion = FALSE;
+}
+
+static u8 GetActiveRegionMapType(void)
+{
+    if (sUseForcedFlightRegion)
+        return sForcedFlightRegion;
+
+    return GetRegionMapType(gMapHeader.regionMapSectionId);
+}
+
+static u8 GetActiveTopLevelRegion(void)
+{
+    switch (GetActiveRegionMapType())
+    {
+    case REGION_MAP_KANTO:
+    case REGION_MAP_SEVII123:
+    case REGION_MAP_SEVII45:
+    case REGION_MAP_SEVII67:
+        return REGION_KANTO;
+    case REGION_MAP_HOENN:
+    default:
+        return REGION_HOENN;
+    }
+}
+
+static u8 GetActiveKantoSubregion(void)
+{
+    if (sUseForcedFlightRegion)
+    {
+        switch (sForcedFlightRegion)
+        {
+        case REGION_MAP_SEVII123:
+            return KANTO_SUBREGION_SEVII123;
+        case REGION_MAP_SEVII45:
+            return KANTO_SUBREGION_SEVII45;
+        case REGION_MAP_SEVII67:
+            return KANTO_SUBREGION_SEVII67;
+        case REGION_MAP_KANTO:
+        default:
+            return KANTO_SUBREGION_KANTO;
+        }
+    }
+
+    return GetKantoSubregion(gMapHeader.regionMapSectionId);
+}
+//Flight Call End
+
 static EWRAM_DATA struct RegionMap *sRegionMap = NULL;
 
 static EWRAM_DATA struct {
@@ -90,6 +155,7 @@ static void CalcZoomScrollParams(s16 scrollX, s16 scrollY, s16 c, s16 d, u16 e, 
 static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y);
 static void RegionMap_SetBG2XAndBG2Y(s16 x, s16 y);
 static void InitMapBasedOnPlayerLocation(void);
+static void InitMapForForcedFlightRegion(void);
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void);
 static u8 GetMapsecType(mapsec_u16_t mapSecId);
 static mapsec_u16_t CorrectSpecialMapSecId_Internal(mapsec_u16_t mapSecId);
@@ -1225,6 +1291,12 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 xOnMap;
     struct WarpData *warp;
 
+	if (sUseForcedFlightRegion)
+    {
+        InitMapForForcedFlightRegion();
+        return;
+    }
+
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SS_TIDAL_CORRIDOR)
         && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_CORRIDOR)
             || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_LOWER_DECK)
@@ -2322,6 +2394,47 @@ static const struct FlyLocation sFlyLocations[] =
     },
 };
 
+//Flight Call Helper
+static void InitMapForForcedFlightRegion(void)
+{
+    u32 i;
+    u16 x, y, width, height;
+    mapsec_u16_t mapSecId = MAPSEC_NONE;
+
+    for (i = 0; i < ARRAY_COUNT(sFlyLocations); i++)
+    {
+        if (sFlyLocations[i].regionMapType != GetActiveRegionMapType())
+            continue;
+
+        if (FlagGet(sFlyLocations[i].flag))
+        {
+            mapSecId = sFlyLocations[i].mapsec;
+            break;
+        }
+    }
+
+    if (mapSecId == MAPSEC_NONE)
+    {
+        for (i = 0; i < ARRAY_COUNT(sFlyLocations); i++)
+        {
+            if (sFlyLocations[i].regionMapType == GetActiveRegionMapType())
+            {
+                mapSecId = sFlyLocations[i].mapsec;
+                break;
+            }
+        }
+    }
+
+    if (mapSecId == MAPSEC_NONE)
+        mapSecId = MAPSEC_LITTLEROOT_TOWN;
+
+    sRegionMap->mapSecId = mapSecId;
+    sRegionMap->playerIsInCave = FALSE;
+
+    GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
+    sRegionMap->cursorPosX = x + MAPCURSOR_X_MIN;
+    sRegionMap->cursorPosY = y + MAPCURSOR_Y_MIN;
+}
 
 // Sprite data for SpriteCB_FlyDestIcon
 #define sIconMapSec   data[0]
@@ -2487,14 +2600,27 @@ static void CB_ExitFlyMap(void)
             {
                 struct RegionMap *tempRegionMap = &sFlyMap->regionMap;
 
+				if (gPlaneTicketFromBag)
+					gSkipShowMonAnim = TRUE;
 
+                gPlaneTicketFromBag = FALSE;
                 SetFlyDestination(tempRegionMap);
                 ReturnToFieldFromFlyMapSelect();
             }
             else
             {
-                SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                if (gPlaneTicketFromBag)
+                {
+                    gPlaneTicketFromBag = FALSE;
+                    SetMainCallback2(CB2_ReturnToBagMenuPocket);
+                }
+                else
+                {
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                }
             }
+
+            ClearForcedFlightRegion();
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();
         }

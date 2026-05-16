@@ -1735,3 +1735,33 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
+
+Text_WhereWouldYouLikeToFly::
+    .string "Where would you like to fly?$"
+
+EventScript_UsePlaneTicket::
+    lockall
+    message Text_WhereWouldYouLikeToFly
+    waitmessage
+    multichoice 0, 0, MULTI_PlaneTicket_REGIONS, FALSE
+    switch VAR_RESULT
+    case 0, EventScript_PlaneTicket_Kanto
+    case 1, EventScript_PlaneTicket_Hoenn
+    case 2, EventScript_PlaneTicket_Cancel
+    end
+
+EventScript_PlaneTicket_Kanto::
+    special Special_PlaneTicketKanto
+    waitstate
+    releaseall
+    end
+
+EventScript_PlaneTicket_Hoenn::
+    special Special_PlaneTicketHoenn
+    waitstate
+    releaseall
+    end
+
+EventScript_PlaneTicket_Cancel::
+    releaseall
+    end
