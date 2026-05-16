@@ -741,14 +741,14 @@ bool8 LoadRegionMapGfx(void)
     switch (sRegionMap->initStep)
     {
     case 0:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = GetActiveRegionMapType();
         if (sRegionMap->bgManaged)
             DecompressAndCopyTileDataToVram(sRegionMap->bgNum, gRegionMapInfos[regionMapType].regionMapGfx, 0, 0, 0);
         else
             DecompressDataWithHeaderVram(gRegionMapInfos[regionMapType].regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
         break;
     case 1:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = GetActiveRegionMapType();
         if (sRegionMap->bgManaged)
         {
             if (!FreeTempTileDataBuffersIfPossible())
@@ -760,7 +760,7 @@ bool8 LoadRegionMapGfx(void)
         }
         break;
     case 2:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = GetActiveRegionMapType();
         if (!FreeTempTileDataBuffersIfPossible())
             LoadPalette(gRegionMapInfos[regionMapType].regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
         break;
@@ -812,6 +812,7 @@ bool8 LoadRegionMapGfx(void)
     default:
         return FALSE;
     }
+
     sRegionMap->initStep++;
     return TRUE;
 }
@@ -1192,10 +1193,10 @@ static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
     y -= MAPCURSOR_Y_MIN;
     x -= MAPCURSOR_X_MIN;
 
-    switch (GetCurrentRegion())
+    switch (GetActiveTopLevelRegion())
     {
     case REGION_KANTO:
-        switch (GetKantoSubregion(gMapHeader.regionMapSectionId))
+        switch (GetActiveKantoSubregion())
         {
         case KANTO_SUBREGION_SEVII123:
                 return sRegionMapSections_Sevii123[y][x];
@@ -1744,7 +1745,7 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sRegionMap->playerIconSprite = NULL;
         return;
     }
-    if (IS_FRLG && gSaveBlock2Ptr->playerGender == FEMALE)
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO && gSaveBlock2Ptr->playerGender == FEMALE)
     {
         sheet.data = sRegionMapPlayerIcon_LeafGfx;
         palette.data = sRegionMapPlayerIcon_LeafPal;
@@ -1754,7 +1755,7 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sheet.data = sRegionMapPlayerIcon_MayGfx;
         palette.data = sRegionMapPlayerIcon_MayPal;
     }
-    else if (IS_FRLG)
+    else if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
     {
         sheet.data = sRegionMapPlayerIcon_RedGfx;
         palette.data = sRegionMapPlayerIcon_RedPal;
@@ -2328,7 +2329,7 @@ static const struct FlyLocation sFlyLocations[] =
 
 static void CreateFlyDestIcons(void)
 {
-    enum RegionMapType regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+    enum RegionMapType regionMapType = GetActiveRegionMapType();
     u32 i;
     u16 x;
     u16 y;
@@ -2481,9 +2482,11 @@ static void CB_ExitFlyMap(void)
         if (!UpdatePaletteFade())
         {
             FreeRegionMapIconResources();
+
             if (sFlyMap->choseFlyLocation)
             {
-                struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
+                struct RegionMap *tempRegionMap = &sFlyMap->regionMap;
+
 
                 SetFlyDestination(tempRegionMap);
                 ReturnToFieldFromFlyMapSelect();
@@ -2519,7 +2522,7 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
     }
 }
 
-void SetFlyDestination(struct RegionMap* regionMap)
+void SetFlyDestination(struct RegionMap *regionMap)
 {
     u32 flyDestination = FilterFlyDestination(regionMap);
 

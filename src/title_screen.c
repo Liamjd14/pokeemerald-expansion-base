@@ -41,7 +41,7 @@ enum {
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
 #define BERRY_UPDATE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON)
-#define A_B_START_SELECT (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
+#define A_B_START (A_BUTTON | B_BUTTON | START_BUTTON)
 
 static void MainCB2(void);
 static void Task_TitleScreenPhase1(u8);
@@ -563,7 +563,7 @@ static void VBlankCB(void)
 
 void CB2_InitTitleScreen(void)
 {
-    if (IS_FRLG)
+    if (isFrlgInt)
     {
         CB2_InitTitleScreenFrlg();
         return;
@@ -683,10 +683,14 @@ static void MainCB2(void)
 static void Task_TitleScreenPhase1(u8 taskId)
 {
     // Skip to next phase when A, B, Start, or Select is pressed
-    if (JOY_NEW(A_B_START_SELECT) || gTasks[taskId].tSkipToNext)
+    if (JOY_NEW(A_B_START) || gTasks[taskId].tSkipToNext)
     {
         gTasks[taskId].tSkipToNext = TRUE;
         gTasks[taskId].tCounter = 0;
+    }
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        SetMainCallback2(CB2_GoToCopyrightScreenForce_Frlg);
     }
 
     if (gTasks[taskId].tCounter != 0)
@@ -733,10 +737,14 @@ static void Task_TitleScreenPhase2(u8 taskId)
     u32 yPos;
 
     // Skip to next phase when A, B, Start, or Select is pressed
-    if (JOY_NEW(A_B_START_SELECT) || gTasks[taskId].tSkipToNext)
+    if (JOY_NEW(A_B_START) || gTasks[taskId].tSkipToNext)
     {
         gTasks[taskId].tSkipToNext = TRUE;
         gTasks[taskId].tCounter = 0;
+    }
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        SetMainCallback2(CB2_GoToCopyrightScreenForce_Frlg);
     }
 
     if (gTasks[taskId].tCounter != 0)
@@ -789,6 +797,10 @@ static void Task_TitleScreenPhase3(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
         SetMainCallback2(CB2_GoToMainMenu);
     }
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        SetMainCallback2(CB2_GoToCopyrightScreenForce_Frlg);
+    }
     else if (JOY_HELD(CLEAR_SAVE_BUTTON_COMBO) == CLEAR_SAVE_BUTTON_COMBO)
     {
         SetMainCallback2(CB2_GoToClearSaveDataScreen);
@@ -835,6 +847,24 @@ static void CB2_GoToCopyrightScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitCopyrightScreenAfterTitleScreen);
+}
+
+void CB2_GoToCopyrightScreenForce(void)
+{
+    isFrlg = 0;
+    isFrlgInt = 0;
+    FadeOutBGM(4);
+    CB2_GoToCopyrightScreen();
+    return;
+}
+
+void CB2_GoToCopyrightScreenForce_Frlg(void)
+{
+    isFrlg = 1;
+    isFrlgInt = 1;
+    FadeOutBGM(4);
+    CB2_GoToCopyrightScreen();
+    return;
 }
 
 static void CB2_GoToClearSaveDataScreen(void)

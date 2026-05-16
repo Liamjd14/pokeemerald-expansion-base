@@ -22,10 +22,9 @@
 #include "scanline_effect.h"
 #include "sound.h"
 #include "task.h"
+#include "title_screen.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
-
-#if IS_FRLG
 
 enum TitleScreenScene
 {
@@ -37,9 +36,9 @@ enum TitleScreenScene
     TITLESCREENSCENE_CRY
 };
 
-#if   defined(FIRERED)
+#if   defined(FIRERED_INT)
 #define TITLE_SPECIES SPECIES_CHARIZARD
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 #define TITLE_SPECIES SPECIES_VENUSAUR
 #endif
 
@@ -68,10 +67,10 @@ static void CB2_FadeOutTransitionToSaveClearScreen(void);
 static void CB2_FadeOutTransitionToResetRtcScreen(void);
 static void CB2_FadeOutTransitionToBerryFix(void);
 static void LoadSpriteGfxAndPals(void);
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static void SpriteCallback_TitleScreenFlame(struct Sprite *sprite);
 static void Task_FlameSpawner(u8 taskId);
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 static void SpriteCallback_TitleScreenLeaf(struct Sprite *sprite);
 static void Task_LeafSpawner(u8 taskId);
 #endif
@@ -86,25 +85,25 @@ static void SpriteCallback_Slash(struct Sprite *sprite);
 
 static const u8 sBorderBgTiles[] = INCGFX_U8("graphics/title_screen_frlg/border_bg.png", ".4bpp.smol");
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static const u8 sBorderBgMap[] = INCBIN_U8("graphics/title_screen_frlg/firered/border_bg.bin.smolTM");
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 static const u8 sBorderBgMap[] = INCBIN_U8("graphics/title_screen_frlg/leafgreen/border_bg.bin.smolTM");
 #endif
 
 static const u32 sSlash_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/slash.png", ".4bpp.smol");
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static const u16 sFlames_Pal[] = INCGFX_U16("graphics/title_screen_frlg/firered/flames.png", ".gbapal");
 static const u32 sFlames_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/firered/flames.png", ".4bpp.smol");
 static const u32 sBlankFlames_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/firered/blank_flames.png", ".4bpp.smol");
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 static const u16 sLeaves_Pal[] = INCGFX_U16("graphics/title_screen_frlg/leafgreen/leaves.png", ".gbapal");
 static const u32 sLeaves_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/leafgreen/leaves.png", ".4bpp.smol");
 static const u32 sStreak_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/leafgreen/streak.png", ".4bpp.smol");
 #endif
 
-#ifdef FIRERED
+#ifdef FIRERED_INT
 const u16 gGraphics_TitleScreen_GameTitleLogoPals[] = INCGFX_U16("graphics/title_screen_frlg/firered/game_title_logo.pal", ".gbapal");
 const u8 gGraphics_TitleScreen_GameTitleLogoTiles[] = INCGFX_U8("graphics/title_screen_frlg/firered/game_title_logo.png", ".8bpp.smol");
 const u8 gGraphics_TitleScreen_GameTitleLogoMap[] = INCBIN_U8("graphics/title_screen_frlg/firered/game_title_logo.bin.smolTM");
@@ -117,7 +116,7 @@ const u8 gGraphics_TitleScreen_CopyrightPressStartMap[] = INCBIN_U8("graphics/ti
 const u16 gTitleScreen_Slash_Pal[] = INCGFX_U16("graphics/title_screen_frlg/firered/slash.pal", ".gbapal");
 #endif
 
-#ifdef LEAFGREEN
+#ifdef LEAFGREEN_INT
 const u16 gGraphics_TitleScreen_GameTitleLogoPals[] = INCGFX_U16("graphics/title_screen_frlg/leafgreen/game_title_logo.pal", ".gbapal");
 const u8 gGraphics_TitleScreen_GameTitleLogoTiles[] = INCGFX_U8("graphics/title_screen_frlg/leafgreen/game_title_logo.png", ".8bpp.smol");
 const u8 gGraphics_TitleScreen_GameTitleLogoMap[] = INCBIN_U8("graphics/title_screen_frlg/leafgreen/game_title_logo.bin.smolTM");
@@ -141,7 +140,7 @@ static const struct OamData sOamData_FlameOrLeaf = {
     .paletteNum = 0
 };
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static const union AnimCmd sSpriteAnim_Flame[] = {
     ANIMCMD_FRAME(0, 3),
     ANIMCMD_FRAME(4, 6),
@@ -169,7 +168,7 @@ static const union AnimCmd *const sSpriteAnim_FlameOrLeaf[] = {
     sSpriteAnim_Flame_Unused,
 };
 
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 static const union AnimCmd sSpriteAnim_Leaf[] = {
     ANIMCMD_FRAME(0, 8),
     ANIMCMD_FRAME(4, 8),
@@ -213,7 +212,7 @@ static const struct SpriteTemplate sSpriteTemplate_FlameOrLeaf = {
     .callback = SpriteCallbackDummy
 };
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static const struct SpriteTemplate sSpriteTemplate_BlankFlame = {
     .tileTag = TILE_TAG_BLANK_OR_STREAK,
     .paletteTag = PAL_TAG_DEFAULT,
@@ -325,7 +324,7 @@ static void (*const sSceneFuncs[])(s16 *data) = {
     [TITLESCREENSCENE_CRY]         = SetTitleScreenScene_Cry
 };
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 static const struct CompressedSpriteSheet sSpriteSheets[] = {
     {sFlames_Gfx,                    0x500, TILE_TAG_FLAME_OR_LEAF},
     {sBlankFlames_Gfx,               0x500, TILE_TAG_BLANK_OR_STREAK},
@@ -498,6 +497,10 @@ static void Task_TitleScreenMain(u8 taskId)
         SetPalOnOrCreateBlankSprite(tHasCreatedBlankSprite);
         SetTitleScreenScene(data, TITLESCREENSCENE_RUN);
     }
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        SetMainCallback2(CB2_GoToCopyrightScreenForce);
+    }
     else
         sSceneFuncs[tSceneNum](data);
 }
@@ -658,9 +661,9 @@ static void SetTitleScreenScene_Run(s16 *data)
         if (QUICKSTART && QUICKSTART_HUD)
             CreateQuickstartHud();
         CreateTask(Task_TitleScreen_BlinkPressStart, 0);
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
         CreateTask(Task_FlameSpawner, 5);
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
         CreateTask(Task_LeafSpawner, 5);
 #endif
         SetGpuRegsForTitleScreenRun();
@@ -690,9 +693,9 @@ static void SetTitleScreenScene_Run(s16 *data)
         {
             SetTitleScreenScene(data, TITLESCREENSCENE_CRY);
         }
-        else if (QUICKSTART && JOY_NEW(SELECT_BUTTON))
+        else if (JOY_NEW(SELECT_BUTTON))
         {
-            Quickstart();
+            SetMainCallback2(CB2_GoToCopyrightScreenForce);
         }
         else if (!FuncIsActiveTask(Task_TitleScreenTimer))
         {
@@ -991,7 +994,7 @@ static void LoadSpriteGfxAndPals(void)
     LoadSpritePalettes(sSpritePals);
 }
 
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
 
 #define sPosX      data[0]
 #define sSpeedX    data[1]
@@ -1116,7 +1119,7 @@ static void Task_FlameSpawner(u8 taskId)
 #undef tOff_Seed
 #undef tOffsetX
 
-#elif defined(LEAFGREEN)
+#elif defined(LEAFGREEN_INT)
 
 #define sPosX        data[0]
 #define sSpeedX      data[1]
@@ -1358,5 +1361,3 @@ static void SpriteCallback_Slash(struct Sprite *sprite)
 #undef sState
 #undef sTimer
 #undef sDeactivate
-
-#endif // !IS_FRLG

@@ -2186,12 +2186,17 @@ static void CreatePokedexList(u8 dexMode, u8 order)
     s32 i;
 
     sPokedexView->pokemonListCount = 0;
+    u16 regDexCount;
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
+        regDexCount = KANTO_DEX_COUNT;
+    else
+        regDexCount = HOENN_DEX_COUNT;
 
     switch (dexMode)
     {
     default:
     case DEX_MODE_HOENN:
-        temp_dexCount = REGIONAL_DEX_COUNT;
+        temp_dexCount = regDexCount;
         temp_isHoennDex = TRUE;
         break;
     case DEX_MODE_NATIONAL:
@@ -2202,7 +2207,7 @@ static void CreatePokedexList(u8 dexMode, u8 order)
         }
         else
         {
-            temp_dexCount = REGIONAL_DEX_COUNT;
+            temp_dexCount = regDexCount;
             temp_isHoennDex = TRUE;
         }
         break;
@@ -4563,7 +4568,7 @@ u16 GetNationalPokedexCount(u8 caseID)
 
 u32 GetRegionalPokedexCount(u8 caseID)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return GetKantoPokedexCount(caseID);
     return GetHoennPokedexCount(caseID);
 }
@@ -4614,7 +4619,7 @@ u16 GetKantoPokedexCount(u8 caseID)
 
 bool16 HasAllRegionalMons(void)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return HasAllKantoMons();
     return HasAllHoennMons();
 }

@@ -1018,7 +1018,7 @@ void FieldShowRegionMap(void)
 
 static bool32 IsBuildingPCTile(u32 tileId)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return FALSE;
 
     return (MetatileBehavior_IsPC(GetAttributeByMetatileIdAndMapLayout(tileId, METATILE_ATTRIBUTE_BEHAVIOR, FALSE)));
@@ -1026,7 +1026,7 @@ static bool32 IsBuildingPCTile(u32 tileId)
 
 static bool32 IsBuildingPCTileFrlg(u32 tileId)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return gMapHeader.mapLayout->primaryTileset == &gTileset_BuildingFrlg && (tileId == METATILE_BuildingFrlg_PCOn || tileId == METATILE_BuildingFrlg_PCOff);
 
     return FALSE;
@@ -1034,7 +1034,7 @@ static bool32 IsBuildingPCTileFrlg(u32 tileId)
 
 static bool32 IsPlayerHousePCTile(u32 tileId)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return FALSE;
 
     return gMapHeader.mapLayout->secondaryTileset == &gTileset_BrendansMaysHouse
@@ -1046,7 +1046,7 @@ static bool32 IsPlayerHousePCTile(u32 tileId)
 
 static bool32 IsPlayerHousePCTileFrlg(u32 tileId)
 {
-    if (IS_FRLG)
+    if (isFrlg)
         return gMapHeader.mapLayout->secondaryTileset == &gTileset_GenericBuilding1
             && (tileId == METATILE_GenericBuilding1_PlayersPCOn || tileId == METATILE_GenericBuilding1_PlayersPCOff);
 
@@ -1144,7 +1144,7 @@ static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
     {
         // Screen is on, set it off
         if (gSpecialVar_0x8004 == PC_LOCATION_OTHER)
-            metatileId = IS_FRLG ? METATILE_BuildingFrlg_PCOff : METATILE_Building_PC_Off;
+            metatileId = isFrlg ? METATILE_BuildingFrlg_PCOff : METATILE_Building_PC_Off;
         else if (gSpecialVar_0x8004 == PC_LOCATION_BRENDANS_HOUSE)
             metatileId = METATILE_BrendansMaysHouse_BrendanPC_Off;
         else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
@@ -1156,7 +1156,7 @@ static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
     {
         // Screen is off, set it on
         if (gSpecialVar_0x8004 == PC_LOCATION_OTHER)
-            metatileId = IS_FRLG ? METATILE_BuildingFrlg_PCOn : METATILE_Building_PC_On;
+            metatileId = isFrlg ? METATILE_BuildingFrlg_PCOn : METATILE_Building_PC_On;
         else if (gSpecialVar_0x8004 == PC_LOCATION_BRENDANS_HOUSE)
             metatileId = METATILE_BrendansMaysHouse_BrendanPC_On;
         else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
@@ -1203,7 +1203,7 @@ static void PCTurnOffEffect(void)
     }
 
     if (gSpecialVar_0x8004 == PC_LOCATION_OTHER)
-        metatileId = IS_FRLG ? METATILE_BuildingFrlg_PCOff : METATILE_Building_PC_Off;
+        metatileId = isFrlg ? METATILE_BuildingFrlg_PCOff : METATILE_Building_PC_Off;
     else if (gSpecialVar_0x8004 == PC_LOCATION_BRENDANS_HOUSE)
         metatileId = METATILE_BrendansMaysHouse_BrendanPC_Off;
     else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
@@ -2920,9 +2920,9 @@ void SetBattleTowerLinkPlayerGfx(void)
     for (i = 0; i < 2; i++)
     {
         if (gLinkPlayers[i].gender == MALE)
-            VarSet(VAR_OBJ_GFX_ID_F - i, PLAYER_AVATAR_GFX_MALE_NORMAL);
+            VarSet(VAR_OBJ_GFX_ID_F - i, gSaveBlock2Ptr->playerRegion == REGION_KANTO ? OBJ_EVENT_GFX_RED_NORMAL : OBJ_EVENT_GFX_BRENDAN_NORMAL);
         else
-            VarSet(VAR_OBJ_GFX_ID_F - i, PLAYER_AVATAR_GFX_FEMALE_NORMAL);
+            VarSet(VAR_OBJ_GFX_ID_F - i, gSaveBlock2Ptr->playerRegion == REGION_KANTO ? OBJ_EVENT_GFX_GREEN_NORMAL : OBJ_EVENT_GFX_MAY_NORMAL);
     }
 }
 
@@ -5401,8 +5401,8 @@ void ForcePlayerOntoBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
-    Overworld_SetSavedMusic(IS_FRLG ? MUS_RG_CYCLING : MUS_CYCLING);
-    Overworld_ChangeMusicTo(IS_FRLG ? MUS_RG_CYCLING : MUS_CYCLING);
+    Overworld_SetSavedMusic(isFrlg ? MUS_RG_CYCLING : MUS_CYCLING);
+    Overworld_ChangeMusicTo(isFrlg ? MUS_RG_CYCLING : MUS_CYCLING);
 }
 
 bool8 IsPlayerNotInTrainerTowerLobby(void)

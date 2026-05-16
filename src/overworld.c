@@ -50,6 +50,7 @@
 #include "palette.h"
 #include "play_time.h"
 #include "random.h"
+#include "regions.h"
 #include "roamer.h"
 #include "rotating_gate.h"
 #include "rtc.h"
@@ -670,6 +671,10 @@ static void LoadCurrentMapData(void)
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     gSaveBlock1Ptr->mapLayoutId = gMapHeader.mapLayoutId;
     gMapHeader.mapLayout = GetMapLayout(gMapHeader.mapLayoutId);
+    if (GetCurrentRegion() == REGION_KANTO)
+        isFrlg = 1;
+    else if (GetCurrentRegion() == REGION_HOENN)
+        isFrlg = 0;
 }
 
 static void LoadSaveblockMapHeader(void)
@@ -1296,7 +1301,7 @@ void Overworld_PlaySpecialMapMusic(void)
         else if (GetCurrentMapType() == MAP_TYPE_UNDERWATER)
             music = MUS_UNDERWATER;
         else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-            music = (IS_FRLG ? MUS_RG_SURF : MUS_SURF);
+            music = (isFrlg ? MUS_RG_SURF : MUS_SURF);
     }
 
     if (music != GetCurrentMapMusic())
@@ -1329,10 +1334,10 @@ static void TransitionMapMusic(void)
         u16 currentMusic = GetCurrentMapMusic();
         if (newMusic != MUS_ABNORMAL_WEATHER && newMusic != MUS_NONE)
         {
-            if (currentMusic == MUS_UNDERWATER || currentMusic == (IS_FRLG ? MUS_RG_SURF : MUS_SURF))
+            if (currentMusic == MUS_UNDERWATER || currentMusic == (isFrlg ? MUS_RG_SURF : MUS_SURF))
                 return;
             if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-                newMusic = (IS_FRLG ? MUS_RG_SURF : MUS_SURF);
+                newMusic = (isFrlg ? MUS_RG_SURF : MUS_SURF);
         }
         if (newMusic != currentMusic)
         {
@@ -1915,7 +1920,7 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    if (IS_FRLG)
+    if (isFrlg)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     else
         gFieldCallback = ExecuteTruckSequence;
