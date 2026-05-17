@@ -203,6 +203,11 @@ BattleScript_ConsumableItemStatRaise::
 	removeitem BS_SCRIPTING
 	return
 
+BattleScript_CustomItemStatRaise::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	trybattlerstatchange BS_SCRIPTING, STAT_CHANGE_ITEM
+	return
+
 BattleScript_MirrorArmorReflect::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp

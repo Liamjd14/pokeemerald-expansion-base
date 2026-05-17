@@ -606,4 +606,28 @@ const struct HoldEffectInfo gHoldEffectsInfo[HOLD_EFFECT_COUNT] =
     {
         .onSwitchIn = TRUE,
     },
+    [HOLD_EFFECT_ATTACK_UP_SWITCH] =
+    {
+        .onSwitchIn = TRUE,
+    },
+
+    [HOLD_EFFECT_DEFENSE_UP_SWITCH] =
+    {
+        .onSwitchIn = TRUE,
+    },
+
+    [HOLD_EFFECT_SPEED_UP_SWITCH] =
+    {
+        .onSwitchIn = TRUE,
+    },
+
+    [HOLD_EFFECT_SP_ATTACK_UP_SWITCH] =
+    {
+        .onSwitchIn = TRUE,
+    },
+
+    [HOLD_EFFECT_SP_DEFENSE_UP_SWITCH] =
+    {
+        .onSwitchIn = TRUE,
+    },
 };

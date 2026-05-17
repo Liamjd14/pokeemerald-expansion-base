@@ -963,6 +963,15 @@ static enum ItemEffect StatRaiseBerry(enum BattlerId battler, enum Item itemId, 
     return effect;
 }
 
+static enum ItemEffect StatRaiseItem(enum BattlerId battler, enum Stat statId)
+{
+    enum ItemEffect effect = ITEM_NO_EFFECT;
+    SetStatChange(battler, statId, 1);
+    BattleScriptCall(BattleScript_CustomItemStatRaise);
+    effect = ITEM_STATS_CHANGE;
+    return effect;
+}
+
 static enum ItemEffect CriticalHitRatioUp(enum BattlerId battler, enum Item itemId)
 {
     enum ItemEffect effect = ITEM_NO_EFFECT;
@@ -1219,6 +1228,21 @@ enum ItemEffect ItemBattleEffects(enum BattlerId itemBattler, enum BattlerId bat
         break;
     case HOLD_EFFECT_MICLE_BERRY:
         effect = TrySetMicleBerry(itemBattler, item);
+        break;
+    case HOLD_EFFECT_ATTACK_UP_SWITCH: // Liechi Berry
+        effect = StatRaiseItem(itemBattler, STAT_ATK);
+        break;
+    case HOLD_EFFECT_DEFENSE_UP_SWITCH: // Ganlon Berry
+        effect = StatRaiseItem(itemBattler, STAT_DEF);
+        break;
+    case HOLD_EFFECT_SPEED_UP_SWITCH: // Salac Berry
+        effect = StatRaiseItem(itemBattler, STAT_SPEED);
+        break;
+    case HOLD_EFFECT_SP_ATTACK_UP_SWITCH: // Petaya Berry
+        effect = StatRaiseItem(itemBattler, STAT_SPATK);
+        break;
+    case HOLD_EFFECT_SP_DEFENSE_UP_SWITCH: // Apicot Berry
+        effect = StatRaiseItem(itemBattler, STAT_SPDEF);
         break;
     default:
         break;
