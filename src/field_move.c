@@ -10,62 +10,71 @@
 
 static bool32 IsFieldMoveUnlocked_Cut(void)
 {
-    if (isFrlg)
-        return FlagGet(FLAG_BADGE02_GET);
-
-    return FlagGet(FLAG_BADGE01_GET);
+    return TRUE;
+//    if (isFrlg)
+//        return FlagGet(FLAG_BADGE02_GET);
+//
+//    return FlagGet(FLAG_BADGE01_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Flash(void)
 {
-    if (isFrlg)
-        return FlagGet(FLAG_BADGE01_GET);
-
-    return FlagGet(FLAG_BADGE02_GET);
+    return TRUE;
+//    if (isFrlg)
+//        return FlagGet(FLAG_BADGE01_GET);
+//
+//    return FlagGet(FLAG_BADGE02_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_RockSmash(void)
 {
-    if (isFrlg)
-        return FlagGet(FLAG_BADGE06_GET);
-
-    return FlagGet(FLAG_BADGE03_GET);
+    return TRUE;
+//    if (isFrlg)
+//        return FlagGet(FLAG_BADGE06_GET);
+//
+//    return FlagGet(FLAG_BADGE03_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Strength(void)
 {
-    return FlagGet(FLAG_BADGE04_GET);
+    return TRUE;
+//    return FlagGet(FLAG_BADGE04_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Surf(void)
 {
-    return FlagGet(FLAG_BADGE05_GET);
+    return TRUE;
+//    return FlagGet(FLAG_BADGE05_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Fly(void)
 {
-    if (isFrlg)
-        return FlagGet(FLAG_BADGE03_GET);
-
-    return FlagGet(FLAG_BADGE06_GET);
+    return TRUE;
+//    if (isFrlg)
+//        return FlagGet(FLAG_BADGE03_GET);
+//
+//    return FlagGet(FLAG_BADGE06_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Dive(void)
 {
-    return FlagGet(FLAG_BADGE07_GET);
+    return TRUE;
+//    return FlagGet(FLAG_BADGE07_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Waterfall(void)
 {
-    if (isFrlg)
-        return FlagGet(FLAG_BADGE07_GET);
-
-    return FlagGet(FLAG_BADGE08_GET);
+    return TRUE;
+//    if (isFrlg)
+//        return FlagGet(FLAG_BADGE07_GET);
+//
+//    return FlagGet(FLAG_BADGE08_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_RockClimb(void)
 {
-    return OW_ROCK_CLIMB_FIELD_MOVE;
+    return TRUE;
+//    return OW_ROCK_CLIMB_FIELD_MOVE;
 }
 
 static bool32 IsFieldMoveUnlocked_Teleport(void)
