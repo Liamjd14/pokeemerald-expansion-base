@@ -294,7 +294,7 @@ static const struct MenuAction MultichoiceList_HowsFishing[] =
     {COMPOUND_STRING("Not so good")},
 };
 
-const u8 gText_LilycoveCity[] = _("LILYCOVE CITY");
+const u8 gText_LilycoveCity[] = _("Lilycove City");
 
 static const struct MenuAction MultichoiceList_SSTidalSlateportWithBF[] =
 {

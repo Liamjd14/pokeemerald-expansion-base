@@ -1,4 +1,4 @@
-Route17_Frlg_Mapscripts::
+Route17_Frlg_MapScripts::
 	.byte 0
 
 Route17_EventScript_ItemsNotice::

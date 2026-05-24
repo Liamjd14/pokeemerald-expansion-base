@@ -1,4 +1,4 @@
-Route3_Frlg_Mapscripts::
+Route3_Frlg_MapScripts::
 	.byte 0
 
 Route3_EventScript_Youngster::

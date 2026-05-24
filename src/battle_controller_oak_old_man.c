@@ -50,12 +50,12 @@ static void PrintOakTextWithMainBgDarkened(enum BattlerId battler, const u8 *tex
 static void HandleInputChooseAction(enum BattlerId battler);
 
 static const u8 sText_ForPetesSake[] = _("Oak: Oh, for Pete's sake…\nSo pushy, as always.\p{B_PLAYER_NAME}.\pYou've never had a Pokémon battle\nbefore, have you?\pA Pokémon battle is when Trainers\npit their Pokémon against each\lother.\p");
-static const u8 sText_HowDissapointing[] = _("Oak: Hm…\nHow disappointing…\pIf you win, you earn prize money,\nand your Pokémon grow.\pBut if you lose, {B_PLAYER_NAME}, you end\nup paying prize money…\pHowever, since you had no warning\nthis time, I'll pay for you.\pBut things won't be this way once\nyou step outside these doors.\pThat's why you must strengthen your\Npokémon by battling wild Pokémon.\p");
+static const u8 sText_HowDissapointing[] = _("Oak: Hm…\nHow disappointing…\pIf you win, you earn prize money,\nand your Pokémon grow.\pBut if you lose, {B_PLAYER_NAME}, you end\nup paying prize money…\pHowever, since you had no warning\nthis time, I'll pay for you.\pBut things won't be this way once\nyou step outside these doors.\pThat's why you must strengthen your\nPokémon by battling wild Pokémon.\p");
 static const u8 sText_InflictingDamageIsKey[] = _("Oak: Inflicting damage on the foe\nis the key to any battle.\p");
-static const u8 sText_KeepAnEyeOnHP[] = _("Oak: Keep your eyes on your\Npokémon's HP.\pIt will faint if the HP drops to\n“0.”\p");
+static const u8 sText_KeepAnEyeOnHP[] = _("Oak: Keep your eyes on your\nPokémon's HP.\pIt will faint if the HP drops to\n“0.”\p");
 static const u8 sText_LoweringStats[] = _("Oak: Lowering the foe's stats\nwill put you at an advantage.\p");
 static const u8 sText_OakNoRunningFromATrainer[] = _("Oak: No! There's no running away\nfrom a Trainer Pokémon battle!\p");
-static const u8 sText_TheTrainerThat[] = _("The Trainer that makes the other\Ntrainer's Pokémon faint by lowering\ltheir HP to “0,” wins.\p");
+static const u8 sText_TheTrainerThat[] = _("The Trainer that makes the other\ntrainer's Pokémon faint by lowering\ltheir HP to “0,” wins.\p");
 static const u8 sText_TryBattling[] = _("But rather than talking about it,\nyou'll learn more from experience.\pTry battling and see for yourself.\p");
 static const u8 sText_WinEarnsPrizeMoney[] = _("Oak: Hm! Excellent!\pIf you win, you earn prize money,\nand your Pokémon will grow!\pBattle other Trainers and make\nyour Pokémon strong!\p");
 static const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");

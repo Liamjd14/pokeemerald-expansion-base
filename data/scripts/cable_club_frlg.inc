@@ -1581,7 +1581,7 @@ CableClub_Text_ExplainBattleModes_Frlg::
 	.string "There are three Battle Modes.\p"
 	.string "Single Battle is for two Trainers\n"
 	.string "with one or more Pokémon each.\p"
-	.string "Each Trainer can have one POKéMON\n"
+	.string "Each Trainer can have one Pokémon\n"
 	.string "in battle at a time.\p"
 	.string "Double Battle is for two Trainers\n"
 	.string "with two or more Pokémon each.\p"
@@ -1589,7 +1589,7 @@ CableClub_Text_ExplainBattleModes_Frlg::
 	.string "Pokémon in battle at a time.\p"
 	.string "Multi Battle is for four Trainers\n"
 	.string "with one or more Pokémon each.\p"
-	.string "Each Trainer can have one POKéMON\n"
+	.string "Each Trainer can have one Pokémon\n"
 	.string "in battle at a time.$"
 
 CableClub_Text_ChooseGroupLeaderOfTwo_Frlg::
@@ -1677,7 +1677,7 @@ CableClub_Text_AskAboutLinking_Frlg::
 	.string "ask me about linking?$"
 
 CableClub_Text_ExplainWirelessClub_Frlg::
-	.string "Let me explain how the POKéMON\n"
+	.string "Let me explain how the Pokémon\n"
 	.string "Wireless Club works.\p"
 	.string "On this, the top floor, there are\n"
 	.string "two rooms.\p"

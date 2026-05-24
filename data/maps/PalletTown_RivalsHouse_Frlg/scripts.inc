@@ -170,7 +170,7 @@ PalletTown_RivalsHouse_Text_HiBrothersAtLab::
 	.string "My Brother, {RIVAL}, is out at\n"
 	.string "Grandpa's Lab.$"
 
-Pallettown_Rivalshouse_Text_Heardyoubattledrival::
+PalletTown_RivalsHouse_Text_HeardYouBattledRival::
 	.string "Daisy: {PLAYER}, I heard you had\n"
 	.string "a battle against {RIVAL}.\p"
 	.string "I wish I'd seen that!$"

@@ -528,7 +528,6 @@ const u8 gText_ElevatorNowOn[] = _("Now on:");
 const u8 gText_BP[] = _("BP");
 const u8 gText_RankingHall[] = _("Ranking Hall");
 const u8 gText_ExchangeService[] = _("Exchange Service");
-const u8 gText_LilycoveCity[] = _("Lilycove city");
 const u8 gText_SlateportCity[] = _("Slateport city");
 const u8 gText_Exit[] = _("Exit");
 const u8 gText_YourPartysFull[] = _("Your party's full!{PAUSE_UNTIL_PRESS}");

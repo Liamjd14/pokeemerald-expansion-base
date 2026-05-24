@@ -172,7 +172,7 @@ ViridianCity_School_Text_ExplainPoison::
 	.string "Poison lingers after battles.\n"
 	.string "Use an Antidote to cure poison!$"
 
-Viridiancity_School_Text_Explainfreeze::
+ViridianCity_School_Text_ExplainFreeze::
 	.string "A frozen Pokémon becomes\n"
 	.string "helplessly immobile.\p"
 	.string "It stays frozen even after the\n"
