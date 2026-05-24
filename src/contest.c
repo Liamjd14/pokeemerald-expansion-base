@@ -677,9 +677,9 @@ const struct ContestCategory gContestCategoryInfo[CONTEST_CATEGORIES_COUNT + 1] 
 {
     [CONTEST_CATEGORY_COOL] =
     {
-        .name = COMPOUND_STRING("COOL"),
+        .name = COMPOUND_STRING("Coll"),
         .condition = COMPOUND_STRING("coolness"),
-        .generic = COMPOUND_STRING("COOL Move"),
+        .generic = COMPOUND_STRING("Cool Move"),
         .negativeTrait = COMPOUND_STRING("shyness"),
         .palette = 13,
         .tile = 0x4040,
@@ -687,9 +687,9 @@ const struct ContestCategory gContestCategoryInfo[CONTEST_CATEGORIES_COUNT + 1] 
 
     [CONTEST_CATEGORY_BEAUTY] =
     {
-        .name = COMPOUND_STRING("BEAUTY"),
+        .name = COMPOUND_STRING("Beauty"),
         .condition = COMPOUND_STRING("beauty"),
-        .generic = COMPOUND_STRING("BEAUTY Move"),
+        .generic = COMPOUND_STRING("Beauty Move"),
         .negativeTrait = COMPOUND_STRING("anxiety"),
         .palette = 14,
         .tile = 0x4045,
@@ -697,9 +697,9 @@ const struct ContestCategory gContestCategoryInfo[CONTEST_CATEGORIES_COUNT + 1] 
 
     [CONTEST_CATEGORY_CUTE] =
     {
-        .name = COMPOUND_STRING("CUTE"),
+        .name = COMPOUND_STRING("Cute"),
         .condition = COMPOUND_STRING("cuteness"),
-        .generic = COMPOUND_STRING("CUTE Move"),
+        .generic = COMPOUND_STRING("Cute Move"),
         .negativeTrait = COMPOUND_STRING("laziness"),
         .palette = 14,
         .tile = 0x404A,
@@ -707,9 +707,9 @@ const struct ContestCategory gContestCategoryInfo[CONTEST_CATEGORIES_COUNT + 1] 
 
     [CONTEST_CATEGORY_SMART] =
     {
-        .name = COMPOUND_STRING("SMART"),
+        .name = COMPOUND_STRING("Smart"),
         .condition = COMPOUND_STRING("smartness"),
-        .generic = COMPOUND_STRING("SMART Move"),
+        .generic = COMPOUND_STRING("Smart Move"),
         .negativeTrait = COMPOUND_STRING("hesitancy"),
         .palette = 15,
         .tile = 0x406A,
@@ -717,9 +717,9 @@ const struct ContestCategory gContestCategoryInfo[CONTEST_CATEGORIES_COUNT + 1] 
 
     [CONTEST_CATEGORY_TOUGH] =
     {
-        .name = COMPOUND_STRING("TOUGH"),
+        .name = COMPOUND_STRING("Tough"),
         .condition = COMPOUND_STRING("toughness"),
-        .generic = COMPOUND_STRING("TOUGH Move"),
+        .generic = COMPOUND_STRING("Tough Move"),
         .negativeTrait = COMPOUND_STRING("fear"),
         .palette = 13,
         .tile = 0x408A,

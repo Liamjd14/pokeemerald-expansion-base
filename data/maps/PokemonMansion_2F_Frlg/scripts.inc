@@ -60,5 +60,5 @@ PokemonMansion_1F_Text_NewMonDiscoveredInGuyanaJungle::
 PokemonMansion_1F_Text_ChristenedDiscoveredMonMew::
 	.string "Diary: July 10\n"
 	.string "We christened the newly discovered\l"
-	.string "POKéMON, MEW.$"
+	.string "Pokémon, Mew.$"
 

@@ -178,7 +178,7 @@ FiveIsland_ResortGorgeous_House_Text_ButlerYesMyLady::
 	.string "Butler: Yes, my lady.$"
 
 FiveIsland_ResortGorgeous_House_Text_SelphyGiveTokenOfAppreciation::
-	.string "SELPHY: See to it that this person\n"
+	.string "Selphy: See to it that this person\n"
 	.string "is given a token of appreciation.$"
 
 FiveIsland_ResortGorgeous_House_Text_ButlerIShallDoAsYouBid::
@@ -187,11 +187,11 @@ FiveIsland_ResortGorgeous_House_Text_ButlerIShallDoAsYouBid::
 
 FiveIsland_ResortGorgeous_House_Text_ButlerPleaseAcceptThisAsHerThanks::
 	.string "Butler: I sincerely thank you for\n"
-	.string "pleasing Lady SELPHY.\p"
+	.string "pleasing Lady Selphy.\p"
 	.string "Please accept this as her thanks…$"
 
 FiveIsland_ResortGorgeous_House_Text_ButlerBagAppearsToBeFull::
-	.string "Butler: Your BAG appears to be\n"
+	.string "Butler: Your Bag appears to be\n"
 	.string "unfortunately full.$"
 
 FiveIsland_ResortGorgeous_House_Text_OhHowDisappointing::
@@ -199,12 +199,12 @@ FiveIsland_ResortGorgeous_House_Text_OhHowDisappointing::
 	.string "How disappointing.$"
 
 FiveIsland_ResortGorgeous_House_Text_SelphyWishYouBestOfLuck::
-	.string "SELPHY: I wish you the best of\n"
+	.string "Selphy: I wish you the best of\n"
 	.string "luck.$"
 
 FiveIsland_ResortGorgeous_House_Text_LadySelphySmileHasBrillianceOfSun::
-	.string "Butler: The smile of Lady SELPHY\n"
+	.string "Butler: The smile of Lady Selphy\n"
 	.string "has the brilliance of the sun.\p"
 	.string "Please, I beg you to bring joy\n"
-	.string "to Lady SELPHY.$"
+	.string "to Lady Selphy.$"
 

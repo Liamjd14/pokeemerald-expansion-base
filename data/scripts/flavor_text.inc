@@ -200,7 +200,7 @@ Text_TrashBin::
 	.string "There's nothing here!$"
 
 Text_Cup::
-	.string "It's a cup with a POKéMON mark\n"
+	.string "It's a cup with a Pokémon mark\n"
 	.string "on it.$"
 
 Text_PolishedWindow::
@@ -232,5 +232,5 @@ Text_Burglary::
 	.string "here…$"
 
 Text_PlayerFacingTVScreen::
-	.string "There's a POKéMON on TV!\n"
+	.string "There's a Pokémon on TV!\n"
 	.string "It looks like it's having fun.$"

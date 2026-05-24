@@ -97,7 +97,7 @@ static void ContestEffect_GreatAppealButNoMoreMoves(void)
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_NO_APPEAL);
 }
 
-// Can be used repeatedly without boring the JUDGE.
+// Can be used repeatedly without boring the Judge.
 static void ContestEffect_RepetitionNotBoring(void)
 {
     eContestantStatus[eContestAppealResults.contestant].usedRepeatableMove = TRUE;
@@ -244,7 +244,7 @@ static void ContestEffect_StartlePrevMons2(void)
         SetContestantEffectStringID2(eContestAppealResults.contestant, CONTEST_STRING_MESSED_UP2);
 }
 
-// Shifts the JUDGE's attention from others.
+// Shifts the Judge's attention from others.
 static void ContestEffect_ShiftJudgeAttention(void)
 {
     bool32 hitAny = FALSE;
@@ -274,7 +274,7 @@ static void ContestEffect_ShiftJudgeAttention(void)
     }
 }
 
-// Startles the POK�MON that has the JUDGE's attention.
+// Startles the Pokémon that has the Judge's attention.
 static void ContestEffect_StartleMonWithJudgesAttention(void)
 {
     u8 numStartled = 0;
@@ -320,35 +320,35 @@ static void ContestEffect_StartleMonsSameTypeAppeal(void)
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_ATTEMPT_STARTLE);
 }
 
-// Badly startles POK�MON that made COOL appeals.
+// Badly startles Pokémon that made Cool appeals.
 static void ContestEffect_StartleMonsCoolAppeal(void)
 {
     JamByMoveCategory(CONTEST_CATEGORY_COOL);
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_ATTEMPT_STARTLE);
 }
 
-// Badly startles POK�MON that made BEAUTY appeals.
+// Badly startles Pokémon that made Beauty appeals.
 static void ContestEffect_StartleMonsBeautyAppeal(void)
 {
     JamByMoveCategory(CONTEST_CATEGORY_BEAUTY);
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_ATTEMPT_STARTLE);
 }
 
-// Badly startles POK�MON that made CUTE appeals.
+// Badly startles Pokémon that made Cute appeals.
 static void ContestEffect_StartleMonsCuteAppeal(void)
 {
     JamByMoveCategory(CONTEST_CATEGORY_CUTE);
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_ATTEMPT_STARTLE);
 }
 
-// Badly startles POK�MON that made SMART appeals.
+// Badly startles Pokémon that made Smart appeals.
 static void ContestEffect_StartleMonsSmartAppeal(void)
 {
     JamByMoveCategory(CONTEST_CATEGORY_SMART);
     SetContestantEffectStringID(eContestAppealResults.contestant, CONTEST_STRING_ATTEMPT_STARTLE);
 }
 
-// Badly startles POK�MON that made TOUGH appeals.
+// Badly startles Pokémon that made Tough appeals.
 static void ContestEffect_StartleMonsToughAppeal(void)
 {
     JamByMoveCategory(CONTEST_CATEGORY_TOUGH);
