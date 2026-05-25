@@ -1100,6 +1100,7 @@ static void BagAction_UseOnField(u8 taskId)
         || pocketId == POCKET_POKE_BALLS
         || pocketId == POCKET_TM_HM
         || pocketId == POCKET_MEGA_STONES
+        || pocketId == POCKET_Z_CRYSTAL
         || ItemIsMail(gSpecialVar_ItemId) == TRUE)
     {
         CloseMenuActionWindow();

@@ -81,6 +81,7 @@ struct GFRomHeader
     u32 gameClearFlag;
     u32 ribbonFlag;
     u8 bagCountMegaStones;
+    u8 bagCountZCrystal;
     u8 bagCountItems;
     u8 bagCountKeyItems;
     u8 bagCountPokeballs;
@@ -163,6 +164,7 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .ribbonFlag = FLAG_SYS_RIBBON_GET,
     .bagCountItems = BAG_ITEMS_COUNT,
     .bagCountMegaStones = BAG_MEGA_STONE_COUNT,
+    .bagCountZCrystal = BAG_Z_CRYSTAL_COUNT,
     .bagCountKeyItems = BAG_KEYITEMS_COUNT,
     .bagCountPokeballs = BAG_POKEBALLS_COUNT,
     .bagCountTMHMs = BAG_TMHM_COUNT,
