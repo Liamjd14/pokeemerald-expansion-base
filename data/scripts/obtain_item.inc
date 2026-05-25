@@ -19,6 +19,7 @@ EventScript_ObtainItemMessage::
 EventScript_BufferPocketNameAndTryFanfare::
 	switch VAR_RESULT
 	case POCKET_ITEMS,      EventScript_BufferItemsPocket
+	case POCKET_MEGA_STONES,EventScript_BufferMegaStonesPocket
 	case POCKET_KEY_ITEMS,  EventScript_BufferKeyItemsPocket
 	case POCKET_POKE_BALLS, EventScript_BufferPokeballsPocket
 	case POCKET_TM_HM,      EventScript_BufferTMHMsPocket
@@ -26,6 +27,11 @@ EventScript_BufferPocketNameAndTryFanfare::
 	end
 
 EventScript_BufferItemsPocket::
+	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferMegaStonesPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
@@ -252,11 +258,16 @@ Std_PutItemAway::
 EventScript_BufferPutAwayPocketName::
 	switch VAR_RESULT
 	case POCKET_ITEMS,       EventScript_BufferPutAwayPocketItems
+	case POCKET_MEGA_STONES, EventScript_BufferPutAwayPocketMegaStones
 	case POCKET_KEY_ITEMS,   EventScript_BufferPutAwayPocketKeyItems
 	case POCKET_POKE_BALLS,  EventScript_BufferPutAwayPocketPokeBalls
 	case POCKET_TM_HM,     EventScript_BufferPutAwayPocketTMCase
 	case POCKET_BERRIES, EventScript_BufferPutAwayPocketBerryPouch
 	end
+
+EventScript_BufferPutAwayPocketMegaStones::
+	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
+	return
 
 EventScript_BufferPutAwayPocketItems::
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
