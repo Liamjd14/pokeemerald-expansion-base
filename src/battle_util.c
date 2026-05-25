@@ -8490,7 +8490,10 @@ void ActivateMegaEvolution(enum BattlerId battler)
     enum Ability ability = GetBattlerAbility(battler);
     gLastUsedItem = gBattleMons[battler].item;
     SetActiveGimmick(battler, GIMMICK_MEGA);
-    SetGimmickAsActivated(battler, GIMMICK_MEGA);
+    if (!FlagGet(B_FLAG_MULTIPLE_MEGAS))
+    {
+        SetGimmickAsActivated(battler, GIMMICK_MEGA);
+    }
 
     if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE, ability))
     {

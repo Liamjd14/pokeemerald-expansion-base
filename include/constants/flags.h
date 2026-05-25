@@ -1535,7 +1535,7 @@
 #define FLAG_WE_FLAG_NO_CATCHING                    (SYSTEM_FLAGS + 0xA4) // Unused Flag
 #define FLAG_WE_FLAG_NO_RUNNING                     (SYSTEM_FLAGS + 0xA5) // Unused Flag
 #define FLAG_WE_OWE_FLAG_DISABLED                   (SYSTEM_FLAGS + 0xA6) // Unused Flag
-#define FLAG_UNUSED_0x907                           (SYSTEM_FLAGS + 0xA7) // Unused Flag
+#define FLAG_B_FLAG_MULTIPLE_MEGAS                  (SYSTEM_FLAGS + 0xA7) // Unused Flag
 #define FLAG_UNUSED_0x908                           (SYSTEM_FLAGS + 0xA8) // Unused Flag
 #define FLAG_UNUSED_0x909                           (SYSTEM_FLAGS + 0xA9) // Unused Flag
 #define FLAG_UNUSED_0x90A                           (SYSTEM_FLAGS + 0xAA) // Unused Flag

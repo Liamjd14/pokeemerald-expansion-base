@@ -258,6 +258,7 @@
 #define B_FLAG_TERA_ORB_NO_COST     FLAG_B_FLAG_TERA_ORB_NO_COST     // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
 #define B_FLAG_SLEEP_CLAUSE         FLAG_B_FLAG_SLEEP_CLAUSE     // If this flag is set, sleep clause is enabled; if the player / AI has already put a Pokémon on the opponent's side to sleep and it is still sleeping, another one can't be put to sleep. AI requires AI_FLAG_CHECK_BAD_MOVE to understand.
 #define B_FLAG_NO_WHITEOUT          FLAG_B_FLAG_NO_WHITEOUT     // If this flag is set, the player can not white out against Trainers. Please note that the party is not healed automatically!
+#define B_FLAG_MULTIPLE_MEGAS       FLAG_B_FLAG_MULTIPLE_MEGAS  // If this flag is set, it allows for the use of multiple mega evolutions in battle
 
 // Var Settings
 // To use the following features, change the 0 for a var present in include/constants/vars.h, preferably an unused one.
