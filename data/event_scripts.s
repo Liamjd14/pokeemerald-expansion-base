@@ -1763,3 +1763,5 @@ EventScript_PlaneTicket_Hoenn::
 EventScript_PlaneTicket_Cancel::
     releaseall
     end
+
+	.include "data/maps/TestingRelm/scripts.inc"

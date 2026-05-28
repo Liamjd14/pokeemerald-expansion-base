@@ -9323,6 +9323,16 @@
       "border_height": 2,
       "border_width": 2,
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_TESTING_RELM",
+      "name": "TestingRelm_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/TestingRelm/border.bin",
+      "blockdata_filepath": "data/layouts/TestingRelm/map.bin"
     }
   ]
 }
