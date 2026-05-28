@@ -18,6 +18,14 @@
     "gMapGroup_SeviiIndoor",
     "gMapGroup_Link_Frlg"
   ],
+  "gMapGroup_EshosTownsAndRoutes": [],
+  "gMapGroup_EshosDungeons": [],
+  "gMapGroup_EshosIndoorDynamic": [],
+  "gMapGroup_EshosSpecialArea": [],
+  "gMapGroup_EshosTownIndoor": [],
+  "gMapGroup_EshosCityIndoor1": [],
+  "gMapGroup_EshosCityIndoor2": [],
+  "gMapGroup_EshosRouteIndoor": [],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",
