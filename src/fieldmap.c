@@ -494,8 +494,8 @@ u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg)
     if (attributeType >= METATILE_ATTRIBUTE_COUNT) // Check for METATILE_ATTRIBUTES_ALL
         return attributes;
 
-    if (isFrlg)
-        return (attributes & sMetatileAttrMasks[attributeType]) >> sMetatileAttrShifts[attributeType];
+    //if (isFrlg)
+    //    return (attributes & sMetatileAttrMasks[attributeType]) >> sMetatileAttrShifts[attributeType];
 
     return (attributes & sMetatileAttrMasksEmerald[attributeType]) >> sMetatileAttrShiftsEmerald[attributeType];
 }
@@ -505,12 +505,12 @@ static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeTy
     u32 attribute;
     if (metatile < GetNumMetatilesInPrimary(gMapHeader.mapLayout))
     {
-        const u32 *attributes = (const u32*)gMapHeader.mapLayout->primaryTileset->metatileAttributes;
+        const u16 *attributes = (const u16*)gMapHeader.mapLayout->primaryTileset->metatileAttributes;
         attribute = attributes[metatile];
     }
     else if (metatile < NUM_METATILES_TOTAL)
     {
-        const u32 *attributes = (const u32*) gMapHeader.mapLayout->secondaryTileset->metatileAttributes;
+        const u16 *attributes = (const u16*)gMapHeader.mapLayout->secondaryTileset->metatileAttributes;
         metatile -= GetNumMetatilesInPrimary(gMapHeader.mapLayout);
         attribute = attributes[metatile];
     }
@@ -519,7 +519,7 @@ static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeTy
         return MB_INVALID;
     }
 
-    return ExtractMetatileAttribute(attribute, attributeType, TRUE);
+    return ExtractMetatileAttribute(attribute, attributeType, FALSE);
 }
 
 u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType, bool32 isFrlg)
