@@ -9329,8 +9329,8 @@
       "name": "TestingRelm_Layout",
       "width": 40,
       "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_BerryForest",
       "border_filepath": "data/layouts/TestingRelm/border.bin",
       "blockdata_filepath": "data/layouts/TestingRelm/map.bin"
     }
