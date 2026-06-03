@@ -143,7 +143,7 @@ const u8 gText_ThreeDashes[] = _("---");
 const u8 gText_MaleSymbol[] = _("♂");
 const u8 gText_FemaleSymbol[] = _("♀");
 const u8 gText_LevelSymbol[] = _("{LV}");
-const u8 gText_NumberClear01[] = _("{NO}{CLEAR 0x01}");
+const u8 gText_NumberClear01[] = _("{NO}{CLEAR 1}");
 const u8 gText_RightArrow[] = _("{RIGHT_ARROW}"); // Unused
 const u8 gText_IDNumber2[] = _("{ID}{NO}");
 const u8 gText_Space[] = _(" ");
@@ -212,8 +212,8 @@ const u8 *const gPocketNamesStringsTable[] =
     [POCKET_KEY_ITEMS] =    COMPOUND_STRING("Key Items")
 };
 
-const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x03}{STR_VAR_2}");
-const u8 gText_NumberItem_HM[] = _("{CLEAR_TO 0x11}{STR_VAR_1}{CLEAR 0x05}{STR_VAR_2}");
+const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 3}{STR_VAR_2}");
+const u8 gText_NumberItem_HM[] = _("{CLEAR_TO 17}{STR_VAR_1}{CLEAR 5}{STR_VAR_2}");
 
 const u8 gText_ShopBuy[] = _("Buy");
 const u8 gText_ShopSell[] = _("Sell");
@@ -897,7 +897,7 @@ const u8 gText_Total[] = _("Total");
 const u8 gText_ClearStreak[] = _("Clear streak: {STR_VAR_1}");
 const u8 gText_Championships[] = _("Championships: {STR_VAR_1}");
 const u8 gText_RoomsCleared[] = _("Rooms cleared: {STR_VAR_1}");
-const u8 gText_TimesCleared[] = _("Times cleared:{CLEAR 0x05}{STR_VAR_1}");
+const u8 gText_TimesCleared[] = _("Times cleared:{CLEAR 5}{STR_VAR_1}");
 const u8 gText_KOsInARow[] = _("KOs in a row: {STR_VAR_1}");
 const u8 gText_TimesVar1[] = _("Times: {STR_VAR_1}");
 const u8 gText_FloorsCleared[] = _("Floors cleared: {STR_VAR_1}");
