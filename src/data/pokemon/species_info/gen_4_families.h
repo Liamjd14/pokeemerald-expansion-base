@@ -3565,10 +3565,9 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 13,
         .weight = 283,
         .description = COMPOUND_STRING(
-            "Mega Evolution awakens its combative\n"
-            "instincts. It has shed any fur that got in\n"
-            "the way of its attacks.\n"
-            "crescent."),
+            "It swings its ears like whips and strikes\n"
+            "its enemies with them. It has an\n"
+            "intensely combative disposition."),
         .pokemonScale = 282,
         .pokemonOffset = 4,
         .trainerScale = 256,
@@ -4481,10 +4480,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 19,
         .weight = 950,
         .description = COMPOUND_STRING(
-            "Excess energy melted its arms and wings\n"
-            "into giant scythes, sending it mad with\n"
-            "rage. It swings its scythes wildly and\n"
-            "slices the ground to pieces."),
+            "Its disposition is more vicious than\n"
+            "before its Mega Evolution. Garchomp\n"
+            "carves its opponents up with the\n"
+            "scythes on both arms."),
         .pokemonScale = 256,
         .pokemonOffset = 1,
         .trainerScale = 326,
@@ -4762,10 +4761,9 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 13,
         .weight = 575,
         .description = COMPOUND_STRING(
-            "It readies itself to face its enemies by\n"
-            "focusing its mental energies. Its fighting\n"
-            "style can be summed up in a single word:\n"
-            "heartless."),
+            "Black streaks all over its body show where\n"
+            "its auras and the energy of Mega Evolution\n"
+            "intermingled and raced through it."),
         .pokemonScale = 282,
         .pokemonOffset = 4,
         .trainerScale = 256,
@@ -5810,10 +5808,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 27,
         .weight = 1850,
         .description = COMPOUND_STRING(
-            "The sprouts on Abomasnow's back grow into\n"
-            "great shafts of ice when it Mega Evolves.\n"
-            "Dislikes associating with others and\n"
-            "chooses to live quietly deep in mountains."),
+            "The buds on its back have sprouted into\n"
+            "impressive icicles that can whip up\n"
+            "massive blizzards of negative\n"
+            "22 degrees Fahrenheit."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 348,

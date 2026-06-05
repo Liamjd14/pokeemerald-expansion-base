@@ -12262,10 +12262,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 14,
         .weight = 405,
         .description = COMPOUND_STRING(
-            "Gengar's relationships are warped. It\n"
-            "tries to take the lives of anyone and\n"
-            "everyone. It will even try to curse the\n"
-            "Trainer who is its master!"),
+            "It can pass through other dimensions\n"
+            "and appear anywhere. It caused a stir\n"
+            "one time when it stuck just one leg\n"
+            "out of a wall."),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 302,
@@ -12557,10 +12557,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 105,
         .weight = 7400,
         .description = COMPOUND_STRING(
-            "The cells within its body, crystallized by\n"
-            "the energy produced from Mega Evolution,\n"
-            "are stronger than any mineral and able\n"
-            "to withstand any temperature."),
+            "To protect itself from opponents' attacks,\n"
+            "it uses magnetism to control pieces of its\n"
+            "hard outer shell that have flaked off."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 516,
@@ -15200,10 +15199,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 22,
         .weight = 1000,
         .description = COMPOUND_STRING(
-            "When the mother sees the back of her\n"
-            "Mega-Evolved child, it makes her think\n"
-            "of the day when her child will inevitably\n"
-            "leave her."),
+            "Its child has grown rapidly, thanks\n"
+            "to the energy of Mega Evolution.\n"
+            "Mother and child show off their\n"
+            "harmonious teamwork in battle."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 387,
@@ -16385,10 +16384,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 20,
         .weight = 1250,
         .description = COMPOUND_STRING(
-            "The excess energy that bathes this\n"
-            "Pokémon keeps it in constant danger of\n"
-            "overflow. It can't sustain a battle over\n"
-            "long periods of time."),
+            "Due to the effects of Mega Evolution,\n"
+            "its pincers have taken on a more\n"
+            "diabolical form, ripping anything\n"
+            "they pinch to shreds."),
         .pokemonScale = 278,
         .pokemonOffset = 1,
         .trainerScale = 256,
@@ -17202,10 +17201,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 17,
         .weight = 590,
         .description = COMPOUND_STRING(
-            "The influence of Mega Evolution leaves it\n"
-            "in a state of constant excitement.\n"
-            "It pierces enemies with its two large\n"
-            "horns before shredding them."),
+            "After Mega Evolution, it becomes able to\n"
+            "fly. Perhaps because it's so happy, it\n"
+            "rarely touches the ground."),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 257,
@@ -17727,10 +17725,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 65,
         .weight = 3050,
         .description = COMPOUND_STRING(
-            "Although it obeys its instinctive drive to\n"
-            "destroy everything within its reach, it\n"
-            "will respond to orders from a Trainer it\n"
-            "truly trusts."),
+            "It jets water from the orifices on its sides,\n"
+            "streaking above the water surface at\n"
+            "supersonic speed."),
         .pokemonScale = 256,
         .pokemonOffset = 6,
         .trainerScale = 481,
@@ -19405,9 +19402,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 21,
         .weight = 790,
         .description = COMPOUND_STRING(
-            "The power of Mega Evolution has\n"
-            "completely restored its genes. The rocks\n"
-            "on its body are harder than diamond."),
+            "Parts of its body have become stone.\n"
+            "Some scholars claim that this is\n"
+            "Aerodactyl's true appearance."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 302,
