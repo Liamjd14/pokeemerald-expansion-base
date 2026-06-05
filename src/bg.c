@@ -287,7 +287,6 @@ bool32 IsInvalidBg(u32 bg)
         return FALSE;
 }
 
-// From FRLG. Dummied out.
 int BgTileAllocOp(int bg, int offset, int count, int mode)
 {
     if (isFrlg)
