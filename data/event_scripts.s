@@ -1765,3 +1765,7 @@ EventScript_PlaneTicket_Cancel::
     end
 
 	.include "data/maps/TestingRelm/scripts.inc"
+
+	.include "data/maps/Oceanview/scripts.inc"
+
+	.include "data/maps/OceanviewWalk/scripts.inc"

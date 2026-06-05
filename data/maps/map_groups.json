@@ -994,7 +994,10 @@
     "BattleColosseum_4P_Frlg",
     "UnionRoom_Frlg"
   ],
-  "gMapGroup_EshosTownsAndRoutes": [],
+  "gMapGroup_EshosTownsAndRoutes": [
+    "Oceanview",
+    "OceanviewWalk"
+  ],
   "gMapGroup_EshosDungeons": [],
   "gMapGroup_EshosIndoorDynamic": [],
   "gMapGroup_EshosSpecialArea": [

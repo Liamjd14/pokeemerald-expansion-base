@@ -9333,6 +9333,26 @@
       "secondary_tileset": "gTileset_BerryForest",
       "border_filepath": "data/layouts/TestingRelm/border.bin",
       "blockdata_filepath": "data/layouts/TestingRelm/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW",
+      "name": "Oceanview_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/Oceanview/border.bin",
+      "blockdata_filepath": "data/layouts/Oceanview/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_WALK",
+      "name": "OceanviewWalk_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/OceanviewWalk/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewWalk/map.bin"
     }
   ]
 }

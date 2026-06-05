@@ -406,3 +406,6 @@ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary
 
 const u16 gMetatiles_BuildingFrLgNew[] = INCBIN_U16("data/tilesets/primary/building_fr_lg_new/metatiles.bin");
 const u16 gMetatileAttributes_BuildingFrLgNew[] = INCBIN_U16("data/tilesets/primary/building_fr_lg_new/metatile_attributes.bin");
+
+const u16 gMetatiles_Oceanview[] = INCBIN_U16("data/tilesets/secondary/oceanview/metatiles.bin");
+const u16 gMetatileAttributes_Oceanview[] = INCBIN_U16("data/tilesets/secondary/oceanview/metatile_attributes.bin");

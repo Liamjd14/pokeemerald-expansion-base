@@ -3,7 +3,6 @@
   "name": "TrainerTower_2F_Frlg",
   "layout": "LAYOUT_TRAINER_TOWER_2F",
   "music": "MUS_RG_TRAINER_TOWER",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_TRAINER_TOWER_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,12 +11,10 @@
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": false,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TOWER_DUDE",
       "x": 9,
       "y": 7,
@@ -32,7 +29,6 @@
     },
     {
       "local_id": "LOCALID_TOWER_TRAINER_DOUBLES1",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 10,
       "y": 10,
@@ -47,7 +43,6 @@
     },
     {
       "local_id": "LOCALID_TOWER_TRAINER_SINGLES",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_1",
       "x": 15,
       "y": 13,
@@ -62,7 +57,6 @@
     },
     {
       "local_id": "LOCALID_TOWER_TRAINER_KNOCKOUT",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_2",
       "x": 10,
       "y": 16,
@@ -77,7 +71,6 @@
     },
     {
       "local_id": "LOCALID_TOWER_TRAINER_DOUBLES2",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_3",
       "x": 11,
       "y": 10,
@@ -143,5 +136,7 @@
       "script": "TrainerTower_EventScript_DoubleBattleTriggerBottom"
     }
   ],
-  "bg_events": []
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }

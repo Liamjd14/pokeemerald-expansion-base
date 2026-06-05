@@ -1547,3 +1547,14 @@ const struct Tileset gTileset_BuildingFrLgNew =
     .metatileAttributes = gMetatileAttributes_BuildingFrLgNew,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Oceanview =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Oceanview,
+    .palettes = gTilesetPalettes_Oceanview,
+    .metatiles = gMetatiles_Oceanview,
+    .metatileAttributes = gMetatileAttributes_Oceanview,
+    .callback = NULL,
+};
