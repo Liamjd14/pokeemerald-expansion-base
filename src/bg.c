@@ -289,6 +289,14 @@ bool32 IsInvalidBg(u32 bg)
 
 int BgTileAllocOp(int bg, int offset, int count, int mode)
 {
+    int result = BgTileAllocOpUnchecked(bg, offset, count, mode);
+    assertf(result > 0);
+    return result;
+}
+
+// From FRLG. Dummied out.
+int BgTileAllocOpUnchecked(int bg, int offset, int count, int mode)
+{
     if (isFrlg)
     {
         int start, end;
