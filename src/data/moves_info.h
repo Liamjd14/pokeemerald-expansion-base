@@ -414,13 +414,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Cut"),
         .description = COMPOUND_STRING(
-            "Cuts the foe with sharp\n"
-            "scythes, claws, etc."),
-        .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
-        .accuracy = 95,
-        .pp = 30,
+            "Sharply Cuts the foe. Super\n"
+            "Effective on grass types."),
+        .effect = EFFECT_SUPER_EFFECTIVE_ON_ARG,
+        .argument = { .type = TYPE_GRASS },
+        .power = 70,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .criticalHitStage = 2,
+        .pp = 20,
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
@@ -431,6 +433,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SWORDS_DANCE},
         .battleAnimScript = gBattleAnimMove_Cut,
+        .validApprenticeMove = TRUE,
     },
 
     [MOVE_GUST] =
