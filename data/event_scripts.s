@@ -1769,3 +1769,13 @@ EventScript_PlaneTicket_Cancel::
 	.include "data/maps/Oceanview/scripts.inc"
 
 	.include "data/maps/OceanviewWalk/scripts.inc"
+
+	.include "data/maps/MarketSquare/scripts.inc"
+
+	.include "data/maps/CoralhavenPass/scripts.inc"
+
+	.include "data/maps/Coralhaven/scripts.inc"
+
+	.include "data/maps/CoralhavenPort/scripts.inc"
+
+	.include "data/maps/IvyGrove/scripts.inc"

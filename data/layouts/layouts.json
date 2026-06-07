@@ -9337,8 +9337,8 @@
     {
       "id": "LAYOUT_OCEANVIEW",
       "name": "Oceanview_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 32,
+      "height": 32,
       "primary_tileset": "gTileset_General_Frlg",
       "secondary_tileset": "gTileset_Oceanview",
       "border_filepath": "data/layouts/Oceanview/border.bin",
@@ -9347,12 +9347,62 @@
     {
       "id": "LAYOUT_OCEANVIEW_WALK",
       "name": "OceanviewWalk_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 32,
+      "height": 32,
       "primary_tileset": "gTileset_General_Frlg",
       "secondary_tileset": "gTileset_Oceanview",
       "border_filepath": "data/layouts/OceanviewWalk/border.bin",
       "blockdata_filepath": "data/layouts/OceanviewWalk/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARKET_SQUARE",
+      "name": "MarketSquare_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/MarketSquare/border.bin",
+      "blockdata_filepath": "data/layouts/MarketSquare/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_PASS",
+      "name": "CoralhavenPass_Layout",
+      "width": 32,
+      "height": 64,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/CoralhavenPass/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenPass/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_PORT",
+      "name": "CoralhavenPort_Layout",
+      "width": 32,
+      "height": 64,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/CoralhavenPort/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenPort/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN",
+      "name": "Coralhaven_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_CeladonCity",
+      "border_filepath": "data/layouts/Coralhaven/border.bin",
+      "blockdata_filepath": "data/layouts/Coralhaven/map.bin"
+    },
+    {
+      "id": "LAYOUT_IVY_GROVE",
+      "name": "IvyGrove_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/IvyGrove/border.bin",
+      "blockdata_filepath": "data/layouts/IvyGrove/map.bin"
     }
   ]
 }

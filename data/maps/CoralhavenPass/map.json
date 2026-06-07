@@ -1,7 +1,7 @@
 {
-  "id": "MAP_OCEANVIEW_WALK",
-  "name": "OceanviewWalk",
-  "layout": "LAYOUT_OCEANVIEW_WALK",
+  "id": "MAP_CORALHAVEN_PASS",
+  "name": "CoralhavenPass",
+  "layout": "LAYOUT_CORALHAVEN_PASS",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_OCEANVIEW",
+      "map": "MAP_MARKET_SQUARE",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_CORALHAVEN",
       "offset": 0,
       "direction": "right"
     },
     {
-      "map": "MAP_MARKET_SQUARE",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_IVY_GROVE",
-      "offset": 0,
-      "direction": "up"
+      "offset": 32,
+      "direction": "right"
     }
   ],
   "object_events": [],

@@ -17,13 +17,18 @@
       "map": "MAP_OCEANVIEW_WALK",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_IVY_GROVE",
+      "offset": -32,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(YAMPER)",
-      "x": 11,
-      "y": 9,
+      "x": 3,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,

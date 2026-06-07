@@ -996,7 +996,12 @@
   ],
   "gMapGroup_EshosTownsAndRoutes": [
     "Oceanview",
-    "OceanviewWalk"
+    "OceanviewWalk",
+    "MarketSquare",
+    "CoralhavenPass",
+    "Coralhaven",
+    "CoralhavenPort",
+    "IvyGrove"
   ],
   "gMapGroup_EshosDungeons": [],
   "gMapGroup_EshosIndoorDynamic": [],

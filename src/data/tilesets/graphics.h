@@ -3083,3 +3083,23 @@ const u16 gTilesetPalettes_Oceanview[][16] =
 };
 
 const u32 gTilesetTiles_Oceanview[] = INCBIN_U32("data/tilesets/secondary/oceanview/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Coralhaven[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Coralhaven[] = INCBIN_U32("data/tilesets/secondary/coralhaven/tiles.4bpp.lz");
+
