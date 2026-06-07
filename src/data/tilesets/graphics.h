@@ -3103,3 +3103,22 @@ const u16 gTilesetPalettes_Coralhaven[][16] =
 
 const u32 gTilesetTiles_Coralhaven[] = INCBIN_U32("data/tilesets/secondary/coralhaven/tiles.4bpp.lz");
 
+
+const u16 gTilesetPalettes_CoralhavenPort[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/coralhaven_port/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_CoralhavenPort[] = INCBIN_U32("data/tilesets/secondary/coralhaven_port/tiles.4bpp.lz");

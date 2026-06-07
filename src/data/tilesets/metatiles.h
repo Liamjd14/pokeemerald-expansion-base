@@ -413,3 +413,6 @@ const u16 gMetatileAttributes_Oceanview[] = INCBIN_U16("data/tilesets/secondary/
 const u16 gMetatiles_Coralhaven[] = INCBIN_U16("data/tilesets/secondary/coralhaven/metatiles.bin");
 const u16 gMetatileAttributes_Coralhaven[] = INCBIN_U16("data/tilesets/secondary/coralhaven/metatile_attributes.bin");
 
+
+const u16 gMetatiles_CoralhavenPort[] = INCBIN_U16("data/tilesets/secondary/coralhaven_port/metatiles.bin");
+const u16 gMetatileAttributes_CoralhavenPort[] = INCBIN_U16("data/tilesets/secondary/coralhaven_port/metatile_attributes.bin");

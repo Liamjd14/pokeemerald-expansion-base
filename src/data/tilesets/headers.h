@@ -1569,3 +1569,14 @@ const struct Tileset gTileset_Coralhaven =
     .metatileAttributes = gMetatileAttributes_Coralhaven,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_CoralhavenPort =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CoralhavenPort,
+    .palettes = gTilesetPalettes_CoralhavenPort,
+    .metatiles = gMetatiles_CoralhavenPort,
+    .metatileAttributes = gMetatileAttributes_CoralhavenPort,
+    .callback = NULL,
+};

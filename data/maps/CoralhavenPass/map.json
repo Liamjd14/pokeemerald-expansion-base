@@ -27,6 +27,11 @@
       "map": "MAP_IVY_GROVE",
       "offset": 32,
       "direction": "right"
+    },
+    {
+      "map": "MAP_CORALHAVEN_ISLE_NORTH_COAST",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [],
