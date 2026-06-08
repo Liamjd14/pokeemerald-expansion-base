@@ -1616,7 +1616,7 @@ void PutMonInRoute5Daycare(void)
     if (isFrlg)
     {
         u8 monIdx = GetCursorSelectionMonId();
-        StorePokemonInDaycare(&gPlayerParty[monIdx], &gSaveBlock1Ptr->route5DayCareMon);
+        StorePokemonInDaycare(&gParties[B_TRAINER_PLAYER][monIdx], &gSaveBlock1Ptr->route5DayCareMon);
     }
 }
 
