@@ -9380,7 +9380,7 @@
       "width": 32,
       "height": 64,
       "primary_tileset": "gTileset_General_Frlg",
-      "secondary_tileset": "gTileset_CoralhavenPort",
+      "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/CoralhavenPort/border.bin",
       "blockdata_filepath": "data/layouts/CoralhavenPort/map.bin"
     },
