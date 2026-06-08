@@ -1781,3 +1781,11 @@ EventScript_PlaneTicket_Cancel::
 	.include "data/maps/IvyGrove/scripts.inc"
 
 	.include "data/maps/CoralhavenIsleNorthCoast/scripts.inc"
+
+	.include "data/maps/CoralhavenEastCoast/scripts.inc"
+
+	.include "data/maps/CoralhavenWestCoastPt1/scripts.inc"
+
+	.include "data/maps/CoralhavenSouthCoast/scripts.inc"
+
+	.include "data/maps/ChallangeIsland1/scripts.inc"

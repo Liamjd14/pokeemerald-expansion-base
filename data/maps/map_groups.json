@@ -1002,7 +1002,11 @@
     "Coralhaven",
     "CoralhavenPort",
     "IvyGrove",
-    "CoralhavenIsleNorthCoast"
+    "CoralhavenIsleNorthCoast",
+    "CoralhavenEastCoast",
+    "CoralhavenWestCoastPt1",
+    "CoralhavenSouthCoast",
+    "ChallangeIsland1"
   ],
   "gMapGroup_EshosDungeons": [],
   "gMapGroup_EshosIndoorDynamic": [],

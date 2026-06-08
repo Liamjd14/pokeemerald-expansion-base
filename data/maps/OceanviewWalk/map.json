@@ -27,6 +27,16 @@
       "map": "MAP_IVY_GROVE",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CORALHAVEN_SOUTH_COAST",
+      "offset": -64,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_CORALHAVEN_PASS",
+      "offset": -64,
+      "direction": "left"
     }
   ],
   "object_events": [],

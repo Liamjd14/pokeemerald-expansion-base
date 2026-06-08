@@ -1,7 +1,7 @@
 {
-  "id": "MAP_CORALHAVEN_ISLE_NORTH_COAST",
-  "name": "CoralhavenIsleNorthCoast",
-  "layout": "LAYOUT_CORALHAVEN_ISLE_NORTH_COAST",
+  "id": "MAP_CORALHAVEN_EAST_COAST",
+  "name": "CoralhavenEastCoast",
+  "layout": "LAYOUT_CORALHAVEN_EAST_COAST",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -14,29 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CORALHAVEN_PASS",
+      "map": "MAP_CORALHAVEN_ISLE_NORTH_COAST",
       "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_CORALHAVEN",
-      "offset": 32,
-      "direction": "down"
+      "direction": "left"
     },
     {
       "map": "MAP_CORALHAVEN_PORT",
-      "offset": 96,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_CORALHAVEN_EAST_COAST",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_CORALHAVEN_WEST_COAST_PT1",
-      "offset": 0,
+      "offset": 32,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CHALLANGE_ISLAND1",
+      "offset": -32,
+      "direction": "down"
     }
   ],
   "object_events": [],

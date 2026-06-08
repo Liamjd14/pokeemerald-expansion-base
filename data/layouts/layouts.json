@@ -9370,7 +9370,7 @@
       "width": 32,
       "height": 64,
       "primary_tileset": "gTileset_General_Frlg",
-      "secondary_tileset": "gTileset_Oceanview",
+      "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/CoralhavenPass/border.bin",
       "blockdata_filepath": "data/layouts/CoralhavenPass/map.bin"
     },
@@ -9413,6 +9413,46 @@
       "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/CoralhavenIsleNorthCoast/border.bin",
       "blockdata_filepath": "data/layouts/CoralhavenIsleNorthCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_WEST_COAST_PT1",
+      "name": "CoralhavenWestCoastPt1_Layout",
+      "width": 32,
+      "height": 128,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/CoralhavenWestCoastPt1/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenWestCoastPt1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_EAST_COAST",
+      "name": "CoralhavenEastCoast_Layout",
+      "width": 32,
+      "height": 96,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/CoralhavenEastCoast/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenEastCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_SOUTH_COAST",
+      "name": "CoralhavenSouthCoast_Layout",
+      "width": 128,
+      "height": 32,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/CoralhavenSouthCoast/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenSouthCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHALLANGE_ISLAND1",
+      "name": "ChallangeIsland1_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/ChallangeIsland1/border.bin",
+      "blockdata_filepath": "data/layouts/ChallangeIsland1/map.bin"
     }
   ]
 }

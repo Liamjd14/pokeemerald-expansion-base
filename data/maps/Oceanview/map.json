@@ -22,6 +22,21 @@
       "map": "MAP_IVY_GROVE",
       "offset": -32,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CORALHAVEN_SOUTH_COAST",
+      "offset": -96,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_CHALLANGE_ISLAND1",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_CORALHAVEN_PORT",
+      "offset": 32,
+      "direction": "up"
     }
   ],
   "object_events": [

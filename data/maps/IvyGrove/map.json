@@ -37,6 +37,11 @@
       "map": "MAP_OCEANVIEW_WALK",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_CHALLANGE_ISLAND1",
+      "offset": 64,
+      "direction": "down"
     }
   ],
   "object_events": [],

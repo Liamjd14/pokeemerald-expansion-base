@@ -27,6 +27,21 @@
       "map": "MAP_CORALHAVEN_ISLE_NORTH_COAST",
       "offset": -96,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CORALHAVEN_EAST_COAST",
+      "offset": -32,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_CHALLANGE_ISLAND1",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEANVIEW",
+      "offset": -32,
+      "direction": "down"
     }
   ],
   "object_events": [

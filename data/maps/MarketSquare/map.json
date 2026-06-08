@@ -22,6 +22,16 @@
       "map": "MAP_CORALHAVEN_PASS",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CORALHAVEN_WEST_COAST_PT1",
+      "offset": -96,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_CORALHAVEN_SOUTH_COAST",
+      "offset": -32,
+      "direction": "down"
     }
   ],
   "object_events": [

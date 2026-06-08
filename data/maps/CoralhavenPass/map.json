@@ -32,6 +32,16 @@
       "map": "MAP_CORALHAVEN_ISLE_NORTH_COAST",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CORALHAVEN_WEST_COAST_PT1",
+      "offset": -32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEANVIEW_WALK",
+      "offset": 64,
+      "direction": "right"
     }
   ],
   "object_events": [],
