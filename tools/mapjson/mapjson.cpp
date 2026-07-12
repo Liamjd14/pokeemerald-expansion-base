@@ -831,7 +831,10 @@ string generate_layouts_table_text(Json layouts_data) {
             continue;
         string layout_version = json_to_string(layout, "layout_version", true);
         if (layout_version.empty()) {
-            layout_version = "emerald";
+            if (version == "emerald")
+                layout_version = "emerald";
+            else if (version == "firered")
+                layout_version = "frlg";
         }
         string layout_name = json_to_string(layout, "name", true);
         if (layout_name.empty()) layout_name = "NULL";
