@@ -54,7 +54,15 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 16,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_OCEANVIEW_ENTERANCE",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
