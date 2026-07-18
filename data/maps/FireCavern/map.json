@@ -67,7 +67,7 @@
       "y": 3,
       "elevation": 0,
       "item": "ITEM_FIRE_TERA_SHARD",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL"
     },
     {
       "type": "hidden_item",
@@ -75,7 +75,7 @@
       "y": 6,
       "elevation": 0,
       "item": "ITEM_FIRE_GEM",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL"
     }
   ]
 }
