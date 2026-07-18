@@ -24,7 +24,9 @@
     "gMapGroup_EshosTownIndoor",
     "gMapGroup_EshosCityIndoor1",
     "gMapGroup_EshosCityIndoor2",
-    "gMapGroup_EshosRouteIndoor"
+    "gMapGroup_EshosRouteIndoor",
+    "gMapGroup_EshosUnderground",
+    "gMapGroup_PlateCaverns"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -1016,5 +1018,13 @@
   "gMapGroup_EshosTownIndoor": [],
   "gMapGroup_EshosCityIndoor1": [],
   "gMapGroup_EshosCityIndoor2": [],
-  "gMapGroup_EshosRouteIndoor": []
+  "gMapGroup_EshosRouteIndoor": [],
+  "gMapGroup_EshosUnderground": [
+    "OceanviewEnterance",
+    "CoralhavenEnterance",
+    "Island1Underground"
+  ],
+  "gMapGroup_PlateCaverns": [
+    "NormalCavern"
+  ]
 }

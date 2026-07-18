@@ -9453,6 +9453,36 @@
       "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/ChallangeIsland1/border.bin",
       "blockdata_filepath": "data/layouts/ChallangeIsland1/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUNDESHOS_ENTERANCE1",
+      "name": "OceanviewEnterance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/OceanviewEnterance/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewEnterance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ISLAND1UNDERGROUND",
+      "name": "Island1Underground_Layout",
+      "width": 36,
+      "height": 59,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/Island1Underground/border.bin",
+      "blockdata_filepath": "data/layouts/Island1Underground/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLATECAVERN",
+      "name": "NormalCavern_Layout",
+      "width": 40,
+      "height": 18,
+      "primary_tileset": "gTileset_General_Frlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/NormalCavern/border.bin",
+      "blockdata_filepath": "data/layouts/NormalCavern/map.bin"
     }
   ]
 }
