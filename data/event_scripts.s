@@ -1798,3 +1798,37 @@ EventScript_PlaneTicket_Cancel::
 	.include "data/maps/Island1Underground/scripts.inc"
 
 	.include "data/maps/NormalCavern/scripts.inc"
+
+	.include "data/maps/DragonCavern/scripts.inc"
+
+	.include "data/maps/SteelCavern/scripts.inc"
+
+	.include "data/maps/DarkCavern/scripts.inc"
+
+	.include "data/maps/BugCavern/scripts.inc"
+
+	.include "data/maps/PsychicCavern/scripts.inc"
+
+	.include "data/maps/PoisonCavern/scripts.inc"
+
+	.include "data/maps/IceCavern/scripts.inc"
+
+	.include "data/maps/FlyingCavern/scripts.inc"
+
+	.include "data/maps/FireCavern/scripts.inc"
+
+	.include "data/maps/GrassCavern/scripts.inc"
+
+	.include "data/maps/RockCavern/scripts.inc"
+
+	.include "data/maps/EletricCavern/scripts.inc"
+
+	.include "data/maps/GhostCavern/scripts.inc"
+
+	.include "data/maps/WaterCavern/scripts.inc"
+
+	.include "data/maps/GroundCavern/scripts.inc"
+
+	.include "data/maps/FairyCavern/scripts.inc"
+
+	.include "data/maps/FightingCavern/scripts.inc"

@@ -1025,6 +1025,23 @@
     "Island1Underground"
   ],
   "gMapGroup_PlateCaverns": [
-    "NormalCavern"
+    "NormalCavern",
+    "WaterCavern",
+    "FireCavern",
+    "GrassCavern",
+    "BugCavern",
+    "FlyingCavern",
+    "FightingCavern",
+    "RockCavern",
+    "GroundCavern",
+    "SteelCavern",
+    "GhostCavern",
+    "DarkCavern",
+    "PsychicCavern",
+    "FairyCavern",
+    "PoisonCavern",
+    "EletricCavern",
+    "IceCavern",
+    "DragonCavern"
   ]
 }
