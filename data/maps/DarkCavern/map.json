@@ -1,7 +1,7 @@
 {
   "id": "MAP_DARK_CAVERN",
   "name": "DarkCavern",
-  "layout": "LAYOUT_DARK_CAVERN",
+  "layout": "LAYOUT_PLATECAVERN",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
