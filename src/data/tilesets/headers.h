@@ -1580,3 +1580,14 @@ const struct Tileset gTileset_CoralhavenPort =
     .metatileAttributes = gMetatileAttributes_CoralhavenPort,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GenericBuildingCustom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GenericBuildingCustom,
+    .palettes = gTilesetPalettes_GenericBuildingCustom,
+    .metatiles = gMetatiles_GenericBuildingCustom,
+    .metatileAttributes = gMetatileAttributes_GenericBuildingCustom,
+    .callback = NULL,
+};
