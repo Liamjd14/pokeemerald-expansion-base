@@ -1015,7 +1015,13 @@
   "gMapGroup_EshosSpecialArea": [
     "TestingRelm"
   ],
-  "gMapGroup_EshosTownIndoor": [],
+  "gMapGroup_EshosTownIndoor": [
+    "ProfessorsLab",
+    "ChampionsHouse",
+    "PlayersHouseF1",
+    "PlayersHouseF2",
+    "ChampionsHouseF2"
+  ],
   "gMapGroup_EshosCityIndoor1": [],
   "gMapGroup_EshosCityIndoor2": [],
   "gMapGroup_EshosRouteIndoor": [],

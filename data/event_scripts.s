@@ -1832,3 +1832,13 @@ EventScript_PlaneTicket_Cancel::
 	.include "data/maps/FairyCavern/scripts.inc"
 
 	.include "data/maps/FightingCavern/scripts.inc"
+
+	.include "data/maps/ProfessorsLab/scripts.inc"
+
+	.include "data/maps/PlayersHouseF2/scripts.inc"
+
+	.include "data/maps/ChampionsHouse/scripts.inc"
+
+	.include "data/maps/ChampionsHouseF2/scripts.inc"
+
+	.include "data/maps/PlayersHouseF1/scripts.inc"

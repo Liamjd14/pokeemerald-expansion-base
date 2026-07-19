@@ -9483,6 +9483,56 @@
       "secondary_tileset": "gTileset_Cave_Frlg",
       "border_filepath": "data/layouts/NormalCavern/border.bin",
       "blockdata_filepath": "data/layouts/NormalCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROFESSORS_LAB",
+      "name": "ProfessorsLab_Layout",
+      "width": 14,
+      "height": 10,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_Lab_Frlg",
+      "border_filepath": "data/layouts/ProfessorsLab/border.bin",
+      "blockdata_filepath": "data/layouts/ProfessorsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAMPIONS_HOUSE_F2",
+      "name": "ChampionsHouseF2_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuildingCustom",
+      "border_filepath": "data/layouts/ChampionsHouseF2/border.bin",
+      "blockdata_filepath": "data/layouts/ChampionsHouseF2/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAMPIONS_HOUSE",
+      "name": "ChampionsHouse_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuildingCustom",
+      "border_filepath": "data/layouts/ChampionsHouse/border.bin",
+      "blockdata_filepath": "data/layouts/ChampionsHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLAYERS_HOUSE_F2",
+      "name": "PlayersHouseF2_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuildingCustom",
+      "border_filepath": "data/layouts/PlayersHouseF2/border.bin",
+      "blockdata_filepath": "data/layouts/PlayersHouseF2/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLAYERS_HOUSE_F1",
+      "name": "PlayersHouseF1_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuildingCustom",
+      "border_filepath": "data/layouts/PlayersHouseF1/border.bin",
+      "blockdata_filepath": "data/layouts/PlayersHouseF1/map.bin"
     }
   ]
 }
