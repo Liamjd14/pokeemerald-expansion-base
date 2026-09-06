@@ -2494,3 +2494,7 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
 };
 
 #endif // IS_FRLG
+static const struct SpriteFrameImage sPicTable_Taunie[] = {
+    overworld_ascending_frames(gObjectEventPic_Taunie, 2, 4),
+
+};
