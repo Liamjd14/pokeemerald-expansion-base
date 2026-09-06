@@ -3,7 +3,6 @@
   "name": "ViridianForest_Frlg",
   "layout": "LAYOUT_VIRIDIAN_FOREST",
   "music": "MUS_RG_VIRIDIAN_FOREST",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_VIRIDIAN_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
@@ -12,12 +11,10 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
       "x": 29,
       "y": 58,
@@ -31,7 +28,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 45,
       "y": 58,
@@ -45,7 +41,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
       "x": 47,
       "y": 45,
@@ -59,7 +54,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
       "x": 47,
       "y": 29,
@@ -73,7 +67,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
       "x": 7,
       "y": 22,
@@ -87,7 +80,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 5,
       "y": 41,
@@ -101,7 +93,6 @@
       "flag": "FLAG_HIDE_VIRIDIAN_FOREST_POKE_BALL"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 40,
       "y": 21,
@@ -115,7 +106,6 @@
       "flag": "FLAG_HIDE_VIRIDIAN_FOREST_ANTIDOTE"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 21,
       "y": 34,
@@ -129,7 +119,6 @@
       "flag": "FLAG_HIDE_VIRIDIAN_FOREST_POTION"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
       "x": 43,
       "y": 6,
@@ -143,7 +132,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
       "x": 16,
       "y": 5,
@@ -157,7 +145,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 49,
       "y": 60,
@@ -215,9 +202,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
@@ -287,5 +272,7 @@
       "quantity": 1,
       "underfoot": false
     }
-  ]
+  ],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }

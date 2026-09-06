@@ -3,7 +3,6 @@
   "name": "RockTunnel_B1F_Frlg",
   "layout": "LAYOUT_ROCK_TUNNEL_B1F",
   "music": "MUS_RG_MT_MOON",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_ROCK_TUNNEL",
   "requires_flash": true,
   "weather": "WEATHER_NONE",
@@ -12,12 +11,10 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKE_MANIAC_FRLG",
       "x": 2,
       "y": 6,
@@ -31,7 +28,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
       "x": 5,
       "y": 11,
@@ -45,7 +41,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER_FRLG",
       "x": 11,
       "y": 15,
@@ -59,7 +54,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
       "x": 36,
       "y": 11,
@@ -73,7 +67,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
       "x": 41,
       "y": 5,
@@ -87,7 +80,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKE_MANIAC_FRLG",
       "x": 23,
       "y": 23,
@@ -101,7 +93,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER_FRLG",
       "x": 15,
       "y": 33,
@@ -115,7 +106,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKE_MANIAC_FRLG",
       "x": 29,
       "y": 35,
@@ -129,7 +119,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
       "x": 2,
       "y": 29,
@@ -143,7 +132,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 2,
       "y": 37,
@@ -157,7 +145,6 @@
       "flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 9,
       "y": 2,
@@ -171,7 +158,6 @@
       "flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 1,
       "y": 20,
@@ -185,7 +171,6 @@
       "flag": "FLAG_TEMP_12"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 1,
       "y": 22,
@@ -199,7 +184,6 @@
       "flag": "FLAG_TEMP_13"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 4,
       "y": 23,
@@ -213,7 +197,6 @@
       "flag": "FLAG_TEMP_14"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 2,
       "y": 23,
@@ -227,7 +210,6 @@
       "flag": "FLAG_TEMP_15"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 39,
       "y": 26,
@@ -241,7 +223,6 @@
       "flag": "FLAG_TEMP_16"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 42,
       "y": 26,
@@ -255,7 +236,6 @@
       "flag": "FLAG_TEMP_17"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 43,
       "y": 28,
@@ -269,7 +249,6 @@
       "flag": "FLAG_TEMP_18"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 45,
       "y": 30,
@@ -283,7 +262,6 @@
       "flag": "FLAG_TEMP_19"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 45,
       "y": 33,
@@ -297,7 +275,6 @@
       "flag": "FLAG_TEMP_1A"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 25,
       "y": 1,
@@ -311,7 +288,6 @@
       "flag": "FLAG_TEMP_1B"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 27,
       "y": 4,
@@ -325,7 +301,6 @@
       "flag": "FLAG_TEMP_1C"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 23,
       "y": 2,
@@ -339,7 +314,6 @@
       "flag": "FLAG_TEMP_1D"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 26,
       "y": 2,
@@ -353,7 +327,6 @@
       "flag": "FLAG_TEMP_1E"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 24,
       "y": 7,
@@ -367,7 +340,6 @@
       "flag": "FLAG_TEMP_1F"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 27,
       "y": 6,
@@ -412,5 +384,7 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }
