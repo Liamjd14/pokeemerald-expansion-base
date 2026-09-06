@@ -7252,10 +7252,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .height = 11,
         .weight = 278,
         .description = COMPOUND_STRING(
-            "The impurities upon its body's surface\n"
-            "have fallen away, sparkling so brilliantly\n"
-            "that cannot be observed directly.\n"
-            "It is known as “the Royal Pink Princess”."),
+            "This Pokémon is also known as the\n"
+            "Royal Pink Princess. The dazzling,\n"
+            "sparkling diamond on its forehead is\n"
+            "a whopping 2,000 carats."),
         .pokemonScale = 365,
         .pokemonOffset = 12,
         .trainerScale = 256,
