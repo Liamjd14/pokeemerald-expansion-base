@@ -9306,7 +9306,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",
-      "secondary_tileset": "gTileset_SeafoamIslands",
+      "secondary_tileset": "gTileset_School",
       "border_filepath": "data/layouts/SevenIsland_House_Room1_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_House_Room1_Frlg/map.bin",
       "layout_version": "frlg"
