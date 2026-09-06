@@ -3003,10 +3003,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 15,
         .weight = 320,
         .description = COMPOUND_STRING(
-            "Mega Audino emits a soothing pulse from\n"
-            "its body that reduces hostility in others.\n"
-            "Anything that comes into contact with its\n"
-            "second feelers will fall into a deep sleep."),
+            "Anyone who touches the secondary feelers\n"
+            "that have sprouted from the base of its\n"
+            "throat will fall into a deep sleep."),
         .pokemonScale = 320,
         .pokemonOffset = 7,
         .trainerScale = 256,
