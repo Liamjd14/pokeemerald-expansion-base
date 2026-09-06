@@ -19,6 +19,30 @@
 
 const u8 gQuestionMarksItemName[] = _("????????");
 
+static const u8 sCharizarditeDesc[]   = _("This stone enables\n"
+                                          "Charizard to Mega\n"
+                                          "Evolve in battle.");
+
+static const u8 sMewtwoniteDesc[]     = _("This stone enables\n"
+                                          "Mewtwo to Mega\n"
+                                          "Evolve in battle.");
+
+static const u8 sRaichuniteDesc[]     = _("This stone enables\n"
+                                          "Raichu to Mega\n"
+                                          "Evolve in battle.");
+
+static const u8 sAbsoliteDesc[]       = _("This stone enables\n"
+                                          "Absol to Mega\n"
+                                          "Evolve in battle.");
+
+static const u8 sGarchompiteDesc[]    = _("This stone enables\n"
+                                          "Garchomp to Mega\n"
+                                          "Evolve in battle.");
+
+static const u8 sLucarioniteDesc[]    = _("This stone enables\n"
+                                          "Lucario to Mega\n"
+                                          "Evolve in battle.");
+
 const struct ItemInfo gItemsInfo[] =
 {
     [ITEM_NONE] =
