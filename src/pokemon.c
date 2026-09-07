@@ -1371,6 +1371,13 @@ static u16 CalculateBoxMonChecksumReencrypt(struct BoxPokemon *boxMon)
     return checksum;
 }
 
+void CalculateBoxMonStats(struct BoxPokemon *boxMon)
+{
+    struct Pokemon *mon = NULL;
+    BoxMonToMon(boxMon, mon);
+    CalculateMonStats(mon);
+}
+
 void CalculateMonStats(struct Pokemon *mon)
 {
     CalculateMonStatsCont(mon, TRUE);
