@@ -51,6 +51,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#if !SWSH_ITEM_MENU
+
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
 
@@ -528,7 +530,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .bg = 1,
         .tilemapLeft = 2,
         .tilemapTop = 15,
-        .width = 27,
+        .width = 26,
         .height = 4,
         .paletteNum = 15,
         .baseBlock = 0x1B1,
@@ -3065,3 +3067,5 @@ static s32 CompareItemsByIndex(enum Pocket pocketId, struct ItemSlot item1, stru
 
     return 0; // Cannot have multiple stacks of indexed items
 }
+
+#endif // !SWSH_ITEM_MENU
