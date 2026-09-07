@@ -64,6 +64,7 @@
 #include "sound.h"
 #include "sprite.h"
 #include "start_menu.h"
+#include "stat_editor.h"
 #include "string_util.h"
 #include "strings.h"
 #include "task.h"
@@ -91,6 +92,7 @@
 
 enum {
     MENU_SUMMARY,
+    MENU_STAT_EDITOR,
     MENU_SWITCH,
     MENU_CANCEL1,
     MENU_ITEM,
@@ -3688,6 +3690,9 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
+
+    if ((P_STAT_EDITOR_ALWAYS || FlagGet(P_FLAG_STAT_EDITOR_GET)) && P_PARTY_MENU_STAT_EDITOR)
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_STAT_EDITOR);
 
     // Add field moves to action list
     for (i = 0; i < MAX_MON_MOVES; i++)

@@ -81,7 +81,6 @@
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
-#include "ui_stat_editor.h"
 
 #if !SWSH_PARTY_MENU
 

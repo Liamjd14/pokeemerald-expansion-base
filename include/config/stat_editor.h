@@ -3,14 +3,14 @@
 
 #define P_STAT_EDITOR_ENABLE                TRUE  // If TRUE, a stat editor will be available to use to modify stats of a party Pokémon.
 
-#define P_STAT_EDITOR_ALWAYS                TRUE  // If TRUE, the stat editor will always be available. Overrides `P_FLAG_STAT_EDITOR`
+#define P_STAT_EDITOR_ALWAYS                FALSE  // If TRUE, the stat editor will always be available. Overrides `P_FLAG_STAT_EDITOR`
 #define P_FLAG_STAT_EDITOR_GET              0     // If this flag is set, the stat editor will be available to use.
 
 // Accessibility
 // Please only enable either Party Menu or Summary Screen. I have not tested (nor will I ever test) Start Menu.
 #define P_PARTY_MENU_STAT_EDITOR            FALSE // If TRUE, the stat editor will be accessible through the party menu. (opens on selected Pokémon)
 #define P_START_MENU_STAT_EDITOR            FALSE // If TRUE, the stat editor will be accessible through the start menu. (opens on first Pokémon)
-#define P_SUMMARY_SCREEN_STAT_EDITOR        TRUE  // If TRUE, the stat editor will be accessible through the summary screen on the stat menu by clicking Start. (opens on selected Pokémon)
+#define P_SUMMARY_SCREEN_STAT_EDITOR        FALSE  // If TRUE, the stat editor will be accessible through the summary screen on the stat menu by clicking Start. (opens on selected Pokémon)
 
 // Hidden Power or Terastal Config
 #define P_STAT_EDITOR_HP_OR_TERA    P_STAT_EDITOR_TERASTAL
