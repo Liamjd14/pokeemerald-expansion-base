@@ -5365,6 +5365,27 @@ void SetMonPreventsSwitchingString(void)
     BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4, sizeof(gStringVar4));
 }
 
+enum PartyBattleSlot GetBattleSlotFromBattlePartyId(enum PartyMon battlePartyId)
+{
+    u8 i;
+    enum PartyBattleSlot j;
+
+    for (i = 0, j = PARTY_BATTLE_SLOT_0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); j++, i++)
+    {
+        if ((gBattlePartyCurrentOrder[i] >> 4) != battlePartyId)
+        {
+            j++;
+            if ((gBattlePartyCurrentOrder[i] & 0xF) == battlePartyId)
+                return j;
+        }
+        else
+        {
+            return j;
+        }
+    }
+    return PARTY_BATTLE_SLOT_0;
+}
+
 static s32 GetWildMonTableIdInAlteringCave(enum Species species)
 {
     s32 i;

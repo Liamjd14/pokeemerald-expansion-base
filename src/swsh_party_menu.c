@@ -219,7 +219,7 @@ struct PartyMenuBox
     u8 statusSpriteId;
 };
 
-struct MoveSlot
+struct MoveSlotNew
 {
     u8 windowId;
     u8 typeSpriteId;
@@ -242,13 +242,13 @@ static EWRAM_DATA u8 *sPartyBgGfxTilemap = NULL;
 static EWRAM_DATA u8 *sPartyBgTilemapBuffer = NULL;
 static EWRAM_DATA u8 *sPartyBg3TilemapBuffer = NULL;
 EWRAM_DATA bool8 gPartyMenuUseExitCallback = 0;
-EWRAM_DATA u8 gSelectedMonPartyId = 0;
+EWRAM_DATA enum PartyMon gSelectedMonPartyId = PARTY_MON_0;
 EWRAM_DATA MainCallback gPostMenuFieldCallback = NULL;
 static EWRAM_DATA u16 *sSlot1TilemapBuffer = 0; // held party slot's art while lifted, for the lift-and-drag switch
 static EWRAM_DATA u16 *sAllSlotsTilemapBuffers[PARTY_SIZE]; // party-view slide animation (multi-battle)
 static EWRAM_DATA u16 *sMoveAbilityWindowBuffer;            // buffer for move/ability slide out (multi-battle)
 static EWRAM_DATA bool8 sSlideInPending;                    // slide-in after ReloadPartyMenu
-EWRAM_DATA u8 gSelectedOrderFromParty[MAX_FRONTIER_PARTY_SIZE] = {0};
+EWRAM_DATA u8 gSelectedOrderFromParty[PARTY_SIZE] = {0};
 static EWRAM_DATA u16 sPartyMenuItemId = 0;
 EWRAM_DATA u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2] = {0}; // bits 0-3 are the current pos of Slot 1, 4-7 are Slot 2, and so on
 static EWRAM_DATA u8 sFusionFirstMonSlot = 0; // Fusion item: selected first mon slot
@@ -261,7 +261,7 @@ static EWRAM_DATA u8 sSelectFrameSpriteIds[7] = {0}; // Left + 5 middle + Right
 static EWRAM_DATA u8 sMessageWindowSpriteIds[MESSAGE_WINDOW_SPRITES_COUNT] = {0};
 static EWRAM_DATA u8 sQuantityWindowSpriteIds[QUANTITY_WINDOW_SPRITES_COUNT] = {0};
 static EWRAM_DATA u8 sMonSpriteId = 0;
-static EWRAM_DATA struct MoveSlot sMoveSlots[MAX_MON_MOVES];
+static EWRAM_DATA struct MoveSlotNew sMoveSlots[MAX_MON_MOVES];
 static EWRAM_DATA u8 sAbilityWindowId;
 static EWRAM_DATA u8 sMonShadowSpriteId = 0;
 static EWRAM_DATA u16 sMonAnimTimer = 0;
@@ -3187,7 +3187,7 @@ static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 col
 static u8 GetPPFontColorIndexForMove(enum Move move, u8 currentPP, u8 ppBonuses, int m)
 {
     u8 maxPP = CalculatePPWithBonus(move, ppBonuses, m);
-    u8 ppState = GetCurrentPpToMaxPpState(currentPP, maxPP);
+    u8 ppState = GetCurrentPPToMaxPPState(currentPP, maxPP);
 
     return 7 + ppState;
 }
@@ -9422,8 +9422,8 @@ static bool8 TrySwitchInPokemon(void)
         StringExpandPlaceholders(gStringVar4, gText_EggCantBattle);
         return FALSE;
     }
-    if (BattlersShareParty(gBattlerInMenuId, BATTLE_PARTNER(gBattlerInMenuId))
-        && battlePartyId == gBattleStruct->prevSelectedPartySlot)
+    if (BattlersShareParty(gBattlerInMenuId, GetPartnerBattler(gBattlerInMenuId))
+     && battlePartyId == gBattleStruct->prevSelectedPartySlot)
     {
         GetMonNickname(&party[partySlot], gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);
@@ -9437,13 +9437,13 @@ static bool8 TrySwitchInPokemon(void)
     if (gPartyMenu.action == PARTY_ACTION_CANT_SWITCH)
     {
         u8 currBattler = gBattlerInMenuId;
-        GetMonNickname(&gParties[B_TRAINER_PLAYER][GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[currBattler])], gStringVar1);
+        GetMonNickname(&gParties[B_TRAINER_PLAYER][GetPartyIdFromBattleSlot(gBattlerPartyIndexes[currBattler])], gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
         return FALSE;
     }
     gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
     gPartyMenuUseExitCallback = TRUE;
-    newSlot = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]);
+    newSlot = GetPartyIdFromBattleSlot(gBattlerPartyIndexes[gBattlerInMenuId]);
     SwitchPartyMonSlots(newSlot, slot);
     SwapPartyPokemon(&gParties[B_TRAINER_PLAYER][newSlot], &gParties[B_TRAINER_PLAYER][slot]);
     return TRUE;
@@ -9580,7 +9580,7 @@ static void BufferBattlePartyOrderBySide(u8 *partyBattleOrder, u8 flankId, enum 
         partyBattleOrder[i] = (partyIndexes[0 + (i * 2)] << 4) | partyIndexes[1 + (i * 2)];
 }
 
-void SwitchPartyOrderLinkMulti(enum BattlerId battler, u8 slot, u8 slot2)
+void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartyMon partyId, enum PartyBattleSlot slot)
 {
     u8 partyIds[PARTY_SIZE];
     u8 tempSlot = 0;
@@ -9597,10 +9597,10 @@ void SwitchPartyOrderLinkMulti(enum BattlerId battler, u8 slot, u8 slot2)
             j++;
             partyIds[j] = partyBattleOrder[i] & 0xF;
         }
-        partyIdBuffer = partyIds[slot2];
+        partyIdBuffer = partyIds[slot];
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (partyIds[i] == slot)
+            if (partyIds[i] == partyId)
             {
                 tempSlot = partyIds[i];
                 partyIds[i] = partyIdBuffer;
@@ -9609,7 +9609,7 @@ void SwitchPartyOrderLinkMulti(enum BattlerId battler, u8 slot, u8 slot2)
         }
         if (i != PARTY_SIZE)
         {
-            partyIds[slot2] = tempSlot;
+            partyIds[slot] = tempSlot;
             partyBattleOrder[0] = (partyIds[0] << 4) | partyIds[1];
             partyBattleOrder[1] = (partyIds[2] << 4) | partyIds[3];
             partyBattleOrder[2] = (partyIds[4] << 4) | partyIds[5];
@@ -9641,9 +9641,9 @@ static void SetPartyIdAtBattleSlot(u8 slot, u8 setVal)
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF) | (setVal << 4);
 }
 
-void SwitchPartyMonSlots(u8 slot, u8 slot2)
+void SwitchPartyMonSlots(enum PartyBattleSlot slot, enum PartyBattleSlot slot2)
 {
-    u8 partyId = GetPartyIdFromBattleSlot(slot);
+    enum PartyMon partyId = GetPartyIdFromBattleSlot(slot);
     SetPartyIdAtBattleSlot(slot, GetPartyIdFromBattleSlot(slot2));
     SetPartyIdAtBattleSlot(slot2, partyId);
 }

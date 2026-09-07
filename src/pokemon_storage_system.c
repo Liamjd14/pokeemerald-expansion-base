@@ -1667,10 +1667,20 @@ void PokemonPC_SetReturnToPartyCallback(MainCallback cb)
     sReturnToPartyCallback = cb;
 }
 
-void ShowPokemonPCFromParty(void)
+bool8 PokemonPC_HasReturnToPartyCallback(void)
 {
-    EnterPokeStorage(OPTION_MOVE_MONS);
+    return sReturnToPartyCallback != NULL;
 }
+
+ void ShowPokemonPCFromParty(void)
+ {
+    if (SWSH_STORAGE_SYSTEM)
+    {
+        ShowPokemonPCFromParty_SwSh();
+        return;
+    }
+     EnterPokeStorage(OPTION_MOVE_MONS);
+ }
 
 void CB2_ShowPokemonPCFromParty(void)
 {
