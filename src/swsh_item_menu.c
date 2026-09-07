@@ -97,8 +97,10 @@
 #define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
                             max(BAG_BERRIES_COUNT,           \
                             max(BAG_ITEMS_COUNT,             \
+                            max(BAG_MEGA_STONE_COUNT,        \
+                            max(BAG_Z_CRYSTAL_COUNT,         \
                             max(BAG_KEYITEMS_COUNT,          \
-                                BAG_POKEBALLS_COUNT))))) + 1)
+                                BAG_POKEBALLS_COUNT))))))) + 1)
 
 // Up to 8 item slots can be visible at a time
 #define MAX_ITEMS_SHOWN 6
@@ -174,6 +176,8 @@ struct ListBuffer2 {
 
 struct TempWallyBag {
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    struct ItemSlot bagPocket_MegaStones[BAG_MEGA_STONE_COUNT];
+    struct ItemSlot bagPocket_ZCrystal[BAG_Z_CRYSTAL_COUNT];
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     u16 cursorPosition[POCKETS_COUNT];
     u16 scrollPosition[POCKETS_COUNT];
@@ -456,6 +460,8 @@ static void Task_BagMenu_MultiFullSwap(u8);
 static const u8 *const sPocketNamesStringsTable[] =
 {
     [POCKET_ITEMS]                  = COMPOUND_STRING("Items"),
+    [POCKET_MEGA_STONES]            = COMPOUND_STRING("Mega Stones"),
+    [POCKET_Z_CRYSTAL]              = COMPOUND_STRING("Z Crystals"),
     [POCKET_POKE_BALLS]             = COMPOUND_STRING("Poké Balls"),
     [POCKET_TM_HM]                  = COMPOUND_STRING("TMs & HMs"),
     [POCKET_BERRIES]                = COMPOUND_STRING("Berries"),
@@ -3616,6 +3622,20 @@ static void OpenContextMenu(u8 taskId)
                 if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
                     gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
                 break;
+            case POCKET_MEGA_STONES:
+                gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
+                memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_ItemsPocket, sizeof(sContextMenuItems_ItemsPocket));
+                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
+                    gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
+                break;
+            case POCKET_Z_CRYSTAL:
+                gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
+                memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_ItemsPocket, sizeof(sContextMenuItems_ItemsPocket));
+                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
+                    gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
+                break;  
             case POCKET_KEY_ITEMS:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
@@ -4329,6 +4349,8 @@ static void PrepareBagForWallyTutorial(void)
 
     sTempWallyBag = AllocZeroed(sizeof(*sTempWallyBag));
     memcpy(sTempWallyBag->bagPocket_Items, gSaveBlock1Ptr->bag.items, sizeof(gSaveBlock1Ptr->bag.items));
+    memcpy(sTempWallyBag->bagPocket_MegaStones, gSaveBlock1Ptr->bag.megaStones, sizeof(gSaveBlock1Ptr->bag.megaStones));
+    memcpy(sTempWallyBag->bagPocket_ZCrystal, gSaveBlock1Ptr->bag.zCrystal, sizeof(gSaveBlock1Ptr->bag.zCrystal));
     memcpy(sTempWallyBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bag.pokeBalls, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
     sTempWallyBag->pocket = gBagPosition.pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
@@ -4346,6 +4368,8 @@ static void RestoreBagAfterWallyTutorial(void)
     u32 i;
 
     memcpy(gSaveBlock1Ptr->bag.items, sTempWallyBag->bagPocket_Items, sizeof(sTempWallyBag->bagPocket_Items));
+    memcpy(gSaveBlock1Ptr->bag.megaStones, sTempWallyBag->bagPocket_MegaStones, sizeof(sTempWallyBag->bagPocket_MegaStones));
+    memcpy(gSaveBlock1Ptr->bag.zCrystal, sTempWallyBag->bagPocket_ZCrystal, sizeof(sTempWallyBag->bagPocket_ZCrystal));
     memcpy(gSaveBlock1Ptr->bag.pokeBalls, sTempWallyBag->bagPocket_PokeBalls, sizeof(sTempWallyBag->bagPocket_PokeBalls));
     gBagPosition.pocket = sTempWallyBag->pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
