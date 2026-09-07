@@ -82,6 +82,8 @@
 #include "constants/songs.h"
 #include "ui_stat_editor.h"
 
+#if !SWSH_PARTY_MENU
+
 enum {
     MENU_SUMMARY,
     MENU_STAT_EDIT,
@@ -8641,4 +8643,6 @@ s8 Test_UpdatePartySelectionSingleLayout(s8 slotId, s8 movementDir, bool8 choose
     sPartyMenuInternal = savedInternal;
     return slotId;
 }
-#endif
+#endif // TESTING
+
+#endif // !SWSH_PARTY_MENU
