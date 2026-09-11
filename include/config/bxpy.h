@@ -22,8 +22,8 @@
 // If all three of BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_* configs are TRUE, the Pokemon stats will be visible. If any of them are FALSE, the stats will display as ???.
 
 #define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_NATURE     TRUE              // When FALSE, the enemy Pokemon's Nature appears as ???. Stats are not colored.
-#define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_EV         FALSE             // When FALSE, the enemy Pokemon's Effort Values appear as ?.
-#define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_IV         FALSE             // When FALSE, the enemy Pokemon's Individual Values appear as ?. Respects P_SUMMARY_SCREEN_IV_EV_INFO and P_SUMMARY_SCREEN_IV_EV_VALUES.
+#define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_EV         TRUE              // When FALSE, the enemy Pokemon's Effort Values appear as ?.
+#define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_STAT_IV         TRUE              // When FALSE, the enemy Pokemon's Individual Values appear as ?. Respects P_SUMMARY_SCREEN_IV_EV_INFO and P_SUMMARY_SCREEN_IV_EV_VALUES.
 #define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_GIMMICK_TERA    TRUE              // When FALSE, the enemy Pokemon's Tera Type appears as TYPE_MYSTERY. Respects P_SHOW_TERA_TYPE.
 #define BXPY_OPEN_TEAM_SHEET_SHOW_ENEMY_MOVE            TRUE              // When FALSE, the enemy Pokemon's Moves appear as `MOVE_NONE`.
 
@@ -45,10 +45,10 @@
 
 #define BXPY_AI_DEBUG                                   FALSE             // Enables AI debug prints, useful for debugging in lieu of tests
 
-#define BXPY_RETAIN_CHANGES                             FALSE             // When TRUE, after battle, any changes that occured to the participating Pokemon is retained. This includes changes in HP, PP, Experience, Level, or even Evolution.
+#define BXPY_RETAIN_CHANGES                             TRUE              // When TRUE, after battle, any changes that occured to the participating Pokemon is retained. This includes changes in HP, PP, Experience, Level, or even Evolution.
 
 #define B_VAR_BXPY                                      B_VAR_SKY_BATTLE  // This var is used to maintain BXPY_RETAIN_CHANGES.
-#define B_FLAG_BXPY                                     0                 // This flag is used to manage BXPY mode's interaction with other features.
+#define B_FLAG_BXPY                                     FLAG_B_FLAG_BXPY                 // This flag is used to manage BXPY mode's interaction with other features.
 
 
 // Bring X Pick Y Comestic Configurations
