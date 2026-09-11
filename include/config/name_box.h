@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_NAME_BOX_H
 #define GUARD_CONFIG_NAME_BOX_H
 
-#define OW_FLAG_SUPPRESS_NAME_BOX   0  // If this flag is set, any namebox (whether its from a macro or a code) will not show up until this flag is unset.
+#define OW_FLAG_SUPPRESS_NAME_BOX   FLAG_OW_FLAG_SUPPRESS_NAME_BOX  // If this flag is set, any namebox (whether its from a macro or a code) will not show up until this flag is unset.
 
 // Namebox Speaker configs
 #define OW_NAME_BOX_USE_DYNAMIC_WIDTH TRUE  // When TRUE, the namebox window can use different width depending on the length of the speaker's name.
