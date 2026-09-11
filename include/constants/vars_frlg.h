@@ -201,8 +201,8 @@
 #define VAR_DAILY_BP               0x40BA
 #define VAR_MYSTERY_GIFT_6         0x40BB
 #define VAR_MYSTERY_GIFT_7         0x40BC
-#define VAR_0x40BD                 0x40BD
-#define VAR_0x40BE                 0x40BE
+#define VAR_PORTHOLE               0x40BD
+#define VAR_MYSTERY_GIFT_5         0x40BE
 #define VAR_0x40BF                 0x40BF
 #define VAR_0x40C0                 0x40C0
 #define VAR_0x40C1                 0x40C1
