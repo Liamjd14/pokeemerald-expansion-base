@@ -84,11 +84,11 @@
 #define VAR_TRAINER_CARD_MON_ICON_6        0x4048
 #define VAR_HOF_BRAG_STATE                 0x4049
 #define VAR_EGG_BRAG_STATE                 0x404A
-#define VAR_LINK_WIN_BRAG_STATE            0x404B
-#define VAR_POKELOT_RND2                   0x404C
-#define VAR_QL_ENTRANCE                    0x404D
+#define VAR_POKELOT_RND2                   0x404B
+#define VAR_LINK_WIN_BRAG_STATE            0x404C
+#define VAR_LOTAD_SIZE_RECORD              0x404D
 #define VAR_NATIONAL_DEX_FRLG              0x404E
-#define VAR_LOTAD_SIZE_RECORD              0x404F
+#define VAR_QL_ENTRANCE                    0x404F
 
 // Map Scene
 #define VAR_MAP_SCENE_PALLET_TOWN_OAK                                          0x4050
@@ -175,7 +175,7 @@
 #define VAR_0x409F                 0x409F
 #define VAR_0x40A0                 0x40A0
 #define VAR_0x40A1                 0x40A1
-#define VAR_0x40A2                 0x40A2
+#define VAR_FRONTIER_FACILITY      0x40A2
 #define VAR_0x40A3                 0x40A3
 #define VAR_0x40A4                 0x40A4
 #define VAR_0x40A5                 0x40A5
@@ -187,18 +187,18 @@
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
 #define VAR_QLBAK_MAP_LAYOUT        0x40AE
 
-#define VAR_0x40AF                 0x40AF
-#define VAR_0x40B0                 0x40B0
-#define VAR_0x40B1                 0x40B1
-#define VAR_0x40B2                 0x40B2
-#define VAR_0x40B3                 0x40B3
-#define VAR_PORTHOLE               0x40B4
+#define VAR_DAILY_SLOTS            0x40AF
+#define VAR_DAILY_WILDS            0x40B0
+#define VAR_DAILY_BLENDER          0x40B1
+#define VAR_DAILY_PLANTED_BERRIES  0x40B2
+#define VAR_DAILY_PICKED_BERRIES   0x40B3
+#define VAR_DAILY_ROULETTE         0x40B4
 #define VAR_EVENT_PICHU_SLOT       0x40B5
 #define VAR_MYSTERY_GIFT_1         0x40B6
 #define VAR_MYSTERY_GIFT_2         0x40B7
 #define VAR_MYSTERY_GIFT_3         0x40B8
 #define VAR_MYSTERY_GIFT_4         0x40B9
-#define VAR_MYSTERY_GIFT_5         0x40BA
+#define VAR_DAILY_BP               0x40BA
 #define VAR_MYSTERY_GIFT_6         0x40BB
 #define VAR_MYSTERY_GIFT_7         0x40BC
 #define VAR_0x40BD                 0x40BD
@@ -219,7 +219,7 @@
 #define VAR_0x40CC                 0x40CC
 #define VAR_0x40CD                 0x40CD
 #define VAR_0x40CE                 0x40CE
-#define VAR_FRONTIER_FACILITY      0x40CF
+#define VAR_0x40CF                 0x40CF
 #define VAR_0x40D0                 0x40D0
 #define VAR_0x40D1                 0x40D1
 #define VAR_0x40D2                 0x40D2
@@ -242,18 +242,18 @@
 #define VAR_0x40E3                 0x40E3
 #define VAR_0x40E4                 0x40E4
 #define VAR_0x40E5                 0x40E5
-#define VAR_DAILY_SLOTS            0x40E6
-#define VAR_DAILY_WILDS            0x40E7
-#define VAR_DAILY_BLENDER          0x40E8
-#define VAR_DAILY_PLANTED_BERRIES  0x40E9
-#define VAR_DAILY_PICKED_BERRIES   0x40EA
-#define VAR_DAILY_ROULETTE         0x40EB
+#define VAR_0x40E6                 0x40E6
+#define VAR_0x40E7                 0x40E7
+#define VAR_0x40E8                 0x40E8
+#define VAR_0x40E9                 0x40E9
+#define VAR_0x40EA                 0x40EA
+#define VAR_0x40EB                 0x40EB
 #define VAR_0x40EC                 0x40EC
 #define VAR_0x40ED                 0x40ED
 #define VAR_0x40EE                 0x40EE
 #define VAR_0x40EF                 0x40EF
 #define VAR_0x40F0                 0x40F0
-#define VAR_DAILY_BP               0x40F1
+#define VAR_0x40F1                 0x40F1
 #define VAR_0x40F2                 0x40F2
 #define VAR_0x40F3                 0x40F3
 #define VAR_0x40F4                 0x40F4

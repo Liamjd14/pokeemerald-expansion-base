@@ -220,13 +220,13 @@
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40BF
 
 // unused vars
-#define VAR_B_VAR_WILD_AI_FLAGS                                0x40C0 // Unused Var
-#define VAR_B_VAR_DIFFICULTY                                0x40C1 // Unused Var
-#define VAR_B_VAR_NO_BAG_USE                                0x40C2 // Unused Var
-#define VAR_B_VAR_SKY_BATTLE                                0x40C3 // Unused Var
-#define VAR_B_LEVEL_CAP_VARIABLE                                0x40C4 // Unused Var
-#define VAR_DN_VAR_SPECIES                                0x40C5 // Unused Var
-#define VAR_DN_VAR_STEP_COUNTER                                0x40C6 // Unused var
+#define VAR_B_VAR_WILD_AI_FLAGS                          0x40C0 // Unused Var
+#define VAR_B_VAR_DIFFICULTY                             0x40C1 // Unused Var
+#define VAR_B_VAR_NO_BAG_USE                             0x40C2 // Unused Var
+#define VAR_B_VAR_SKY_BATTLE                             0x40C3 // Unused Var
+#define VAR_B_LEVEL_CAP_VARIABLE                         0x40C4 // Unused Var
+#define VAR_DN_VAR_SPECIES                               0x40C5 // Unused Var
+#define VAR_DN_VAR_STEP_COUNTER                          0x40C6 // Unused var
 #define VAR_UNUSED_0x40C7                                0x40C7 // Unused Var
 #define VAR_UNUSED_0x40C8                                0x40C8 // Unused Var
 #define VAR_UNUSED_0x40C9                                0x40C9 // Unused Var
