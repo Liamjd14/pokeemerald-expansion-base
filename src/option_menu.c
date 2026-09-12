@@ -26,10 +26,16 @@
 #define tSound data[4]
 #define tButtonMode data[5]
 #define tWindowFrameType data[6]
-#define tFollower data[7]
-#define tDifficulty data[8]
 
-// Menu items Pg1
+// custom
+
+#define tDifficulty data[7]
+#define tEXPShare data[8]
+#define tLevelCapEnable data[9]
+#define tFollower data[10]
+#define tInstantText data[11]
+
+// Menu items Pg1 
 
 enum
 {
@@ -43,16 +49,18 @@ enum
     MENUITEM_COUNT,
 };
 
-// Menu items Pg2
+// Menu items Pg2 
 
 enum
 {
-    MENUITEM_FOLLOWER,
     MENUITEM_DIFFICULTY,
+    MENUITEM_EXPSHARE,
+    MENUITEM_LEVELCAPENABLE,
+    MENUITEM_FOLLOWER,
+    MENUITEM_INSTANTTEXT,
     MENUITEM_CANCEL_PG2,
     MENUITEM_COUNT_PG2,
 };
-
 
 enum
 {
@@ -71,8 +79,11 @@ enum
 
 //Pg2
 
-#define YPOS_FOLLOWER        (MENUITEM_FOLLOWER * 16)
-#define YPOS_DIFFICULTY      (MENUITEM_DIFFICULTY * 16)
+#define YPOS_DIFFICULTY     (MENUITEM_DIFFICULTY * 16)
+#define YPOS_EXPSHARE       (MENUITEM_EXPSHARE * 16)
+#define YPOS_LEVELCAPENABLE (MENUITEM_LEVELCAPENABLE * 16)
+#define YPOS_FOLLOWER              (MENUITEM_FOLLOWER * 16)
+#define YPOS_INSTANTTEXT           (MENUITEM_INSTANTTEXT * 16)
 
 #define PAGE_COUNT  2
 
@@ -95,10 +106,16 @@ static u8 FrameType_ProcessInput(u8 selection);
 static void FrameType_DrawChoices(u8 selection);
 static u8 ButtonMode_ProcessInput(u8 selection);
 static void ButtonMode_DrawChoices(u8 selection);
-static u8   Follower_ProcessInput(u8 selection);
-static void Follower_DrawChoices(u8 selection);
 static u8   Difficulty_ProcessInput(u8 selection);
 static void Difficulty_DrawChoices(u8 selection);
+static u8   EXPShare_ProcessInput(u8 selection);
+static void EXPShare_DrawChoices(u8 selection);
+static u8   LevelCapEnable_ProcessInput(u8 selection);
+static void LevelCapEnable_DrawChoices(u8 selection);
+static u8   Follower_ProcessInput(u8 selection);
+static void Follower_DrawChoices(u8 selection);
+static u8   InstantText_ProcessInput(u8 selection);
+static void InstantText_DrawChoices(u8 selection);
 static void DrawHeaderText(void);
 static void DrawOptionMenuTexts(void);
 static void DrawBgWindowFrames(void);
@@ -128,11 +145,18 @@ const u8 gText_SmallDot[] = _("·");
 const u8 gText_LargeDot[] = _("{EMOJI_CIRCLE}");
 const u8 gText_PageNav[] = _("{L_BUTTON}{R_BUTTON} PAGE");
 
-const u8 gText_FollowerOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SHOW");
-const u8 gText_FollowerOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HIDE");
 const u8 gText_DifficultyEasy[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}EASY");
 const u8 gText_DifficultyNormal[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}NORMAL");
 const u8 gText_DifficultyHard[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HARD");
+const u8 gText_EXPShareOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}On");
+const u8 gText_EXPShareOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Off");
+const u8 gText_LevelCapEnableOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}On");
+const u8 gText_LevelCapEnableOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Off");
+const u8 gText_FollowerOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}On");
+const u8 gText_FollowerOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Off");
+const u8 gText_InstantTextOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}On");
+const u8 gText_InstantTextOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Off");
+
 
 static const u16 sOptionMenuText_Pal[] = INCGFX_U16("graphics/interface/option_menu_text.pal", ".gbapal");
 // note: this is only used in the Japanese release
@@ -151,10 +175,14 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 
 static const u8 *const sOptionMenuItemsNames_Pg2[MENUITEM_COUNT_PG2] =
 {
-    [MENUITEM_FOLLOWER]        = COMPOUND_STRING("FOLLOWER"),
-    [MENUITEM_DIFFICULTY]      = COMPOUND_STRING("DIFFICULTY"),
-    [MENUITEM_CANCEL_PG2]      = COMPOUND_STRING("CANCEL"),
+    [MENUITEM_DIFFICULTY]           = COMPOUND_STRING("Difficulty"),
+    [MENUITEM_EXPSHARE]             = COMPOUND_STRING("EXP Share"),
+    [MENUITEM_LEVELCAPENABLE]       = COMPOUND_STRING("Level Cap"),
+    [MENUITEM_FOLLOWER]             = COMPOUND_STRING("Followers"),
+    [MENUITEM_INSTANTTEXT]          = COMPOUND_STRING("Instant Text"),
+    [MENUITEM_CANCEL_PG2]           = COMPOUND_STRING("CANCEL"),
 };
+
 
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
 {
@@ -227,9 +255,11 @@ static void ReadAllCurrentSettings(u8 taskId)
     gTasks[taskId].tSound = gSaveBlock2Ptr->optionsSound;
     gTasks[taskId].tButtonMode = gSaveBlock2Ptr->optionsButtonMode;
     gTasks[taskId].tWindowFrameType = gSaveBlock2Ptr->optionsWindowFrameType;
-    
-    gTasks[taskId].tFollower = FlagGet(FLAG_B_FLAG_FOLLOWERS_DISABLED);
     gTasks[taskId].tDifficulty = VarGet(VAR_B_VAR_DIFFICULTY);
+    gTasks[taskId].tEXPShare = FlagGet(FLAG_I_EXP_SHARE_FLAG);
+    gTasks[taskId].tLevelCapEnable = FlagGet(FLAG_SYS_ENABLE_LEVEL_CAP);
+    gTasks[taskId].tFollower = FlagGet(FLAG_B_FLAG_FOLLOWERS_DISABLED);
+    gTasks[taskId].tInstantText = FlagGet(FLAG_FLAG_TEXT_SPEED_INSTANT);
 }
 
 static void DrawOptionsPg1(u8 taskId)
@@ -248,8 +278,11 @@ static void DrawOptionsPg1(u8 taskId)
 static void DrawOptionsPg2(u8 taskId)
 {
     ReadAllCurrentSettings(taskId);
-    Follower_DrawChoices(gTasks[taskId].tFollower);
     Difficulty_DrawChoices(gTasks[taskId].tDifficulty);
+    EXPShare_DrawChoices(gTasks[taskId].tEXPShare);
+    LevelCapEnable_DrawChoices(gTasks[taskId].tLevelCapEnable);
+    Follower_DrawChoices(gTasks[taskId].tFollower);
+    InstantText_DrawChoices(gTasks[taskId].tInstantText);
     HighlightOptionMenuItem(gTasks[taskId].tMenuSelection);
     CopyWindowToVram(WIN_OPTIONS, COPYWIN_FULL);
 }
@@ -537,19 +570,40 @@ static void Task_OptionMenuProcessInput_Pg2(u8 taskId)
      
         switch (gTasks[taskId].tMenuSelection)
         {
-        case MENUITEM_FOLLOWER:
-            previousOption = gTasks[taskId].tFollower;
-            gTasks[taskId].tFollower = Follower_ProcessInput(gTasks[taskId].tFollower);
-
-            if (previousOption != gTasks[taskId].tFollower)
-                Follower_DrawChoices(gTasks[taskId].tFollower);
-        break;
         case MENUITEM_DIFFICULTY:
             previousOption = gTasks[taskId].tDifficulty;
             gTasks[taskId].tDifficulty = Difficulty_ProcessInput(gTasks[taskId].tDifficulty);
 
             if (previousOption != gTasks[taskId].tDifficulty)
                 Difficulty_DrawChoices(gTasks[taskId].tDifficulty);
+            break;
+        case MENUITEM_EXPSHARE:
+            previousOption = gTasks[taskId].tEXPShare;
+            gTasks[taskId].tEXPShare = EXPShare_ProcessInput(gTasks[taskId].tEXPShare);
+
+            if (previousOption != gTasks[taskId].tEXPShare)
+                EXPShare_DrawChoices(gTasks[taskId].tEXPShare);
+            break;
+        case MENUITEM_LEVELCAPENABLE:
+            previousOption = gTasks[taskId].tLevelCapEnable;
+            gTasks[taskId].tLevelCapEnable = LevelCapEnable_ProcessInput(gTasks[taskId].tLevelCapEnable);
+
+            if (previousOption != gTasks[taskId].tLevelCapEnable)
+                LevelCapEnable_DrawChoices(gTasks[taskId].tLevelCapEnable);
+            break;
+        case MENUITEM_FOLLOWER:
+            previousOption = gTasks[taskId].tFollower;
+            gTasks[taskId].tFollower = Follower_ProcessInput(gTasks[taskId].tFollower);
+
+            if (previousOption != gTasks[taskId].tFollower)
+                Follower_DrawChoices(gTasks[taskId].tFollower);
+            break;
+        case MENUITEM_INSTANTTEXT:
+            previousOption = gTasks[taskId].tInstantText;
+            gTasks[taskId].tInstantText = InstantText_ProcessInput(gTasks[taskId].tInstantText);
+
+            if (previousOption != gTasks[taskId].tInstantText)
+                InstantText_DrawChoices(gTasks[taskId].tInstantText);
             break;
         default:
             return;
@@ -571,10 +625,11 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsSound = gTasks[taskId].tSound;
     gSaveBlock2Ptr->optionsButtonMode = gTasks[taskId].tButtonMode;
     gSaveBlock2Ptr->optionsWindowFrameType = gTasks[taskId].tWindowFrameType;
-
-    gTasks[taskId].tFollower == 0 ? FlagClear(FLAG_B_FLAG_FOLLOWERS_DISABLED) : FlagSet(FLAG_B_FLAG_FOLLOWERS_DISABLED);
     VarSet(VAR_B_VAR_DIFFICULTY, gTasks[taskId].tDifficulty);
-
+    gTasks[taskId].tEXPShare == 0 ? FlagClear(FLAG_I_EXP_SHARE_FLAG) : FlagSet(FLAG_I_EXP_SHARE_FLAG);
+    gTasks[taskId].tLevelCapEnable == 0 ? FlagClear(FLAG_SYS_ENABLE_LEVEL_CAP) : FlagSet(FLAG_SYS_ENABLE_LEVEL_CAP);
+    gTasks[taskId].tFollower == 0 ? FlagSet(FLAG_B_FLAG_FOLLOWERS_DISABLED) : FlagClear(FLAG_B_FLAG_FOLLOWERS_DISABLED);
+    gTasks[taskId].tInstantText == 0 ? FlagClear(FLAG_FLAG_TEXT_SPEED_INSTANT) : FlagSet(FLAG_FLAG_TEXT_SPEED_INSTANT);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
     gTasks[taskId].func = Task_OptionMenuFadeOut;
 }
@@ -612,6 +667,8 @@ static void DrawOptionMenuChoice(const u8 *text, u8 x, u8 y, u8 style)
     dst[i] = EOS;
     AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, dst, x, y + 1, TEXT_SKIP_DRAW, NULL);
 }
+
+// PG1
 
 static u8 TextSpeed_ProcessInput(u8 selection)
 {
@@ -680,84 +737,6 @@ static void BattleScene_DrawChoices(u8 selection)
 
     DrawOptionMenuChoice(gText_BattleSceneOn, 104, YPOS_BATTLESCENE, styles[0]);
     DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleSceneOff, 198), YPOS_BATTLESCENE, styles[1]);
-}
-
-static u8 Follower_ProcessInput(u8 selection)
-{
-    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
-    {
-        selection ^= 1;
-        sArrowPressed = TRUE;
-    }
-
-    return selection;
-}
-
-static void Follower_DrawChoices(u8 selection)
-{
-    u8 styles[2];
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-    DrawOptionMenuChoice(gText_FollowerOff, 104, YPOS_FOLLOWER, styles[0]);
-    DrawOptionMenuChoice(gText_FollowerOn, GetStringRightAlignXOffset(FONT_NORMAL, gText_FollowerOn, 198), YPOS_FOLLOWER, styles[1]);
-}
-
-static u8 Difficulty_ProcessInput(u8 selection)
-{
-    if (JOY_NEW(DPAD_RIGHT))
-    {
-        if (selection <= 1)
-            selection++;
-        else
-            selection = 0;
-
-        sArrowPressed = TRUE;
-    }
-    if (JOY_NEW(DPAD_LEFT))
-    {
-        if (selection != 0)
-            selection--;
-        else
-            selection = 2;
-
-        sArrowPressed = TRUE;
-    }
-    return selection;
-}
-
-static void Difficulty_DrawChoices(u8 selection)
-{
-    u8 styles[3];
-    /* FALSE = Have the middle text be exactly in between where the first text ends and second text begins.
-       TRUE = Have the mid text be in the middle of the frame, ignoring the first and last text size. 
-    Setting it to FALSE is how vanilla code does it for the TEST SPEED, but the layout looks off-center if there's
-    multiple three-item options in one page and the length of characters for the first and last choices
-    of one of the options mismatch.*/
-    bool8 centerMid = TRUE;
-    s32 widthEasy, widthNormal, widthHard, xMid;
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[2] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_DifficultyEasy, 104, YPOS_DIFFICULTY, styles[0]);
-
-    widthNormal = GetStringWidth(FONT_NORMAL, gText_DifficultyNormal, 0);
-    if (centerMid){
-        xMid = (94 - widthNormal) / 2 + 104;
-    }
-    else{
-        widthEasy = GetStringWidth(FONT_NORMAL, gText_DifficultyEasy, 0);
-        widthHard = GetStringWidth(FONT_NORMAL, gText_DifficultyHard, 0);
-        widthNormal -= 94;
-        xMid = (widthEasy - widthNormal - widthHard) / 2 + 104;
-    }
-
-    DrawOptionMenuChoice(gText_DifficultyNormal, xMid, YPOS_DIFFICULTY, styles[1]);
-
-    DrawOptionMenuChoice(gText_DifficultyHard, GetStringRightAlignXOffset(FONT_NORMAL, gText_DifficultyHard, 198), YPOS_DIFFICULTY, styles[2]);
 }
 
 static u8 BattleStyle_ProcessInput(u8 selection)
@@ -909,6 +888,150 @@ static void ButtonMode_DrawChoices(u8 selection)
     DrawOptionMenuChoice(gText_ButtonTypeLR, xLR, YPOS_BUTTONMODE, styles[1]);
 
     DrawOptionMenuChoice(gText_ButtonTypeLEqualsA, GetStringRightAlignXOffset(FONT_NORMAL, gText_ButtonTypeLEqualsA, 198), YPOS_BUTTONMODE, styles[2]);
+}
+
+// custom
+// PG2
+
+static u8 Difficulty_ProcessInput(u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection <= 1)
+            selection++;
+        else
+            selection = 0;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+        else
+            selection = 2;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void Difficulty_DrawChoices(u8 selection)
+{
+    u8 styles[3];
+    /* FALSE = Have the middle text be exactly in between where the first text ends and second text begins.
+       TRUE = Have the mid text be in the middle of the frame, ignoring the first and last text size. 
+    Setting it to FALSE is how vanilla code does it for the TEST SPEED, but the layout looks off-center if there's
+    multiple three-item options in one page and the length of characters for the first and last choices
+    of one of the options mismatch.*/
+    bool8 centerMid = TRUE;
+    s32 widthEasy, widthNormal, widthHard, xMid;
+
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[2] = 0;
+    styles[selection] = 1;
+
+    DrawOptionMenuChoice(gText_DifficultyEasy, 104, YPOS_DIFFICULTY, styles[0]);
+
+    widthNormal = GetStringWidth(FONT_NORMAL, gText_DifficultyNormal, 0);
+    if (centerMid){
+        xMid = (94 - widthNormal) / 2 + 104;
+    }
+    else{
+        widthEasy = GetStringWidth(FONT_NORMAL, gText_DifficultyEasy, 0);
+        widthHard = GetStringWidth(FONT_NORMAL, gText_DifficultyHard, 0);
+        widthNormal -= 94;
+        xMid = (widthEasy - widthNormal - widthHard) / 2 + 104;
+    }
+
+    DrawOptionMenuChoice(gText_DifficultyNormal, xMid, YPOS_DIFFICULTY, styles[1]);
+
+    DrawOptionMenuChoice(gText_DifficultyHard, GetStringRightAlignXOffset(FONT_NORMAL, gText_DifficultyHard, 198), YPOS_DIFFICULTY, styles[2]);
+}
+
+static u8 EXPShare_ProcessInput(u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void EXPShare_DrawChoices(u8 selection)
+{
+    u8 styles[2];
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+    DrawOptionMenuChoice(gText_EXPShareOff, 104, YPOS_EXPSHARE, styles[0]);
+    DrawOptionMenuChoice(gText_EXPShareOn, GetStringRightAlignXOffset(FONT_NORMAL, gText_EXPShareOn, 198), YPOS_EXPSHARE, styles[1]);
+}
+
+static u8 LevelCapEnable_ProcessInput(u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void LevelCapEnable_DrawChoices(u8 selection)
+{
+    u8 styles[2];
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+    DrawOptionMenuChoice(gText_LevelCapEnableOff, 104, YPOS_LEVELCAPENABLE, styles[0]);
+    DrawOptionMenuChoice(gText_LevelCapEnableOn, GetStringRightAlignXOffset(FONT_NORMAL, gText_LevelCapEnableOn, 198), YPOS_LEVELCAPENABLE, styles[1]);
+}
+
+static u8 Follower_ProcessInput(u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void Follower_DrawChoices(u8 selection)
+{
+    u8 styles[2];
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+    DrawOptionMenuChoice(gText_FollowerOff, 104, YPOS_FOLLOWER, styles[0]);
+    DrawOptionMenuChoice(gText_FollowerOn, GetStringRightAlignXOffset(FONT_NORMAL, gText_FollowerOn, 198), YPOS_FOLLOWER, styles[1]);
+}
+
+static u8 InstantText_ProcessInput(u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void InstantText_DrawChoices(u8 selection)
+{
+    u8 styles[2];
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+    DrawOptionMenuChoice(gText_InstantTextOff, 104, YPOS_INSTANTTEXT, styles[0]);
+    DrawOptionMenuChoice(gText_InstantTextOn, GetStringRightAlignXOffset(FONT_NORMAL, gText_InstantTextOn, 198), YPOS_INSTANTTEXT, styles[1]);
 }
 
 static void DrawHeaderText(void)
