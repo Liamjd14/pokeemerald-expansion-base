@@ -423,21 +423,6 @@ u32 GetNumPalsInPrimary(struct MapLayout const *mapLayout)
     return mapLayout->isFrlg ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
 }
 
-u32 MapGridGetMetatileIdAt(int x, int y)
-{
-    return mapLayout->isFrlg ? NUM_TILES_IN_PRIMARY_FRLG : NUM_TILES_IN_PRIMARY;
-}
-
-u32 GetNumMetatilesInPrimary(struct MapLayout const *mapLayout)
-{
-    return mapLayout->isFrlg ? NUM_METATILES_IN_PRIMARY_FRLG : NUM_METATILES_IN_PRIMARY;
-}
-
-u32 GetNumPalsInPrimary(struct MapLayout const *mapLayout)
-{
-    return mapLayout->isFrlg ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
-}
-
 u32 MapGridGetMetatileIdAt(s32 x, s32 y)
 {
     s32 block = GetMapGridBlockAt(x, y);
