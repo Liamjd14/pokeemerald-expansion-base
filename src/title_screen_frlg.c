@@ -361,12 +361,12 @@ static const u16 sStreakYPositions[] = {
 };
 #endif
 
-static const u32 sUnused_Tilemap1[] = INCBIN_U32("graphics/title_screen_frlg/unused1.bin.smolTM");
-static const u32 sUnused_Tilemap2[] = INCBIN_U32("graphics/title_screen_frlg/unused2.bin.smolTM");
-static const u32 sUnused_Tilemap3[] = INCBIN_U32("graphics/title_screen_frlg/unused3.bin.smolTM");
-static const u32 sUnused_Tilemap4[] = INCBIN_U32("graphics/title_screen_frlg/unused4.bin.smolTM");
-static const u32 sUnused_Tilemap5[] = INCBIN_U32("graphics/title_screen_frlg/unused5.bin.smolTM");
-static const u32 sUnused_Tilemap6[] = INCBIN_U32("graphics/title_screen_frlg/unused6.bin.smolTM");
+static const u32 sUnused_Tilemap1[] = INCGFX_U32("graphics/title_screen_frlg/unused1.bin", ".smolTM");
+static const u32 sUnused_Tilemap2[] = INCGFX_U32("graphics/title_screen_frlg/unused2.bin", ".smolTM");
+static const u32 sUnused_Tilemap3[] = INCGFX_U32("graphics/title_screen_frlg/unused3.bin", ".smolTM");
+static const u32 sUnused_Tilemap4[] = INCGFX_U32("graphics/title_screen_frlg/unused4.bin", ".smolTM");
+static const u32 sUnused_Tilemap5[] = INCGFX_U32("graphics/title_screen_frlg/unused5.bin", ".smolTM");
+static const u32 sUnused_Tilemap6[] = INCGFX_U32("graphics/title_screen_frlg/unused6.bin", ".smolTM");
 
 static const u32 *const sUnused_Tilemaps[] = {
     sUnused_Tilemap1,
@@ -1159,7 +1159,7 @@ static void SpriteCallback_TitleScreenLeaf(struct Sprite *sprite)
 
 static void CreateLeafSprite(s32 y, s32 xspeed, s32 yspeed)
 {
-    u8 spriteId = CreateSprite(&sSpriteTemplate_FlameOrLeaf, DISPLAY_WIDTH, y, 0);
+    u8 spriteId = CreateSpriteUnchecked(&sSpriteTemplate_FlameOrLeaf, DISPLAY_WIDTH, y, 0);
     if (spriteId != MAX_SPRITES)
     {
         gSprites[spriteId].sPosX = DISPLAY_WIDTH * 16;
@@ -1194,7 +1194,7 @@ static void CreateStreakSprites(void)
     u8 spriteId;
     for (i = 0; i < 4; i++)
     {
-        spriteId = CreateSprite(&sSpriteTemplate_Streak, DISPLAY_WIDTH + 16 + 40 * i, sStreakYPositions[i], 0xFF);
+        spriteId = CreateSpriteUnchecked(&sSpriteTemplate_Streak, DISPLAY_WIDTH + 16 + 40 * i, sStreakYPositions[i], 0xFF);
         if (spriteId != MAX_SPRITES)
         {
             gSprites[spriteId].data[7] = i;
@@ -1292,7 +1292,7 @@ static void SetPalOnOrCreateBlankSprite(bool32 hasCreatedBlankSprite)
 
 static u8 CreateSlashSprite(void)
 {
-    u8 spriteId = CreateSprite(&sSlashSpriteTemplate, -32, 27, 1);
+    u8 spriteId = CreateSpriteUnchecked(&sSlashSpriteTemplate, -32, 27, 1);
     if (spriteId != MAX_SPRITES)
     {
         gSprites[spriteId].callback = SpriteCallback_Slash;
