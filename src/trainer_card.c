@@ -668,7 +668,7 @@ u32 CountPlayerTrainerStars(void)
     if (HasAllRegionalMons())
         stars++;
 
-    if (IS_FRLG)
+    if (isFrlg)
     {
         if (HasAllMons())
             stars++;
@@ -771,7 +771,7 @@ static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
     trainerCard->version = GAME_VERSION;
     SetPlayerCardData(trainerCard, VersionToCardType(GAME_VERSION));
 
-    if (!IS_FRLG)
+    if (!isFrlg)
     {
         trainerCard->hasAllFrontierSymbols = HasAllFrontierSymbols();
         trainerCard->frontierBP = gSaveBlock2Ptr->frontier.cardBattlePoints;
@@ -789,7 +789,7 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
     trainerCard->version = GAME_VERSION;
     SetPlayerCardData(trainerCard, VersionToCardType(GAME_VERSION));
 
-    if (!IS_FRLG)
+    if (!isFrlg)
     {
         trainerCard->linkHasAllFrontierSymbols = HasAllFrontierSymbols();
         *((u16 *)&trainerCard->linkPoints.frontier) = gSaveBlock2Ptr->frontier.cardBattlePoints;

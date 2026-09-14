@@ -273,7 +273,7 @@ static const struct DoorSizeInfo sDoorSizeInfo[DOOR_SIZE_COUNT] =
 {
     [DOOR_SIZE_1x1] =
     {
-        .openAnimFrames = sDoorAnimFrames_Open1x1,
+        .openAnimFrames = sDoorAnimFrames_Open1x2,
         .closeAnimFrames = sDoorAnimFrames_Close1x1,
     },
     [DOOR_SIZE_1x2] =

@@ -1091,7 +1091,7 @@ static void _IncrementDaycareSteps(struct DayCare *daycare)
 
 void IncrementDaycareSteps(void)
 {
-#if IS_FRLG
+#if isFrlg
     if (GetBoxMonData(&gSaveBlock1Ptr->route5DayCareMon.mon, MON_DATA_SANITY_HAS_SPECIES))
         gSaveBlock1Ptr->route5DayCareMon.steps++;
 #endif
@@ -1513,7 +1513,7 @@ static u8 ModifyBreedingScoreForOvalCharm(u8 score)
 
 void PutMonInRoute5Daycare(void)
 {
-#if IS_FRLG
+#if isFrlg
     u8 monIdx = GetCursorSelectionMonId();
     StorePokemonInDaycare(&gParties[B_TRAINER_PLAYER][monIdx], &gSaveBlock1Ptr->route5DayCareMon);
 #endif
@@ -1521,7 +1521,7 @@ void PutMonInRoute5Daycare(void)
 
 void GetCostToWithdrawRoute5DaycareMon(void)
 {
-#if IS_FRLG
+#if isFrlg
     u16 cost = PrepareDaycareCostStringForSelectedMon(&gSaveBlock1Ptr->route5DayCareMon);
 #else
     u16 cost = 100;

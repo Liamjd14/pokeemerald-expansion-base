@@ -741,14 +741,14 @@ bool8 LoadRegionMapGfx(void)
     switch (sRegionMap->initStep)
     {
     case 0:
-        regionMapType = GetActiveRegionMapType();
+        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (sRegionMap->bgManaged)
             DecompressAndCopyTileDataToVram(sRegionMap->bgNum, gRegionMapInfos[regionMapType].regionMapGfx, 0, 0, 0);
         else
             DecompressDataWithHeaderVram(gRegionMapInfos[regionMapType].regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
         break;
     case 1:
-        regionMapType = GetActiveRegionMapType();
+        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (sRegionMap->bgManaged)
         {
             if (!FreeTempTileDataBuffersIfPossible())
@@ -760,7 +760,7 @@ bool8 LoadRegionMapGfx(void)
         }
         break;
     case 2:
-        regionMapType = GetActiveRegionMapType();
+        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (!FreeTempTileDataBuffersIfPossible())
             LoadPalette(gRegionMapInfos[regionMapType].regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
         break;
@@ -1193,10 +1193,10 @@ static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
     y -= MAPCURSOR_Y_MIN;
     x -= MAPCURSOR_X_MIN;
 
-    switch (GetActiveTopLevelRegion())
+    switch (GetCurrentRegion())
     {
     case REGION_KANTO:
-        switch (GetActiveKantoSubregion())
+        switch (GetKantoSubregion(gMapHeader.regionMapSectionId))
         {
         case KANTO_SUBREGION_SEVII123:
                 return sRegionMapSections_Sevii123[y][x];
@@ -2329,7 +2329,7 @@ static const struct FlyLocation sFlyLocations[] =
 
 static void CreateFlyDestIcons(void)
 {
-    enum RegionMapType regionMapType = GetActiveRegionMapType();
+    enum RegionMapType regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
     u32 i;
     u16 x;
     u16 y;

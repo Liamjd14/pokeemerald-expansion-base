@@ -249,13 +249,12 @@ BattleScript_RunByUsingItem::
 BattleScript_ActionWatchesCarefully:
 	printfromtable gSafariReactionStringIds
 	waitmessage B_WAIT_TIME_LONG
-	end2
+	end
 
 BattleScript_ActionWatchesCarefully_Frlg:
 	printfromtable gSafariReactionStringIds
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_OPPONENT1, B_ANIM_SAFARI_REACTION
-#endif
 	end
 
 BattleScript_ActionGetNear:

@@ -289,7 +289,6 @@ int BgTileAllocOp(int bg, int offset, int count, int mode)
 // From FRLG. Dummied out.
 int BgTileAllocOpUnchecked(int bg, int offset, int count, int mode)
 {
-#if IS_FRLG
     int start, end;
     int blockSize;
     int blockStart;
@@ -297,55 +296,47 @@ int BgTileAllocOpUnchecked(int bg, int offset, int count, int mode)
 
     switch (mode)
     {
-        int start, end;
-        int blockSize;
-        int blockStart;
-        int i;
-
-        switch (mode)
+    case 0:
+        start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP);
+        end = start + 0x400;
+        if (end > 0x800)
+            end = 0x800;
+        blockSize = 0;
+        blockStart = 0;
+        for (i = start, offset = 0; i < end; i++, offset++)
         {
-        case 0:
-            start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP);
-            end = start + 0x400;
-            if (end > 0x800)
-                end = 0x800;
-            blockSize = 0;
-            blockStart = 0;
-            for (i = start, offset = 0; i < end; i++, offset++)
+            if (!((gpu_tile_allocation_map_bg[i / 8] >> (i % 8)) & 1))
             {
-                if (!((gpu_tile_allocation_map_bg[i / 8] >> (i % 8)) & 1))
+                if (blockSize)
                 {
-                    if (blockSize)
-                    {
-                        blockSize++;
-                        if (blockSize == count)
-                            return blockStart;
-                    }
-                    else
-                    {
-                        blockStart = offset;
-                        blockSize = 1;
-                    }
+                    blockSize++;
+                    if (blockSize == count)
+                        return blockStart;
                 }
                 else
                 {
-                    blockSize = 0;
+                    blockStart = offset;
+                    blockSize = 1;
                 }
             }
-            return -1;
-        case 1:
-            start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP) + offset;
-            end = start + count;
-            for (i = start; i < end; i++)
-                gpu_tile_allocation_map_bg[i / 8] |= 1 << (i % 8);
-            break;
-        case 2:
-            start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP) + offset;
-            end = start + count;
-            for (i = start; i < end; i++)
-                gpu_tile_allocation_map_bg[i / 8] &= ~(1 << (i % 8));
-            break;
+            else
+            {
+                blockSize = 0;
+            }
         }
+        return -1;
+    case 1:
+        start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP) + offset;
+        end = start + count;
+        for (i = start; i < end; i++)
+            gpu_tile_allocation_map_bg[i / 8] |= 1 << (i % 8);
+        break;
+    case 2:
+        start = GetBgControlAttribute(bg, BG_CTRL_ATTR_CHARBASEINDEX) * (BG_CHAR_SIZE / TILE_SIZE_4BPP) + offset;
+        end = start + count;
+        for (i = start; i < end; i++)
+            gpu_tile_allocation_map_bg[i / 8] &= ~(1 << (i % 8));
+        break;
     }
     return 0;
 }

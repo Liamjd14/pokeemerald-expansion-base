@@ -1079,7 +1079,7 @@ static void Cmd_accuracycheck(void)
     {
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
-        gBattlescriptCurrInstr = BattleScript_MoveMissedPause;
+        gBattlescriptCurrInstr = BattleScript_MoveMissed;
     }
     else
     {

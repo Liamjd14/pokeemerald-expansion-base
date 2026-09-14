@@ -5611,8 +5611,6 @@ u32 GetBattleMoveTarget(enum Move move, enum MoveTarget moveTarget)
         else
             targetBattler = gBattlerAttacker;
         break;
-    }
-
     case TARGET_USER:
     default:
         targetBattler = gBattlerAttacker;
