@@ -149,7 +149,6 @@ static const u16 sDoorNullPalette48[16] = {};
 static const u8 sDoorAnimTiles_TrainerHillRoofElevator[] = INCGFX_U8("graphics/door_anims/trainer_hill_roof_elevator.png", ".4bpp");
 static const u16 sDoorNullPalette49[16] = {};
 
-
 static const u8 sDoorAnimTiles_GeneralFrlg[] = INCGFX_U8("graphics/door_anims/general_frlg.png", ".4bpp");
 static const u8 sDoorAnimTiles_SlidingSingle[] = INCGFX_U8("graphics/door_anims/sliding_single.png", ".4bpp");
 static const u8 sDoorAnimTiles_SlidingDouble[] = INCGFX_U8("graphics/door_anims/sliding_double.png", ".4bpp");
@@ -182,42 +181,6 @@ static const u8 sDoorAnimTiles_Sevii67[] = INCGFX_U8("graphics/door_anims/sevii_
 static const u8 sDoorAnimTiles_Teleporter[] = INCGFX_U8("graphics/door_anims/teleporter.png", ".4bpp");
 static const u8 sDoorAnimTiles_TrainerTowerLobbyElevator[] = INCGFX_U8("graphics/door_anims/trainer_tower_lobby_elevator.png", ".4bpp");
 static const u8 sDoorAnimTiles_TrainerTowerRoofElevator[] = INCGFX_U8("graphics/door_anims/trainer_tower_roof_elevator.png", ".4bpp");
-
-static const struct DoorAnimFrame sDoorOpenAnimFrames[] =
-{
-    {4, -1},
-    {4, 0},
-    {4, 0x100},
-    {4, 0x200},
-    {0, 0},
-};
-
-static const struct DoorAnimFrame sDoorCloseAnimFrames[] =
-{
-    {4, 0x200},
-    {4, 0x100},
-    {4, 0},
-    {4, -1},
-    {0, 0},
-};
-
-static const struct DoorAnimFrame sBigDoorOpenAnimFrames[] =
-{
-    {4, -1},
-    {4, 0},
-    {4, 0x200},
-    {4, 0x400},
-    {0, 0},
-};
-
-static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
-{
-    {4, 0x400},
-    {4, 0x200},
-    {4, 0},
-    {4, -1},
-    {0, 0},
-};
 
 static const struct DoorAnimFrame sDoorAnimFrames_OpenSmallFrlg[] = {
     {4, -1},
@@ -1051,7 +1014,6 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
         .tiles = sDoorAnimTiles_TrainerTowerRoofElevator,
         .palettes = sDoorAnimPalettes_TrainerTowerRoofElevator
     },
-    {},
 };
 
 // NOTE: The tiles of a door's animation must be copied to VRAM because they are not already part of any given tileset.
@@ -1320,6 +1282,12 @@ static s8 GetDoorSoundType(const struct DoorGraphics *gfx, u32 x, u32 y)
         return -1;
     else
         return gfx->sound;
+}
+
+// Debug? Same as FieldAnimateDoorOpen but doesnt return or check if metatile is actually a door
+static void UNUSED Debug_FieldAnimateDoorOpen(u32 x, u32 y)
+{
+    StartDoorOpenAnimation(sDoorAnimGraphicsTable, x, y);
 }
 
 void FieldSetDoorOpened(u32 x, u32 y)
