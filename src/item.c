@@ -146,35 +146,22 @@ void ApplyNewEncryptionKeyToBagItems(u32 newKey)
     }
 }
 
+void InitializeBagPocket(enum Pocket pocket, enum BagCounts count, struct ItemSlot *slot)
+{
+    gBagPockets[pocket].itemSlots = slot;
+    gBagPockets[pocket].capacity = count;
+    gBagPockets[pocket].id = pocket;
+}
+
 void SetBagItemsPointers(void)
 {
-    gBagPockets[POCKET_ITEMS].itemSlots = gSaveBlock1Ptr->bag.items;
-    gBagPockets[POCKET_ITEMS].capacity = BAG_ITEMS_COUNT;
-    gBagPockets[POCKET_ITEMS].id = POCKET_ITEMS;
-
-    gBagPockets[POCKET_MEGA_STONES].itemSlots = gSaveBlock1Ptr->bag.megaStones;
-    gBagPockets[POCKET_MEGA_STONES].capacity = BAG_MEGA_STONE_COUNT;
-    gBagPockets[POCKET_MEGA_STONES].id = POCKET_MEGA_STONES;
-
-    gBagPockets[POCKET_Z_CRYSTAL].itemSlots = gSaveBlock1Ptr->bag.zCrystal;
-    gBagPockets[POCKET_Z_CRYSTAL].capacity = BAG_Z_CRYSTAL_COUNT;
-    gBagPockets[POCKET_Z_CRYSTAL].id = POCKET_Z_CRYSTAL;
-
-    gBagPockets[POCKET_KEY_ITEMS].itemSlots = gSaveBlock1Ptr->bag.keyItems;
-    gBagPockets[POCKET_KEY_ITEMS].capacity = BAG_KEYITEMS_COUNT;
-    gBagPockets[POCKET_KEY_ITEMS].id = POCKET_KEY_ITEMS;
-
-    gBagPockets[POCKET_POKE_BALLS].itemSlots = gSaveBlock1Ptr->bag.pokeBalls;
-    gBagPockets[POCKET_POKE_BALLS].capacity = BAG_POKEBALLS_COUNT;
-    gBagPockets[POCKET_POKE_BALLS].id = POCKET_POKE_BALLS;
-
-    gBagPockets[POCKET_TM_HM].itemSlots = gSaveBlock1Ptr->bag.TMsHMs;
-    gBagPockets[POCKET_TM_HM].capacity = BAG_TMHM_COUNT;
-    gBagPockets[POCKET_TM_HM].id = POCKET_TM_HM;
-
-    gBagPockets[POCKET_BERRIES].itemSlots = gSaveBlock1Ptr->bag.berries;
-    gBagPockets[POCKET_BERRIES].capacity = BAG_BERRIES_COUNT;
-    gBagPockets[POCKET_BERRIES].id = POCKET_BERRIES;
+    InitializeBagPocket(POCKET_ITEMS, BAG_ITEMS_COUNT, gSaveBlock1Ptr->bag.items);
+    InitializeBagPocket(POCKET_MEGA_STONES, BAG_MEGA_STONE_COUNT, gSaveBlock1Ptr->bag.megaStones);
+    InitializeBagPocket(POCKET_Z_CRYSTAL, BAG_Z_CRYSTAL_COUNT, gSaveBlock1Ptr->bag.zCrystal);
+    InitializeBagPocket(POCKET_KEY_ITEMS, BAG_KEYITEMS_COUNT, gSaveBlock1Ptr->bag.keyItems);
+    InitializeBagPocket(POCKET_POKE_BALLS, BAG_POKEBALLS_COUNT, gSaveBlock1Ptr->bag.pokeBalls);
+    InitializeBagPocket(POCKET_TM_HM, BAG_TMHM_COUNT, gSaveBlock1Ptr->bag.TMsHMs);
+    InitializeBagPocket(POCKET_BERRIES, BAG_BERRIES_COUNT, gSaveBlock1Ptr->bag.berries);
 }
 
 u8 *CopyItemName(enum Item itemId, u8 *dst)

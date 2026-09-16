@@ -102,8 +102,10 @@ enum __attribute__((packed)) PartyMon
     PARTY_MON_4,
     PARTY_MON_5,
     PARTY_MON_NONE = PARTY_SIZE,
-    PARTY_MON_CANCEL,
+    PARTY_MON_CANCEL = PARTY_SIZE,
 };
+
+#define PC_MON_CHOSEN 0xFF
 
 // A position within the in-battle party order, not an identity; the Pokémon
 // occupying a given slot changes as the order is permuted. See gBattlePartyCurrentOrder.
@@ -146,14 +148,16 @@ enum PartyBattleSlot
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define ROAMER_COUNT 1 // Number of maximum concurrent active roamers
 
-// Bag constants
-#define BAG_ITEMS_COUNT 120
-#define BAG_MEGA_STONE_COUNT 94
-#define BAG_Z_CRYSTAL_COUNT 35
-#define BAG_KEYITEMS_COUNT 30
-#define BAG_POKEBALLS_COUNT 16
-#define BAG_TMHM_COUNT 110
-#define BAG_BERRIES_COUNT 46
+enum BagCounts
+{
+    BAG_ITEMS_COUNT = 120,
+    BAG_MEGA_STONE_COUNT = 94,
+    BAG_Z_CRYSTAL_COUNT = 35,
+    BAG_KEYITEMS_COUNT = 30,
+    BAG_POKEBALLS_COUNT = 16,
+    BAG_TMHM_COUNT = 110,
+    BAG_BERRIES_COUNT = 46,
+};
 
 // Number of facilities for Ranking Hall.
 // 7 facilities for single mode + tower double mode + tower multi mode.
