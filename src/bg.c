@@ -40,9 +40,7 @@ struct BgConfig2
 static struct BgControl sGpuBgConfigs;
 static struct BgConfig2 sGpuBgConfigs2[NUM_BACKGROUNDS];
 static u32 sDmaBusyBitfield[NUM_BACKGROUNDS];
-#if IS_FRLG
 static u8 gpu_tile_allocation_map_bg[0x100];
-#endif
 
 COMMON_DATA u32 gWindowTileAutoAllocEnabled = 0;
 
@@ -291,7 +289,6 @@ int BgTileAllocOp(int bg, int offset, int count, int mode)
 // From FRLG. Dummied out.
 int BgTileAllocOpUnchecked(int bg, int offset, int count, int mode)
 {
-#if IS_FRLG
     int start, end;
     int blockSize;
     int blockStart;
@@ -341,7 +338,6 @@ int BgTileAllocOpUnchecked(int bg, int offset, int count, int mode)
             gpu_tile_allocation_map_bg[i / 8] &= ~(1 << (i % 8));
         break;
     }
-#endif
     return 0;
 }
 
@@ -357,12 +353,12 @@ void ResetBgsAndClearDma3BusyFlags(u32 enableWindowTileAutoAlloc)
 
     gWindowTileAutoAllocEnabled = enableWindowTileAutoAlloc;
 
-#if IS_FRLG
-    for (i = 0; i < ARRAY_COUNT(gpu_tile_allocation_map_bg); i++)
-    {
-        gpu_tile_allocation_map_bg[i] = 0;
+    if (isFrlg) {
+        for (i = 0; i < ARRAY_COUNT(gpu_tile_allocation_map_bg); i++)
+        {
+            gpu_tile_allocation_map_bg[i] = 0;
+        }
     }
-#endif
 }
 
 void InitBgsFromTemplates(u32 bgMode, const struct BgTemplate *templates, u8 numTemplates)
@@ -393,9 +389,8 @@ void InitBgsFromTemplates(u32 bgMode, const struct BgTemplate *templates, u8 num
             sGpuBgConfigs2[bg].tilemap = NULL;
             sGpuBgConfigs2[bg].bg_x = 0;
             sGpuBgConfigs2[bg].bg_y = 0;
-#if IS_FRLG
-            gpu_tile_allocation_map_bg[(templates[i].charBaseIndex * (BG_CHAR_SIZE / TILE_SIZE_4BPP)) / 8] = 1;
-#endif
+            if (isFrlg)
+                gpu_tile_allocation_map_bg[(templates[i].charBaseIndex * (BG_CHAR_SIZE / TILE_SIZE_4BPP)) / 8] = 1;
         }
     }
 }
@@ -421,9 +416,8 @@ void InitBgFromTemplate(const struct BgTemplate *template)
         sGpuBgConfigs2[bg].tilemap = NULL;
         sGpuBgConfigs2[bg].bg_x = 0;
         sGpuBgConfigs2[bg].bg_y = 0;
-#if IS_FRLG
-        gpu_tile_allocation_map_bg[(template->charBaseIndex * (BG_CHAR_SIZE / TILE_SIZE_4BPP)) / 8] = 1;
-#endif
+        if (isFrlg)
+            gpu_tile_allocation_map_bg[(template->charBaseIndex * (BG_CHAR_SIZE / TILE_SIZE_4BPP)) / 8] = 1;
     }
 }
 

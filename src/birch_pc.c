@@ -50,9 +50,16 @@ static const u8 *const sBirchDexRatingTexts[BIRCH_DEX_STRINGS] =
 // This shows your Hoenn Pokédex rating and not your National Dex.
 const u8 *GetPokedexRatingText(u32 count)
 {
-    u16 maxDex = REGIONAL_DEX_COUNT - 1;
+    u32 i, j;
+    u16 regDexCount;
+    if (gSaveBlock2Ptr->playerRegion == REGION_KANTO)
+        regDexCount = KANTO_DEX_COUNT;
+    else
+        regDexCount = HOENN_DEX_COUNT;
+
+    u16 maxDex = regDexCount - 1;
     // doesNotCountForRegionalPokedex
-    for (u32 i = 0; i < REGIONAL_DEX_COUNT; i++)
+    for (i = 0; i < regDexCount; i++)
     {
         enum NationalDexOrder natDexNum = RegionalToNationalOrder(i + 1);
         enum Species species = NationalPokedexNumToSpecies(natDexNum);

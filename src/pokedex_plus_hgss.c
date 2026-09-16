@@ -728,6 +728,7 @@ static bool8 LoadPokedexListPage(u8 page)
     return FALSE;
 }
 
+
 // u16 ignored is passed but never used
 #define MON_LIST_X 2
 bool32 TryCreateMonListEntry_HGSS(u8 position, u16 b, u16 ignored)

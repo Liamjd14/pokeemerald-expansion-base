@@ -22,8 +22,6 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
-#if IS_FRLG
-
 #define INTRO_SPECIES SPECIES_NIDORAN_F
 
 enum
@@ -592,7 +590,7 @@ static const u8 *const sControlsGuide_Pages2And3_Strings[CONTROLS_GUIDE_STRINGS_
 
 static const u8 *const sMaleNameChoices[] =
 {
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
     gNameChoice_Red,
     gNameChoice_Fire,
     gNameChoice_Ash,
@@ -623,7 +621,7 @@ static const u8 *const sMaleNameChoices[] =
 
 static const u8 *const sFemaleNameChoices[] =
 {
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
     gNameChoice_Red,
     gNameChoice_Fire,
 #else
@@ -651,7 +649,7 @@ static const u8 *const sFemaleNameChoices[] =
 
 static const u8 *const sRivalNameChoices[] =
 {
-#if defined(FIRERED)
+#if defined(FIRERED_INT)
     gNameChoice_Green,
     gNameChoice_Gary,
     gNameChoice_Kaz,
@@ -1455,7 +1453,7 @@ static void Task_OakSpeech_DoNamingScreen(u8 taskId)
         {
             ClearStdWindowAndFrameToTransparent(gTasks[taskId].tMenuWindowId, TRUE);
             RemoveWindow(gTasks[taskId].tMenuWindowId);
-            DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock1Ptr->rivalName, 0, 0, 0, CB2_ReturnFromNamingScreen);
+            DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock2Ptr->rivalName, 0, 0, 0, CB2_ReturnFromNamingScreen);
         }
         DestroyPikachuOrPlatformSprites(taskId, SPRITE_TYPE_PLATFORM);
         FreeAllWindowBuffers();
@@ -2156,7 +2154,7 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 nameChoice)
     else
     {
         src = sRivalNameChoices[nameChoice];
-        dest = gSaveBlock1Ptr->rivalName;
+        dest = gSaveBlock2Ptr->rivalName;
     }
     for (i = 0; i < PLAYER_NAME_LENGTH && src[i] != EOS; i++)
         dest[i] = src[i];
@@ -2189,5 +2187,3 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 nameChoice)
 #undef tBlendTarget2
 #undef tUnusedState
 #undef tFadeTimer
-
-#endif // IS_FRLG
