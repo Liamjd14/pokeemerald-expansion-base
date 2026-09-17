@@ -1,6 +1,13 @@
 # DS version files
-/
-Faeturd branches:
+
+Faetures:
+
+v0.2.1 -
+
+FRLG compile and work in one game
+Bugfixes
+
+Faeture branches:
 
 pokeemerald-expansion: https://github.com/rh-hideout/pokeemerald-expansion v1.17 upcoming 
 
