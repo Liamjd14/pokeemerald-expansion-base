@@ -3029,7 +3029,10 @@ static u8 GetSpeciesGachaLevel(void)
     levelCap = GetCurrentLevelCap();
 
     if (level > levelCap)
-        return levelCap;
+        level = levelCap;
+
+    if (level < 1)
+        level = 1;
 
     return level;
 }
