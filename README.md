@@ -1,5 +1,10 @@
 # DS version files
 
+Known issuse:
+
+Ow encounters sometimes cant spawn due to too many ow objects
+game corner pop in of ow events due to too many
+
 Faetures:
 
 v0.2.1 -
