@@ -2556,4 +2556,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Aura Guard"),
         .description = COMPOUND_STRING("Unimplemented."),
     },
+
+    [ABILITY_PSYCHIC_FORCE] =
+    {
+        .name = _("Psychic Force"),
+        .description = COMPOUND_STRING("Powers up Psyhic Abilities."),
+        .aiRating = 6,
+    },
 };

@@ -1925,6 +1925,9 @@ u32 AI_GetSwitchinTerrain(enum BattlerId battler)
     case ABILITY_PSYCHIC_SURGE:
         newTerrain = B_TERRAIN_PSYCHIC;
         break;
+    case ABILITY_PSYCHIC_FORCE:
+        newTerrain = B_TERRAIN_PSYCHIC;
+        break;
     default:
         return gFieldTimers.terrain;
     }

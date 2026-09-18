@@ -3587,6 +3587,15 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 effect++;
             }
             break;
+        case ABILITY_PSYCHIC_FORCE:
+            if (!shouldAbilityTrigger)
+                break;
+            if (TryChangeBattleTerrain(battler, B_TERRAIN_PSYCHIC))
+            {
+                BattleScriptCall(BattleScript_PsychicSurgeActivates);
+                effect++;
+            }
+            break;
         default:
             break;
         }
@@ -7667,6 +7676,10 @@ static inline uq4_12_t GetAttackerAbilitiesModifier(enum BattlerId battlerAtk, u
     case ABILITY_TINTED_LENS:
         if (typeEffectivenessModifier <= UQ_4_12(0.5))
             return UQ_4_12(2.0);
+        break;
+    case ABILITY_PSYCHIC_FORCE:
+        if (typeEffectivenessModifier >= UQ_4_12(2.0))
+            return UQ_4_12(1.25);
         break;
     default:
         break;
