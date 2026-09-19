@@ -987,5 +987,7 @@
     "BattleColosseum_4P_Frlg",
     "UnionRoom_Frlg"
   ],
-  "gMapGroup_Testing": []
+  "gMapGroup_Testing": [
+    "TilesetTest"
+  ]
 }
