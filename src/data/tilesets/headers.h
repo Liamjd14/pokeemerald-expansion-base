@@ -1938,3 +1938,14 @@ const struct Tileset gTileset_HallOfFame =
     .palettes_autumn = NULL,
     .palettes_winter = NULL,
 };
+
+const struct Tileset gTileset_KantoCustom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_KantoCustom,
+    .palettes = gTilesetPalettes_KantoCustom,
+    .metatiles = gMetatiles_KantoCustom,
+    .metatileAttributes = gMetatileAttributes_KantoCustom,
+    .callback = NULL,
+};
