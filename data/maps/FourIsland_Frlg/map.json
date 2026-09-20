@@ -3,7 +3,6 @@
   "name": "FourIsland_Frlg",
   "layout": "LAYOUT_FOUR_ISLAND",
   "music": "MUS_RG_SEVII_45",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_FOUR_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -12,13 +11,11 @@
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_FOUR_ISLAND_DAYCARE_MAN",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 16,
       "y": 13,
@@ -32,7 +29,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DODUO",
       "x": 12,
       "y": 9,
@@ -46,7 +42,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
       "x": 13,
       "y": 7,
@@ -60,7 +55,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NIDORAN_M",
       "x": 14,
       "y": 7,
@@ -74,7 +68,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 17,
       "y": 9,
@@ -88,7 +81,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN_FRLG",
       "x": 26,
       "y": 19,
@@ -102,7 +94,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 5,
       "y": 11,
@@ -116,7 +107,6 @@
       "flag": "FLAG_TEMP_12"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 5,
       "y": 6,
@@ -130,7 +120,6 @@
       "flag": "FLAG_HIDE_FOUR_ISLAND_STAR_PIECE"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 32,
       "y": 19,
@@ -145,7 +134,6 @@
     },
     {
       "local_id": "LOCALID_FOUR_ISLAND_RIVAL",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 8,
       "y": 25,
@@ -159,7 +147,6 @@
       "flag": "FLAG_HIDE_FOUR_ISLAND_RIVAL"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN_FRLG",
       "x": 36,
       "y": 13,
@@ -173,7 +160,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
       "x": 31,
       "y": 21,
@@ -245,9 +231,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
@@ -285,5 +269,7 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_EventScript_LoreleisHouseSign"
     }
-  ]
+  ],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }
