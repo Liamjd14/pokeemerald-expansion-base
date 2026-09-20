@@ -10,20 +10,20 @@
 #define METATILE_BattleDome_Door_PreBattleRoom  0x20A
 
 // gTileset_BattleFrontier
-#define METATILE_BattleFrontier_CorridorOpenDoor_Bottom   0x20F
-#define METATILE_BattleFrontier_CorridorOpenDoor_Top      0x207
-#define METATILE_BattleFrontier_Door_Elevator             0x20E
-#define METATILE_BattleFrontier_Door_MultiCorridor_Left   0x2AD
-#define METATILE_BattleFrontier_Door_MultiCorridor_Right  0x2AE
-#define METATILE_BattleFrontier_Elevator_Bottom0          0x339
-#define METATILE_BattleFrontier_Elevator_Bottom1          0x33A
-#define METATILE_BattleFrontier_Elevator_Bottom2          0x33B
-#define METATILE_BattleFrontier_Elevator_Mid0             0x331
-#define METATILE_BattleFrontier_Elevator_Mid1             0x332
-#define METATILE_BattleFrontier_Elevator_Mid2             0x333
-#define METATILE_BattleFrontier_Elevator_Top0             0x329
-#define METATILE_BattleFrontier_Elevator_Top1             0x32A
-#define METATILE_BattleFrontier_Elevator_Top2             0x32B
+#define METATILE_BattleFrontier_CorridorOpenDoor_Bottom  0x20F
+#define METATILE_BattleFrontier_CorridorOpenDoor_Top     0x207
+#define METATILE_BattleFrontier_Door_Elevator            0x20E
+#define METATILE_BattleFrontier_Door_MultiCorridor_Left  0x2AD
+#define METATILE_BattleFrontier_Door_MultiCorridor_Right 0x2AE
+#define METATILE_BattleFrontier_Elevator_Bottom0         0x339
+#define METATILE_BattleFrontier_Elevator_Bottom1         0x33A
+#define METATILE_BattleFrontier_Elevator_Bottom2         0x33B
+#define METATILE_BattleFrontier_Elevator_Mid0            0x331
+#define METATILE_BattleFrontier_Elevator_Mid1            0x332
+#define METATILE_BattleFrontier_Elevator_Mid2            0x333
+#define METATILE_BattleFrontier_Elevator_Top0            0x329
+#define METATILE_BattleFrontier_Elevator_Top1            0x32A
+#define METATILE_BattleFrontier_Elevator_Top2            0x32B
 
 // gTileset_BattleFrontierOutsideEast
 #define METATILE_BattleFrontierOutsideEast_Door              0x3FC
@@ -170,7 +170,7 @@
 #define METATILE_Contest_WallShadow          0x221
 
 // gTileset_DepartmentStore
-#define METATILE_DepartmentStore_ElevatorDoor  0x315
+#define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
 // gTileset_Dewford
 #define METATILE_Dewford_Door              0x225
@@ -923,7 +923,6 @@
 #define METATILE_SilphCo_Floor_ShadeFull                0x335
 #define METATILE_SilphCo_Floor_WallLeftCorner           0x339
 #define METATILE_SilphCo_Floor_WallRightCorner          0x33A
-#define METATILE_SilphCo_FuckOff                        0x3FF
 #define METATILE_SilphCo_HideoutBarrier_BottomLeft      0x2D6
 #define METATILE_SilphCo_HideoutBarrier_BottomRight     0x2D7
 #define METATILE_SilphCo_HideoutBarrier_TopLeft_Floor   0x2CE
@@ -939,7 +938,7 @@
 #define METATILE_SilphCo_HorizontalBarrier_TopRight     0x3B1
 #define METATILE_SilphCo_VerticalBarrier_BottomLeft     0x3C4
 #define METATILE_SilphCo_VerticalBarrier_BottomRight    0x3C5
-#define METATILE_SilphCo_VerticalBarrier_MidLeft        0x25B
+#define METATILE_SilphCo_VerticalBarrier_MidLeft        0x3C2
 #define METATILE_SilphCo_VerticalBarrier_MidRight       0x3C3
 #define METATILE_SilphCo_VerticalBarrier_TopLeft        0x3C0
 #define METATILE_SilphCo_VerticalBarrier_TopRight       0x3C1
@@ -1022,35 +1021,35 @@
 #define METATILE_VermilionCity_SSAnneWarp  0x2E1
 
 // gTileset_VermilionGym
-#define METATILE_VermilionGym_Beam_MidBottom                     0x3BC
-#define METATILE_VermilionGym_Beam_MidBottom_HalfOn              0x3F5
-#define METATILE_VermilionGym_Beam_MidTop                        0x2CC
-#define METATILE_VermilionGym_Beam_MidTop_HalfOn                 0x3ED
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_HalfOn   0x3F4
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_Off      0x3CC
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_On       0x3E2
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_HalfOn        0x3F3
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_Off           0x3CB
-#define METATILE_VermilionGym_Beam_Node_BottomLeft_On            0x3E1
-#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_HalfOn  0x3F6
-#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off     0x3CD
-#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_On      0x3EB
-#define METATILE_VermilionGym_Beam_Node_BottomRight_HalfOn       0x2DF
-#define METATILE_VermilionGym_Beam_Node_BottomRight_Off          0x3CE
-#define METATILE_VermilionGym_Beam_Node_BottomRight_On           0x3E4
-#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_HalfOn      0x3EC
-#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_Off         0x3C3
-#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_On          0x3DA
-#define METATILE_VermilionGym_Beam_Node_TopLeft_HalfOn           0x3E3
-#define METATILE_VermilionGym_Beam_Node_TopLeft_Off              0x3C4
-#define METATILE_VermilionGym_Beam_Node_TopLeft_On               0x3D9
-#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_HalfOn     0x3EE
-#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off        0x3C5
-#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_On         0x3DB
-#define METATILE_VermilionGym_Beam_Node_TopRight_HalfOn          0x3EF
-#define METATILE_VermilionGym_Beam_Node_TopRight_Off             0x3C6
-#define METATILE_VermilionGym_Beam_Node_TopRight_On              0x3DC
-#define METATILE_VermilionGym_Floor                              0x3B1
+#define METATILE_VermilionGym_Beam_MidBottom                     0x28D
+#define METATILE_VermilionGym_Beam_MidBottom_HalfOn              0x2C5
+#define METATILE_VermilionGym_Beam_MidTop                        0x285
+#define METATILE_VermilionGym_Beam_MidTop_HalfOn                 0x2BD
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_HalfOn   0x2C4
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_Off      0x29C
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_On       0x2B2
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_HalfOn        0x2C3
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_Off           0x29B
+#define METATILE_VermilionGym_Beam_Node_BottomLeft_On            0x2B1
+#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_HalfOn  0x2C6
+#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off     0x29D
+#define METATILE_VermilionGym_Beam_Node_BottomRight_Edge_On      0x2B3
+#define METATILE_VermilionGym_Beam_Node_BottomRight_HalfOn       0x2C7
+#define METATILE_VermilionGym_Beam_Node_BottomRight_Off          0x29E
+#define METATILE_VermilionGym_Beam_Node_BottomRight_On           0x2B4
+#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_HalfOn      0x2BC
+#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_Off         0x294
+#define METATILE_VermilionGym_Beam_Node_TopLeft_Edge_On          0x2AA
+#define METATILE_VermilionGym_Beam_Node_TopLeft_HalfOn           0x2BB
+#define METATILE_VermilionGym_Beam_Node_TopLeft_Off              0x293
+#define METATILE_VermilionGym_Beam_Node_TopLeft_On               0x2A9
+#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_HalfOn     0x2BE
+#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off        0x295
+#define METATILE_VermilionGym_Beam_Node_TopRight_Edge_On         0x2AB
+#define METATILE_VermilionGym_Beam_Node_TopRight_HalfOn          0x2BF
+#define METATILE_VermilionGym_Beam_Node_TopRight_Off             0x296
+#define METATILE_VermilionGym_Beam_Node_TopRight_On              0x2AC
+#define METATILE_VermilionGym_Floor                              0x281
 
 // gTileset_ViridianCity
 #define METATILE_ViridianCity_Door  0x299
