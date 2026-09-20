@@ -17,7 +17,8 @@
     "gMapGroup_KantoIndoor3",
     "gMapGroup_SeviiIndoor",
     "gMapGroup_Link_Frlg",
-    "gMapGroup_Testing"
+    "gMapGroup_Testing",
+    "gMapGroup_Eshosext"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -989,5 +990,10 @@
   ],
   "gMapGroup_Testing": [
     "TilesetTest"
+  ],
+  "gMapGroup_Eshosext": [
+    "Oceanview",
+    "Route1OceanviewWalk",
+    "Maycastle"
   ]
 }
