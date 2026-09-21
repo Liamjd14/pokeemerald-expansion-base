@@ -9323,6 +9323,16 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_TILESET_TEST",
+      "name": "TilesetTest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_KantoCustom",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/TilesetTest/border.bin",
+      "blockdata_filepath": "data/layouts/TilesetTest/map.bin"
     }
   ]
 }

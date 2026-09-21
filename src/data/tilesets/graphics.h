@@ -3098,3 +3098,22 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Winter[][16] =
     INCGFX_U16("data/tilesets/primary/general/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/primary/general/palettes/15.pal", ".gbapal"),
 };
+
+const u16 gTilesetPalettes_KantoCustom[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_custom/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_KantoCustom[] = INCBIN_U32("data/tilesets/primary/kanto_custom/tiles.4bpp.lz");
