@@ -840,6 +840,7 @@ void ZeroEnemyPartyMons(void)
 void CreateRandomMon(struct Pokemon *mon, enum Species species, u8 level)
 {
     CreateRandomMonWithIVs(mon, species, level, USE_RANDOM_IVS);
+    GiveMonInitialMoveset(mon);
 }
 
 void CreateRandomMonWithIVs(struct Pokemon *mon, enum Species species, u8 level, u8 fixedIv)
