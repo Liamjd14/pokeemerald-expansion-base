@@ -1739,14 +1739,14 @@ data/maps/CaveOfOrigin_UnusedRubySapphireMap3/scripts.inc
 #define FLAG_WE_FLAG_NO_RUNNING                     (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_WE_OWE_FLAG_DISABLED                   (SYSTEM_FLAGS + 0x98) // Unused Flag
 #define FLAG_SYS_ENABLE_LEVEL_CAP	                (SYSTEM_FLAGS + 0x99) // Unused Flag
-#define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
-#define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
-#define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C) // Unused Flag
-#define FLAG_UNUSED_0x8FD                           (SYSTEM_FLAGS + 0x9D) // Unused Flag
-#define FLAG_UNUSED_0x8FE                           (SYSTEM_FLAGS + 0x9E) // Unused Flag
-#define FLAG_UNUSED_0x8FF                           (SYSTEM_FLAGS + 0x9F) // Unused Flag
+#define FLAG_OW_FLAG_PAUSE_TIME                     (SYSTEM_FLAGS + 0x9A) // Unused Flag
+#define FLAG_OW_FLAG_NO_TRAINER_SEE                 (SYSTEM_FLAGS + 0x9B) // Unused Flag
+#define FLAG_OW_FLAG_NO_COLLISION                   (SYSTEM_FLAGS + 0x9C) // Unused Flag
+#define FLAG_OW_FLAG_POKE_RIDER                     (SYSTEM_FLAGS + 0x9D) // Unused Flag
+#define FLAG_OW_FLAG_MOVE_UNION_ROOM_CHECK          (SYSTEM_FLAGS + 0x9E) // Unused Flag
+#define FLAG_P_FLAG_EGG_MOVES                       (SYSTEM_FLAGS + 0x9F) // Unused Flag
 
-#define FLAG_UNUSED_0x900                           (SYSTEM_FLAGS + 0xA0) // Unused Flag
+#define FLAG_P_FLAG_TUTOR_MOVES                     (SYSTEM_FLAGS + 0xA0) // Unused Flag
 #define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1) // Unused Flag
 #define FLAG_UNUSED_0x902                           (SYSTEM_FLAGS + 0xA2) // Unused Flag
 #define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3) // Unused Flag

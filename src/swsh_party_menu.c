@@ -9982,7 +9982,7 @@ static void BufferMonSelection(void)
 {
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
-        gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
+        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
@@ -10025,7 +10025,7 @@ static void CB2_ChooseContestMon(void)
 {
     gContestMonPartyIndex = GetCursorSelectionMonId();
     if (gContestMonPartyIndex >= PARTY_SIZE)
-        gContestMonPartyIndex = PARTY_NOTHING_CHOSEN;
+        gContestMonPartyIndex = PARTY_MON_CANCEL;
     gSpecialVar_0x8004 = gContestMonPartyIndex;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
@@ -10072,7 +10072,7 @@ static void CB2_ChooseMonForMoveRelearner(void)
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
     {
-        gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
+        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
     }
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);

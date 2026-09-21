@@ -107,15 +107,15 @@
 // Overworld flags
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define OW_FLAG_PAUSE_TIME          0  // If this flag is set and OW_USE_FAKE_RTC is enabled, seconds on the in-game clock will not advance.
-#define OW_FLAG_NO_TRAINER_SEE      0  // If this flag is set, trainers will not battle the player unless they're talked to.
-#define OW_FLAG_NO_COLLISION        0  // If this flag is set, the player will be able to walk over tiles with collision. Mainly intended for debugging purposes.
-#define OW_FLAG_POKE_RIDER          0  // If this flag is set, the player will be able to use fly from the Pokenav Region Map and the Town Map key item by pressing 'R' on a city/location they are able to fly to.
+#define OW_FLAG_PAUSE_TIME          FLAG_OW_FLAG_PAUSE_TIME  // If this flag is set and OW_USE_FAKE_RTC is enabled, seconds on the in-game clock will not advance.
+#define OW_FLAG_NO_TRAINER_SEE      FLAG_OW_FLAG_NO_TRAINER_SEE  // If this flag is set, trainers will not battle the player unless they're talked to.
+#define OW_FLAG_NO_COLLISION        FLAG_OW_FLAG_NO_COLLISION  // If this flag is set, the player will be able to walk over tiles with collision. Mainly intended for debugging purposes.
+#define OW_FLAG_POKE_RIDER          FLAG_OW_FLAG_POKE_RIDER  // If this flag is set, the player will be able to use fly from the Pokenav Region Map and the Town Map key item by pressing 'R' on a city/location they are able to fly to.
 
 #define BATTLE_PYRAMID_RANDOM_ENCOUNTERS    FALSE    // If set to TRUE, battle pyramid Pokemon will be generated randomly based on the round's challenge instead of hardcoded in src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h (or open_level_wild_mons.h)
 
 // Map pop-up config
-#define OW_POPUP_GENERATION        GEN_3    // Different generations display location names in overworld pop-ups differently.
+#define OW_POPUP_GENERATION        GEN_5    // Different generations display location names in overworld pop-ups differently.
                                             // Only choices are GEN_3 and GEN_5, all others will default to Gen3 pop-ups.
                                             // Due to changes in project scope, as detailed in docs/team_procedures/scope.md,
                                             // no other overworld popups will be implemented in expansion.
@@ -131,7 +131,7 @@
 
 // Configuration
 #define OW_POPUP_BW_COLOR          OW_POPUP_BW_COLOR_BLACK  // B2W2 use different colors for their map pop-ups.
-#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_NONE    // Determines what type of time is shown.
+#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_24_HR    // Determines what type of time is shown.
 #define OW_POPUP_BW_ALPHA_BLEND    FALSE                    // Enables alpha blending/transparency for the pop-ups. Mainly intended to be used with the black color option.
                                                             // Setting this to TRUE will cause graphical errors with the Day Night System enabled.
                                                             // It will also cause minor visual glitches of shadow and reflection sprites adjusting their transparency when the pop-up disappear
@@ -139,7 +139,7 @@
 // Pokémon Center
 #define OW_IGNORE_EGGS_ON_HEAL           GEN_LATEST         // In Gen 4+, the nurse in the Pokémon Center does not heal Eggs on healing machine.
 #define OW_UNION_DISABLE_CHECK           FALSE              // When TRUE, the nurse does not inform the player if there is a trainer waiting in the Union Room. This speeds up the loading of the Pokémon Center.
-#define OW_FLAG_MOVE_UNION_ROOM_CHECK    0                  // If this flag is set, the game will only check if players are in the Union Room while healing Pokémon, and not when players enter the Pokémon Center. This speeds up the loading of the Pokémon Center. This is ignored if OW_UNION_DISABLE_CHECK is TRUE.
+#define OW_FLAG_MOVE_UNION_ROOM_CHECK    FLAG_OW_FLAG_MOVE_UNION_ROOM_CHECK                  // If this flag is set, the game will only check if players are in the Union Room while healing Pokémon, and not when players enter the Pokémon Center. This speeds up the loading of the Pokémon Center. This is ignored if OW_UNION_DISABLE_CHECK is TRUE.
 
 // Berry Blender
 #define BERRY_BLENDER_THROW_ALL_BERRIES_AT_ONCE TRUE        // This is a small little addition, that basically speeds up the animation where all players' berries are thrown into the blender. Self-explanatory I hope!
