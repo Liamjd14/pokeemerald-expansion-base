@@ -227,7 +227,7 @@
 #define VAR_B_LEVEL_CAP_VARIABLE                         0x40C4 // Unused Var
 #define VAR_DN_VAR_SPECIES                               0x40C5 // Unused Var
 #define VAR_DN_VAR_STEP_COUNTER                          0x40C6 // Unused var
-#define VAR_UNUSED_0x40C7                                0x40C7 // Unused Var
+#define VAR_SYS_CURRENT_SEASON                           0x40C7 // Unused Var
 #define VAR_UNUSED_0x40C8                                0x40C8 // Unused Var
 #define VAR_UNUSED_0x40C9                                0x40C9 // Unused Var
 #define VAR_UNUSED_0x40CA                                0x40CA // Unused Var
