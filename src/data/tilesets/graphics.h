@@ -3117,3 +3117,41 @@ const u16 gTilesetPalettes_KantoCustom[][16] =
 };
 
 const u32 gTilesetTiles_KantoCustom[] = INCBIN_U32("data/tilesets/primary/kanto_custom/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Oceanview[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Oceanview[] = INCBIN_U32("data/tilesets/secondary/oceanview/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Maycatstle[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/maycatstle/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Maycatstle[] = INCBIN_U32("data/tilesets/secondary/maycatstle/tiles.4bpp.lz");

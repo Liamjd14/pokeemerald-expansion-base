@@ -349,6 +349,12 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_SIX_ISLAND_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE1OCEANVIEW_WALK",
+      "map": "MAP_ROUTE1OCEANVIEW_WALK",
+      "x": 38,
+      "y": 30
     }
   ]
 }

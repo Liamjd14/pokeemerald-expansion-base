@@ -9333,6 +9333,36 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/TilesetTest/border.bin",
       "blockdata_filepath": "data/layouts/TilesetTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW",
+      "name": "Oceanview_Layout",
+      "width": 60,
+      "height": 32,
+      "primary_tileset": "gTileset_KantoCustom",
+      "secondary_tileset": "gTileset_Oceanview",
+      "border_filepath": "data/layouts/Oceanview/border.bin",
+      "blockdata_filepath": "data/layouts/Oceanview/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1OCEANVIEW_WALK",
+      "name": "Route1OceanviewWalk_Layout",
+      "width": 77,
+      "height": 60,
+      "primary_tileset": "gTileset_KantoCustom",
+      "secondary_tileset": "gTileset_Maycatstle",
+      "border_filepath": "data/layouts/Route1OceanviewWalk/border.bin",
+      "blockdata_filepath": "data/layouts/Route1OceanviewWalk/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAYCASTLE",
+      "name": "Maycastle_Layout",
+      "width": 64,
+      "height": 60,
+      "primary_tileset": "gTileset_KantoCustom",
+      "secondary_tileset": "gTileset_Maycatstle",
+      "border_filepath": "data/layouts/Maycastle/border.bin",
+      "blockdata_filepath": "data/layouts/Maycastle/map.bin"
     }
   ]
 }
