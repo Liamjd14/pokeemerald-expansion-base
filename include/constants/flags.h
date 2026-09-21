@@ -1738,7 +1738,7 @@ data/maps/CaveOfOrigin_UnusedRubySapphireMap3/scripts.inc
 #define FLAG_WE_FLAG_NO_CATCHING                    (SYSTEM_FLAGS + 0x96) // Unused Flag
 #define FLAG_WE_FLAG_NO_RUNNING                     (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_WE_OWE_FLAG_DISABLED                   (SYSTEM_FLAGS + 0x98) // Unused Flag
-#define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
+#define FLAG_SYS_ENABLE_LEVEL_CAP	                (SYSTEM_FLAGS + 0x99) // Unused Flag
 #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
 #define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
 #define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C) // Unused Flag
