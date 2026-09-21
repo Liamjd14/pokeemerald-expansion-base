@@ -1741,3 +1741,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 	.include "data/scripts/bxpy.inc" 
 	.include "data/maps/TilesetTest/scripts.inc"
+
+	.include "data/maps/Oceanview/scripts.inc"
+
+	.include "data/maps/Route1OceanviewWalk/scripts.inc"
+
+	.include "data/maps/Maycastle/scripts.inc"

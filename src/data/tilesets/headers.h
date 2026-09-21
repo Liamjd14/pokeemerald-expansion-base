@@ -1954,3 +1954,25 @@ const struct Tileset gTileset_KantoCustom =
     .metatileAttributes = gMetatileAttributes_KantoCustom,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Oceanview =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Oceanview,
+    .palettes = gTilesetPalettes_Oceanview,
+    .metatiles = gMetatiles_Oceanview,
+    .metatileAttributes = gMetatileAttributes_Oceanview,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Maycatstle =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Maycatstle,
+    .palettes = gTilesetPalettes_Maycatstle,
+    .metatiles = gMetatiles_Maycatstle,
+    .metatileAttributes = gMetatileAttributes_Maycatstle,
+    .callback = NULL,
+};
