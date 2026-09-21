@@ -3,7 +3,6 @@
   "name": "NavelRock_Base_Frlg",
   "layout": "LAYOUT_NAVEL_ROCK_BASE_FRLG",
   "music": "MUS_RG_SEVII_CAVE",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_NAVEL_ROCK_FRLG",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,13 +11,11 @@
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_NAVEL_ROCK_LUGIA",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LUGIA",
       "x": 10,
       "y": 15,
@@ -41,10 +38,8 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }

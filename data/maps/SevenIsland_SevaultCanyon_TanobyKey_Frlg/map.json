@@ -3,7 +3,6 @@
   "name": "SevenIsland_SevaultCanyon_TanobyKey_Frlg",
   "layout": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
   "music": "MUS_RG_SEVII_DUNGEON",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_TANOBY_KEY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,13 +11,11 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER1",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 7,
       "y": 6,
@@ -33,7 +30,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER2",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 8,
       "y": 6,
@@ -48,7 +44,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER3",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 8,
       "y": 9,
@@ -63,7 +58,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER4",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 6,
       "y": 10,
@@ -78,7 +72,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER5",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 8,
       "y": 10,
@@ -93,7 +86,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER6",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 6,
       "y": 9,
@@ -108,7 +100,6 @@
     },
     {
       "local_id": "LOCALID_TANOBY_KEY_BOULDER7",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 6,
       "y": 6,
@@ -196,7 +187,7 @@
       "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch2"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }
