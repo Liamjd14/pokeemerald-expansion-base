@@ -3,7 +3,6 @@
   "name": "SevenIsland_House_Room2_Frlg",
   "layout": "LAYOUT_SEVEN_ISLAND_HOUSE_ROOM2",
   "music": "MUS_RG_SEVII_67",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_SEVEN_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,12 +11,10 @@
   "allow_escaping": false,
   "allow_running": false,
   "show_map_name": false,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 6,
       "y": 5,
@@ -41,5 +38,7 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }

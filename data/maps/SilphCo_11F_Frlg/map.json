@@ -3,7 +3,6 @@
   "name": "SilphCo_11F_Frlg",
   "layout": "LAYOUT_SILPH_CO_11F",
   "music": "MUS_RG_SILPH",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,12 +11,10 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 11,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
       "x": 9,
       "y": 9,
@@ -31,7 +28,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
       "x": 11,
       "y": 9,
@@ -46,7 +42,6 @@
     },
     {
       "local_id": "LOCALID_SILPH_CO_GIOVANNI",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
       "x": 6,
       "y": 11,
@@ -61,7 +56,6 @@
     },
     {
       "local_id": "LOCALID_SILPH_CO_11F_GRUNT1",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 16,
       "y": 12,
@@ -75,7 +69,6 @@
       "flag": "FLAG_HIDE_SILPH_ROCKETS"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 16,
       "y": 18,
@@ -90,7 +83,6 @@
     },
     {
       "local_id": "LOCALID_SILPH_CO_11F_GRUNT2",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 2,
       "y": 19,
@@ -198,5 +190,7 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_11F_EventScript_FloorSign"
     }
-  ]
+  ],
+  "floor_number": 11,
+  "region": "REGION_KANTO"
 }

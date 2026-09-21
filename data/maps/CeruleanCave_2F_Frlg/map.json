@@ -3,7 +3,6 @@
   "name": "CeruleanCave_2F_Frlg",
   "layout": "LAYOUT_CERULEAN_CAVE_2F",
   "music": "MUS_RG_ROCKET_HIDEOUT",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_CERULEAN_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,12 +11,10 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 9,
       "y": 18,
@@ -31,7 +28,6 @@
       "flag": "FLAG_HIDE_CERULEAN_CAVE_2F_PP_UP"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 29,
       "y": 16,
@@ -45,7 +41,6 @@
       "flag": "FLAG_HIDE_CERULEAN_CAVE_2F_ULTRA_BALL"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 33,
       "y": 12,
@@ -59,7 +54,6 @@
       "flag": "FLAG_HIDE_CERULEAN_CAVE_2F_FULL_RESTORE"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 33,
       "y": 10,
@@ -73,7 +67,6 @@
       "flag": "FLAG_TEMP_12"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 33,
       "y": 9,
@@ -87,7 +80,6 @@
       "flag": "FLAG_TEMP_13"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 25,
       "y": 11,
@@ -101,7 +93,6 @@
       "flag": "FLAG_TEMP_14"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 28,
       "y": 20,
@@ -115,7 +106,6 @@
       "flag": "FLAG_TEMP_15"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 30,
       "y": 20,
@@ -129,7 +119,6 @@
       "flag": "FLAG_TEMP_16"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 9,
       "y": 13,
@@ -143,7 +132,6 @@
       "flag": "FLAG_TEMP_17"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 23,
       "y": 16,
@@ -157,7 +145,6 @@
       "flag": "FLAG_TEMP_18"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 13,
       "y": 6,
@@ -171,7 +158,6 @@
       "flag": "FLAG_TEMP_19"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 4,
       "y": 12,
@@ -185,7 +171,6 @@
       "flag": "FLAG_TEMP_1A"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG",
       "x": 10,
       "y": 20,
@@ -244,5 +229,7 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }

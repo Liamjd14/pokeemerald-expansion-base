@@ -3,7 +3,6 @@
   "name": "PokemonTower_7F_Frlg",
   "layout": "LAYOUT_POKEMON_TOWER_7F",
   "music": "MUS_RG_POKE_TOWER",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",
@@ -12,12 +11,10 @@
   "allow_escaping": true,
   "allow_running": false,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
   "connections": null,
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MR_FUJI",
       "x": 11,
       "y": 4,
@@ -32,7 +29,6 @@
     },
     {
       "local_id": "LOCALID_POKEMON_TOWER_GRUNT1",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 9,
       "y": 10,
@@ -47,7 +43,6 @@
     },
     {
       "local_id": "LOCALID_POKEMON_TOWER_GRUNT2",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 13,
       "y": 8,
@@ -62,7 +57,6 @@
     },
     {
       "local_id": "LOCALID_POKEMON_TOWER_GRUNT3",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 9,
       "y": 6,
@@ -97,5 +91,7 @@
       "quantity": 1,
       "underfoot": true
     }
-  ]
+  ],
+  "floor_number": 0,
+  "region": "REGION_KANTO"
 }
