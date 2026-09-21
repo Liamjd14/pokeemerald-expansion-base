@@ -47,6 +47,7 @@ void UpdateDailySeed(void)
 void DoDailyEvents(u32 daysSince)
 {
     ClearDailyFlags();
+    ClearDailyHiddenItemFlags();
     UpdateDailySeed();
     UpdateMassOutbreakDaysLeft(daysSince);
     UpdateDewfordTrendPerDay(daysSince);
