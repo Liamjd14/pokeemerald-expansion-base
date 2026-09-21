@@ -8860,12 +8860,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Power Bracer"),
         .price = (I_PRICE >= GEN_9) ? 10000 : 3000,
-        .holdEffect = HOLD_EFFECT_POWER_ITEM,
-        .holdEffectParam = POWER_ITEM_BOOST,
+        .holdEffect = HOLD_EFFECT_ATTACK_UP_SWITCH,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Promotes Attack\n"
-            "gain, but cuts\n"
-            "Speed in battle."),
+            "Boosts the users\n"
+            "Attack by 1 stage\n"
+            "in battle."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8880,12 +8880,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Power Belt"),
         .price = (I_PRICE >= GEN_9) ? 10000 : 3000,
-        .holdEffect = HOLD_EFFECT_POWER_ITEM,
-        .holdEffectParam = POWER_ITEM_BOOST,
+        .holdEffect = HOLD_EFFECT_DEFENSE_UP_SWITCH,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Promotes Defense\n"
-            "gain, but cuts\n"
-            "Speed in battle."),
+            "Boosts the users\n"
+            "Defence by 1 stage\n"
+            "in battle."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8901,12 +8901,12 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Power Lens"),
         .pluralName = ITEM_PLURAL_NAME("Power Lenses"),
         .price = (I_PRICE >= GEN_9) ? 10000 : 3000,
-        .holdEffect = HOLD_EFFECT_POWER_ITEM,
-        .holdEffectParam = POWER_ITEM_BOOST,
+        .holdEffect = HOLD_EFFECT_SP_ATTACK_UP_SWITCH,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Promotes Sp. Atk\n"
-            "gain, but cuts\n"
-            "Speed in battle."),
+            "Boosts the users\n"
+            "Special Attack by\n"
+            "1 stage in battle."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8921,12 +8921,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Power Band"),
         .price = (I_PRICE >= GEN_9) ? 10000 : 3000,
-        .holdEffect = HOLD_EFFECT_POWER_ITEM,
-        .holdEffectParam = POWER_ITEM_BOOST,
+        .holdEffect = HOLD_EFFECT_SP_DEFENSE_UP_SWITCH,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Promotes Sp. Def\n"
-            "gain, but cuts\n"
-            "Speed in battle."),
+            "Boosts the users\n"
+            "Special Defence by\n"
+            "1 stage in battle."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8941,12 +8941,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Power Anklet"),
         .price = (I_PRICE >= GEN_9) ? 10000 : 3000,
-        .holdEffect = HOLD_EFFECT_POWER_ITEM,
-        .holdEffectParam = POWER_ITEM_BOOST,
+        .holdEffect = HOLD_EFFECT_SPEED_UP_SWITCH,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Promotes Speed\n"
-            "gain, but cuts\n"
-            "Speed in battle."),
+            "Boosts the users\n"
+            "Speed by 1 stage\n"
+            "in battle."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,

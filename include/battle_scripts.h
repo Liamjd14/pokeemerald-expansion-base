@@ -214,6 +214,7 @@ extern const u8 BattleScript_SelectingNotAllowedMoveChoiceItemInPalace[];
 extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_BerryConfuseHeal[];
 extern const u8 BattleScript_ConsumableItemStatRaise[];
+extern const u8 BattleScript_CustomItemStatRaise[];
 extern const u8 BattleScript_ConsumableBerryStatRaise[];
 extern const u8 BattleScript_ConsumableBerryStatRaiseRipen[];
 extern const u8 BattleScript_BerryFocusEnergy[];
