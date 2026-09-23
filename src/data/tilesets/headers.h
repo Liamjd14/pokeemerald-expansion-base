@@ -1976,3 +1976,14 @@ const struct Tileset gTileset_Maycatstle =
     .metatileAttributes = gMetatileAttributes_Maycatstle,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GeneralCustom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GeneralCustom,
+    .palettes = gTilesetPalettes_GeneralCustom,
+    .metatiles = gMetatiles_GeneralCustom,
+    .metatileAttributes = gMetatileAttributes_GeneralCustom,
+    .callback = NULL,
+};
