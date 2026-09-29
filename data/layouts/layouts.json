@@ -9329,8 +9329,8 @@
       "name": "TilesetTest_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_KantoCustom",
-      "secondary_tileset": "gTileset_Maycatstle",
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/TilesetTest/border.bin",
       "blockdata_filepath": "data/layouts/TilesetTest/map.bin"
     },
