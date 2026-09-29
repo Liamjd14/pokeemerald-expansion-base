@@ -9339,8 +9339,8 @@
       "name": "Oceanview_Layout",
       "width": 60,
       "height": 32,
-      "primary_tileset": "gTileset_KantoCustom",
-      "secondary_tileset": "gTileset_Oceanview",
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/Oceanview/border.bin",
       "blockdata_filepath": "data/layouts/Oceanview/map.bin"
     },
@@ -9349,8 +9349,8 @@
       "name": "Route1OceanviewWalk_Layout",
       "width": 77,
       "height": 60,
-      "primary_tileset": "gTileset_KantoCustom",
-      "secondary_tileset": "gTileset_Maycatstle",
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/Route1OceanviewWalk/border.bin",
       "blockdata_filepath": "data/layouts/Route1OceanviewWalk/map.bin"
     },
@@ -9359,8 +9359,8 @@
       "name": "Maycastle_Layout",
       "width": 64,
       "height": 60,
-      "primary_tileset": "gTileset_KantoCustom",
-      "secondary_tileset": "gTileset_Maycatstle",
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Maycastle/border.bin",
       "blockdata_filepath": "data/layouts/Maycastle/map.bin"
     }
