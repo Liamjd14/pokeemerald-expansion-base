@@ -18,7 +18,8 @@
     "gMapGroup_SeviiIndoor",
     "gMapGroup_Link_Frlg",
     "gMapGroup_Testing",
-    "gMapGroup_Eshosext"
+    "gMapGroup_Eshosext",
+    "gMapGroup_HIddenGrottos"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -995,5 +996,8 @@
     "Oceanview",
     "Route1OceanviewWalk",
     "Maycastle"
+  ],
+  "gMapGroup_HIddenGrottos": [
+    "OceanviewGtotto"
   ]
 }

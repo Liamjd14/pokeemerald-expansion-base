@@ -1747,3 +1747,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route1OceanviewWalk/scripts.inc"
 
 	.include "data/maps/Maycastle/scripts.inc"
+
+	.include "data/maps/OceanviewGtotto/scripts.inc"

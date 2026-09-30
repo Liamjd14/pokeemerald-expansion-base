@@ -1,0 +1,147 @@
+mapscripts OceanviewGtotto_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: OVGOnTransition
+}
+
+script OVGOnTransition {
+    goto(DecideSpawn)
+}
+
+script DecideSpawn {
+    if(flag(FLAG_OCEANVIEW_GROTTO) != TRUE){
+        random(11)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        switch(var(VAR_TEMP_1)){
+        //0
+            case 0:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(BULBASAUR))
+        //1
+            case 1:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CHARMANDER))
+        //2
+            case 2:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SQUIRTLE))
+        //3
+            case 3:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PIKACHU))
+        //4
+            case 4:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SANDSHREW))
+        //5
+            case 5:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(NIDORAN_F))
+        //6
+            case 6:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF))
+        //7
+            case 7:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ODDISH))
+        //8
+            case 8:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PARAS))
+        //9
+            case 9:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VENONAT))
+        //10
+            case 10:
+            setvar(VAR_TEMP_2, ITEM_POKE_BALL)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+        }
+    }
+    releaseall
+}
+
+script TypeToUse {
+    lockall
+    switch(var(VAR_TEMP_1)){
+    //0
+        case 0:
+        goto(PokemonScript)
+    //1
+        case 1:
+        goto(PokemonScript)
+    //2
+        case 2:
+        goto(PokemonScript)
+    //3
+        case 3:
+        goto(PokemonScript)
+    //4
+        case 4:
+        goto(PokemonScript)
+    //5
+        case 5:
+        goto(PokemonScript)
+    //6
+        case 6:
+        goto(PokemonScript)
+    //7
+        case 7:
+        goto(PokemonScript)
+    //8
+        case 8:
+        goto(PokemonScript)
+    //9
+        case 9:
+        goto(PokemonScript)
+    //10
+        case 10:
+        goto(ItemScript)
+    }
+    releaseall
+}
+
+script ItemScript {
+    giveitem(VAR_TEMP_2, 1)
+    setflag(FLAG_OCEANVIEW_GROTTO)
+    removeobject(LOCALID_ENCAOUNTER)
+    releaseall
+}
+
+script PokemonScript {
+        switch(var(VAR_TEMP_1)){
+        //0
+            case 0:
+            playmoncry(SPECIES_BULBASAUR, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_BULBASAUR, 5)
+        //1
+            case 1:
+            playmoncry(SPECIES_CHARMANDER, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_CHARMANDER, 5)
+        //2
+            case 2:
+            playmoncry(SPECIES_SQUIRTLE, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_SQUIRTLE, 5)
+        //3
+            case 3:
+            playmoncry(SPECIES_PIKACHU, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_PIKACHU, 5)
+        //4
+            case 4:
+            playmoncry(SPECIES_SANDSHREW, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_SANDSHREW, 5)
+        //5
+            case 5:
+            playmoncry(SPECIES_NIDORAN_F, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_NIDORAN_F, 5)
+        //6
+            case 6:
+            playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_JIGGLYPUFF, 5)
+        //7
+            case 7:
+            playmoncry(SPECIES_ODDISH, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_ODDISH, 5)
+        //8
+            case 8:
+            playmoncry(SPECIES_PARAS, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_PARAS, 5)
+        //9
+            case 9:
+            playmoncry(SPECIES_VENONAT, CRY_MODE_ENCOUNTER)
+            setwildbattle(SPECIES_VENONAT, 5)
+        }
+    dowildbattle
+    setflag(FLAG_OCEANVIEW_GROTTO)
+    removeobject(LOCALID_ENCAOUNTER)
+    releaseall
+}

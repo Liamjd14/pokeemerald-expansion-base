@@ -9363,6 +9363,16 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Maycastle/border.bin",
       "blockdata_filepath": "data/layouts/Maycastle/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANVIEW_GTOTTO",
+      "name": "OceanviewGtotto_Layout",
+      "width": 13,
+      "height": 19,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
+      "border_filepath": "data/layouts/OceanviewGtotto/border.bin",
+      "blockdata_filepath": "data/layouts/OceanviewGtotto/map.bin"
     }
   ]
 }
