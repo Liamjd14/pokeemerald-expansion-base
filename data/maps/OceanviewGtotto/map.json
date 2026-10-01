@@ -32,7 +32,7 @@
   "warp_events": [
     {
       "x": 6,
-      "y": 10,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_OCEANVIEW_GTOTTO",
       "dest_warp_id": "0"
