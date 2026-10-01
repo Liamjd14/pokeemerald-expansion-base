@@ -3174,3 +3174,22 @@ const u16 gTilesetPalettes_GeneralCustom[][16] =
 };
 
 const u32 gTilesetTiles_GeneralCustom[] = INCBIN_U32("data/tilesets/primary/general_custom/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_OceanviewMaycastle[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oceanview_maycastle/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_OceanviewMaycastle[] = INCBIN_U32("data/tilesets/secondary/oceanview_maycastle/tiles.4bpp.lz");
