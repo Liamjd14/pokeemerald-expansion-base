@@ -355,6 +355,12 @@
       "map": "MAP_ROUTE1OCEANVIEW_WALK",
       "x": 38,
       "y": 30
+    },
+    {
+      "id": "HEAL_LOCATION_MAYCASTLE",
+      "map": "MAP_MAYCASTLE",
+      "x": 35,
+      "y": 27
     }
   ]
 }
