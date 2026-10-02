@@ -9373,6 +9373,16 @@
       "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
       "border_filepath": "data/layouts/OceanviewGtotto/border.bin",
       "blockdata_filepath": "data/layouts/OceanviewGtotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAYCASTLE_MARKET",
+      "name": "MaycastleMarket_Layout",
+      "width": 16,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/MaycastleMarket/border.bin",
+      "blockdata_filepath": "data/layouts/MaycastleMarket/map.bin"
     }
   ]
 }

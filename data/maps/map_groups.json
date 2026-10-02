@@ -19,7 +19,8 @@
     "gMapGroup_Link_Frlg",
     "gMapGroup_Testing",
     "gMapGroup_Eshosext",
-    "gMapGroup_HIddenGrottos"
+    "gMapGroup_HIddenGrottos",
+    "gMapGroup_EshosInts1"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -999,5 +1000,8 @@
   ],
   "gMapGroup_HIddenGrottos": [
     "OceanviewGtotto"
+  ],
+  "gMapGroup_EshosInts1": [
+    "MaycastleMarket"
   ]
 }

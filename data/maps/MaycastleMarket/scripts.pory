@@ -1,0 +1,144 @@
+mapscripts MaycastleMarket_MapScripts {}
+
+script MarketMart1 {
+    lock
+    faceplayer
+	message("Welcome,\n How can I help you?")
+	waitmessage
+	pokemart(MarketMart1Shop)
+	msgbox("Come again soon.")
+    release
+}
+
+mart MarketMart1Shop {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DUSK_BALL
+    ITEM_TIMER_BALL
+    ITEM_QUICK_BALL
+    ITEM_REPEAT_BALL
+    ITEM_LUXURY_BALL
+}
+
+script MarketMart2 {
+    lock
+    faceplayer
+	message("Welcome,\n How can I help you?")
+	waitmessage
+	pokemart(MarketMart2Shop)
+	msgbox("Come again soon.")
+    release
+}
+
+mart MarketMart2Shop {
+    ITEM_LONELY_MINT
+    ITEM_ADAMANT_MINT
+    ITEM_NAUGHTY_MINT
+    ITEM_BRAVE_MINT
+    ITEM_BOLD_MINT
+    ITEM_IMPISH_MINT
+    ITEM_LAX_MINT
+    ITEM_RELAXED_MINT
+    ITEM_MODEST_MINT
+    ITEM_MILD_MINT
+    ITEM_RASH_MINT
+    ITEM_QUIET_MINT
+    ITEM_CALM_MINT
+    ITEM_GENTLE_MINT
+    ITEM_CAREFUL_MINT
+    ITEM_SASSY_MINT
+    ITEM_TIMID_MINT
+    ITEM_HASTY_MINT
+    ITEM_JOLLY_MINT
+    ITEM_NAIVE_MINT
+    ITEM_SERIOUS_MINT
+}
+
+script MarketMart3 {
+    lock
+    faceplayer
+	message("Welcome,\n How can I help you?")
+	waitmessage
+	pokemart(MarketMart3Shop)
+	msgbox("Come again soon.")
+    release 
+}
+
+mart MarketMart3Shop {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_AWAKENING
+    ITEM_FULL_HEAL
+}
+
+script Vendingmachine {
+    lock
+    pokemart(VendingmachineShop)
+    release  
+}
+
+mart VendingmachineShop {
+    ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_MOOMOO_MILK
+}
+
+script LassText {
+    msgbox("Shame they dont sell more beauty
+            produtcs here. I will have to travle
+            to another town to get what I want.", MSGBOX_NPC)
+    end
+}
+
+script Boy1Text {
+    msgbox("I here they sell some items not avalible
+            at the front from that door sometimes.", MSGBOX_NPC)
+    end 
+}
+
+script Boy2Text {
+    msgbox("Mum wont stop shopping all the time!
+            All i want to do is play with my Maschiff
+            at home.", MSGBOX_NPC)
+    end
+}
+
+script WomanText {
+    msgbox("They have a variety of products here.
+            Everything from daily necessities, to
+            trainer supplies", MSGBOX_NPC)
+    end 
+}
+
+script OldWomanText {
+    msgbox("I'm here to buy my Herdier some treats.
+            He loves Lava Cookies.", MSGBOX_NPC)
+    end 
+}
+
+script Herdier {
+    playmoncry(SPECIES_HERDIER, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox("Ruff", MSGBOX_NPC)
+    end
+}
+
+script DoorText {
+    msgbox("The Door is locked. 
+            A note says to come back later.", MSGBOX_NPC)
+    end 
+}
