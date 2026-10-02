@@ -1272,7 +1272,7 @@ void PrepareStringBattle(enum StringID stringId, enum BattlerId battler)
     {
     case STRINGID_ITDOESNTAFFECT:
     case STRINGID_PKMNUNAFFECTED:
-        TryInitializeTrainerSlideMonUnaffected(gBattlerTarget, gBattlerAttacker);
+        TryInitializeTrainerSlideFirstIneffectiveMove(gBattlerTarget, gBattlerAttacker);
         break;
     default:
         break;
@@ -2663,6 +2663,7 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
         }
         else if (gStartingStatuses.tailwindPlayer || gStartingStatuses.tailwindPlayerTemporary)
         {
+            gCurrentMove = MOVE_TAILWIND;
             effect = SetStartingSideStatus(
                         SIDE_STATUS_TAILWIND,
                         B_SIDE_PLAYER,
@@ -2674,6 +2675,7 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
         }
         else if (gStartingStatuses.tailwindOpponent || gStartingStatuses.tailwindOpponentTemporary)
         {
+            gCurrentMove = MOVE_TAILWIND;
             effect = SetStartingSideStatus(
                         SIDE_STATUS_TAILWIND,
                         B_SIDE_OPPONENT,
@@ -4034,10 +4036,11 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     .move = MOVE_NONE,
                 };
 
-                cv.abilities[gBattlerAttacker] = GetBattlerAbility(gBattlerAttacker);
-                cv.abilities[battler] = ability;
-                cv.holdEffects[gBattlerAttacker] = GetBattlerHoldEffect(gBattlerAttacker);
-                cv.holdEffects[battler] = GetBattlerHoldEffect(battler);
+                for (enum BattlerId i = 0; i < gBattlersCount; i++)
+                {
+                    cv.abilities[i] = GetBattlerAbility(i);
+                    cv.holdEffects[i] = GetBattlerHoldEffect(i);
+                }
 
                 struct StatChange st = {
                     .onlyChecking = TRUE,
@@ -5174,9 +5177,12 @@ u32 IsAbilityPreventingEscape(enum BattlerId battler)
 
 bool32 CanBattlerEscape(enum BattlerId battler) // no ability check
 {
+    enum Ability ability = GetBattlerAbility(battler);
     if (gBattleStruct->battlerState[battler].commanderSpecies != SPECIES_NONE)
         return FALSE;
     else if (GetConfig(B_GHOSTS_ESCAPE) >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
+        return TRUE;
+    else if (GetConfig(B_RUN_AWAY) >= GEN_CHAMPIONS && ability == ABILITY_RUN_AWAY)
         return TRUE;
     else if (gBattleMons[battler].volatiles.escapePrevention)
         return FALSE;
@@ -6302,7 +6308,7 @@ static inline u32 CalcTerrainBoostedPower(struct DamageContext *ctx, u32 basePow
         isTerrainAffected = IsBattlerTerrainAffected(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk], ctx->holdEffects[ctx->battlerAtk], GetMoveTerrainBoost_Terrain(ctx->move), ctx->terrain);
     else if (GetMoveTerrainBoost_GroundCheck(ctx->move) == GROUND_CHECK_TARGET)
         isTerrainAffected = IsBattlerTerrainAffected(ctx->battlerDef, ctx->abilities[ctx->battlerDef], ctx->holdEffects[ctx->battlerDef], GetMoveTerrainBoost_Terrain(ctx->move), ctx->terrain);
-    else if (gFieldTimers.terrain == GetMoveTerrainBoost_Terrain(ctx->move)) // no ground check (Psyblade)
+    else if (ctx->terrain == GetMoveTerrainBoost_Terrain(ctx->move)) // no ground check (Psyblade)
         isTerrainAffected = TRUE;
 
     if (isTerrainAffected)
@@ -6954,7 +6960,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         && !IsMultiHitMove(move)
         && moveEffect != EFFECT_POWER_BASED_ON_USER_HP
         && moveEffect != EFFECT_POWER_BASED_ON_TARGET_HP
-        && GetMovePriority(move) == 0)
+        && GetMovePriority(move) <= 0)
     {
         return 60;
     }
@@ -6971,6 +6977,21 @@ static bool32 IsRuinStatusActive(u32 fieldEffect)
     }
 
     return FALSE;
+}
+
+static inline uq4_12_t GetParadoxAbilityModifier(enum BattlerId battler, enum Move move, enum Stat physicalStat, enum Stat specialStat)
+{
+    if (gBattleMons[battler].volatiles.transformed)
+        return UQ_4_12(1.0);
+
+    enum Stat highestStat = GetParadoxBoostedStatId(battler);
+    enum DamageCategory category = GetBattleMoveCategory(move);
+
+    if ((category == DAMAGE_CATEGORY_PHYSICAL && highestStat == physicalStat)
+     || (category == DAMAGE_CATEGORY_SPECIAL && highestStat == specialStat))
+        return (physicalStat == STAT_ATK || specialStat == STAT_SPATK) ? UQ_4_12(1.3) : UQ_4_12_FLOORED(1.3);
+
+    return UQ_4_12(1.0);
 }
 
 static inline uq4_12_t ApplyOffensiveBadgeBoost(uq4_12_t modifier, enum BattlerId battler, enum Move move)
@@ -7164,26 +7185,12 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PROTOSYNTHESIS:
-        if (!(gBattleMons[battlerAtk].volatiles.transformed))
-        {
-            enum Stat atkHighestStat = GetParadoxBoostedStatId(battlerAtk);
-            if (ctx->weather & B_WEATHER_SUN || gBattleMons[battlerAtk].volatiles.boosterEnergyActivated)
-            {
-                if ((IsBattleMovePhysical(move) && atkHighestStat == STAT_ATK) || (IsBattleMoveSpecial(move) && atkHighestStat == STAT_SPATK))
-                    modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-            }
-        }
+        if (ctx->weather & B_WEATHER_SUN || gBattleMons[battlerAtk].volatiles.boosterEnergyActivated)
+            modifier = uq4_12_multiply(modifier, GetParadoxAbilityModifier(battlerAtk, move, STAT_ATK, STAT_SPATK));
         break;
     case ABILITY_QUARK_DRIVE:
-        if (!(gBattleMons[battlerAtk].volatiles.transformed))
-        {
-            enum Stat atkHighestStat = GetParadoxBoostedStatId(battlerAtk);
-            if (gFieldTimers.terrain == B_TERRAIN_ELECTRIC || gBattleMons[battlerAtk].volatiles.boosterEnergyActivated)
-            {
-                if ((IsBattleMovePhysical(move) && atkHighestStat == STAT_ATK) || (IsBattleMoveSpecial(move) && atkHighestStat == STAT_SPATK))
-                    modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-            }
-        }
+        if (ctx->terrain == B_TERRAIN_ELECTRIC || gBattleMons[battlerAtk].volatiles.boosterEnergyActivated)
+            modifier = uq4_12_multiply(modifier, GetParadoxAbilityModifier(battlerAtk, move, STAT_ATK, STAT_SPATK));
         break;
     case ABILITY_ORICHALCUM_PULSE:
         if (ctx->weather & B_WEATHER_SUN && IsBattleMovePhysical(move)
@@ -7191,7 +7198,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3333));
         break;
     case ABILITY_HADRON_ENGINE:
-        if (gFieldTimers.terrain == B_TERRAIN_ELECTRIC && IsBattleMoveSpecial(move))
+        if (ctx->terrain == B_TERRAIN_ELECTRIC && IsBattleMoveSpecial(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3333));
         break;
     case ABILITY_FIRE_MANE:
@@ -7376,7 +7383,7 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
         }
         break;
     case ABILITY_GRASS_PELT:
-        if (gFieldTimers.terrain == B_TERRAIN_GRASSY && usesDefStat)
+        if (ctx->terrain == B_TERRAIN_GRASSY && usesDefStat)
         {
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             if (ctx->updateFlags)
@@ -7388,22 +7395,12 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PROTOSYNTHESIS:
-        {
-            enum Stat defHighestStat = GetParadoxBoostedStatId(battlerDef);
-            if (((ctx->weather & B_WEATHER_SUN) || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
-             && ((IsBattleMovePhysical(move) && defHighestStat == STAT_DEF) || (IsBattleMoveSpecial(move) && defHighestStat == STAT_SPDEF))
-             && !(gBattleMons[battlerDef].volatiles.transformed))
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-        }
+        if (ctx->weather & B_WEATHER_SUN || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
+            modifier = uq4_12_multiply(modifier, GetParadoxAbilityModifier(battlerDef, move, STAT_DEF, STAT_SPDEF));
         break;
     case ABILITY_QUARK_DRIVE:
-        {
-            enum Stat defHighestStat = GetParadoxBoostedStatId(battlerDef);
-            if ((gFieldTimers.terrain == B_TERRAIN_ELECTRIC || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
-             && ((IsBattleMovePhysical(move) && defHighestStat == STAT_DEF) || (IsBattleMoveSpecial(move) && defHighestStat == STAT_SPDEF))
-             && !(gBattleMons[battlerDef].volatiles.transformed))
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-        }
+        if (ctx->terrain == B_TERRAIN_ELECTRIC || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
+            modifier = uq4_12_multiply(modifier, GetParadoxAbilityModifier(battlerDef, move, STAT_DEF, STAT_SPDEF));
         break;
     default:
         break;
@@ -7507,7 +7504,7 @@ static inline uq4_12_t GetParentalBondModifier(enum BattlerId battlerAtk)
     return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
 }
 
-static inline uq4_12_t GetSameTypeAttackBonusModifier(struct DamageContext *ctx)
+uq4_12_t GetSameTypeAttackBonusModifier(struct DamageContext *ctx)
 {
     if (ctx->moveType != TYPE_MYSTERY)
     {
@@ -7549,7 +7546,7 @@ static uq4_12_t GetWeatherDamageModifier(struct DamageContext *ctx)
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetBurnOrFrostBiteModifier(struct DamageContext *ctx)
+uq4_12_t GetBurnOrFrostBiteModifier(struct DamageContext *ctx)
 {
     enum BattleMoveEffects moveEffect = GetMoveEffect(ctx->move);
 
@@ -7579,14 +7576,15 @@ static inline uq4_12_t GetGlaiveRushModifier(enum BattlerId battlerDef)
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetMoveAgainstProtectionModifier(struct DamageContext *ctx)
+uq4_12_t GetMoveAgainstProtectionModifier(struct DamageContext *ctx)
 {
     if (MoveIgnoresProtect(ctx->move))
         return UQ_4_12(1.0);
 
     // Unseen Fist and Piercing Drill
     u32 protected = gProtectStructs[ctx->battlerDef].protected;
-    if (GetProtectType(protected) == PROTECT_TYPE_SINGLE && protected != PROTECT_MAX_GUARD
+    enum ProtectType protectType = GetProtectType(protected);
+    if (protectType == PROTECT_TYPE_SINGLE && protected != PROTECT_MAX_GUARD
          && (ctx->abilities[ctx->battlerAtk] == ABILITY_UNSEEN_FIST || ctx->abilities[ctx->battlerAtk] == ABILITY_PIERCING_DRILL)
          && GetConfig(B_UNSEEN_FIST_PIERCING_DRILL) >= GEN_CHAMPIONS)
         return UQ_4_12(0.25);
@@ -7595,7 +7593,7 @@ static inline uq4_12_t GetMoveAgainstProtectionModifier(struct DamageContext *ct
     if (!IsZMove(ctx->move) && !IsMaxMove(ctx->move))
         return UQ_4_12(1.0);
 
-    if (GetProtectType(protected) == PROTECT_TYPE_SINGLE && protected != PROTECT_MAX_GUARD)
+    if (protectType == PROTECT_TYPE_SINGLE && protected != PROTECT_MAX_GUARD)
         return UQ_4_12(0.25);
     return UQ_4_12(1.0);
 }
@@ -7735,6 +7733,13 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(struct DamageContext *ctx)
             recordAbility = TRUE;
         }
         break;
+    case ABILITY_AURA_GUARD:
+        if (IsMoveMakingContact(ctx->battlerAtk, ctx->battlerDef, ctx->abilities[ctx->battlerAtk], ctx->holdEffects[ctx->battlerAtk], ctx->move))
+        {
+            modifier = UQ_4_12(0.5);
+            recordAbility = TRUE;
+        }
+        break;
     default:
         break;
     }
@@ -7823,7 +7828,7 @@ static inline uq4_12_t GetDefenderItemsModifier(struct DamageContext *ctx)
 // https://bulbapedia.bulbagarden.net/wiki/Damage#Generation_V_onward
 // Please Note: Fixed Point Multiplication is not associative.
 // The order of operations is relevant.
-static inline uq4_12_t GetOtherModifiers(struct DamageContext *ctx)
+uq4_12_t GetOtherModifiers(struct DamageContext *ctx)
 {
     uq4_12_t finalModifier = UQ_4_12(1.0);
     u32 unmodifiedAttackerSpeed = gBattleMons[ctx->battlerAtk].speed;
@@ -7907,6 +7912,7 @@ static inline s32 DoMoveDamageCalcVars(struct DamageContext *ctx)
 
 s32 ApplyModifiersAfterDmgRoll(struct DamageContext *ctx, s32 dmg)
 {
+    // When adding a new modifier here, also add it to AI_ApplyModifiersAfterDmgRoll
     if (GetActiveGimmick(ctx->battlerAtk) == GIMMICK_TERA)
         DAMAGE_APPLY_MODIFIER(GetTeraMultiplier(ctx));
     else
@@ -10535,7 +10541,7 @@ enum TwoTurnMoveActivation GetTwoTurnMoveActivation(struct BattleCalcValues *cv,
         enum BattleWeather weatherType = gBattleWeatherInfo[GetBattleWeather(weather)].type;
         enum BattleWeather attackerWeatherType = gBattleWeatherInfo[GetBattleWeather(attackerWeather)].type;
 
-        if (weatherType == moveAffectedByWeather && IsBattlerWeatherAffectedTemp(cv->holdEffects[cv->battlerAtk], weather, moveAffectedByWeather))
+        if (attackerWeatherType == weatherType && weatherType == moveAffectedByWeather && IsBattlerWeatherAffectedTemp(cv->holdEffects[cv->battlerAtk], weather, moveAffectedByWeather))
             return ACTIVATION_WEATHER;
 
         if (attackerWeatherType == moveAffectedByWeather)
@@ -10947,6 +10953,9 @@ void RemoveAbilityFlags(enum BattlerId battler)
 
     switch (GetBattlerAbility(battler))
     {
+    case ABILITY_NEUTRALIZING_GAS:
+        gSpecialStatuses[battler].neutralizingGasRemoved = TRUE;
+        break;
     case ABILITY_FLASH_FIRE:
         gBattleMons[battler].volatiles.flashFireBoosted = FALSE;
         break;

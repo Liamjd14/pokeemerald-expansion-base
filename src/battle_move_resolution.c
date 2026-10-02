@@ -30,6 +30,7 @@ static bool32 TryMagicCoat(struct BattleCalcValues *cv);
 static bool32 TryActivatePowderStatus(enum Move move);
 static void CalculateMagnitudeDamage(void);
 static void UpdateStallMons(struct BattleCalcValues *cv);
+static void SetDamageContextValues(struct DamageContext *ctx, struct BattleCalcValues *cv);
 
 // Submoves
 static enum Move GetMirrorMoveMove(void);
@@ -1241,7 +1242,7 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
             battleScript = BattleScript_PokemonCantUseTheMove;
         break;
     case EFFECT_AURORA_VEIL:
-        if (!(GetWeather() & B_WEATHER_ICY_ANY))
+        if (!(GetAttackerWeather(GetBattlerHoldEffect(cv->battlerAtk), GetBattlerAbility(cv->battlerAtk), GetWeather()) & B_WEATHER_ICY_ANY))
             battleScript = BattleScript_ButItFailed;
         break;
     case EFFECT_CLANGOROUS_SOUL:
@@ -1843,8 +1844,9 @@ static enum CancelerResult HandleSkyDropResult(struct BattleCalcValues *cv)
     if (gSideTimers[GetBattlerSide(cv->battlerDef)].followmeTimer != 0 && gSideTimers[GetBattlerSide(cv->battlerDef)].followmeTarget == cv->battlerDef)
         gSideTimers[GetBattlerSide(cv->battlerDef)].followmeTimer = 0;
 
-    gBattlescriptCurrInstr = BattleScript_SkyDropCharging;
-    return CANCELER_RESULT_RUN_SCRIPT_AND_INCREMENT;
+    BattleScriptCall(BattleScript_TwoTurnMoveCharging);
+    gBattleStruct->eventState.atkCanceler = CANCELER_END;
+    return CANCELER_RESULT_RUN_SCRIPT;
 }
 
 static enum CancelerResult CancelerCharging(struct BattleCalcValues *cv)
@@ -2280,7 +2282,7 @@ static enum CancelerResult CancelerTargetFailure(struct BattleCalcValues *cv)
             }
             else if (ctx.typeEffectivenessModifier == UQ_4_12(0.0))
             {
-                TryInitializeTrainerSlideMonUnaffected(cv->battlerDef, cv->battlerAtk);
+                TryInitializeTrainerSlideFirstIneffectiveMove(cv->battlerDef, cv->battlerAtk);
                 gSpecialStatuses[cv->battlerDef].updateStallMons = TRUE;
                 gBattleStruct->moveResultFlags[cv->battlerDef] = MOVE_RESULT_FAILED;
                 BattleScriptCall(BattleScript_DoesntAffectScripting);
@@ -2288,7 +2290,7 @@ static enum CancelerResult CancelerTargetFailure(struct BattleCalcValues *cv)
             }
             else if (IsTargetUnaffectedByMoveEffect(cv))
             {
-                TryInitializeTrainerSlideMonUnaffected(cv->battlerDef, cv->battlerAtk);
+                TryInitializeTrainerSlideFirstIneffectiveMove(cv->battlerDef, cv->battlerAtk);
                 gSpecialStatuses[cv->battlerDef].updateStallMons = TRUE;
                 return TargetAvoidedAttack(cv->battlerAtk, cv->battlerDef);
             }
@@ -3493,9 +3495,9 @@ static bool32 ShouldPrintEffectivenessMessage(struct BattleCalcValues *cv)
     if (ShouldPrintEffectivenessMessageForFlag(battler1, battler2, MOVE_RESULT_DOESNT_AFFECT_FOE))
     {
         if (gSpecialStatuses[battler1].resultMessagePrinted)
-            TryInitializeTrainerSlideMonUnaffected(battler1, cv->battlerAtk);
+            TryInitializeTrainerSlideFirstIneffectiveMove(battler1, cv->battlerAtk);
         if (battler2 != battler1 && gSpecialStatuses[battler2].resultMessagePrinted)
-            TryInitializeTrainerSlideMonUnaffected(battler2, cv->battlerAtk);
+            TryInitializeTrainerSlideFirstIneffectiveMove(battler2, cv->battlerAtk);
         BattleScriptCall(BattleScript_PrintNoEffectMessage);
         return TRUE;
     }
@@ -4883,7 +4885,7 @@ static enum MoveEndResult MoveEndMoveBlockRecoil(struct BattleCalcValues *cv)
 static enum MoveEndResult MoveEndSheerForce(struct BattleCalcValues *cv)
 {
     if (IsSheerForceAffected(cv->move, cv->abilities[cv->battlerAtk]))
-        gBattleScripting.moveendState = MOVEEND_ITEMS_EFFECTS_ALL;
+        gBattleScripting.moveendState = GetConfig(B_SHEER_FORCE_TIMING) >= GEN_CHAMPIONS ? MOVEEND_CARD_BUTTON : MOVEEND_ITEMS_EFFECTS_ALL;
     else
         gBattleScripting.moveendState++;
 
@@ -5379,6 +5381,12 @@ static enum MoveEndResult MoveEndCardButton(struct BattleCalcValues *cv)
 static enum MoveEndResult MoveEndFormChange(struct BattleCalcValues *cv)
 {
     enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
+    
+    if (IsSheerForceAffected(cv->move, cv->abilities[cv->battlerAtk]))
+    {
+        gBattleScripting.moveendState++;
+        return result;
+    }
 
     if (gBattleStruct->battlerState[cv->battlerAtk].originalBattlerPartyId == PARTY_SIZE
      && TryBattleFormChange(cv->battlerAtk, FORM_CHANGE_BATTLE_AFTER_MOVE, cv->abilities[cv->battlerAtk]))
@@ -5395,6 +5403,12 @@ static enum MoveEndResult MoveEndLifeOrbShellBell(struct BattleCalcValues *cv)
 {
     enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
 
+    if (GetConfig(B_SHEER_FORCE_TIMING) >= GEN_CHAMPIONS && IsSheerForceAffected(cv->move, cv->abilities[cv->battlerAtk]))
+    {
+        gBattleScripting.moveendState++;
+        return result;
+    }
+    
     if (ItemBattleEffects(cv->battlerAtk, 0, cv->holdEffects[cv->battlerAtk], IsLifeOrbShellBellActivation))
         result = MOVEEND_RESULT_RUN_SCRIPT;
 
@@ -5408,7 +5422,7 @@ static enum MoveEndResult MoveEndEmergencyExit(struct BattleCalcValues *cv)
     u32 numEmergencyExitBattlers = 0;
     u32 emergencyExitBattlers = 0;
 
-    if (HasAnyBattlerQueuedSwitch())
+    if (HasAnyBattlerQueuedSwitch() && GetConfig(B_EMERGENCY_EXIT) < GEN_CHAMPIONS)
     {
         gBattleScripting.moveendState++;
         return result;
@@ -5451,7 +5465,10 @@ static enum MoveEndResult MoveEndEmergencyExit(struct BattleCalcValues *cv)
         gSpecialStatuses[battler].queuedSwitch = QUEUED_SWITCH_OPEN_PARTY_SCREEN;
         BattleScriptCall(BattleScript_EmergencyExit);
         result = MOVEEND_RESULT_RUN_SCRIPT;
-        break; // Only the fastest Emergency Exit / Wimp Out activates
+        if (GetConfig(B_EMERGENCY_EXIT) < GEN_CHAMPIONS)
+            break; // Only the fastest Emergency Exit / Wimp Out activates
+        else
+            return result;
     }
 
     gBattleScripting.moveendState++;
@@ -5482,7 +5499,7 @@ static enum MoveEndResult MoveEndMoveSwitchUser(struct BattleCalcValues *cv)
     switch (GetMoveEffect(cv->move))
     {
     case EFFECT_HIT_ESCAPE:
-        if (!HasAnyBattlerQueuedSwitch()
+        if (!(HasAnyBattlerQueuedSwitch() && GetConfig(B_QUEUED_SWITCH_TIMINGS) < GEN_CHAMPIONS)
          && gBattleStruct->battlerState[cv->battlerAtk].originalBattlerPartyId == PARTY_SIZE
          && !gBattleStruct->unableToUseMove
          && IsAnyTargetTurnDamaged(cv->battlerAtk, INCLUDING_SUBSTITUTES)
