@@ -9348,7 +9348,7 @@
       "id": "LAYOUT_ROUTE1OCEANVIEW_WALK",
       "name": "Route1OceanviewWalk_Layout",
       "width": 77,
-      "height": 60,
+      "height": 64,
       "primary_tileset": "gTileset_GeneralCustom",
       "secondary_tileset": "gTileset_OceanviewMaycastle",
       "border_filepath": "data/layouts/Route1OceanviewWalk/border.bin",
@@ -9358,7 +9358,7 @@
       "id": "LAYOUT_MAYCASTLE",
       "name": "Maycastle_Layout",
       "width": 64,
-      "height": 60,
+      "height": 64,
       "primary_tileset": "gTileset_GeneralCustom",
       "secondary_tileset": "gTileset_OceanviewMaycastle",
       "border_filepath": "data/layouts/Maycastle/border.bin",
@@ -9408,11 +9408,41 @@
       "id": "LAYOUT_WILD_AREA1B",
       "name": "WildArea1B_Layout",
       "width": 50,
-      "height": 58,
+      "height": 64,
       "primary_tileset": "gTileset_GeneralCustom",
       "secondary_tileset": "gTileset_OceanviewMaycastle",
       "border_filepath": "data/layouts/WildArea1B/border.bin",
       "blockdata_filepath": "data/layouts/WildArea1B/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3MAYCASTLE_WOODS_NORTH",
+      "name": "Route3MaycastleWoodsNorth_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/Route3MaycastleWoodsNorth/border.bin",
+      "blockdata_filepath": "data/layouts/Route3MaycastleWoodsNorth/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE5COSTAL_PATH",
+      "name": "Route5CostalPath_Layout",
+      "width": 50,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/Route5CostalPath/border.bin",
+      "blockdata_filepath": "data/layouts/Route5CostalPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILD_AREA2",
+      "name": "WildArea2_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/WildArea2/border.bin",
+      "blockdata_filepath": "data/layouts/WildArea2/map.bin"
     }
   ]
 }

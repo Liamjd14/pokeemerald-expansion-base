@@ -1757,3 +1757,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/WildArea1A/scripts.inc"
 
 	.include "data/maps/WildArea1B/scripts.inc"
+
+	.include "data/maps/Route3MaycastleWoodsNorth/scripts.inc"
+
+	.include "data/maps/WildArea2/scripts.inc"
+
+	.include "data/maps/Route5CostalPath/scripts.inc"

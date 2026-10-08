@@ -27,6 +27,16 @@
       "map": "MAP_WILD_AREA1B",
       "offset": 34,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE3MAYCASTLE_WOODS_NORTH",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE5COSTAL_PATH",
+      "offset": -32,
+      "direction": "left"
     }
   ],
   "object_events": [],

@@ -998,7 +998,9 @@
     "Oceanview",
     "Route1OceanviewWalk",
     "Maycastle",
-    "Route2MaycastleWoodsSouth"
+    "Route2MaycastleWoodsSouth",
+    "Route3MaycastleWoodsNorth",
+    "Route5CostalPath"
   ],
   "gMapGroup_HIddenGrottos": [
     "OceanviewGtotto"
@@ -1008,6 +1010,7 @@
   ],
   "gMapGroup_WildAreas": [
     "WildArea1A",
-    "WildArea1B"
+    "WildArea1B",
+    "WildArea2"
   ]
 }
