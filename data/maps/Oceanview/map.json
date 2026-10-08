@@ -15,14 +15,14 @@
   "connections": [
     {
       "map": "MAP_ROUTE1OCEANVIEW_WALK",
-      "offset": -17,
+      "offset": 0,
       "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
-      "x": 28,
+      "x": 45,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -35,7 +35,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 13,
+      "x": 30,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -48,7 +48,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(YAMPER)",
-      "x": 6,
+      "x": 23,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -62,7 +62,7 @@
   ],
   "warp_events": [
     {
-      "x": 23,
+      "x": 40,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_OCEANVIEW",

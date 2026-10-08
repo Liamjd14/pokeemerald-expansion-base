@@ -20,7 +20,8 @@
     "gMapGroup_Testing",
     "gMapGroup_Eshosext",
     "gMapGroup_HIddenGrottos",
-    "gMapGroup_EshosInts1"
+    "gMapGroup_EshosInts1",
+    "gMapGroup_WildAreas"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -996,12 +997,17 @@
   "gMapGroup_Eshosext": [
     "Oceanview",
     "Route1OceanviewWalk",
-    "Maycastle"
+    "Maycastle",
+    "Route2MaycastleWoodsSouth"
   ],
   "gMapGroup_HIddenGrottos": [
     "OceanviewGtotto"
   ],
   "gMapGroup_EshosInts1": [
     "MaycastleMarket"
+  ],
+  "gMapGroup_WildAreas": [
+    "WildArea1A",
+    "WildArea1B"
   ]
 }

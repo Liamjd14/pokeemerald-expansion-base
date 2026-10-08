@@ -17,6 +17,21 @@
       "map": "MAP_ROUTE1OCEANVIEW_WALK",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE2MAYCASTLE_WOODS_SOUTH",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_WILD_AREA1A",
+      "offset": -32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_WILD_AREA1B",
+      "offset": 2,
+      "direction": "left"
     }
   ],
   "object_events": [],

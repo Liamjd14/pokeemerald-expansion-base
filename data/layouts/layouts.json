@@ -9337,7 +9337,7 @@
     {
       "id": "LAYOUT_OCEANVIEW",
       "name": "Oceanview_Layout",
-      "width": 60,
+      "width": 77,
       "height": 32,
       "primary_tileset": "gTileset_GeneralCustom",
       "secondary_tileset": "gTileset_OceanviewMaycastle",
@@ -9383,6 +9383,36 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/MaycastleMarket/border.bin",
       "blockdata_filepath": "data/layouts/MaycastleMarket/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE2MAYCASTLE_WOODS_SOUTH",
+      "name": "Route2MaycastleWoodsSouth_Layout",
+      "width": 74,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/Route2MaycastleWoodsSouth/border.bin",
+      "blockdata_filepath": "data/layouts/Route2MaycastleWoodsSouth/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILD_AREA1A",
+      "name": "WildArea1A_Layout",
+      "width": 50,
+      "height": 34,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/WildArea1A/border.bin",
+      "blockdata_filepath": "data/layouts/WildArea1A/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILD_AREA1B",
+      "name": "WildArea1B_Layout",
+      "width": 50,
+      "height": 58,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/WildArea1B/border.bin",
+      "blockdata_filepath": "data/layouts/WildArea1B/map.bin"
     }
   ]
 }
