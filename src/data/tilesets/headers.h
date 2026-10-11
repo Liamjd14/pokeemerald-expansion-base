@@ -1953,7 +1953,7 @@ const struct Tileset gTileset_GeneralCustom =
     .palettes = gTilesetPalettes_GeneralCustom,
     .metatiles = gMetatiles_GeneralCustom,
     .metatileAttributes = gMetatileAttributes_GeneralCustom,
-    .callback = NULL,
+    .callback = InitTilesetAnim_GeneralCustom,
 };
 
 const struct Tileset gTileset_OceanviewMaycastle =

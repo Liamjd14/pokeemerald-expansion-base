@@ -41,4 +41,9 @@ void InitTilesetAnim_CeladonGym(void);
 void InitTilesetAnim_SilphCo(void);
 void InitTilesetAnim_MtEmber(void);
 
+// custom
+
+void InitTilesetAnim_GeneralCustom(void);
+
+
 #endif // GUARD_TILESET_ANIMS_H
