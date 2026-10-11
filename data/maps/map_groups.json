@@ -1007,7 +1007,15 @@
     "CoralhavenPort"
   ],
   "gMapGroup_HIddenGrottos": [
-    "OceanviewGtotto"
+    "OceanviewGtotto",
+    "Route1Grotto",
+    "Route2Grotto",
+    "WildArea1AGrotto",
+    "WildArea1BGrotto",
+    "Route4Grotto",
+    "Route5Grotto",
+    "WildArea2Grotto",
+    "MaycastleRuinsGrotto"
   ],
   "gMapGroup_EshosInts1": [
     "MaycastleMarket"

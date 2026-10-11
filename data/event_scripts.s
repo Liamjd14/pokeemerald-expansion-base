@@ -1771,3 +1771,19 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/MaycastleRuinsExt/scripts.inc"
 
 	.include "data/maps/CoralhavenPort/scripts.inc"
+
+	.include "data/maps/Route5Grotto/scripts.inc"
+
+	.include "data/maps/WildArea1BGrotto/scripts.inc"
+
+	.include "data/maps/Route2Grotto/scripts.inc"
+
+	.include "data/maps/WildArea1AGrotto/scripts.inc"
+
+	.include "data/maps/WildArea2Grotto/scripts.inc"
+
+	.include "data/maps/MaycastleRuinsGrotto/scripts.inc"
+
+	.include "data/maps/Route1Grotto/scripts.inc"
+
+	.include "data/maps/Route4Grotto/scripts.inc"
