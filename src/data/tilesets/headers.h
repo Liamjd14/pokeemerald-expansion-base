@@ -1944,38 +1944,6 @@ const struct Tileset gTileset_HallOfFame =
 
 #endif // IS_FRLG
 
-const struct Tileset gTileset_KantoCustom =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_KantoCustom,
-    .palettes = gTilesetPalettes_KantoCustom,
-    .metatiles = gMetatiles_KantoCustom,
-    .metatileAttributes = gMetatileAttributes_KantoCustom,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_Oceanview =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Oceanview,
-    .palettes = gTilesetPalettes_Oceanview,
-    .metatiles = gMetatiles_Oceanview,
-    .metatileAttributes = gMetatileAttributes_Oceanview,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_Maycatstle =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Maycatstle,
-    .palettes = gTilesetPalettes_Maycatstle,
-    .metatiles = gMetatiles_Maycatstle,
-    .metatileAttributes = gMetatileAttributes_Maycatstle,
-    .callback = NULL,
-};
 
 const struct Tileset gTileset_GeneralCustom =
 {

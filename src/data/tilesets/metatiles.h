@@ -409,15 +409,6 @@ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary
 
 #endif // IS_FRLG
 
-const u16 gMetatiles_KantoCustom[] = INCBIN_U16("data/tilesets/primary/kanto_custom/metatiles.bin");
-const u16 gMetatileAttributes_KantoCustom[] = INCBIN_U16("data/tilesets/primary/kanto_custom/metatile_attributes.bin");
-
-const u16 gMetatiles_Oceanview[] = INCBIN_U16("data/tilesets/secondary/oceanview/metatiles.bin");
-const u16 gMetatileAttributes_Oceanview[] = INCBIN_U16("data/tilesets/secondary/oceanview/metatile_attributes.bin");
-
-const u16 gMetatiles_Maycatstle[] = INCBIN_U16("data/tilesets/secondary/maycatstle/metatiles.bin");
-const u16 gMetatileAttributes_Maycatstle[] = INCBIN_U16("data/tilesets/secondary/maycatstle/metatile_attributes.bin");
-
 const u16 gMetatiles_GeneralCustom[] = INCBIN_U16("data/tilesets/primary/general_custom/metatiles.bin");
 const u16 gMetatileAttributes_GeneralCustom[] = INCBIN_U16("data/tilesets/primary/general_custom/metatile_attributes.bin");
 
