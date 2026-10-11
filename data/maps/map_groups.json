@@ -1000,7 +1000,11 @@
     "Maycastle",
     "Route2MaycastleWoodsSouth",
     "Route3MaycastleWoodsNorth",
-    "Route5CostalPath"
+    "Route5CostalPath",
+    "Route5ACostalPathPt2",
+    "MaycastleRuinsExt",
+    "Route4AncientPath",
+    "CoralhavenPort"
   ],
   "gMapGroup_HIddenGrottos": [
     "OceanviewGtotto"

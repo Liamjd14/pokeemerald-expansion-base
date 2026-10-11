@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE1OCEANVIEW_WALK",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_CORALHAVEN_PORT",
+      "offset": 32,
+      "direction": "up"
     }
   ],
   "object_events": [

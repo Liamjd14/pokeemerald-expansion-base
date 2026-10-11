@@ -1763,3 +1763,11 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/WildArea2/scripts.inc"
 
 	.include "data/maps/Route5CostalPath/scripts.inc"
+
+	.include "data/maps/Route5ACostalPathPt2/scripts.inc"
+
+	.include "data/maps/Route4AncientPath/scripts.inc"
+
+	.include "data/maps/MaycastleRuinsExt/scripts.inc"
+
+	.include "data/maps/CoralhavenPort/scripts.inc"

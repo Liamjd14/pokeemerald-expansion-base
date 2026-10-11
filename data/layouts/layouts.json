@@ -9420,7 +9420,7 @@
       "width": 64,
       "height": 32,
       "primary_tileset": "gTileset_GeneralCustom",
-      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/Route3MaycastleWoodsNorth/border.bin",
       "blockdata_filepath": "data/layouts/Route3MaycastleWoodsNorth/map.bin"
     },
@@ -9437,12 +9437,52 @@
     {
       "id": "LAYOUT_WILD_AREA2",
       "name": "WildArea2_Layout",
-      "width": 64,
-      "height": 32,
+      "width": 50,
+      "height": 48,
       "primary_tileset": "gTileset_GeneralCustom",
       "secondary_tileset": "gTileset_OceanviewMaycastle",
       "border_filepath": "data/layouts/WildArea2/border.bin",
       "blockdata_filepath": "data/layouts/WildArea2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE5ACOSTAL_PATH_PT2",
+      "name": "Route5ACostalPathPt2_Layout",
+      "width": 20,
+      "height": 80,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_OceanviewMaycastle",
+      "border_filepath": "data/layouts/Route5ACostalPathPt2/border.bin",
+      "blockdata_filepath": "data/layouts/Route5ACostalPathPt2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAYCASTLE_RUINS_EXT",
+      "name": "MaycastleRuinsExt_Layout",
+      "width": 64,
+      "height": 48,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/MaycastleRuinsExt/border.bin",
+      "blockdata_filepath": "data/layouts/MaycastleRuinsExt/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE4ANCIENT_PATH",
+      "name": "Route4AncientPath_Layout",
+      "width": 32,
+      "height": 80,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/Route4AncientPath/border.bin",
+      "blockdata_filepath": "data/layouts/Route4AncientPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALHAVEN_PORT",
+      "name": "CoralhavenPort_Layout",
+      "width": 45,
+      "height": 80,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Coralhaven",
+      "border_filepath": "data/layouts/CoralhavenPort/border.bin",
+      "blockdata_filepath": "data/layouts/CoralhavenPort/map.bin"
     }
   ]
 }

@@ -1998,3 +1998,14 @@ const struct Tileset gTileset_OceanviewMaycastle =
     .metatileAttributes = gMetatileAttributes_OceanviewMaycastle,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Coralhaven =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Coralhaven,
+    .palettes = gTilesetPalettes_Coralhaven,
+    .metatiles = gMetatiles_Coralhaven,
+    .metatileAttributes = gMetatileAttributes_Coralhaven,
+    .callback = NULL,
+};
