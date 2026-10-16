@@ -169,5 +169,7 @@ void DestroyMoveInfoWinGfx(struct Sprite *sprite);
 void DestroyLastUsedBallWinGfx(struct Sprite *sprite);
 void DestroyLastUsedBallGfx(struct Sprite *sprite);
 // end bwBattleUI
+void ShowWeatherIndicator(bool32 instant);
+void HideWeatherIndicator(bool32 instant);
 
 #endif // GUARD_BATTLE_INTERFACE_H
