@@ -1,6 +1,10 @@
 # DS version files
 
-Faeturd branches:
+Features:
+
+Triple layered metatiles
+
+Feature branches:
 
 pokeemerald-expansion: https://github.com/rh-hideout/pokeemerald-expansion v1.17 upcoming 
 

@@ -3262,7 +3262,7 @@ void TryToHideBattleStatusHint(void)
         gSprites[gBattleStruct->battleStatusHintSpriteId].sHide = TRUE;
 }
 
-static void DestroyMoveInfoWinGfx(struct Sprite *sprite)
+void DestroyMoveInfoWinGfx(struct Sprite *sprite)
 {
     FreeSpriteTilesByTag(MOVE_INFO_WINDOW_TAG);
     if (GetSpriteTileStartByTag(TAG_LAST_BALL_WINDOW) == 0xFFFF
