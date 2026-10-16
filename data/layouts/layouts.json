@@ -9483,6 +9483,16 @@
       "secondary_tileset": "gTileset_Coralhaven",
       "border_filepath": "data/layouts/CoralhavenPort/border.bin",
       "blockdata_filepath": "data/layouts/CoralhavenPort/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE6DESOLATE_FALTS",
+      "name": "Route6DesolateFalts_Layout",
+      "width": 40,
+      "height": 80,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route6DesolateFalts/border.bin",
+      "blockdata_filepath": "data/layouts/Route6DesolateFalts/map.bin"
     }
   ]
 }

@@ -1787,3 +1787,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route1Grotto/scripts.inc"
 
 	.include "data/maps/Route4Grotto/scripts.inc"
+
+	.include "data/maps/Route6DesolateFalts/scripts.inc"
