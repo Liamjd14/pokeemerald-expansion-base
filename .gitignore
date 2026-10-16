@@ -66,4 +66,10 @@ tools/aif2pcm/aif2pcm
 *.fastSmol
 *.smolTM
 __pycache__
+tools/poryscript/poryscript
+data/maps/**/scripts.inc
+CLAUDE.md
+.claude/*
+private-notes/*
+notes/*
 .map_version

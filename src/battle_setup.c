@@ -45,6 +45,7 @@
 #include "trainer_pools.h"
 #include "trainer_see.h"
 #include "trainer_util.h"
+#include "level_scaling.h"
 #include "tv.h"
 #include "overworld.h"
 #include "vs_seeker.h"
@@ -2216,7 +2217,15 @@ void BattleSetup_StartBXPYBattle(u32 battleFlags)
     ScriptContext_Stop();
 }
 
-void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer)
+
+// MERGE NOTE (diverges from upstream pokeemerald-expansion):
+// Upstream's signature is (party, trainer). We add `trainerId` so this romhack's trainer
+// level-scaling can look up the per-trainer config via GetTrainerLevelScalingConfig().
+// Scaling is applied by handing GenerateMonFromTrainerMon a copy of the TrainerMon whose
+// species/level have been scaled, then post-processing the generated mon (item stripping,
+// move filtering, EV scaling). When resolving future merge conflicts here: KEEP the
+// level-scaling block and the trainerId param; re-apply upstream changes on top.
+void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, u16 trainerId)
 {
     s32 i;
     u8 monsCount;
@@ -2235,10 +2244,55 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
     MakeTrainerGenerator(trainerGen, trainer);
     DoTrainerPartyPool(trainer, monIndices, monsCount, gBattleTypeFlags);
 
+#if B_LEVEL_SCALING_ENABLED && B_TRAINER_SCALING_ENABLED
+    // Precompute each drawn mon's final (post-scale, post-devolution) level/species once —
+    // CalculateScaledLevel uses RNG, so recomputing later would desync from what BST selection
+    // saw. SelectScaledTrainerParty then drops over-BST non-ace mons and applies the party-size
+    // cap, compacting monIndices/scaledLevels/scaledSpecies in step with each other.
+    u8 fullCount = monsCount;
+    u8 scaledLevels[fullCount];
+    u16 scaledSpecies[fullCount];
+    const struct LevelScalingConfig *scalingConfig = GetTrainerLevelScalingConfig(trainerId);
+
+    InvalidatePartyLevelCache();
+    for (i = 0; i < fullCount; i++)
+    {
+        const struct TrainerMon *trainerMon = &trainer->party[monIndices[i]];
+
+        if (scalingConfig->mode != LEVEL_SCALING_NONE)
+        {
+            scaledLevels[i] = CalculateScaledLevel(scalingConfig, trainerMon->lvl);
+            scaledSpecies[i] = ValidateSpeciesForLevel(trainerMon->species, scaledLevels[i], scalingConfig->manageEvolutions);
+        }
+        else
+        {
+            scaledLevels[i] = trainerMon->lvl;
+            scaledSpecies[i] = trainerMon->species;
+        }
+    }
+    if (scalingConfig->mode != LEVEL_SCALING_NONE)
+        monsCount = SelectScaledTrainerParty(trainer, trainerId, monIndices, scaledLevels, scaledSpecies, fullCount);
+#endif
+
     for (i = 0; i < monsCount; i++)
     {
         u32 monIndex = monIndices[i];
+#if B_LEVEL_SCALING_ENABLED && B_TRAINER_SCALING_ENABLED
+        struct TrainerMon scaledMon = trainer->party[monIndex];
+
+        // Devolution can strand the trainer's ability on a species that cannot have it.
+        // scaledMon.species is still the original here.
+        scaledMon.ability = GetScaledTrainerAbility(scaledMon.species, scaledSpecies[i], scaledMon.ability);
+        scaledMon.lvl = scaledLevels[i];
+        scaledMon.species = scaledSpecies[i];
+        GenerateMonFromTrainerMon(&party[i], &scaledMon, trainerGen);
+        MaybeStripTrainerItem(&party[i], trainerId, scaledMon.lvl);
+        MaybeFilterTrainerMoves(&party[i], trainerId, scaledMon.species, scaledMon.lvl);
+        if (scaledMon.ev != NULL && TryApplyScaledTrainerEVs(&party[i], scaledMon.ev, trainerId, scaledMon.lvl))
+            CalculateMonStats(&party[i]);
+#else
         GenerateMonFromTrainerMon(&party[i], &trainer->party[monIndex], trainerGen);
+#endif
     }
     Free(trainerGen);
 }
@@ -2247,7 +2301,7 @@ static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     if (!GetTrainerStructFromId(trainerNum)->overrideTrainer)
     {
-        CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum));
+        CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), trainerNum);
         return;
     }
 
@@ -2260,7 +2314,7 @@ static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     tempTrainer.poolSize = origTrainer->poolSize;
     if (tempTrainer.partySize == 0)
         tempTrainer.partySize = origTrainer->partySize;
-    CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer));
+    CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer), trainerNum);
 }
 
 void CreateTrainerPartyForPlayer(void)
@@ -2268,5 +2322,5 @@ void CreateTrainerPartyForPlayer(void)
     Script_RequestEffects(SCREFF_V1);
 
     gPartnerTrainerId = gSpecialVar_0x8004;
-    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], GetTrainerStructFromId(gSpecialVar_0x8004));
+    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], GetTrainerStructFromId(gSpecialVar_0x8004), gSpecialVar_0x8004);
 }

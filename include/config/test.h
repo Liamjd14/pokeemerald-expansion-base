@@ -1145,4 +1145,12 @@
 //  Move animation testing
 #define T_SHOULD_RUN_MOVE_ANIM  FALSE       //  If TRUE, enables the move animation tests, these are very computationally heavy and takes a long time to run.
 
+// Disable trainer level scaling in the test build so trainer-generation tests see deterministic,
+// upstream-style parties. Scaling consumes RNG and can reorder/filter parties (CalculateScaledLevel,
+// SelectScaledTrainerParty), and can strip items / filter moves / rescale EVs - which breaks tests that
+// assert exact species/levels/slots/items/moves. Setting the default mode to NONE makes every trainer
+// without an explicit scaling rule behave as upstream; scaling can still be tested with an explicit rule.
+#undef B_TRAINER_SCALING_DEFAULT_MODE
+#define B_TRAINER_SCALING_DEFAULT_MODE      LEVEL_SCALING_NONE
+
 #endif // GUARD_CONFIG_TEST_H

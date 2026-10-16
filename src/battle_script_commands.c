@@ -3609,7 +3609,7 @@ static void Cmd_hitanimation(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static u32 GetTrainerMoneyToGive(u16 trainerId)
+static u32 GetTrainerMoneyToGive(u16 trainerId, u8 partySlot)
 {
     u32 lastMonLevel = 0;
     u32 moneyReward;
@@ -3624,7 +3624,11 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
         const struct TrainerMon *party = GetTrainerPartyFromId(trainerId);
         if (party == NULL)
             return 20;
-        lastMonLevel = party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
+        // Use the actual battle party level so scaled trainer levels give correct prize money
+        u8 partyCount = gPartiesCount[partySlot];
+        lastMonLevel = partyCount > 0
+            ? GetMonData(&gParties[partySlot][partyCount - 1], MON_DATA_LEVEL)
+            : party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
         trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainerId)].money ?: 5;
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
@@ -3647,9 +3651,9 @@ static void Cmd_getmoneyreward(void)
 
     if (gBattleOutcome == B_OUTCOME_WON)
     {
-        money = GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentA);
+        money = GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentA, B_TRAINER_OPPONENT_A);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            money += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
+            money += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB, B_TRAINER_OPPONENT_B);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else
