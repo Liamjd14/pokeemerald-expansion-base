@@ -2,10 +2,16 @@ RustboroCity_Gym_MapScripts::
 	.byte 0
 
 RustboroCity_Gym_EventScript_Roxanne::
-	trainerbattle_single TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_RoxanneDefeated2
+	bringxpicky BXPY_BATTLE_DOUBLE, 6, 4, TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneDefeat TRAINER_RONALD RustboroCity_Gym_Text_RoxanneDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, RustboroCity_Gym_EventScript_RoxanneRematch
-	goto_if_unset FLAG_RECEIVED_TM_ROCK_TOMB, RustboroCity_Gym_EventScript_GiveRockTomb
+	goto_if_unset FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_RoxanneDefeated
+	msgbox RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Gym_EventScript_RoxanneDefeated2::
 	msgbox RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_DEFAULT
 	release
 	end

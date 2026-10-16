@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_BXPY_H
 #define GUARD_CONFIG_BXPY_H
 
-#define BXPY_FORCE_MINIMUM_MONS                         TRUE              // When TRUE, the Player must have at least bringSize unfainted Pokémon in the Party.
+#define BXPY_FORCE_MINIMUM_MONS                         FALSE              // When TRUE, the Player must have at least bringSize unfainted Pokémon in the Party.
 #define BXPY_CLAUSE_ITEMS                               TRUE              // When TRUE, the Player cannot have duplicate held items in their Party.
 #define BXPY_CLAUSE_SPECIES                             TRUE              // When TRUE, the Player cannot have duplicate in their Party.
 #define BXPY_CLAUSE_SPECIAL_POKEMON                     TRUE              // When TRUE, the Player cannot have Special Pokemon in their Party. Special is defined as Pokemon with the `isMythical` or `isFrontierBanned`.
@@ -52,7 +52,7 @@
 
 
 // Bring X Pick Y Comestic Configurations
-#define BXPY_SKIN                                       GEN_3             // This changes the graphical skin that the BXPY menu uses. The currently only valid values are GEN_3 or GEN_CHAMPIONS. If an invalid value is used, the game will fall back to GEN_3.
+#define BXPY_SKIN                                       GEN_CHAMPIONS             // This changes the graphical skin that the BXPY menu uses. The currently only valid values are GEN_3 or GEN_CHAMPIONS. If an invalid value is used, the game will fall back to GEN_3.
 #define BXPY_SCROLLING_BACKGROUND                       TRUE              // When TRUE, the background on the BXPY menu will scroll. This config only has an effect when BXPY_SKIN == GEN_CHAMPIONS.
 #define MUS_BXPY_BACKGROUND                             MUS_B_DOME_LOBBY
 #define SE_BXPY_GENERIC                                 SE_SELECT
