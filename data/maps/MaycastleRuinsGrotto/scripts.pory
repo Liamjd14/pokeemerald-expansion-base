@@ -13,34 +13,34 @@ script MRGDecideSpawn {
         switch(var(VAR_TEMP_1)){
         //0
             case 0:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(BULBASAUR))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(BULBASAUR), FALSE)
         //1
             case 1:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CHARMANDER))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CHARMANDER), FALSE)
         //2
             case 2:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SQUIRTLE))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SQUIRTLE), FALSE)
         //3
             case 3:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PIKACHU))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PIKACHU), FALSE)
         //4
             case 4:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SANDSHREW))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SANDSHREW), FALSE)
         //5
             case 5:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(NIDORAN_F))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(NIDORAN_F), FALSE)
         //6
             case 6:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF), FALSE)
         //7
             case 7:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ODDISH))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ODDISH), FALSE)
         //8
             case 8:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PARAS))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PARAS), FALSE)
         //9
             case 9:
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VENONAT))
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VENONAT), FALSE)
         //10
             case 10:
             setvar(VAR_TEMP_2, ITEM_POKE_BALL)

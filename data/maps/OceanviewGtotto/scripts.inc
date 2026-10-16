@@ -51,52 +51,52 @@ OVGDecideSpawn_2:
 
 OVGDecideSpawn_5:
 # 16 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_6:
 # 19 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_7:
 # 22 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_8:
 # 25 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_9:
 # 28 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_10:
 # 31 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_11:
 # 34 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_12:
 # 37 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_13:
 # 40 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_14:
 # 43 "data/maps/OceanviewGtotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT ), FALSE
 	goto OVGDecideSpawn_1
 
 OVGDecideSpawn_15:

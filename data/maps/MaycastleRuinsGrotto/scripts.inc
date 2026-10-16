@@ -51,52 +51,52 @@ MRGDecideSpawn_2:
 
 MRGDecideSpawn_5:
 # 16 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_6:
 # 19 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_7:
 # 22 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_8:
 # 25 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_9:
 # 28 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_10:
 # 31 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_11:
 # 34 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_12:
 # 37 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_13:
 # 40 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_14:
 # 43 "data/maps/MaycastleRuinsGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT ), FALSE
 	goto MRGDecideSpawn_1
 
 MRGDecideSpawn_15:

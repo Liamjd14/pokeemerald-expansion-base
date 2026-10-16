@@ -51,52 +51,52 @@ WA1AGDecideSpawn_2:
 
 WA1AGDecideSpawn_5:
 # 16 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_6:
 # 19 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_7:
 # 22 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_8:
 # 25 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_9:
 # 28 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_10:
 # 31 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_11:
 # 34 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_12:
 # 37 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_13:
 # 40 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_14:
 # 43 "data/maps/WildArea1AGrotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT ), FALSE
 	goto WA1AGDecideSpawn_1
 
 WA1AGDecideSpawn_15:

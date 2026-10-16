@@ -51,52 +51,52 @@ R2GDecideSpawn_2:
 
 R2GDecideSpawn_5:
 # 16 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BULBASAUR ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_6:
 # 19 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHARMANDER ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_7:
 # 22 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SQUIRTLE ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_8:
 # 25 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_9:
 # 28 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SANDSHREW ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_10:
 # 31 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NIDORAN_F ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_11:
 # 34 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( JIGGLYPUFF ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_12:
 # 37 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ODDISH ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_13:
 # 40 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PARAS ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_14:
 # 43 "data/maps/Route2Grotto/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VENONAT ), FALSE
 	goto R2GDecideSpawn_1
 
 R2GDecideSpawn_15:
