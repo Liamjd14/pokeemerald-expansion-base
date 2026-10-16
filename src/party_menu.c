@@ -1744,7 +1744,7 @@ static void Task_HandleCancelChooseMonYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         Task_ReturnToChooseMonAfterText(taskId);
         break;
@@ -2346,7 +2346,7 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
@@ -3573,7 +3573,7 @@ static void Task_HandleSwitchItemsYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1: // No
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
@@ -3729,7 +3729,7 @@ static void Task_HandleTossHeldItemYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
@@ -3817,7 +3817,7 @@ static void Task_HandleSendMailToPCYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         DisplayPartyMenuMessage(gText_MailMessageWillBeLost, TRUE);
         gTasks[taskId].func = Task_LoseMailMessageYesNo;
@@ -3857,7 +3857,7 @@ static void Task_HandleLoseMailMessageYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
@@ -4080,7 +4080,7 @@ static void Task_HandleSpinTradeYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         Task_ReturnToChooseMonAfterText(taskId);
         break;
@@ -4186,7 +4186,7 @@ static void Task_HandleFieldMoveExitAreaYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         gFieldCallback2 = NULL;
         gPostMenuFieldCallback = NULL;
@@ -5665,7 +5665,7 @@ static void Task_HandleReplaceMoveYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1:
         StopLearningMovePrompt(taskId);
         break;
@@ -7236,7 +7236,7 @@ static void Task_HandleSwitchItemsFromBagYesNoInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        // fallthrough
+        [[fallthrough]];
     case 1: // No, dont switch items
         gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
         break;

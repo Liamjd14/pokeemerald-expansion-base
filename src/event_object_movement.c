@@ -7454,6 +7454,7 @@ static bool8 DoJumpInPlaceAnim(struct ObjectEvent *objectEvent, struct Sprite *s
     case JUMP_HALFWAY:
         SetObjectEventDirection(objectEvent, GetOppositeDirection(objectEvent->movementDirection));
         SetStepAnim(objectEvent, sprite, GetMoveDirectionAnimNum(objectEvent->facingDirection));
+        [[fallthrough]];
     default:
         return FALSE;
     }
@@ -11082,6 +11083,7 @@ static void MoveUnionRoomObjectUp(struct Sprite *sprite)
     case 0:
         sprite->y2 = 0;
         sprite->sAnimState++;
+        [[fallthrough]];
     case 1:
         sprite->y2 -= 8;
         if (sprite->y2 == -DISPLAY_HEIGHT)
@@ -11101,6 +11103,7 @@ static void MoveUnionRoomObjectDown(struct Sprite *sprite)
     case 0:
         sprite->y2 = -DISPLAY_HEIGHT;
         sprite->sAnimState++;
+        [[fallthrough]];
     case 1:
         sprite->y2 += 8;
         if (sprite->y2 == 0)
