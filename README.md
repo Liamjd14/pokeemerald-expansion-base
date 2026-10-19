@@ -3,12 +3,15 @@
 Features:
 
 Triple layered metatiles
+Multiple Megas in one battle
 
 Feature branches:
 
 pokeemerald-expansion: https://github.com/rh-hideout/pokeemerald-expansion v1.17 upcoming 
 
 BW Battle ui: https://github.com/mudskipper13/pokeemerald/tree/feature/bwBattleUI by mudskip
+
+Level Sacling: https://github.com/fisham-org/pokeemerald-expansion-features/tree/feature/level-scaling by fisham33
 
 Seasons: https://github.com/BelialClover/pokeemerald/tree/seasons by Rioluwott
 
