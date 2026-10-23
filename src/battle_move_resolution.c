@@ -32,7 +32,6 @@ static bool32 TryActivatePowderStatus(enum Move move);
 static void CalculateMagnitudeDamage(void);
 static void UpdateStallMons(struct BattleCalcValues *cv);
 static void SetDamageContextValues(struct DamageContext *ctx, struct BattleCalcValues *cv);
-void SetTargetMoveFailureFlags(enum BattlerId battlerAtk, enum MoveTarget moveTarget);
 
 // Submoves
 static enum Move GetMirrorMoveMove(void);
@@ -46,6 +45,7 @@ static enum Move GetMeFirstMove(void);
 static bool32 ShouldApplyAfterHitEffects(enum BattlerId battlerAtk, enum BattlerId effectBattler);
 static bool32 CanApplyAdditionalEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, const struct AdditionalEffect *additionalEffect);
 static void TryTriggerAdditionalEffect(struct BattleCalcValues *cv, const struct AdditionalEffect *additionalEffect, enum BattlerId effectBattler);
+static bool32 IsDamageMoveSelfStatChange(bool32 self, enum MoveEffect moveEffect);
 
 static bool32 ShouldApplyProtectLikeEffects(enum BattlerId battlerDef, struct BattleCalcValues *cv);
 static bool32 ShouldPrintCritMessage(enum BattlerId battler);
@@ -3950,13 +3950,12 @@ static void TryTriggerAdditionalEffect(struct BattleCalcValues *cv, const struct
     struct SetEffect se = {0};
 
     bool32 percentChance = CalcSecondaryEffectChance(cv->battlerAtk, cv->abilities[cv->battlerAtk], additionalEffect, cv->move);
+    bool32 isAppliedRandomly = RandomPercentage(RNG_SECONDARY_EFFECT + gBattleStruct->additionalEffectsCounter, percentChance);
     bool32 isPrimary = percentChance == 0;
     bool32 failedToTrigger = TRUE;
 
     // By default, onSide effects apply if they applied on the original target/user
-    if (isPrimary
-     || gBattleStruct->setEffectOnAlly
-     || RandomPercentage(RNG_SECONDARY_EFFECT + gBattleStruct->additionalEffectsCounter, percentChance))
+    if (isPrimary || isAppliedRandomly || gBattleStruct->setEffectOnAlly)
     {
         if (!additionalEffect->self && !cv->isStatusMove)
             cv->battlerDef = effectBattler; // For SetMoveEffect, will be restored to previous value when run again
@@ -3984,6 +3983,16 @@ static void TryTriggerAdditionalEffect(struct BattleCalcValues *cv, const struct
         gBattleStruct->additionalEffectsCounter++;
         gBattleStruct->setEffectOnAlly = FALSE;
     }
+}
+
+static bool32 IsDamageMoveSelfStatChange(bool32 isSelf, enum MoveEffect moveEffect)
+{
+    if (!isSelf)
+        return FALSE;
+    return moveEffect == MOVE_EFFECT_STAT_MINUS 
+        || moveEffect == MOVE_EFFECT_STAT_PLUS
+        || moveEffect == MOVE_EFFECT_TERA_BLAST
+        || moveEffect == MOVE_EFFECT_ORDER_UP;
 }
 
 static enum MoveEndResult MoveEndAdditionalEffects(struct BattleCalcValues *cv)
@@ -4015,7 +4024,7 @@ static enum MoveEndResult MoveEndAdditionalEffects(struct BattleCalcValues *cv)
             case FALSE:
                 if (!CanApplyAdditionalEffect(cv->battlerAtk, effectBattler, additionalEffect)
                  || !ShouldApplyAfterHitEffects(cv->battlerAtk, effectBattler)
-                 || (additionalEffect->moveEffect == MOVE_EFFECT_STAT_MINUS && additionalEffect->self)
+                 || IsDamageMoveSelfStatChange(additionalEffect->self, additionalEffect->moveEffect)
                  || (effectBattler == cv->battlerAtk) != additionalEffect->self)
                 {
                     gBattleStruct->additionalEffectsCounter++;
@@ -4053,7 +4062,7 @@ static enum MoveEndResult MoveEndAdditionalEffects(struct BattleCalcValues *cv)
     return MOVEEND_RESULT_CONTINUE;
 }
 
-static enum MoveEndResult MoveEndAdditionalEffectsLowerStatsAttacker(struct BattleCalcValues *cv)
+static enum MoveEndResult MoveEndAdditionalEffectsChangeStatsAttacker(struct BattleCalcValues *cv)
 {
     u32 numAdditionalEffects = GetMoveAdditionalEffectCount(cv->move);
 
@@ -4070,7 +4079,7 @@ static enum MoveEndResult MoveEndAdditionalEffectsLowerStatsAttacker(struct Batt
         // Various checks for if this move effect can be applied this turn
         if (!CanApplyAdditionalEffect(cv->battlerAtk, cv->battlerAtk, additionalEffect)
          || !ShouldApplyAfterHitEffects(cv->battlerAtk, cv->battlerAtk)
-         || !(additionalEffect->moveEffect == MOVE_EFFECT_STAT_MINUS && additionalEffect->self))
+         || !IsDamageMoveSelfStatChange(additionalEffect->self, additionalEffect->moveEffect))
         {
             gBattleStruct->additionalEffectsCounter++;
             return MOVEEND_RESULT_BREAK; // recall the same state
@@ -5692,16 +5701,16 @@ static enum MoveEndResult MoveEndPickpocket(struct BattleCalcValues *cv)
                     }
                     else
                     {
+                        struct LostItem *lostItem = GetLostItemState(GetBattlerTrainer(cv->battlerAtk), originalAttackerPartyId);
                         StealTargetItem(battlerDef, cv->battlerAtk, itemToSteal, FALSE); // Don't change cv->battlerAtk's item
-
                         PREPARE_MON_NICK_WITH_PREFIX_LOWER_BUFFER(gBattleTextBuff2, cv->battlerAtk, originalAttackerPartyId);
 
                         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE
                          && gBattleTypeFlags & BATTLE_TYPE_TRAINER
                          && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                          && IsOnPlayerSide(cv->battlerAtk)
-                         && itemToSteal == gBattleStruct->itemLost[GetBattlerTrainer(cv->battlerAtk)][originalAttackerPartyId].originalItem)
-                            gBattleStruct->itemLost[GetBattlerTrainer(cv->battlerAtk)][originalAttackerPartyId].stolen = TRUE;
+                         && itemToSteal == lostItem->originalItem)
+                            lostItem->stolen = TRUE;
                         itemToSteal = ITEM_NONE;
                         BtlController_EmitSetMonData(
                             cv->battlerAtk,
@@ -6099,7 +6108,7 @@ static enum MoveEndResult MoveEndPursuitNextAction(struct BattleCalcValues *cv)
         else if (IsBattlerAlive(gBattlerTarget))
         {
             gBattlerAttacker = gBattlerTarget;
-            if (gBattleStruct->pursuitStoredSwitch == PARTY_MON_NONE)
+            if (gBattleStruct->pursuitStoredSwitch == PARTY_SLOT_NONE)
                 BattleScriptCall(BattleScript_MoveSwitchOpenPartyScreen);
             else
                 BattleScriptCall(BattleScript_DoSwitchOut);
@@ -6141,7 +6150,7 @@ static enum MoveEndResult (*const sMoveEndHandlers[])(struct BattleCalcValues *c
     [MOVEEND_ENDURE_DAMAGE_MESSAGE_OPPOSING_SIDE] = MoveEndEndureDamageMessage,
     [MOVEEND_PROTECT_LIKE_EFFECTS_OPPOSING_SIDE] = MoveEndProtectLikeEffect,
     [MOVEEND_ADDITIONAL_EFFECTS_OPPOSING_SIDE] = MoveEndAdditionalEffects,
-    [MOVEEND_ADDITIONAL_EFFECTS_LOWER_STATS_ATTACKER] = MoveEndAdditionalEffectsLowerStatsAttacker,
+    [MOVEEND_ADDITIONAL_EFFECTS_CHANGE_STATS_ATTACKER] = MoveEndAdditionalEffectsChangeStatsAttacker,
     [MOVEEND_ABSORB_OPPOSING_SIDE] = MoveEndAbsorb,
     [MOVEEND_STATUS_IMMUNITY_ABILITIES_OPPOSING_SIDE] = MoveEndStatusImmunityAbilities,
     [MOVEEND_TARGET_VISIBLE_OPPOSING_SIDE] = MoveEndTargetVisible,
@@ -6811,18 +6820,18 @@ static enum Move GetAssistMove(void)
 
     party = GetBattlerParty(gBattlerAttacker);
 
-    for (enum PartyMon i = PARTY_MON_0; i < PARTY_MON_NONE; i++)
+    for (enum PartySlot i = PARTY_SLOT_0; i < PARTY_SLOT_NONE; i++)
         battlerByPartyId[i] = MAX_BATTLERS_COUNT;
     for (u32 battler = 0; battler < gBattlersCount; battler++)
     {
         if (!IsBattlerAlly(battler, gBattlerAttacker))
             continue;
 
-        if (gBattlerPartyIndexes[battler] < PARTY_MON_NONE)
+        if (gBattlerPartyIndexes[battler] < PARTY_SLOT_NONE)
             battlerByPartyId[gBattlerPartyIndexes[battler]] = battler;
     }
 
-    for (enum PartyMon monId = PARTY_MON_0; monId < PARTY_MON_NONE; monId++)
+    for (enum PartySlot monId = PARTY_SLOT_0; monId < PARTY_SLOT_NONE; monId++)
     {
         if (monId == gBattlerPartyIndexes[gBattlerAttacker])
             continue;

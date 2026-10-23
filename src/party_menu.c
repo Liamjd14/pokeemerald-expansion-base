@@ -56,6 +56,7 @@
 #include "pokerus.h"
 #include "region_map.h"
 #include "reshow_battle_screen.h"
+#include "safari_zone.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "sound.h"
@@ -215,7 +216,7 @@ static EWRAM_DATA struct PartyMenuBox *sPartyMenuBoxes = NULL;
 static EWRAM_DATA u8 *sPartyBgGfxTilemap = NULL;
 static EWRAM_DATA u8 *sPartyBgTilemapBuffer = NULL;
 EWRAM_DATA bool8 gPartyMenuUseExitCallback = 0;
-EWRAM_DATA enum PartyMon gSelectedMonPartyId = PARTY_MON_0;
+EWRAM_DATA enum PartySlot gSelectedMonPartyId = PARTY_SLOT_0;
 EWRAM_DATA MainCallback gPostMenuFieldCallback = NULL;
 static EWRAM_DATA u16 *sSlot1TilemapBuffer = 0; // for switching party slots
 static EWRAM_DATA u16 *sSlot2TilemapBuffer = 0; //
@@ -293,7 +294,7 @@ static void AnimateSelectedPartyIcon(u8, u8);
 static void PartyMenuStartSpriteAnim(u8, u8);
 static u8 GetPartyBoxPaletteFlags(u8, u8);
 static bool8 PartyBoxPal_ParnterOrDisqualifiedInArena(u8);
-static enum PartyMon GetPartyIdFromBattleSlot(enum PartyBattleSlot);
+static enum PartySlot GetPartyIdFromBattleSlot(enum PartyBattleOrder);
 static void Task_ClosePartyMenuAndSetCB2(u8);
 static void UpdatePartyToFieldOrder(void);
 static void MoveCursorToConfirm(void);
@@ -504,8 +505,8 @@ static void Task_FirstBattleEnterParty_StartPrintMsg2(u8 taskId);
 static void Task_FirstBattleEnterParty_RunPrinterMsg2(u8 taskId);
 static void Task_FirstBattleEnterParty_FadeNormal(u8 taskId);
 static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId);
-static enum PartyMon CombinedToIndividualPartyId(enum PartyMon index);
-static enum PartyMon IndividualToCombinedPartyId(enum PartyMon index, enum BattlerId battler);
+static enum PartySlot CombinedToIndividualPartyId(enum PartySlot index);
+static enum PartySlot IndividualToCombinedPartyId(enum PartySlot index, enum BattlerId battler);
 
 static const u8 sText_askText[] = _("Would you like to change {STR_VAR_1}'s\nability to {STR_VAR_2}?");
 static const u8 sText_doneText[] = _("{STR_VAR_1}'s ability became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
@@ -1589,7 +1590,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             break;
         case PARTY_ACTION_CHOOSE_FAINTED_MON:
         {
-            enum PartyMon partyId = GetPartyIdFromBattleSlot((u8)*slotPtr);
+            enum PartySlot partyId = GetPartyIdFromBattleSlot((u8)*slotPtr);
             struct Pokemon *party = NULL;
             s8 partySlot = 0;
             GetPartyAndSlotFromPartyMenuId(*slotPtr, &party, &partySlot);
@@ -1687,7 +1688,7 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
         break;
     case PARTY_ACTION_SEND_MON_TO_BOX:
         PlaySE(SE_SELECT);
-        gSelectedMonPartyId = PARTY_MON_CANCEL;
+        gSelectedMonPartyId = PARTY_SLOT_CANCEL;
         Task_ClosePartyMenu(taskId);
         break;
     default:
@@ -4311,6 +4312,11 @@ bool32 SetUpFieldMove_Fly(void)
     if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE))
         return FALSE;
 
+    if (GetSafariZoneFlag() && CannotEscapeSafari())
+    {
+        return FALSE;
+    }
+
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
         return TRUE;
     else
@@ -4898,7 +4904,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             if (hp == GetMonData(mon, MON_DATA_MAX_HP))
                 canHeal = FALSE;
         }
-        cannotUse = ExecuteTableBasedItemEffect(mon, item, (enum PartyMon)gPartyMenu.slotId, 0);
+        cannotUse = ExecuteTableBasedItemEffect(mon, item, (enum PartySlot)gPartyMenu.slotId, 0);
     }
 
     if (cannotUse != FALSE)
@@ -5265,7 +5271,7 @@ void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task)
 {
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum Item item = gSpecialVar_ItemId;
-    bool8 cannotUseEffect = ExecuteTableBasedItemEffect(mon, item, (enum PartyMon)gPartyMenu.slotId, 0);
+    bool8 cannotUseEffect = ExecuteTableBasedItemEffect(mon, item, (enum PartySlot)gPartyMenu.slotId, 0);
 
     if (cannotUseEffect)
     {
@@ -5295,7 +5301,7 @@ void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task)
     enum ItemEffectType effectType = GetItemEffectType(item);
     u16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
     u16 ev = ItemEffectToMonEv(mon, effectType);
-    bool8 cannotUseEffect = ExecuteTableBasedItemEffect(mon, item, (enum PartyMon)gPartyMenu.slotId, 0);
+    bool8 cannotUseEffect = ExecuteTableBasedItemEffect(mon, item, (enum PartySlot)gPartyMenu.slotId, 0);
     u16 newFriendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
     u16 newEv = ItemEffectToMonEv(mon, effectType);
 
@@ -5488,7 +5494,7 @@ static void TryUseItemOnMove(u8 taskId)
         s16 *moveSlot = &gPartyMenu.data1;
         enum Item item = gSpecialVar_ItemId;
 
-        if (ExecuteTableBasedItemEffect(mon, item, (enum PartyMon)ptr->slotId, *moveSlot))
+        if (ExecuteTableBasedItemEffect(mon, item, (enum PartySlot)ptr->slotId, *moveSlot))
         {
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
@@ -5831,7 +5837,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     if (!(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()))
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
-        cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, (enum PartyMon)gPartyMenu.slotId, 0);
+        cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, (enum PartySlot)gPartyMenu.slotId, 0);
         BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
     }
     else
@@ -5859,7 +5865,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
             RemoveBagItem(gSpecialVar_ItemId, 1);
             FreePartyPointers();
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
-            BeginEvolutionScene(mon, targetSpecies, canStopEvo, (enum PartyMon)gPartyMenu.slotId);
+            BeginEvolutionScene(mon, targetSpecies, canStopEvo, (enum PartySlot)gPartyMenu.slotId);
             DestroyTask(taskId);
         }
         else
@@ -6055,7 +6061,7 @@ static void PartyMenuTryEvolution(u8 taskId)
             gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
         else
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
-        BeginEvolutionScene(mon, targetSpecies, canStopEvo, (enum PartyMon)gPartyMenu.slotId);
+        BeginEvolutionScene(mon, targetSpecies, canStopEvo, (enum PartySlot)gPartyMenu.slotId);
         DestroyTask(taskId);
     }
     else
@@ -6187,7 +6193,7 @@ static void UseSacredAsh(u8 taskId)
     }
 
     hp = GetMonData(mon, MON_DATA_HP);
-    if (ExecuteTableBasedItemEffect(mon, gSpecialVar_ItemId, (enum PartyMon)gPartyMenu.slotId, 0))
+    if (ExecuteTableBasedItemEffect(mon, gSpecialVar_ItemId, (enum PartySlot)gPartyMenu.slotId, 0))
     {
         gTasks[taskId].func = Task_SacredAshLoop;
         return;
@@ -6254,7 +6260,7 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
 {
     PlaySE(SE_SELECT);
     gCB2_AfterEvolution = gPartyMenu.exitCallback;
-    if (ExecuteTableBasedItemEffect(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], gSpecialVar_ItemId, (enum PartyMon)gPartyMenu.slotId, 0))
+    if (ExecuteTableBasedItemEffect(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], gSpecialVar_ItemId, (enum PartySlot)gPartyMenu.slotId, 0))
     {
         gPartyMenuUseExitCallback = FALSE;
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
@@ -7536,8 +7542,8 @@ static bool8 TrySwitchInPokemon(void)
     u8 slot = GetCursorSelectionMonId();
     struct Pokemon *party = NULL;
     s8 partySlot = 0, newPartySlot = 0;
-    enum PartyBattleSlot newSlot;
-    enum PartyMon battlePartyId = PARTY_MON_0;
+    enum PartyBattleOrder newSlot;
+    enum PartySlot battlePartyId = PARTY_SLOT_0;
 
     GetPartyAndSlotFromPartyMenuId(slot, &party, &partySlot);
     battlePartyId = GetPartyIdFromBattleSlot(slot);
@@ -7744,7 +7750,7 @@ static void BufferBattlePartyOrderBySide(u8 *partyBattleOrder, u8 flankId, enum 
         partyBattleOrder[i] = (partyIndexes[0 + (i * 2)] << 4) | partyIndexes[1 + (i * 2)];
 }
 
-void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartyMon partyId, enum PartyBattleSlot slot)
+void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartySlot partyId, enum PartyBattleOrder slot)
 {
     u8 partyIds[PARTY_SIZE];
     u8 tempSlot = 0;
@@ -7781,7 +7787,7 @@ void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartyMon partyId, en
     }
 }
 
-static enum PartyMon GetPartyIdFromBattleSlot(enum PartyBattleSlot slot)
+static enum PartySlot GetPartyIdFromBattleSlot(enum PartyBattleOrder slot)
 {
     bool32 modResult = slot & 1;
     u8 retVal;
@@ -7791,10 +7797,10 @@ static enum PartyMon GetPartyIdFromBattleSlot(enum PartyBattleSlot slot)
         retVal = gBattlePartyCurrentOrder[slot] & 0xF;
     else
         retVal = gBattlePartyCurrentOrder[slot] >> 4;
-    return (enum PartyMon)retVal;
+    return (enum PartySlot)retVal;
 }
 
-static void SetPartyIdAtBattleSlot(enum PartyBattleSlot slot, enum PartyMon setVal)
+static void SetPartyIdAtBattleSlot(enum PartyBattleOrder slot, enum PartySlot setVal)
 {
     bool32 modResult = slot & 1;
 
@@ -7805,19 +7811,19 @@ static void SetPartyIdAtBattleSlot(enum PartyBattleSlot slot, enum PartyMon setV
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF) | (setVal << 4);
 }
 
-void SwitchPartyMonSlots(enum PartyBattleSlot slot, enum PartyBattleSlot slot2)
+void SwitchPartyMonSlots(enum PartyBattleOrder slot, enum PartyBattleOrder slot2)
 {
-    enum PartyMon partyId = GetPartyIdFromBattleSlot(slot);
+    enum PartySlot partyId = GetPartyIdFromBattleSlot(slot);
     SetPartyIdAtBattleSlot(slot, GetPartyIdFromBattleSlot(slot2));
     SetPartyIdAtBattleSlot(slot2, partyId);
 }
 
-enum PartyBattleSlot GetBattleSlotFromBattlePartyId(enum PartyMon battlePartyId)
+enum PartyBattleOrder GetBattleSlotFromBattlePartyId(enum PartySlot battlePartyId)
 {
     u8 i;
-    enum PartyBattleSlot j;
+    enum PartyBattleOrder j;
 
-    for (i = 0, j = PARTY_BATTLE_SLOT_0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); j++, i++)
+    for (i = 0, j = PARTY_BATTLE_ORDER_0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); j++, i++)
     {
         if ((gBattlePartyCurrentOrder[i] >> 4) != battlePartyId)
         {
@@ -7830,7 +7836,7 @@ enum PartyBattleSlot GetBattleSlotFromBattlePartyId(enum PartyMon battlePartyId)
             return j;
         }
     }
-    return PARTY_BATTLE_SLOT_0;
+    return PARTY_BATTLE_ORDER_0;
 }
 
 static const u8 sMultiBattlePartyIdToMenuId_Left[PARTY_SIZE] = { 0, 2, 3, 1, 4, 5};
@@ -7850,10 +7856,10 @@ static void UpdatePartyToBattleOrder(void)
     {
         struct Pokemon *srcParty = NULL;
         s8 srcPartySlot = 0;
-        enum PartyMon battlePartyId = GetPartyIdFromBattleSlot(i);
+        enum PartySlot battlePartyId = GetPartyIdFromBattleSlot(i);
         u8 srcMenuId = battlePartyId;
 
-        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI && battlePartyId < PARTY_MON_NONE)
+        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI && battlePartyId < PARTY_SLOT_NONE)
             srcMenuId = multiBattlePartyIdToMenuId[battlePartyId];
 
         GetPartyAndSlotFromPartyMenuId(srcMenuId, &srcParty, &srcPartySlot);
@@ -7894,10 +7900,10 @@ static void UpdatePartyToFieldOrder(void)
     {
         struct Pokemon *dstParty = NULL;
         s8 dstPartySlot = 0;
-        enum PartyMon battlePartyId = GetPartyIdFromBattleSlot(i);
+        enum PartySlot battlePartyId = GetPartyIdFromBattleSlot(i);
         u8 dstMenuId = battlePartyId;
 
-        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI && battlePartyId < PARTY_MON_NONE)
+        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI && battlePartyId < PARTY_SLOT_NONE)
             dstMenuId = multiBattlePartyIdToMenuId[battlePartyId];
 
         GetPartyAndSlotFromPartyMenuId(dstMenuId, &dstParty, &dstPartySlot);
@@ -7909,17 +7915,17 @@ static void UpdatePartyToFieldOrder(void)
 
 static void UNUSED SwitchAliveMonIntoLeadSlot(void)
 {
-    enum PartyBattleSlot i;
+    enum PartyBattleOrder i;
     struct Pokemon *mon;
-    enum PartyMon partyId;
+    enum PartySlot partyId;
 
-    for (i = PARTY_BATTLE_SLOT_1; i < PARTY_SIZE; i++)
+    for (i = PARTY_BATTLE_ORDER_1; i < PARTY_SIZE; i++)
     {
         mon = &gParties[B_TRAINER_PLAYER][GetPartyIdFromBattleSlot(i)];
         if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(mon, MON_DATA_HP) != 0)
         {
-            partyId = GetPartyIdFromBattleSlot(PARTY_BATTLE_SLOT_0);
-            SwitchPartyMonSlots(PARTY_BATTLE_SLOT_0, i);
+            partyId = GetPartyIdFromBattleSlot(PARTY_BATTLE_ORDER_0);
+            SwitchPartyMonSlots(PARTY_BATTLE_ORDER_0, i);
             SwapPartyPokemon(&gParties[B_TRAINER_PLAYER][partyId], mon);
             break;
         }
@@ -8056,7 +8062,7 @@ static void BufferMonSelection(void)
 {
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
-        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
+        gSpecialVar_0x8004 = PARTY_SLOT_CANCEL;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
@@ -8099,7 +8105,7 @@ static void CB2_ChooseContestMon(void)
 {
     gContestMonPartyIndex = GetCursorSelectionMonId();
     if (gContestMonPartyIndex >= PARTY_SIZE)
-        gContestMonPartyIndex = PARTY_MON_CANCEL;
+        gContestMonPartyIndex = PARTY_SLOT_CANCEL;
     gSpecialVar_0x8004 = gContestMonPartyIndex;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
@@ -8146,7 +8152,7 @@ static void CB2_ChooseMonForMoveRelearner(void)
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
     {
-        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
+        gSpecialVar_0x8004 = PARTY_SLOT_CANCEL;
     }
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
@@ -8597,17 +8603,17 @@ static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId)
 }
 
 // Functions for 4-party link multi battle handling
-static enum PartyMon CombinedToIndividualPartyId(enum PartyMon index)
+static enum PartySlot CombinedToIndividualPartyId(enum PartySlot index)
 {
     if (IsMultiBattle() == TRUE && !AreMultiPartiesFullTeams() && index >= MULTI_PARTY_SIZE)
-        return (enum PartyMon)(index - MULTI_PARTY_SIZE);
+        return (enum PartySlot)(index - MULTI_PARTY_SIZE);
     return index;
 }
 
-static enum PartyMon IndividualToCombinedPartyId(enum PartyMon index, enum BattlerId battler)
+static enum PartySlot IndividualToCombinedPartyId(enum PartySlot index, enum BattlerId battler)
 {
     if (IsMultiBattle() == TRUE && !AreMultiPartiesFullTeams() && (GetBattlerPosition(battler) & BIT_FLANK))
-        return (enum PartyMon)(index + MULTI_PARTY_SIZE);
+        return (enum PartySlot)(index + MULTI_PARTY_SIZE);
     return index;
 }
 
