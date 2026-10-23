@@ -149,7 +149,7 @@
 #define VAR_SLATEPORT_HARBOR_STATE                       0x4078
 #define VAR_SEAFLOOR_CAVERN_STATE                        0x4079
 #define VAR_CABLE_CAR_STATION_STATE                      0x407A
-#define VAR_SAFARI_ZONE_STATE                            0x407B  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
+#define VAR_SAFARI_WARP_STATE                            0x407B  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x407C
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x407D
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x407E

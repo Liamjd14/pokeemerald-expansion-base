@@ -1503,7 +1503,7 @@ static void BattleUI_PrintSafariBallText(u32 spriteId)
     s16 data1 = sprite1->data[1], data2 = sprite2->data[1];
     sprite1->data[1] = sprite1->oam.affineParam, sprite2->data[1] = SPRITE_NONE;
 
-    CopyItemNameHandlePlural(ITEM_SAFARI_BALL, gDisplayedStringBattle, gNumSafariBalls);
+    CopyItemNameHandlePlural(ITEM_SAFARI_BALL, gDisplayedStringBattle, GetSafariBallCount());
     BattleUI_AddSpriteTextPrinter(spriteId, FONT_OUTLINED_NARROW, TILE_TO_PIXELS(2), 0, BUI_TXTCLR_HBOX_SAFARI, gDisplayedStringBattle);
 
     sprite1->data[1] = data1, sprite2->data[1] = data2;
@@ -1518,7 +1518,7 @@ static void BattleUI_PrintNumOfSafariBallsText(u32 spriteId)
     s16 data1 = sprite1->data[1], data2 = sprite2->data[1];
     sprite1->data[1] = spriteId2, sprite2->data[1] = SPRITE_NONE;
 
-    ConvertIntToDecimalStringN(gDisplayedStringBattle, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gDisplayedStringBattle, GetSafariBallCount(), STR_CONV_MODE_RIGHT_ALIGN, 2);
     u32 x = GetStringRightAlignXOffset(FONT_OUTLINED, gDisplayedStringBattle, TILE_TO_PIXELS(2));
 
     BattleUI_AddSpriteTextPrinter(spriteId2, FONT_OUTLINED,

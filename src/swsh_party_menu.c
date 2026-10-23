@@ -242,7 +242,7 @@ static EWRAM_DATA u8 *sPartyBgGfxTilemap = NULL;
 static EWRAM_DATA u8 *sPartyBgTilemapBuffer = NULL;
 static EWRAM_DATA u8 *sPartyBg3TilemapBuffer = NULL;
 EWRAM_DATA bool8 gPartyMenuUseExitCallback = 0;
-EWRAM_DATA enum PartyMon gSelectedMonPartyId = PARTY_MON_0;
+EWRAM_DATA enum PartySlot gSelectedMonPartyId = PARTY_SLOT_0;
 EWRAM_DATA MainCallback gPostMenuFieldCallback = NULL;
 static EWRAM_DATA u16 *sSlot1TilemapBuffer = 0; // held party slot's art while lifted, for the lift-and-drag switch
 static EWRAM_DATA u16 *sAllSlotsTilemapBuffers[PARTY_SIZE]; // party-view slide animation (multi-battle)
@@ -9581,7 +9581,7 @@ static void BufferBattlePartyOrderBySide(u8 *partyBattleOrder, u8 flankId, enum 
         partyBattleOrder[i] = (partyIndexes[0 + (i * 2)] << 4) | partyIndexes[1 + (i * 2)];
 }
 
-void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartyMon partyId, enum PartyBattleSlot slot)
+void SwitchPartyOrderLinkMulti(enum BattlerId battler, enum PartySlot partyId, enum PartyBattleOrder slot)
 {
     u8 partyIds[PARTY_SIZE];
     u8 tempSlot = 0;
@@ -9642,9 +9642,9 @@ static void SetPartyIdAtBattleSlot(u8 slot, u8 setVal)
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF) | (setVal << 4);
 }
 
-void SwitchPartyMonSlots(enum PartyBattleSlot slot, enum PartyBattleSlot slot2)
+void SwitchPartyMonSlots(enum PartyBattleOrder slot, enum PartyBattleOrder slot2)
 {
-    enum PartyMon partyId = GetPartyIdFromBattleSlot(slot);
+    enum PartySlot partyId = GetPartyIdFromBattleSlot(slot);
     SetPartyIdAtBattleSlot(slot, GetPartyIdFromBattleSlot(slot2));
     SetPartyIdAtBattleSlot(slot2, partyId);
 }
@@ -9983,7 +9983,7 @@ static void BufferMonSelection(void)
 {
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
-        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
+        gSpecialVar_0x8004 = PARTY_SLOT_CANCEL;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
@@ -10026,7 +10026,7 @@ static void CB2_ChooseContestMon(void)
 {
     gContestMonPartyIndex = GetCursorSelectionMonId();
     if (gContestMonPartyIndex >= PARTY_SIZE)
-        gContestMonPartyIndex = PARTY_MON_CANCEL;
+        gContestMonPartyIndex = PARTY_SLOT_CANCEL;
     gSpecialVar_0x8004 = gContestMonPartyIndex;
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
@@ -10073,7 +10073,7 @@ static void CB2_ChooseMonForMoveRelearner(void)
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
     {
-        gSpecialVar_0x8004 = PARTY_MON_CANCEL;
+        gSpecialVar_0x8004 = PARTY_SLOT_CANCEL;
     }
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
