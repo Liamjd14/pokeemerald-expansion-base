@@ -9503,6 +9503,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FishingShackRoute1/border.bin",
       "blockdata_filepath": "data/layouts/FishingShackRoute1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_OASIS",
+      "name": "DesertOasis_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralCustom",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/DesertOasis/border.bin",
+      "blockdata_filepath": "data/layouts/DesertOasis/map.bin"
     }
   ]
 }

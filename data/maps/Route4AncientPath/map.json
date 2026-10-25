@@ -45,7 +45,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(NOSEPASS)",
-      "x": 21,
+      "x": 22,
       "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -71,7 +71,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(NOSEPASS)",
-      "x": 21,
+      "x": 22,
       "y": 33,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",

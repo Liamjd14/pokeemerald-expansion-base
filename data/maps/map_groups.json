@@ -21,7 +21,8 @@
     "gMapGroup_Eshosext",
     "gMapGroup_HIddenGrottos",
     "gMapGroup_EshosInts1",
-    "gMapGroup_WildAreas"
+    "gMapGroup_WildAreas",
+    "gMapGroup_UniqueLandmarks"
   ],
   "gMapGroup_HoennTownsAndRoutes": [
     "PetalburgCity",
@@ -1026,5 +1027,8 @@
     "WildArea1A",
     "WildArea1B",
     "WildArea2"
+  ],
+  "gMapGroup_UniqueLandmarks": [
+    "DesertOasis"
   ]
 }

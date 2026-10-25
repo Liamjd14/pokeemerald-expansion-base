@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE5ACOSTAL_PATH_PT2",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_DESERT_OASIS",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
