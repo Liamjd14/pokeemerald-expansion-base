@@ -3,7 +3,7 @@
   "name": "Route1OceanviewWalk",
   "layout": "LAYOUT_ROUTE1OCEANVIEW_WALK",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_1_OCEANVIEW_WALK",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

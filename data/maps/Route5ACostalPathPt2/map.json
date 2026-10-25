@@ -3,7 +3,7 @@
   "name": "Route5ACostalPathPt2",
   "layout": "LAYOUT_ROUTE5ACOSTAL_PATH_PT2",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_5A_COSTAL_PATH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

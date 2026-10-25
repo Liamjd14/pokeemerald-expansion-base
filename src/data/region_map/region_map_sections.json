@@ -1626,6 +1626,58 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_OCEANVIEW",
+      "name": "OCEANVIEW"
+    },
+    {
+      "id": "MAPSEC_ROUTE_1_OCEANVIEW_WALK",
+      "name": "ROUTE 1 OCEANVIEW WALK"
+    },
+    {
+      "id": "MAPSEC_MAYCASTLE",
+      "name": "MAYCASTLE"
+    },
+    {
+      "id": "MAPSEC_ROUTE_2_MAYCASTLE_WOODS_SOUTH",
+      "name": "ROUTE 2 MAYCASTLE WOODS SOUTH"
+    },
+    {
+      "id": "MAPSEC_WILD_AREA_1",
+      "name": "WILD AREA 1"
+    },
+    {
+      "id": "MAPSEC_ROUTE_3_MAYCASTLE_WOODS_NORTH",
+      "name": "ROUTE 3 MAYCASTLE WOODS NORTH"
+    },
+    {
+      "id": "MAPSEC_ROUTE_4_ANCIENT_PATH",
+      "name": "ROUTE 4 ANCIENT PATH"
+    },
+    {
+      "id": "MAPSEC_ROUTE_5A_COSTAL_PATH",
+      "name": "ROUTE 5A COSTAL PATH"
+    },
+    {
+      "id": "MAPSEC_ROUTE_5_COSTAL_PATH",
+      "name": "ROUTE 5 COSTAL PATH"
+    },
+    {
+      "id": "MAPSEC_WILD_AREA_2",
+      "name": "WILD AREA 2"
+    },
+    {
+      "id": "MAPSEC_MAYCASTLE_RUINS",
+      "name": "MAYCASTLE RUINS"
+    },
+    {
+      "id": "MAPSEC_ROUTE_6_DESOLATE_CANYON",
+      "name": "ROUTE 6 DESOLATE CANYON"
+    },
+    {
+      "id": "MAPSEC_CORALHAVEN",
+      "name": "Coralhaven"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "name": "Route4Grotto",
   "layout": "LAYOUT_OCEANVIEW_GTOTTO",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_4_ANCIENT_PATH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
