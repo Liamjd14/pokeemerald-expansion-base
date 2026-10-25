@@ -30,7 +30,22 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 37,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_WILD_AREA2GROTTO",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_WILD_AREA2GROTTO",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

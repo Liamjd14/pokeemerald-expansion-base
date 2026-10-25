@@ -9493,6 +9493,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route6DesolateFalts/border.bin",
       "blockdata_filepath": "data/layouts/Route6DesolateFalts/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISHING_SHACK_ROUTE1",
+      "name": "FishingShackRoute1_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FishingShackRoute1/border.bin",
+      "blockdata_filepath": "data/layouts/FishingShackRoute1/map.bin"
     }
   ]
 }

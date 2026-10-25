@@ -34,8 +34,8 @@
       "x": 6,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_OCEANVIEW_GTOTTO",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_WILD_AREA1B",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

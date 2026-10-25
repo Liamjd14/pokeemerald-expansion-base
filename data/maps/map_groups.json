@@ -1019,7 +1019,8 @@
     "MaycastleRuinsGrotto"
   ],
   "gMapGroup_EshosInts1": [
-    "MaycastleMarket"
+    "MaycastleMarket",
+    "FishingShackRoute1"
   ],
   "gMapGroup_WildAreas": [
     "WildArea1A",

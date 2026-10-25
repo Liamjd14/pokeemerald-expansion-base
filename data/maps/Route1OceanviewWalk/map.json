@@ -247,7 +247,29 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_FISHING_SHACK_ROUTE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 56,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE1GROTTO",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 55,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE1GROTTO",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
