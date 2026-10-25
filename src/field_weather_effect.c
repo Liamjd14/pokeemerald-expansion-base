@@ -2619,9 +2619,17 @@ static const u8 sDefaultDynamicWeathers[] =
     WEATHER_RAIN_THUNDERSTORM,
 };*/
 
+static const u8 sDynamicWeathers_Wetlands[] =
+{
+    WEATHER_SUNNY,
+    WEATHER_RAIN,
+    WEATHER_RAIN_THUNDERSTORM,
+};
+
 static const struct DynamicWeatherPool sDynamicWeatherPools[] =
 {
     /*{ MAPSEC_DEWFORD_TOWN, DYNAMIC_WEATHER_POOL(sDynamicWeathers_DewfordTown) },*/
+    { MAPSEC_ABANDONED_SHIP, DYNAMIC_WEATHER_POOL(sDynamicWeathers_Wetlands) },
 };
 
 static const u8 *GetDynamicWeatherPool(u8 *count)
