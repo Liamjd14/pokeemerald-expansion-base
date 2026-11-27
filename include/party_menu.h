@@ -116,7 +116,7 @@ enum ItemEffectType GetItemEffectType(enum Item item);
 void CB2_PartyMenuFromStartMenu(void);
 void CB2_ChooseMonToGiveItem(void);
 void ChooseMonToGiveMailFromMailbox(void);
-void InitChoosePartyForBattle(u8 unused);
+void InitChooseHalfPartyForBattle(u8 unused);
 void ClearSelectedPartyOrder(void);
 void ChooseMonForTradingBoard(enum PartyMenuType menuType, MainCallback callback);
 void ChooseMonForMoveTutor(void);

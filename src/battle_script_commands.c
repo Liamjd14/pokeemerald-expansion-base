@@ -3560,7 +3560,7 @@ static void Cmd_hitanimation(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static u32 GetTrainerMoneyToGive(u16 trainerId, u8 partySlot)
+static u32 GetTrainerMoneyToGive(u16 trainerId)
 {
     u32 lastMonLevel = 0;
     u32 moneyReward;
@@ -3575,14 +3575,10 @@ static u32 GetTrainerMoneyToGive(u16 trainerId, u8 partySlot)
         const struct TrainerMon *party = GetTrainerPartyFromId(trainerId);
         if (party == NULL)
             return 20;
-        // Use the actual battle party level so scaled trainer levels give correct prize money
-        u8 partyCount = gPartiesCount[partySlot];
-        lastMonLevel = partyCount > 0
-            ? GetMonData(&gParties[partySlot][partyCount - 1], MON_DATA_LEVEL)
-            : party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
+        lastMonLevel = party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
         trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainerId)].money ?: 5;
 
-        if (HasAnyBattleFlags(BATTLE_TYPE_TWO_OPPONENTS))
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * trainerMoney;
         else if (IsDoubleBattle())
             moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * 2 * trainerMoney;

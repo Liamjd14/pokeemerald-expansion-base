@@ -644,7 +644,7 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
         sPartyMenuInternal->spriteIdConfirmPokeball = 0x7F;
         sPartyMenuInternal->spriteIdCancelPokeball = 0x7F;
 
-        if (menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
+        if (menuType == PARTY_MENU_TYPE_CHOOSE_MON)
             sPartyMenuInternal->chooseHalf = TRUE;
         else
             sPartyMenuInternal->chooseHalf = FALSE;
@@ -1421,7 +1421,7 @@ static void RenderPartyMenuBox(u8 slot)
                 DisplayPartyPokemonDataForRelearner(slot);
             else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CONTEST)
                 DisplayPartyPokemonDataForContest(slot);
-            else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
+            else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_MON)
                 DisplayPartyPokemonDataForChooseHalf(slot);
             else if (gPartyMenu.menuType == PARTY_MENU_TYPE_MINIGAME)
                 DisplayPartyPokemonDataForWirelessMinigame(slot);
@@ -1840,13 +1840,13 @@ static bool8 PartyBoxPal_ParnterOrDisqualifiedInArena(u8 slot)
     return FALSE;
 }
 
-bool8 IsMultiBattle(void)
-{
-    if (gBattleTypeFlags & BATTLE_TYPE_MULTI && IsDoubleBattle() && gMain.inBattle)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool32 IsMultiBattle(void)
+// {
+//     if (gBattleTypeFlags & BATTLE_TYPE_MULTI && IsDoubleBattle() && gMain.inBattle)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
 static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 {
@@ -2224,7 +2224,7 @@ static bool8 DisplayCancelChooseMonYesNo(u8 taskId)
 
     if (gPartyMenu.menuType == PARTY_MENU_TYPE_CONTEST)
         stringPtr = gText_CancelParticipation;
-    else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
+    else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_MON)
         stringPtr = GetFacilityCancelString();
 
     if (stringPtr == NULL)
@@ -3731,7 +3731,7 @@ static u8 GetPartyMenuActionsType(struct Pokemon *mon)
     case PARTY_MENU_TYPE_IN_BATTLE:
         actionType = GetPartyMenuActionsTypeInBattle(mon);
         break;
-    case PARTY_MENU_TYPE_CHOOSE_HALF:
+    case PARTY_MENU_TYPE_CHOOSE_MON:
         switch (GetPartySlotEntryStatus(gPartyMenu.slotId))
         {
         default: // Not eligible
@@ -3872,19 +3872,19 @@ static void CB2_ShowPokemonSummaryScreen(void)
 
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
         {
-            if (!AreMultiPartiesFullTeams())
+            if (!AreMultiPartiesHalfTeams())
                 GetMultiPartyForSummaryScreen();
         }
         if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL_PARTNER)
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PARTNER], gPartyMenu.slotId, CalculatePartnerPartyCount() - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
         else if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL)
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, CalculatePartyCount(B_TRAINER_PLAYER) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
-        else if ((gBattleTypeFlags & BATTLE_TYPE_MULTI) && !AreMultiPartiesFullTeams())
+        else if ((gBattleTypeFlags & BATTLE_TYPE_MULTI) && !AreMultiPartiesHalfTeams())
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], sMultiSummaryMenuToArrayIndex[gPartyMenu.slotId], CalculatePartyCountOfSide(B_BATTLER_0) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
         else
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, CalculatePartyCountOfSide(B_BATTLER_0) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
     }
-    else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
+    else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_MON)
     {
         ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, gPartiesCount[B_TRAINER_PLAYER] - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
     }
@@ -3897,7 +3897,7 @@ static void CB2_ShowPokemonSummaryScreen(void)
 void CB2_ReturnToPartyMenuFromSummaryScreen(void)
 {
     u8 slotId = gLastViewedMonIndex;
-    if (gBattleTypeFlags & BATTLE_TYPE_MULTI && !AreMultiPartiesFullTeams() && gPartyMenu.menuType == PARTY_MENU_TYPE_IN_BATTLE)
+    if (gBattleTypeFlags & BATTLE_TYPE_MULTI && !AreMultiPartiesHalfTeams() && gPartyMenu.menuType == PARTY_MENU_TYPE_IN_BATTLE)
     {
         RestoreMultiPartyFromSummaryScreen();
         slotId = sMultiSummaryArrayIndexToMenu[gLastViewedMonIndex];
@@ -9133,7 +9133,7 @@ static void TryGiveMailToSelectedMon(u8 taskId)
 void InitChooseHalfPartyForBattle(u8 unused)
 {
     ClearSelectedPartyOrder();
-    InitPartyMenu(PARTY_MENU_TYPE_CHOOSE_HALF, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, gMain.savedCallback);
+    InitPartyMenu(PARTY_MENU_TYPE_CHOOSE_NUMBER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, gMain.savedCallback);
     gPartyMenu.task = Task_ValidateChosenHalfParty;
 }
 
@@ -9328,9 +9328,9 @@ void ChooseMonForWirelessMinigame(void)
 
 static u8 GetPartyLayoutFromBattleType(void)
 {
-    if (IsMultiBattle() == TRUE && !AreMultiPartiesFullTeams())
+    if (IsMultiBattle() == TRUE && !AreMultiPartiesHalfTeams())
         return PARTY_LAYOUT_MULTI;
-    if (IsMultiBattle() == TRUE && AreMultiPartiesFullTeams())
+    if (IsMultiBattle() == TRUE && AreMultiPartiesHalfTeams())
         return PARTY_LAYOUT_MULTI_FULL;
     if (!IsDoubleBattle() || gPartiesCount[B_TRAINER_PLAYER] == 1) // Draw the single layout in a double battle where the player has only one Pokémon.
         return PARTY_LAYOUT_SINGLE;
@@ -9395,7 +9395,7 @@ static bool8 TrySwitchInPokemon(void)
     // In a 6v6 multi battle, slots 3-5 are the partner's Pokémon
     if (IsMultiBattle() == TRUE
         && slot >= MULTI_PARTY_SIZE
-        && !AreMultiPartiesFullTeams())
+        && !AreMultiPartiesHalfTeams())
     {
         StringCopy(gStringVar1, GetTrainerPartnerName());
         StringExpandPlaceholders(gStringVar4, gText_CantSwitchWithAlly);
@@ -9516,7 +9516,7 @@ static void BufferBattlePartyOrderBySide(u8 *partyBattleOrder, u8 flankId, enum 
     else
         leftBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
 
-    if (IsMultiBattle() == TRUE && AreMultiPartiesFullTeams() == TRUE)
+    if (IsMultiBattle() == TRUE && AreMultiPartiesHalfTeams() == TRUE)
     {
         j = 1;
         partyIndexes[0] = gBattlerPartyIndexes[battler];
@@ -9757,7 +9757,7 @@ static void RestoreMultiPartyFromSummaryScreen(void)
 
 static u8 CombinedToIndividualPartyId(u8 index)
 {
-    if (IsMultiBattle() == TRUE && !AreMultiPartiesFullTeams() && index >= MULTI_PARTY_SIZE)
+    if (IsMultiBattle() == TRUE && !AreMultiPartiesHalfTeams() && index >= MULTI_PARTY_SIZE)
         return index - MULTI_PARTY_SIZE;
     return index;
 }
@@ -9836,7 +9836,7 @@ static void CB2_SetUpExitToBattleScreen(void)
 
 void ShowPartyMenuToShowcaseMultiBattleParty(void)
 {
-    if (AreMultiPartiesFullTeams())
+    if (AreMultiPartiesHalfTeams())
         InitPartyMenu(PARTY_MENU_TYPE_MULTI_FULL_SHOWCASE, PARTY_LAYOUT_MULTI_FULL_SHOWCASE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_NONE, Task_WaitBeforeMultiPartnerFullParty, gMain.savedCallback);
     else
         InitPartyMenu(PARTY_MENU_TYPE_MULTI_SHOWCASE, PARTY_LAYOUT_MULTI_SHOWCASE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_NONE, Task_InitMultiPartnerPartySlideIn, gMain.savedCallback);

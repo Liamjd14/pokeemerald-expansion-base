@@ -8562,7 +8562,7 @@ static bool8 BagMenu_InBattleSelect(void)
 #if SWSH_ITEM_MENU_IN_BATTLE_USE
 static bool8 BagMenu_IsMultiFull(void)
 {
-    return BagMenu_InBattleSelect() && IsMultiBattle() && AreMultiPartiesFullTeams();
+    return BagMenu_InBattleSelect() && IsMultiBattle() && AreMultiPartiesHalfTeams();
 }
 
 static u8 BagMenu_FullMultiPartyId(u8 slot)
@@ -8578,7 +8578,7 @@ static bool8 BagMenu_SlotIsPartner(u8 slot)
 {
     if (!BagMenu_InBattleSelect() || !IsMultiBattle())
         return FALSE;
-    if (AreMultiPartiesFullTeams())
+    if (AreMultiPartiesHalfTeams())
         return gBagMenu->multiFullPage != 0;
     return slot >= MULTI_PARTY_SIZE;
 }
@@ -8616,7 +8616,7 @@ static u8 BagMenu_PartyIdFromSlot(u8 slot)
     if (IsMultiBattle())
     {
 #if SWSH_ITEM_MENU_IN_BATTLE_USE
-        if (AreMultiPartiesFullTeams())
+        if (AreMultiPartiesHalfTeams())
             return BagMenu_FullMultiPartyId(slot);
 #endif
         if (slot >= MULTI_PARTY_SIZE)
@@ -8641,7 +8641,7 @@ static u8 BagMenu_PanelSlotLimit(void)
         return 1;
     if (BagMenu_InBattleSelect() && IsMultiBattle())
     {
-        if (AreMultiPartiesFullTeams())
+        if (AreMultiPartiesHalfTeams())
             return (gBagMenu->multiFullPage != 0) ? CalculatePartnerPartyCount() : CalculatePartyCount(B_TRAINER_PLAYER);
         return PARTY_SIZE;
     }
