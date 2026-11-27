@@ -205,6 +205,7 @@ bool32 HasMoveWithType(enum BattlerId battler, enum Type type);
 bool32 HasMoveWithEffect(enum BattlerId battler, enum BattleMoveEffects moveEffect);
 bool32 HasMoveWithAIEffect(enum BattlerId battler, u32 aiEffect);
 bool32 HasBattlerSideMoveWithEffect(enum BattlerId battler, enum BattleMoveEffects effect);
+bool32 HasBattlerSideMoveSuperEffectiveAgainstType(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Type newType);
 bool32 HasBattlerSideMoveWithAIEffect(enum BattlerId battler, u32 effect);
 bool32 HasBattlerSideUsedMoveWithEffect(enum BattlerId battler, enum BattleMoveEffects effect);
 bool32 HasNonVolatileMoveEffect(enum BattlerId battlerId, enum MoveEffect effect);
@@ -290,14 +291,15 @@ bool32 HasPartnerIgnoreFlags(enum BattlerId battler);
 bool32 AreMovesEquivalent(enum BattlerId battlerAtk, enum BattlerId battlerAtkPartner, enum Move move, enum Move partnerMove);
 bool32 DoesPartnerHaveSameMoveEffect(enum BattlerId battlerAtkPartner, enum BattlerId battlerDef, enum Move move, enum Move partnerMove);
 bool32 PartnerMoveEffectIsStatusSameTarget(enum BattlerId battlerAtkPartner, enum BattlerId battlerDef, enum Move partnerMove);
-bool32 PartnerMoveEffectIs(enum BattlerId battlerAtkPartner, enum Move partnerMove, enum BattleMoveEffects effectCheck);
-bool32 PartnerMoveIs(enum BattlerId battlerAtkPartner, enum Move partnerMove, enum Move moveCheck);
+bool32 PartnerMoveEffectIs(enum BattlerId battlerAtkPartner,  enum BattleMoveEffects effectCheck);
+bool32 PartnerMoveIs(enum BattlerId battlerAtkPartner, enum Move moveCheck);
 bool32 PartnerMoveIsSameAsAttacker(enum BattlerId battlerAtkPartner, enum BattlerId battlerDef, enum Move move, enum Move partnerMove);
 bool32 PartnerMoveIsSameNoTarget(enum BattlerId battlerAtkPartner, enum Move move, enum Move partnerMove);
 bool32 PartnerMoveActivatesSleepClause(enum Move partnerMove);
 bool32 ShouldUseWishAromatherapy(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move);
 u32 GetFriendlyFireKOThreshold(enum BattlerId battler);
 bool32 IsAllyProtectingFromMove(enum BattlerId battlerAtk, enum Move attackerMove, enum Move allyMove);
+bool32 IsThinkingBeforePartner(enum BattlerId battlerAtk, enum BattlerId battlerAtkPartner);
 
 // party logic
 struct BattlePokemon *AllocSaveBattleMons(void);

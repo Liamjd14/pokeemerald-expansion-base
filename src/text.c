@@ -522,7 +522,7 @@ void AddSpriteTextPrinterParameterized6(u8 spriteId, u8 fontId, u8 left, u8 top,
     AddTextPrinter(&printer, speed, NULL);
 }
 
-bool32 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+bool32 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, TextPrinterCallback callback)
 {
     if (!gFonts)
         return FALSE;
@@ -1474,7 +1474,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             return RENDER_UPDATE;
         }
 
-        if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED) && gTextFlags.autoScroll)
+        if (!HasAnyBattleFlags(BATTLE_TYPE_RECORDED) && gTextFlags.autoScroll)
             textPrinter->delayCounter = 3;
         else
             textPrinter->delayCounter = textPrinter->textSpeed;
@@ -1869,9 +1869,11 @@ static u32 UNUSED GetStringWidthFixedWidthFont(const u8 *str, u8 fontId, u8 lett
             case EXT_CTRL_CODE_COLOR_HIGHLIGHT_SHADOW:
             case EXT_CTRL_CODE_TEXT_COLORS:
                 ++strPos;
+            [[fallthrough]];
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
                 ++strPos;
+            [[fallthrough]];
             case EXT_CTRL_CODE_BACKGROUND:
             case EXT_CTRL_CODE_COLOR:
             case EXT_CTRL_CODE_SHADOW:
@@ -1910,6 +1912,7 @@ static u32 UNUSED GetStringWidthFixedWidthFont(const u8 *str, u8 fontId, u8 lett
         case CHAR_KEYPAD_ICON:
         case CHAR_EXTRA_SYMBOL:
             ++strPos;
+            [[fallthrough]];
         default:
             ++width;
             break;
@@ -2497,7 +2500,7 @@ static void DecompressGlyph_SmallNarrow(u16 glyphId, bool32 isJapanese)
             DecompressGlyphTile(glyphs + 0x18, gCurGlyph.gfxBufferBottom + 8);
         }
 
-        gCurGlyph.height = 12;
+        gCurGlyph.height = 13;
     }
 }
 

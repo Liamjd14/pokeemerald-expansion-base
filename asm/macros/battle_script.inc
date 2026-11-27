@@ -65,10 +65,6 @@
 	.4byte \ptr
 	.endm
 
-	.macro setadditionaleffects
-	.byte B_SCR_OP_SETADDITIONALEFFECTS
-	.endm
-
 	.macro seteffectprimary battler:req, effectBattler:req, moveEffect=0
 	.if \moveEffect != 0
 		setmoveeffect \moveEffect
@@ -1261,8 +1257,8 @@
 	callnative BS_CancelMultiTurnMoves
 	.endm
 
-	.macro getmovetarget
-	callnative BS_GetMoveTarget
+	.macro isrunningimpossible
+	callnative BS_IsRunningImpossible
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.
